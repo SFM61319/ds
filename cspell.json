@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "allowCompoundWords": true,
+  "cache": {
+    "cacheFormat": "universal",
+    "cacheStrategy": "content",
+    "useCache": false
+  },
+  "caseSensitive": true,
+  "dictionaries": [],
+  "dictionaryDefinitions": [],
+  "enableGlobDot": true,
+  "enabled": true,
+  "failFast": false,
+  "features": {
+    "weighted-suggestions": true
+  },
+  "flagWords": [],
+  "globRoot": "./",
+  "ignorePaths": [],
+  "ignoreWords": ["PnP", "`dyn`amic", "`str`ings"],
+  "language": "en,lorem",
+  "languageSettings": [],
+  "loadDefaultConfiguration": true,
+  "maxDuplicateProblems": 5,
+  "maxNumberOfProblems": 10000,
+  "minWordLength": 1,
+  "noConfigSearch": false,
+  "noSuggestDictionaries": [],
+  "numSuggestions": 10,
+  "overrides": [],
+  "patterns": [],
+  "readonly": false,
+  "suggestWords": [],
+  "suggestionNumChanges": 3,
+  "suggestionsTimeout": 500,
+  "useGitignore": true,
+  "usePnP": false,
+  "userWords": [],
+  "validateDirectives": true,
+  "version": "0.2",
+  "words": ["sfm", "ds", "dyn", "str", "UTF"]
+}
