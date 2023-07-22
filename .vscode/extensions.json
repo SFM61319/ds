@@ -1,0 +1,33 @@
+{
+  "recommendations": [
+    "ms-vscode.cpptools-extension-pack",
+    "twxs.cmake",
+    "streetsidesoftware.code-spell-checker",
+    "ryanluker.vscode-coverage-gutters",
+    "redhat.fabric8-analytics",
+    "github.vscode-github-actions",
+    "ms-vscode.vscode-github-issue-notebooks",
+    "bierner.github-markdown-preview",
+    "GitHub.vscode-pull-request-github",
+    "eamodio.gitlens",
+    "ms-vscode.hexeditor",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "VisualStudioExptTeam.intellicode-api-usage-examples",
+    "VisualStudioExptTeam.vscodeintellicode-completions",
+    "ms-vscode.live-server",
+    "ms-vsliveshare.vsliveshare",
+    "aroary.loremipsum",
+    "ms-vscode.makefile-tools",
+    "mcu-debug.memory-view",
+    "esbenp.prettier-vscode",
+    "TabNine.tabnine-vscode",
+    "bitwisecook.tcl",
+    "uctakeoff.vscode-counter",
+    "ms-vscode.wordcount",
+    "redhat.vscode-yaml"
+  ],
+  "unwantedRecommendations": [
+    // Conflicts with `ms-vscode.cpptools`
+    "llvm-vs-code-extensions.vscode-clangd"
+  ]
+}
