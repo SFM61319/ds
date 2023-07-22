@@ -1,0 +1,61 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/extern"
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/gcc",
+      "intelliSenseMode": "linux-gcc-x64",
+      "compilerArgs": [],
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "forcedInclude": [],
+      "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+      "mergeConfigurations": false,
+      "customConfigurationVariables": {}
+    },
+    {
+      "name": "Win32",
+      "includePath": [
+        "${workspaceFolder}\\include",
+        "${workspaceFolder}\\extern"
+      ],
+      "defines": [],
+      // FIXME: Use the correct compiler path for MSVC on Windows.
+      "compilerPath": "cl.exe",
+      "intelliSenseMode": "windows-msvc-x64",
+      "compilerArgs": [],
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "forcedInclude": [],
+      "compileCommands": "${workspaceFolder}\\build\\compile_commands.json",
+      "mergeConfigurations": false,
+      "customConfigurationVariables": {}
+    },
+    {
+      "name": "Mac",
+      "includePath": [
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/extern"
+      ],
+      "defines": [],
+      // FIXME: Ensure this is the correct compiler path for Clang on MacOS.
+      "compilerPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang",
+      "intelliSenseMode": "macos-clang-x64",
+      "compilerArgs": [],
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "forcedInclude": [],
+      "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+      "mergeConfigurations": false,
+      "customConfigurationVariables": {}
+    }
+  ],
+  "version": 4
+}
