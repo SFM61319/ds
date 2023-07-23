@@ -1,0 +1,34 @@
+name: Feature request
+description: Request a feature
+title: "[Feat]: "
+labels:
+  - enhancement
+assignees:
+  - SFM61319
+body:
+  - type: textarea
+    id: what-do-you-want-implemented
+    attributes:
+      label: What do you want implemented?
+      description: Please explain the feature you would like to be implemented.
+      placeholder: Tell us what you want!
+      value: A really good and useful feature!
+    validations:
+      required: true
+  - type: textarea
+    id: why-do-you-want-it-implemented
+    attributes:
+      label: Why do you want it implemented?
+      description: Please explain why the feature should be implemented.
+      placeholder: Tell us why you want it!
+      value: I'd like this feature to be implemented because it is useful and...
+    validations:
+      required: true
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Would you like to contribute to `ds` by implementing this feature?
+      description: We would love to have your contributions!
+      options:
+        - label: Yes, I'd love to contribute to `ds` by implementing this feature!
+          required: false
