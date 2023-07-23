@@ -72,13 +72,17 @@
     "*.su": "hexEditor.hexedit",
     "*.idb": "hexEditor.hexedit"
   },
+  "yaml.disableAdditionalProperties": false,
+  "yaml.disableDefaultProperties": false,
+  "yaml.validate": true,
+  "yaml.yamlVersion": "1.2",
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-issue-config.json": "${workspaceFolder}/.github/ISSUE_TEMPLATE/config.yml"
+  },
   "[c]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
   }
 }
