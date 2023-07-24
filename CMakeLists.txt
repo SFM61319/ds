@@ -49,8 +49,10 @@ set(DS_PRIVATE_SOURCES_DIR "${DS_SRC_DIR}")
 # TODO: Append file paths to these lists as they are added to the project.
 # For example, for a new public header file created in `include/ds/foo.h`,
 # the appended file path must be `"${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/foo.h"`.
-set(DS_PUBLIC_HEADERS)
-set(DS_PRIVATE_SOURCES)
+set(DS_PUBLIC_HEADERS
+  "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/usize.h")
+set(DS_PRIVATE_SOURCES
+  "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/usize.c")
 
 option(DS_BUILD_TESTING "Build tests" ${PROJECT_IS_TOP_LEVEL})
 option(DS_INSTALL "Setup CMake install" ${PROJECT_IS_TOP_LEVEL})
