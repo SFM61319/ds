@@ -26,30 +26,32 @@ else()
   set(DS_TEST_LINKER_COVERAGE_FLAGS "--coverage")
 endif()
 
+set(DS_TESTS "test_${PROJECT_NAME}")
+
 # TODO: Append file paths to these lists as they are added to the project.
 # For example, for a new test file created in `tests/test_ds/test_foo.cpp`, the
 # appended file path must be `"${DS_TESTS_DIR}/test_${PROJECT_NAME}/test_foo.cpp"`.
 set(DS_TEST_PRIVATE_SOURCES)
 
-add_executable("test_${PROJECT_NAME}")
-set_target_properties("test_${PROJECT_NAME}" PROPERTIES FOLDER tests)
+add_executable("${DS_TESTS}")
+set_target_properties("${DS_TESTS}" PROPERTIES FOLDER tests)
 
-target_compile_options("test_${PROJECT_NAME}"
+target_compile_options("${DS_TESTS}"
   PRIVATE
-    "${DS_TEST_COMPILER_SANITIZE_FLAGS}"
-    "${DS_TEST_COMPILER_COVERAGE_FLAGS}")
-target_sources("test_${PROJECT_NAME}"
+    ${DS_TEST_COMPILER_SANITIZE_FLAGS}
+    ${DS_TEST_COMPILER_COVERAGE_FLAGS})
+target_sources("${DS_TESTS}"
   PRIVATE
-    "${DS_TEST_PRIVATE_SOURCES}")
-target_link_options("test_${PROJECT_NAME}"
+    ${DS_TEST_PRIVATE_SOURCES})
+target_link_options("${DS_TESTS}"
   PRIVATE
-    "${DS_TEST_COMPILER_SANITIZE_FLAGS}"
-    "${DS_TEST_LINKER_COVERAGE_FLAGS}")
-target_link_libraries("test_${PROJECT_NAME}"
+    ${DS_TEST_COMPILER_SANITIZE_FLAGS}
+    ${DS_TEST_LINKER_COVERAGE_FLAGS})
+target_link_libraries("${DS_TESTS}"
   PRIVATE
     GTest::gtest_main
     "${PROJECT_NAME}")
 
-gtest_discover_tests("test_${PROJECT_NAME}"
+gtest_discover_tests("${DS_TESTS}"
   WORKING_DIRECTORY "${DS_PROJECT_ROOT}"
   PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${DS_PROJECT_ROOT}")

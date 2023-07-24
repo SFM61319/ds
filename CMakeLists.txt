@@ -58,23 +58,23 @@ option(DS_INSTALL "Setup CMake install" ${PROJECT_IS_TOP_LEVEL})
 add_library("${PROJECT_NAME}")
 set_target_properties("${PROJECT_NAME}"
   PROPERTIES
-    VERSION "${PROJECT_VERSION}"
-    SOVERSION "${PROJECT_VERSION_MAJOR}"
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
     DEBUG_POSTFIX "d")
 
 target_compile_options("${PROJECT_NAME}"
   PRIVATE
-    "${DS_COMPILER_WARNING_FLAGS}")
+    ${DS_COMPILER_WARNING_FLAGS})
 target_include_directories("${PROJECT_NAME}"
   PUBLIC
     $<BUILD_INTERFACE:${DS_INCLUDE_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 target_sources("${PROJECT_NAME}"
   PRIVATE
-    "${DS_PRIVATE_SOURCES}")
+    ${DS_PRIVATE_SOURCES})
 
+include(CTest)
 if(BUILD_TESTING AND (PROJECT_IS_TOP_LEVEL OR DS_BUILD_TESTING))
-  include(CTest)
   add_subdirectory(tests)
 endif()
 
@@ -98,7 +98,7 @@ if(DS_INSTALL)
     DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 
   write_basic_package_version_file("${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
-    VERSION "${VERSION}"
+    VERSION ${VERSION}
     COMPATIBILITY AnyNewerVersion)
 
   configure_package_config_file("${DS_PROJECT_ROOT}/Config.cmake.in"
