@@ -36,7 +36,6 @@ jobs:
           -DDS_BUILD_TESTING=ON
           -S${{ github.workspace }}
           -B${{ github.workspace }}/build
-          -G Ninja
 
       - name: Build `ds`
         # Build `ds` with the given configuration
