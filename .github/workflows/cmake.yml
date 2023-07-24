@@ -51,6 +51,7 @@ jobs:
           -DDS_BUILD_TESTING=ON
           --build ${{ github.workspace }}/build
           --config ${{ env.BUILD_TYPE }}
+          --target all
 
       - name: Test `ds`
         working-directory: ${{ github.workspace }}/build
