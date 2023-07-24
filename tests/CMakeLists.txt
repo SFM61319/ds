@@ -30,9 +30,9 @@ set(DS_TESTS "test_${PROJECT_NAME}")
 
 # TODO: Append file paths to these lists as they are added to the project.
 # For example, for a new test file created in `tests/test_ds/test_foo.cpp`, the
-# appended file path must be `"${DS_TESTS_DIR}/test_${PROJECT_NAME}/test_foo.cpp"`.
+# appended file path must be `"${DS_TESTS_DIR}/${DS_TESTS}/test_foo.cpp"`.
 set(DS_TEST_PRIVATE_SOURCES
-  "${DS_TESTS_DIR}/test_${PROJECT_NAME}/test_usize.cpp")
+  "${DS_TESTS_DIR}/${DS_TESTS}/test_usize.cpp")
 
 add_executable("${DS_TESTS}")
 set_target_properties("${DS_TESTS}" PROPERTIES FOLDER tests)
