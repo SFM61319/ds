@@ -27,12 +27,12 @@ jobs:
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
         # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
         run: >
-          cmake
+          /usr/bin/cmake
           --no-warn-unused-cli
           -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
           -DCMAKE_BUILD_TYPE:STRING=${{ env.BUILD_TYPE }}
-          -DCMAKE_C_COMPILER:FILEPATH=gcc
-          -DCMAKE_CXX_COMPILER:FILEPATH=g++
+          -DCMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc
+          -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++
           -DDS_BUILD_TESTING=ON
           -S${{ github.workspace }}
           -B${{ github.workspace }}/build
@@ -40,7 +40,7 @@ jobs:
       - name: Build `ds`
         # Build `ds` with the given configuration
         run: >
-          cmake
+          /usr/bin/cmake
           -DDS_BUILD_TESTING=ON
           --build ${{ github.workspace }}/build
           --config ${{ env.BUILD_TYPE }}
@@ -51,7 +51,7 @@ jobs:
         # Execute tests defined by the CMake configuration.
         # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
         run: >
-          ctest
+          /usr/bin/ctest
           -C ${{ env.BUILD_TYPE }}
           -T test
           --output-on-failure
