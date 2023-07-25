@@ -50,8 +50,10 @@ set(DS_PRIVATE_SOURCES_DIR "${DS_SRC_DIR}")
 # For example, for a new public header file created in `include/ds/foo.h`,
 # the appended file path must be `"${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/foo.h"`.
 set(DS_PUBLIC_HEADERS
+  "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/helpers.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/usize.h")
 set(DS_PRIVATE_SOURCES
+  "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/helpers.c"
   "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/usize.c")
 
 option(DS_BUILD_TESTING "Build tests" ${PROJECT_IS_TOP_LEVEL})
