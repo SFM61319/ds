@@ -26,14 +26,38 @@ extern "C"
   typedef size_t ds_usize_t;
 
 /// @brief The size of @ref ds_usize_t "usize" in bytes.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_USIZE_BYTES == sizeof (size_t));
+/// ```
 #define DS_USIZE_BYTES ((ds_usize_t)sizeof (ds_usize_t))
 
 /// @brief The smallest value that can be represented by @ref ds_usize_t
 /// "usize".
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_USIZE_MIN == 0);
+/// ```
 #define DS_USIZE_MIN ((ds_usize_t)0)
 
 /// @brief The largest value that can be represented by @ref ds_usize_t "usize"
 /// (2<sup>64</sup> − 1 on 64-bit targets, 2<sup>32</sup> − 1 on 32-bit).
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_USIZE_MAX == SIZE_MAX);
+/// ```
 #define DS_USIZE_MAX ((ds_usize_t)SIZE_MAX)
 
 /// @brief @ref ds_usize_t "usize" notation. Can be used in `scanf` to parse
@@ -42,10 +66,28 @@ extern "C"
 /// @warning It is strongly advised to use
 /// [`fgets`](https://en.cppreference.com/w/c/io/fgets "fgets -
 /// cppreference.com") instead of `scanf` to read input.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// ds_usize_t x;
+/// scanf ("%" DS_SCN_USIZE, &x);
+/// ```
 #define DS_SCN_USIZE "zu"
 
 /// @brief @ref ds_usize_t "usize" notation. Can be used in `printf` to format
 /// and write @ref ds_usize_t "usize" values.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// ds_usize_t x = DS_USIZE_MAX;
+/// printf ("%" DS_PRI_USIZE, x);
+/// ```
 #define DS_PRI_USIZE "zu"
 
 #ifdef __cplusplus
