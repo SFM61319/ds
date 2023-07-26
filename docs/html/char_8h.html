@@ -78,7 +78,7 @@ window.MathJax = {
                   <div id="projectname">
                     ds<span
                       id="projectnumber"
-                      >&#160;0.3.0</span
+                      >&#160;0.4.0</span
                     >
                   </div>
                   <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
@@ -143,7 +143,8 @@ $(document).ready(function(){initNavTree('char_8h.html',''); initResizable(); })
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">char.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -151,17 +152,19 @@ $(document).ready(function(){initNavTree('char_8h.html',''); initResizable(); })
 <p>Declaration of the <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> type, related constants and functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;limits.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="usize_8h_source.html">ds/usize.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for char.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="char_8h__incl.png" border="0" usemap="#ainclude_2ds_2char_8h" alt=""/></div>
 <map name="ainclude_2ds_2char_8h" id="ainclude_2ds_2char_8h">
-<area shape="rect" title="Declaration of the char type, related constants and functions." alt="" coords="25,5,145,32"/>
+<area shape="rect" title="Declaration of the char type, related constants and functions." alt="" coords="70,5,190,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,68,107"/>
-<area shape="rect" href="usize_8h.html" title="Declaration of the usize type, related constants and functions." alt="" coords="93,80,173,107"/>
-<area shape="rect" title=" " alt="" coords="53,155,121,181"/>
-<area shape="rect" title=" " alt="" coords="146,155,210,181"/>
+<area shape="rect" title=" " alt="" coords="93,80,167,107"/>
+<area shape="rect" href="usize_8h.html" title="Declaration of the usize type, related constants and functions." alt="" coords="191,80,271,107"/>
+<area shape="rect" title=" " alt="" coords="152,155,220,181"/>
+<area shape="rect" title=" " alt="" coords="245,155,309,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -202,6 +205,54 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a2c809211274ede9eddff5a750bdeb5ae"><td class="memItemLeft" align="right" valign="top">typedef char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a></td></tr>
 <tr class="memdesc:a2c809211274ede9eddff5a750bdeb5ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">A character type.  <a href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">More...</a><br /></td></tr>
 <tr class="separator:a2c809211274ede9eddff5a750bdeb5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0d17ad586e00766b4684bdac9924ed0e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#a0d17ad586e00766b4684bdac9924ed0e">ds_char_in_range</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self, <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> start, <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> end)</td></tr>
+<tr class="memdesc:a0d17ad586e00766b4684bdac9924ed0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> lies in the inclusive interval between <code>start</code> and <code>end</code>.  <a href="char_8h.html#a0d17ad586e00766b4684bdac9924ed0e">More...</a><br /></td></tr>
+<tr class="separator:a0d17ad586e00766b4684bdac9924ed0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf28b292dd407661577ae4df5e40684b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#acf28b292dd407661577ae4df5e40684b">ds_char_to_ascii_uppercase</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:acf28b292dd407661577ae4df5e40684b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a copy of <code>self</code> in its ASCII upper case equivalent.  <a href="char_8h.html#acf28b292dd407661577ae4df5e40684b">More...</a><br /></td></tr>
+<tr class="separator:acf28b292dd407661577ae4df5e40684b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9242880df4717ee13d29c95a33c2f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#a6d9242880df4717ee13d29c95a33c2f8">ds_char_to_ascii_lowercase</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:a6d9242880df4717ee13d29c95a33c2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a copy of <code>self</code> in its ASCII lower case equivalent.  <a href="char_8h.html#a6d9242880df4717ee13d29c95a33c2f8">More...</a><br /></td></tr>
+<tr class="separator:a6d9242880df4717ee13d29c95a33c2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a909932a31d20457ee7765543113c2493"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#a909932a31d20457ee7765543113c2493">ds_char_eq_ignore_ascii_case</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self, <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> other)</td></tr>
+<tr class="memdesc:a909932a31d20457ee7765543113c2493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that <code>self</code> and <code>other</code> are an ASCII case-insensitive match.  <a href="char_8h.html#a909932a31d20457ee7765543113c2493">More...</a><br /></td></tr>
+<tr class="separator:a909932a31d20457ee7765543113c2493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac124f08e43b0ae720d1548f482144407"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:ac124f08e43b0ae720d1548f482144407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII alphabetic character:  <a href="char_8h.html#ac124f08e43b0ae720d1548f482144407">More...</a><br /></td></tr>
+<tr class="separator:ac124f08e43b0ae720d1548f482144407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a682fb8a7ff2098b9de6feab90fe28bf2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:a682fb8a7ff2098b9de6feab90fe28bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII uppercase character: U+0041 'A' ..= U+005A 'Z'.  <a href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">More...</a><br /></td></tr>
+<tr class="separator:a682fb8a7ff2098b9de6feab90fe28bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0bffbb96f997d839b69ca28f8e0e43e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:aa0bffbb96f997d839b69ca28f8e0e43e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII lowercase character: U+0061 'a' ..= U+007A 'z'.  <a href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">More...</a><br /></td></tr>
+<tr class="separator:aa0bffbb96f997d839b69ca28f8e0e43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2495c17d510f2bb9c5c577d2e8a4531"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:ab2495c17d510f2bb9c5c577d2e8a4531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII alphanumeric character:  <a href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">More...</a><br /></td></tr>
+<tr class="separator:ab2495c17d510f2bb9c5c577d2e8a4531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56c6c6cbf8bb5eb5e06e29961cfd0cf1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:a56c6c6cbf8bb5eb5e06e29961cfd0cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII decimal digit: U+0030 '0' ..= U+0039 '9'.  <a href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">More...</a><br /></td></tr>
+<tr class="separator:a56c6c6cbf8bb5eb5e06e29961cfd0cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb06a1b874a501739f2358d019bde21d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:afb06a1b874a501739f2358d019bde21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII octal digit: U+0030 '0' ..= U+0037 '7'.  <a href="char_8h.html#afb06a1b874a501739f2358d019bde21d">More...</a><br /></td></tr>
+<tr class="separator:afb06a1b874a501739f2358d019bde21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a119f494ae625a456bb4e62b3a0f78391"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:a119f494ae625a456bb4e62b3a0f78391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII hexadecimal digit:  <a href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">More...</a><br /></td></tr>
+<tr class="separator:a119f494ae625a456bb4e62b3a0f78391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc454a0d93d548ed94f109c77b1e68f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:abfc454a0d93d548ed94f109c77b1e68f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII punctuation character:  <a href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">More...</a><br /></td></tr>
+<tr class="separator:abfc454a0d93d548ed94f109c77b1e68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af50ba493605648683d0b49fd1df62211"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:af50ba493605648683d0b49fd1df62211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII graphic character: U+0021 '!' ..= U+007E '~'.  <a href="char_8h.html#af50ba493605648683d0b49fd1df62211">More...</a><br /></td></tr>
+<tr class="separator:af50ba493605648683d0b49fd1df62211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92b320584b2581e725f2d6ae4d3f18a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:af92b320584b2581e725f2d6ae4d3f18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII whitespace character: U+0020 SPACE, U+0009 HORIZONTAL TAB, U+000A LINE FEED, U+000C FORM FEED, or U+000D CARRIAGE RETURN.  <a href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">More...</a><br /></td></tr>
+<tr class="separator:af92b320584b2581e725f2d6ae4d3f18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1463f455ab57b0671638e381a2a85d26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (<a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> self)</td></tr>
+<tr class="memdesc:a1463f455ab57b0671638e381a2a85d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> is an ASCII control character: U+0000 <a class="el" href="char_8h.html#aff8ca144f3aed3f78bedd4310eefbbbc">NUL</a> ..= U+001F UNIT SEPARATOR, or U+007F DELETE. Note that most ASCII whitespace characters are control characters, but SPACE is not.  <a href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">More...</a><br /></td></tr>
+<tr class="separator:a1463f455ab57b0671638e381a2a85d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Declaration of the <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> type, related constants and functions. </p>
@@ -224,13 +275,13 @@ Typedefs</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The size of <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> in bytes. </p>
-<h3><a class="anchor" id="autotoc_md1"></a>
+<h3><a class="anchor" id="autotoc_md16"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="char_8h.html#a1185442ceeb0594a4a4c8d79abce60ad">DS_CHAR_BYTES</a> == 1);</div>
-<div class="ttc" id="achar_8h_html_a1185442ceeb0594a4a4c8d79abce60ad"><div class="ttname"><a href="char_8h.html#a1185442ceeb0594a4a4c8d79abce60ad">DS_CHAR_BYTES</a></div><div class="ttdeci">#define DS_CHAR_BYTES</div><div class="ttdoc">The size of char in bytes.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00040">char.h:40</a></div></div>
+<div class="ttc" id="achar_8h_html_a1185442ceeb0594a4a4c8d79abce60ad"><div class="ttname"><a href="char_8h.html#a1185442ceeb0594a4a4c8d79abce60ad">DS_CHAR_BYTES</a></div><div class="ttdeci">#define DS_CHAR_BYTES</div><div class="ttdoc">The size of char in bytes.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00532">char.h:532</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00040">40</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00532">532</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
 
 </div>
 </div>
@@ -247,13 +298,13 @@ Examples</h3>
 </div><div class="memdoc">
 
 <p>The largest value that can be represented by <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a>. </p>
-<h3><a class="anchor" id="autotoc_md3"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="char_8h.html#ae542829a032ef5e36137dd69d3415584">DS_CHAR_MAX</a> == CHAR_MAX);</div>
-<div class="ttc" id="achar_8h_html_ae542829a032ef5e36137dd69d3415584"><div class="ttname"><a href="char_8h.html#ae542829a032ef5e36137dd69d3415584">DS_CHAR_MAX</a></div><div class="ttdeci">#define DS_CHAR_MAX</div><div class="ttdoc">The largest value that can be represented by char.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00062">char.h:62</a></div></div>
+<div class="ttc" id="achar_8h_html_ae542829a032ef5e36137dd69d3415584"><div class="ttname"><a href="char_8h.html#ae542829a032ef5e36137dd69d3415584">DS_CHAR_MAX</a></div><div class="ttdeci">#define DS_CHAR_MAX</div><div class="ttdoc">The largest value that can be represented by char.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00554">char.h:554</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00062">62</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00554">554</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
 
 </div>
 </div>
@@ -270,13 +321,13 @@ Examples</h3>
 </div><div class="memdoc">
 
 <p>The smallest value that can be represented by <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a>. </p>
-<h3><a class="anchor" id="autotoc_md2"></a>
+<h3><a class="anchor" id="autotoc_md17"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="char_8h.html#a6a4d17f251bbb80c89c3dee5cc586023">DS_CHAR_MIN</a> == CHAR_MIN);</div>
-<div class="ttc" id="achar_8h_html_a6a4d17f251bbb80c89c3dee5cc586023"><div class="ttname"><a href="char_8h.html#a6a4d17f251bbb80c89c3dee5cc586023">DS_CHAR_MIN</a></div><div class="ttdeci">#define DS_CHAR_MIN</div><div class="ttdoc">The smallest value that can be represented by char.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00051">char.h:51</a></div></div>
+<div class="ttc" id="achar_8h_html_a6a4d17f251bbb80c89c3dee5cc586023"><div class="ttname"><a href="char_8h.html#a6a4d17f251bbb80c89c3dee5cc586023">DS_CHAR_MIN</a></div><div class="ttdeci">#define DS_CHAR_MIN</div><div class="ttdoc">The smallest value that can be represented by char.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00543">char.h:543</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00051">51</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00543">543</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
 
 </div>
 </div>
@@ -293,13 +344,13 @@ Examples</h3>
 </div><div class="memdoc">
 
 <p>The null-terminator character. </p>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="char_8h.html#aff8ca144f3aed3f78bedd4310eefbbbc">DS_CHAR_NUL</a> == <span class="charliteral">&#39;\0&#39;</span>);</div>
-<div class="ttc" id="achar_8h_html_aff8ca144f3aed3f78bedd4310eefbbbc"><div class="ttname"><a href="char_8h.html#aff8ca144f3aed3f78bedd4310eefbbbc">DS_CHAR_NUL</a></div><div class="ttdeci">#define DS_CHAR_NUL</div><div class="ttdoc">The null-terminator character.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00073">char.h:73</a></div></div>
+<div class="ttc" id="achar_8h_html_aff8ca144f3aed3f78bedd4310eefbbbc"><div class="ttname"><a href="char_8h.html#aff8ca144f3aed3f78bedd4310eefbbbc">DS_CHAR_NUL</a></div><div class="ttdeci">#define DS_CHAR_NUL</div><div class="ttdoc">The null-terminator character.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00565">char.h:565</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00073">73</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00565">565</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
 
 </div>
 </div>
@@ -316,15 +367,15 @@ Examples</h3>
 </div><div class="memdoc">
 
 <p><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> notation. Can be used in <code>printf</code> to format and write <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> values. </p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md21"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> x = <a class="code hl_define" href="char_8h.html#ae542829a032ef5e36137dd69d3415584">DS_CHAR_MAX</a>;</div>
 <div class="line">printf (<span class="stringliteral">&quot;%&quot;</span> <a class="code hl_define" href="char_8h.html#ae7a05ab6f23500c4eb3f066e5b381bd4">DS_PRI_CHAR</a>, x);</div>
-<div class="ttc" id="achar_8h_html_a2c809211274ede9eddff5a750bdeb5ae"><div class="ttname"><a href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a></div><div class="ttdeci">char ds_char_t</div><div class="ttdoc">A character type.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00029">char.h:29</a></div></div>
-<div class="ttc" id="achar_8h_html_ae7a05ab6f23500c4eb3f066e5b381bd4"><div class="ttname"><a href="char_8h.html#ae7a05ab6f23500c4eb3f066e5b381bd4">DS_PRI_CHAR</a></div><div class="ttdeci">#define DS_PRI_CHAR</div><div class="ttdoc">char notation. Can be used in printf to format and write char values.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00103">char.h:103</a></div></div>
+<div class="ttc" id="achar_8h_html_a2c809211274ede9eddff5a750bdeb5ae"><div class="ttname"><a href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a></div><div class="ttdeci">char ds_char_t</div><div class="ttdoc">A character type.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00030">char.h:30</a></div></div>
+<div class="ttc" id="achar_8h_html_ae7a05ab6f23500c4eb3f066e5b381bd4"><div class="ttname"><a href="char_8h.html#ae7a05ab6f23500c4eb3f066e5b381bd4">DS_PRI_CHAR</a></div><div class="ttdeci">#define DS_PRI_CHAR</div><div class="ttdoc">char notation. Can be used in printf to format and write char values.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00595">char.h:595</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00103">103</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00595">595</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
 
 </div>
 </div>
@@ -342,14 +393,14 @@ Examples</h3>
 
 <p><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> notation. Can be used in <code>scanf</code> to parse and read <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> values. </p>
 <dl class="section warning"><dt>Warning</dt><dd>It is strongly advised to use <a href="https://en.cppreference.com/w/c/io/fgets" title="fgets - cppreference.com"><code>fgets</code></a> instead of <code>scanf</code> to read input.</dd></dl>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md20"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> x;</div>
 <div class="line">scanf (<span class="stringliteral">&quot;%&quot;</span> <a class="code hl_define" href="char_8h.html#ae2ad7e7322720db2607b90a7f0011fa7">DS_SCN_CHAR</a>, &amp;x);</div>
-<div class="ttc" id="achar_8h_html_ae2ad7e7322720db2607b90a7f0011fa7"><div class="ttname"><a href="char_8h.html#ae2ad7e7322720db2607b90a7f0011fa7">DS_SCN_CHAR</a></div><div class="ttdeci">#define DS_SCN_CHAR</div><div class="ttdoc">char notation. Can be used in scanf to parse and read char values.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00090">char.h:90</a></div></div>
+<div class="ttc" id="achar_8h_html_ae2ad7e7322720db2607b90a7f0011fa7"><div class="ttname"><a href="char_8h.html#ae2ad7e7322720db2607b90a7f0011fa7">DS_SCN_CHAR</a></div><div class="ttdeci">#define DS_SCN_CHAR</div><div class="ttdoc">char notation. Can be used in scanf to parse and read char values.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00582">char.h:582</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00090">90</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00582">582</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
 
 </div>
 </div>
@@ -370,7 +421,982 @@ Examples</h3>
 <p >The <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> type represents a single character.</p>
 <p >More specifically, since ‘character’ isn’t a well-defined concept in Unicode, <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> will be a ‘Unicode scalar value’ in the future, when UTF-8 validation is fully supported. </p>
 
-<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00029">29</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="char_8h_source.html#l00030">30</a> of file <a class="el" href="char_8h_source.html">char.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a909932a31d20457ee7765543113c2493" name="a909932a31d20457ee7765543113c2493"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a909932a31d20457ee7765543113c2493">&#9670;&nbsp;</a></span>ds_char_eq_ignore_ascii_case()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_eq_ignore_ascii_case </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>other</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks that <code>self</code> and <code>other</code> are an ASCII case-insensitive match. </p>
+<p >Equivalent to:</p>
+<div class="fragment"><div class="line"><a class="code hl_function" href="char_8h.html#a6d9242880df4717ee13d29c95a33c2f8">ds_char_to_ascii_lowercase</a> (self) == <a class="code hl_function" href="char_8h.html#a6d9242880df4717ee13d29c95a33c2f8">ds_char_to_ascii_lowercase</a> (other);</div>
+<div class="ttc" id="achar_8h_html_a6d9242880df4717ee13d29c95a33c2f8"><div class="ttname"><a href="char_8h.html#a6d9242880df4717ee13d29c95a33c2f8">ds_char_to_ascii_lowercase</a></div><div class="ttdeci">ds_char_t ds_char_to_ascii_lowercase(ds_char_t self)</div><div class="ttdoc">Makes a copy of self in its ASCII lower case equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00044">char.c:44</a></div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The first value to compare. </td></tr>
+    <tr><td class="paramname">other</td><td>The second value to compare. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> and <code>other</code> are an ASCII case-insensitive match, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md4"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> upper_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lower_a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lower_z = <span class="charliteral">&#39;z&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a909932a31d20457ee7765543113c2493">ds_char_eq_ignore_ascii_case</a> (upper_a, lower_a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a909932a31d20457ee7765543113c2493">ds_char_eq_ignore_ascii_case</a> (upper_a, upper_a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a909932a31d20457ee7765543113c2493">ds_char_eq_ignore_ascii_case</a> (upper_a, lower_z));</div>
+<div class="ttc" id="achar_8h_html_a909932a31d20457ee7765543113c2493"><div class="ttname"><a href="char_8h.html#a909932a31d20457ee7765543113c2493">ds_char_eq_ignore_ascii_case</a></div><div class="ttdeci">bool ds_char_eq_ignore_ascii_case(ds_char_t self, ds_char_t other)</div><div class="ttdoc">Checks that self and other are an ASCII case-insensitive match.</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00052">char.c:52</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00052">52</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a909932a31d20457ee7765543113c2493_cgraph.png" border="0" usemap="#achar_8h_a909932a31d20457ee7765543113c2493_cgraph" alt=""/></div>
+<map name="achar_8h_a909932a31d20457ee7765543113c2493_cgraph" id="achar_8h_a909932a31d20457ee7765543113c2493_cgraph">
+<area shape="rect" title="Checks that self and other are an ASCII case&#45;insensitive match." alt="" coords="5,5,205,32"/>
+<area shape="rect" href="char_8c.html#a8385de1c37e3dfa511ca0ebdec5ed29d" title="Makes a copy of self in its ASCII lower case equivalent." alt="" coords="253,5,440,32"/>
+<area shape="rect" href="char_8c.html#a800be38168fd75c1505b935a62d2f9ae" title="Checks if self is an ASCII uppercase character: U+0041 &#39;A&#39; ..= U+005A &#39;Z&#39;." alt="" coords="488,5,675,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="723,5,847,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0d17ad586e00766b4684bdac9924ed0e" name="a0d17ad586e00766b4684bdac9924ed0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d17ad586e00766b4684bdac9924ed0e">&#9670;&nbsp;</a></span>ds_char_in_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_in_range </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> lies in the inclusive interval between <code>start</code> and <code>end</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+    <tr><td class="paramname">start</td><td>The inclusive start of the interval. </td></tr>
+    <tr><td class="paramname">end</td><td>The inclusive end of the interval. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> lies in the inclusive interval between <code>start</code> and <code>end</code>, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md1"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line">assert (<a class="code hl_function" href="char_8h.html#a0d17ad586e00766b4684bdac9924ed0e">ds_char_in_range</a> (<span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;z&#39;</span>));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a0d17ad586e00766b4684bdac9924ed0e">ds_char_in_range</a> (<span class="charliteral">&#39;A&#39;</span>, <span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;z&#39;</span>));</div>
+<div class="ttc" id="achar_8h_html_a0d17ad586e00766b4684bdac9924ed0e"><div class="ttname"><a href="char_8h.html#a0d17ad586e00766b4684bdac9924ed0e">ds_char_in_range</a></div><div class="ttdeci">bool ds_char_in_range(ds_char_t self, ds_char_t start, ds_char_t end)</div><div class="ttdoc">Checks if self lies in the inclusive interval between start and end.</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00029">char.c:29</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00029">29</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a0d17ad586e00766b4684bdac9924ed0e_icgraph.png" border="0" usemap="#achar_8h_a0d17ad586e00766b4684bdac9924ed0e_icgraph" alt=""/></div>
+<map name="achar_8h_a0d17ad586e00766b4684bdac9924ed0e_icgraph" id="achar_8h_a0d17ad586e00766b4684bdac9924ed0e_icgraph">
+<area shape="rect" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="732,183,856,209"/>
+<area shape="rect" href="char_8c.html#a24c097e7e8fc5fb63133cfb6a3f84587" title="Checks if self is an ASCII control character: U+0000 NUL ..= U+001F UNIT SEPARATOR,..." alt="" coords="505,5,670,32"/>
+<area shape="rect" href="char_8c.html#a6bbbed2e3dec7ed2aa9eff0683f2f351" title="Checks if self is an ASCII decimal digit: U+0030 &#39;0&#39; ..= U+0039 &#39;9&#39;." alt="" coords="512,56,663,83"/>
+<area shape="rect" href="char_8c.html#a1e1289b7cecd55f4fb932418d093e8ab" title="Checks if self is an ASCII hexadecimal digit:" alt="" coords="264,107,435,133"/>
+<area shape="rect" href="char_8c.html#aca6506a9db8ce783cac59d28def15b17" title="Checks if self is an ASCII graphic character: U+0021 &#39;!&#39; ..= U+007E &#39;~&#39;." alt="" coords="503,157,671,184"/>
+<area shape="rect" href="char_8c.html#addb2c2f7cdda91ae57f50b84a55af573" title="Checks if self is an ASCII lowercase character: U+0061 &#39;a&#39; ..= U+007A &#39;z&#39;." alt="" coords="495,208,680,235"/>
+<area shape="rect" href="char_8c.html#a9da93370b843c312fc7fae6a373c4206" title="Checks if self is an ASCII octal digit: U+0030 &#39;0&#39; ..= U+0037 &#39;7&#39;." alt="" coords="503,259,671,285"/>
+<area shape="rect" href="char_8c.html#abe0cdf5de54fe62bcf737d83ad2cb4f8" title="Checks if self is an ASCII punctuation character:" alt="" coords="491,309,684,336"/>
+<area shape="rect" href="char_8c.html#a800be38168fd75c1505b935a62d2f9ae" title="Checks if self is an ASCII uppercase character: U+0041 &#39;A&#39; ..= U+005A &#39;Z&#39;." alt="" coords="494,360,681,387"/>
+<area shape="rect" href="char_8c.html#a349af3c98a6fb7cdeff001119743c1ca" title="Checks if self is an ASCII alphanumeric character:" alt="" coords="5,132,208,159"/>
+<area shape="rect" href="char_8c.html#a02834d689c11586dfd63cfb5c5af6ec3" title="Checks if self is an ASCII alphabetic character:" alt="" coords="257,233,442,260"/>
+<area shape="rect" href="char_8c.html#a988ae15b4f6c55c6b664caae27082ac1" title="Makes a copy of self in its ASCII upper case equivalent." alt="" coords="256,183,443,209"/>
+<area shape="rect" href="char_8c.html#a8385de1c37e3dfa511ca0ebdec5ed29d" title="Makes a copy of self in its ASCII lower case equivalent." alt="" coords="256,360,443,387"/>
+<area shape="rect" href="char_8c.html#a643fe0b72862983c36a6b61ad57c1cfe" title="Checks that self and other are an ASCII case&#45;insensitive match." alt="" coords="7,360,207,387"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac124f08e43b0ae720d1548f482144407" name="ac124f08e43b0ae720d1548f482144407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac124f08e43b0ae720d1548f482144407">&#9670;&nbsp;</a></span>ds_char_is_ascii_alphabetic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_alphabetic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII alphabetic character: </p>
+<ul>
+<li>U+0041 'A' ..= U+005A 'Z', or</li>
+<li>U+0061 'a' ..= U+007A 'z'.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII alphabetic character, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (uppercase_a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (uppercase_g));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (zero));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (space));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (lf));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_ac124f08e43b0ae720d1548f482144407"><div class="ttname"><a href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a></div><div class="ttdeci">bool ds_char_is_ascii_alphabetic(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII alphabetic character:</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00059">char.c:59</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00059">59</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_ac124f08e43b0ae720d1548f482144407_cgraph.png" border="0" usemap="#achar_8h_ac124f08e43b0ae720d1548f482144407_cgraph" alt=""/></div>
+<map name="achar_8h_ac124f08e43b0ae720d1548f482144407_cgraph" id="achar_8h_ac124f08e43b0ae720d1548f482144407_cgraph">
+<area shape="rect" title="Checks if self is an ASCII alphabetic character:" alt="" coords="5,31,191,57"/>
+<area shape="rect" href="char_8c.html#addb2c2f7cdda91ae57f50b84a55af573" title="Checks if self is an ASCII lowercase character: U+0061 &#39;a&#39; ..= U+007A &#39;z&#39;." alt="" coords="239,5,425,32"/>
+<area shape="rect" href="char_8c.html#a800be38168fd75c1505b935a62d2f9ae" title="Checks if self is an ASCII uppercase character: U+0041 &#39;A&#39; ..= U+005A &#39;Z&#39;." alt="" coords="239,56,425,83"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="473,31,597,57"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_ac124f08e43b0ae720d1548f482144407_icgraph.png" border="0" usemap="#achar_8h_ac124f08e43b0ae720d1548f482144407_icgraph" alt=""/></div>
+<map name="achar_8h_ac124f08e43b0ae720d1548f482144407_icgraph" id="achar_8h_ac124f08e43b0ae720d1548f482144407_icgraph">
+<area shape="rect" title="Checks if self is an ASCII alphabetic character:" alt="" coords="256,5,441,32"/>
+<area shape="rect" href="char_8c.html#a349af3c98a6fb7cdeff001119743c1ca" title="Checks if self is an ASCII alphanumeric character:" alt="" coords="5,5,208,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab2495c17d510f2bb9c5c577d2e8a4531" name="ab2495c17d510f2bb9c5c577d2e8a4531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2495c17d510f2bb9c5c577d2e8a4531">&#9670;&nbsp;</a></span>ds_char_is_ascii_alphanumeric()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_alphanumeric </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII alphanumeric character: </p>
+<ul>
+<li>U+0041 'A' ..= U+005A 'Z', or</li>
+<li>U+0061 'a' ..= U+007A 'z', or</li>
+<li>U+0030 '0' ..= U+0039 '9'.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII alphanumeric character, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md8"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (uppercase_a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (uppercase_g));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (g));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (zero));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (space));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (lf));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_ab2495c17d510f2bb9c5c577d2e8a4531"><div class="ttname"><a href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a></div><div class="ttdeci">bool ds_char_is_ascii_alphanumeric(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII alphanumeric character:</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00078">char.c:78</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00078">78</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_ab2495c17d510f2bb9c5c577d2e8a4531_cgraph.png" border="0" usemap="#achar_8h_ab2495c17d510f2bb9c5c577d2e8a4531_cgraph" alt=""/></div>
+<map name="achar_8h_ab2495c17d510f2bb9c5c577d2e8a4531_cgraph" id="achar_8h_ab2495c17d510f2bb9c5c577d2e8a4531_cgraph">
+<area shape="rect" title="Checks if self is an ASCII alphanumeric character:" alt="" coords="5,81,208,108"/>
+<area shape="rect" href="char_8c.html#a02834d689c11586dfd63cfb5c5af6ec3" title="Checks if self is an ASCII alphabetic character:" alt="" coords="256,56,441,83"/>
+<area shape="rect" href="char_8c.html#a6bbbed2e3dec7ed2aa9eff0683f2f351" title="Checks if self is an ASCII decimal digit: U+0030 &#39;0&#39; ..= U+0039 &#39;9&#39;." alt="" coords="273,107,424,133"/>
+<area shape="rect" href="char_8c.html#addb2c2f7cdda91ae57f50b84a55af573" title="Checks if self is an ASCII lowercase character: U+0061 &#39;a&#39; ..= U+007A &#39;z&#39;." alt="" coords="490,5,675,32"/>
+<area shape="rect" href="char_8c.html#a800be38168fd75c1505b935a62d2f9ae" title="Checks if self is an ASCII uppercase character: U+0041 &#39;A&#39; ..= U+005A &#39;Z&#39;." alt="" coords="489,56,676,83"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="724,56,848,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1463f455ab57b0671638e381a2a85d26" name="a1463f455ab57b0671638e381a2a85d26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1463f455ab57b0671638e381a2a85d26">&#9670;&nbsp;</a></span>ds_char_is_ascii_control()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_control </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII control character: U+0000 <a class="el" href="char_8h.html#aff8ca144f3aed3f78bedd4310eefbbbc">NUL</a> ..= U+001F UNIT SEPARATOR, or U+007F DELETE. Note that most ASCII whitespace characters are control characters, but SPACE is not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII control character, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md15"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (uppercase_a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (uppercase_g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (zero));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (space));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (lf));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_a1463f455ab57b0671638e381a2a85d26"><div class="ttname"><a href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a></div><div class="ttdeci">bool ds_char_is_ascii_control(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII control character: U+0000 NUL ..= U+001F UNIT SEPARATOR,...</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00124">char.c:124</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00124">124</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a1463f455ab57b0671638e381a2a85d26_cgraph.png" border="0" usemap="#achar_8h_a1463f455ab57b0671638e381a2a85d26_cgraph" alt=""/></div>
+<map name="achar_8h_a1463f455ab57b0671638e381a2a85d26_cgraph" id="achar_8h_a1463f455ab57b0671638e381a2a85d26_cgraph">
+<area shape="rect" title="Checks if self is an ASCII control character: U+0000 NUL ..= U+001F UNIT SEPARATOR,..." alt="" coords="5,5,171,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="219,5,343,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a56c6c6cbf8bb5eb5e06e29961cfd0cf1" name="a56c6c6cbf8bb5eb5e06e29961cfd0cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">&#9670;&nbsp;</a></span>ds_char_is_ascii_digit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_digit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII decimal digit: U+0030 '0' ..= U+0039 '9'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII decimal digit, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md9"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (uppercase_a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (uppercase_g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (g));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (zero));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (space));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (lf));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_a56c6c6cbf8bb5eb5e06e29961cfd0cf1"><div class="ttname"><a href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a></div><div class="ttdeci">bool ds_char_is_ascii_digit(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII decimal digit: U+0030 '0' ..= U+0039 '9'.</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00084">char.c:84</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00084">84</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1_cgraph.png" border="0" usemap="#achar_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1_cgraph" alt=""/></div>
+<map name="achar_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1_cgraph" id="achar_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1_cgraph">
+<area shape="rect" title="Checks if self is an ASCII decimal digit: U+0030 &#39;0&#39; ..= U+0039 &#39;9&#39;." alt="" coords="5,5,156,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="204,5,328,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1_icgraph.png" border="0" usemap="#achar_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1_icgraph" alt=""/></div>
+<map name="achar_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1_icgraph" id="achar_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1_icgraph">
+<area shape="rect" title="Checks if self is an ASCII decimal digit: U+0030 &#39;0&#39; ..= U+0039 &#39;9&#39;." alt="" coords="256,31,407,57"/>
+<area shape="rect" href="char_8c.html#a349af3c98a6fb7cdeff001119743c1ca" title="Checks if self is an ASCII alphanumeric character:" alt="" coords="5,5,208,32"/>
+<area shape="rect" href="char_8c.html#a1e1289b7cecd55f4fb932418d093e8ab" title="Checks if self is an ASCII hexadecimal digit:" alt="" coords="21,56,192,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af50ba493605648683d0b49fd1df62211" name="af50ba493605648683d0b49fd1df62211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af50ba493605648683d0b49fd1df62211">&#9670;&nbsp;</a></span>ds_char_is_ascii_graphic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_graphic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII graphic character: U+0021 '!' ..= U+007E '~'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII graphic character, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md13"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (uppercase_a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (uppercase_g));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (g));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (zero));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (space));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (lf));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_af50ba493605648683d0b49fd1df62211"><div class="ttname"><a href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a></div><div class="ttdeci">bool ds_char_is_ascii_graphic(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII graphic character: U+0021 '!' ..= U+007E '~'.</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00111">char.c:111</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00111">111</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_af50ba493605648683d0b49fd1df62211_cgraph.png" border="0" usemap="#achar_8h_af50ba493605648683d0b49fd1df62211_cgraph" alt=""/></div>
+<map name="achar_8h_af50ba493605648683d0b49fd1df62211_cgraph" id="achar_8h_af50ba493605648683d0b49fd1df62211_cgraph">
+<area shape="rect" title="Checks if self is an ASCII graphic character: U+0021 &#39;!&#39; ..= U+007E &#39;~&#39;." alt="" coords="5,5,173,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="221,5,345,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a119f494ae625a456bb4e62b3a0f78391" name="a119f494ae625a456bb4e62b3a0f78391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a119f494ae625a456bb4e62b3a0f78391">&#9670;&nbsp;</a></span>ds_char_is_ascii_hexdigit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_hexdigit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII hexadecimal digit: </p>
+<ul>
+<li>U+0030 '0' ..= U+0039 '9', or</li>
+<li>U+0041 'A' ..= U+0046 'F', or</li>
+<li>U+0061 'a' ..= U+0066 'f'.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII hexadecimal digit, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md11"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (uppercase_a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (uppercase_g));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (g));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (zero));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (space));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (lf));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_a119f494ae625a456bb4e62b3a0f78391"><div class="ttname"><a href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a></div><div class="ttdeci">bool ds_char_is_ascii_hexdigit(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII hexadecimal digit:</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00096">char.c:96</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00096">96</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a119f494ae625a456bb4e62b3a0f78391_cgraph.png" border="0" usemap="#achar_8h_a119f494ae625a456bb4e62b3a0f78391_cgraph" alt=""/></div>
+<map name="achar_8h_a119f494ae625a456bb4e62b3a0f78391_cgraph" id="achar_8h_a119f494ae625a456bb4e62b3a0f78391_cgraph">
+<area shape="rect" title="Checks if self is an ASCII hexadecimal digit:" alt="" coords="5,5,176,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="423,5,547,32"/>
+<area shape="rect" href="char_8c.html#a6bbbed2e3dec7ed2aa9eff0683f2f351" title="Checks if self is an ASCII decimal digit: U+0030 &#39;0&#39; ..= U+0039 &#39;9&#39;." alt="" coords="224,31,375,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa0bffbb96f997d839b69ca28f8e0e43e" name="aa0bffbb96f997d839b69ca28f8e0e43e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0bffbb96f997d839b69ca28f8e0e43e">&#9670;&nbsp;</a></span>ds_char_is_ascii_lowercase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_lowercase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII lowercase character: U+0061 'a' ..= U+007A 'z'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII lowercase character, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (uppercase_a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (uppercase_g));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (zero));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (space));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (lf));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_aa0bffbb96f997d839b69ca28f8e0e43e"><div class="ttname"><a href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a></div><div class="ttdeci">bool ds_char_is_ascii_lowercase(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII lowercase character: U+0061 'a' ..= U+007A 'z'.</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00072">char.c:72</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00072">72</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_aa0bffbb96f997d839b69ca28f8e0e43e_cgraph.png" border="0" usemap="#achar_8h_aa0bffbb96f997d839b69ca28f8e0e43e_cgraph" alt=""/></div>
+<map name="achar_8h_aa0bffbb96f997d839b69ca28f8e0e43e_cgraph" id="achar_8h_aa0bffbb96f997d839b69ca28f8e0e43e_cgraph">
+<area shape="rect" title="Checks if self is an ASCII lowercase character: U+0061 &#39;a&#39; ..= U+007A &#39;z&#39;." alt="" coords="5,5,191,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="239,5,363,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_aa0bffbb96f997d839b69ca28f8e0e43e_icgraph.png" border="0" usemap="#achar_8h_aa0bffbb96f997d839b69ca28f8e0e43e_icgraph" alt=""/></div>
+<map name="achar_8h_aa0bffbb96f997d839b69ca28f8e0e43e_icgraph" id="achar_8h_aa0bffbb96f997d839b69ca28f8e0e43e_icgraph">
+<area shape="rect" title="Checks if self is an ASCII lowercase character: U+0061 &#39;a&#39; ..= U+007A &#39;z&#39;." alt="" coords="491,31,676,57"/>
+<area shape="rect" href="char_8c.html#a02834d689c11586dfd63cfb5c5af6ec3" title="Checks if self is an ASCII alphabetic character:" alt="" coords="257,5,442,32"/>
+<area shape="rect" href="char_8c.html#a988ae15b4f6c55c6b664caae27082ac1" title="Makes a copy of self in its ASCII upper case equivalent." alt="" coords="256,56,443,83"/>
+<area shape="rect" href="char_8c.html#a349af3c98a6fb7cdeff001119743c1ca" title="Checks if self is an ASCII alphanumeric character:" alt="" coords="5,5,208,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afb06a1b874a501739f2358d019bde21d" name="afb06a1b874a501739f2358d019bde21d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb06a1b874a501739f2358d019bde21d">&#9670;&nbsp;</a></span>ds_char_is_ascii_octdigit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_octdigit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII octal digit: U+0030 '0' ..= U+0037 '7'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII octal digit, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md10"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> seven = <span class="charliteral">&#39;7&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> nine = <span class="charliteral">&#39;9&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (uppercase_a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (zero));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (seven));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (nine));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (lf));</div>
+<div class="ttc" id="achar_8h_html_afb06a1b874a501739f2358d019bde21d"><div class="ttname"><a href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a></div><div class="ttdeci">bool ds_char_is_ascii_octdigit(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII octal digit: U+0030 '0' ..= U+0037 '7'.</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00090">char.c:90</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00090">90</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_afb06a1b874a501739f2358d019bde21d_cgraph.png" border="0" usemap="#achar_8h_afb06a1b874a501739f2358d019bde21d_cgraph" alt=""/></div>
+<map name="achar_8h_afb06a1b874a501739f2358d019bde21d_cgraph" id="achar_8h_afb06a1b874a501739f2358d019bde21d_cgraph">
+<area shape="rect" title="Checks if self is an ASCII octal digit: U+0030 &#39;0&#39; ..= U+0037 &#39;7&#39;." alt="" coords="5,5,173,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="221,5,345,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abfc454a0d93d548ed94f109c77b1e68f" name="abfc454a0d93d548ed94f109c77b1e68f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfc454a0d93d548ed94f109c77b1e68f">&#9670;&nbsp;</a></span>ds_char_is_ascii_punctuation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_punctuation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII punctuation character: </p>
+<ul>
+<li>U+0021 ..= U+002F <code>! " # $ % &amp; ' ( ) * + , - . /</code>, or</li>
+<li>U+003A ..= U+0040 <code>: ; &lt; = &gt; ? @</code>, or</li>
+<li>U+005B ..= U+0060 <code>[ \ ] ^ _ `</code>, or</li>
+<li>U+007B ..= U+007E <code>{ | } ~</code></li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII punctuation character, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md12"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (uppercase_a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (uppercase_g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (zero));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (space));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (lf));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_abfc454a0d93d548ed94f109c77b1e68f"><div class="ttname"><a href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a></div><div class="ttdeci">bool ds_char_is_ascii_punctuation(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII punctuation character:</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00103">char.c:103</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00103">103</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_abfc454a0d93d548ed94f109c77b1e68f_cgraph.png" border="0" usemap="#achar_8h_abfc454a0d93d548ed94f109c77b1e68f_cgraph" alt=""/></div>
+<map name="achar_8h_abfc454a0d93d548ed94f109c77b1e68f_cgraph" id="achar_8h_abfc454a0d93d548ed94f109c77b1e68f_cgraph">
+<area shape="rect" title="Checks if self is an ASCII punctuation character:" alt="" coords="5,5,199,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="247,5,371,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a682fb8a7ff2098b9de6feab90fe28bf2" name="a682fb8a7ff2098b9de6feab90fe28bf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a682fb8a7ff2098b9de6feab90fe28bf2">&#9670;&nbsp;</a></span>ds_char_is_ascii_uppercase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_uppercase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII uppercase character: U+0041 'A' ..= U+005A 'Z'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII uppercase character, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (uppercase_a));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (uppercase_g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (zero));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (percent));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (space));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (lf));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_a682fb8a7ff2098b9de6feab90fe28bf2"><div class="ttname"><a href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a></div><div class="ttdeci">bool ds_char_is_ascii_uppercase(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII uppercase character: U+0041 'A' ..= U+005A 'Z'.</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00066">char.c:66</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00066">66</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a682fb8a7ff2098b9de6feab90fe28bf2_cgraph.png" border="0" usemap="#achar_8h_a682fb8a7ff2098b9de6feab90fe28bf2_cgraph" alt=""/></div>
+<map name="achar_8h_a682fb8a7ff2098b9de6feab90fe28bf2_cgraph" id="achar_8h_a682fb8a7ff2098b9de6feab90fe28bf2_cgraph">
+<area shape="rect" title="Checks if self is an ASCII uppercase character: U+0041 &#39;A&#39; ..= U+005A &#39;Z&#39;." alt="" coords="5,5,192,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="240,5,364,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a682fb8a7ff2098b9de6feab90fe28bf2_icgraph.png" border="0" usemap="#achar_8h_a682fb8a7ff2098b9de6feab90fe28bf2_icgraph" alt=""/></div>
+<map name="achar_8h_a682fb8a7ff2098b9de6feab90fe28bf2_icgraph" id="achar_8h_a682fb8a7ff2098b9de6feab90fe28bf2_icgraph">
+<area shape="rect" title="Checks if self is an ASCII uppercase character: U+0041 &#39;A&#39; ..= U+005A &#39;Z&#39;." alt="" coords="491,31,677,57"/>
+<area shape="rect" href="char_8c.html#a02834d689c11586dfd63cfb5c5af6ec3" title="Checks if self is an ASCII alphabetic character:" alt="" coords="257,5,442,32"/>
+<area shape="rect" href="char_8c.html#a8385de1c37e3dfa511ca0ebdec5ed29d" title="Makes a copy of self in its ASCII lower case equivalent." alt="" coords="256,56,443,83"/>
+<area shape="rect" href="char_8c.html#a349af3c98a6fb7cdeff001119743c1ca" title="Checks if self is an ASCII alphanumeric character:" alt="" coords="5,5,208,32"/>
+<area shape="rect" href="char_8c.html#a643fe0b72862983c36a6b61ad57c1cfe" title="Checks that self and other are an ASCII case&#45;insensitive match." alt="" coords="7,56,207,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af92b320584b2581e725f2d6ae4d3f18a" name="af92b320584b2581e725f2d6ae4d3f18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92b320584b2581e725f2d6ae4d3f18a">&#9670;&nbsp;</a></span>ds_char_is_ascii_whitespace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ds_char_is_ascii_whitespace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> is an ASCII whitespace character: U+0020 SPACE, U+0009 HORIZONTAL TAB, U+000A LINE FEED, U+000C FORM FEED, or U+000D CARRIAGE RETURN. </p>
+<p ><code>ds</code> uses the WhatWG Infra Standard's <a href="https://infra.spec.whatwg.org/#ascii-whitespace">definition of ASCII whitespace</a>. There are several other definitions in wide use. For instance, <a href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap07.html#tag_07_03_01">the POSIX locale</a> includes U+000B VERTICAL TAB as well as all the above characters, but—from the very same specification—<a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_05">the default rule for "field splitting" in the Bourne shell</a> considers <em>only</em> SPACE, HORIZONTAL TAB, and LINE FEED as whitespace.</p>
+<p >If you are writing a program that will process an existing file format, check what that format's definition of whitespace is before using this function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII whitespace character, <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md14"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_g = <span class="charliteral">&#39;G&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> a = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> g = <span class="charliteral">&#39;g&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (uppercase_a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (uppercase_g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (a));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (g));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (zero));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (percent));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (space));</div>
+<div class="line">assert (<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (lf));</div>
+<div class="line">assert (!<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (esc));</div>
+<div class="ttc" id="achar_8h_html_af92b320584b2581e725f2d6ae4d3f18a"><div class="ttname"><a href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a></div><div class="ttdeci">bool ds_char_is_ascii_whitespace(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII whitespace character: U+0020 SPACE, U+0009 HORIZONTAL TAB,...</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00117">char.c:117</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00117">117</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+
+</div>
+</div>
+<a id="a6d9242880df4717ee13d29c95a33c2f8" name="a6d9242880df4717ee13d29c95a33c2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9242880df4717ee13d29c95a33c2f8">&#9670;&nbsp;</a></span>ds_char_to_ascii_lowercase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> ds_char_to_ascii_lowercase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes a copy of <code>self</code> in its ASCII lower case equivalent. </p>
+<p >ASCII letters 'A' to 'Z' are mapped to 'a' to 'z', but non-ASCII letters are unchanged.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to convert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ASCII lower case equivalent of <code>self</code>.</dd></dl>
+<h3><a class="anchor" id="autotoc_md3"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> ascii = <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> non_ascii = <span class="stringliteral">&#39;❤&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (<span class="charliteral">&#39;a&#39;</span> == <a class="code hl_function" href="char_8h.html#a6d9242880df4717ee13d29c95a33c2f8">ds_char_to_ascii_lowercase</a> (ascii));</div>
+<div class="line">assert (<span class="stringliteral">&#39;❤&#39;</span> == <a class="code hl_function" href="char_8h.html#a6d9242880df4717ee13d29c95a33c2f8">ds_char_to_ascii_lowercase</a> (non_ascii));</div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00044">44</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a6d9242880df4717ee13d29c95a33c2f8_cgraph.png" border="0" usemap="#achar_8h_a6d9242880df4717ee13d29c95a33c2f8_cgraph" alt=""/></div>
+<map name="achar_8h_a6d9242880df4717ee13d29c95a33c2f8_cgraph" id="achar_8h_a6d9242880df4717ee13d29c95a33c2f8_cgraph">
+<area shape="rect" title="Makes a copy of self in its ASCII lower case equivalent." alt="" coords="5,5,192,32"/>
+<area shape="rect" href="char_8c.html#a800be38168fd75c1505b935a62d2f9ae" title="Checks if self is an ASCII uppercase character: U+0041 &#39;A&#39; ..= U+005A &#39;Z&#39;." alt="" coords="240,5,427,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="475,5,599,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_a6d9242880df4717ee13d29c95a33c2f8_icgraph.png" border="0" usemap="#achar_8h_a6d9242880df4717ee13d29c95a33c2f8_icgraph" alt=""/></div>
+<map name="achar_8h_a6d9242880df4717ee13d29c95a33c2f8_icgraph" id="achar_8h_a6d9242880df4717ee13d29c95a33c2f8_icgraph">
+<area shape="rect" title="Makes a copy of self in its ASCII lower case equivalent." alt="" coords="253,5,440,32"/>
+<area shape="rect" href="char_8c.html#a643fe0b72862983c36a6b61ad57c1cfe" title="Checks that self and other are an ASCII case&#45;insensitive match." alt="" coords="5,5,205,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acf28b292dd407661577ae4df5e40684b" name="acf28b292dd407661577ae4df5e40684b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf28b292dd407661577ae4df5e40684b">&#9670;&nbsp;</a></span>ds_char_to_ascii_uppercase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> ds_char_to_ascii_uppercase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Makes a copy of <code>self</code> in its ASCII upper case equivalent. </p>
+<p >ASCII letters 'a' to 'z' are mapped to 'A' to 'Z', but non-ASCII letters are unchanged.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to convert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ASCII upper case equivalent of <code>self</code>.</dd></dl>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> ascii = <span class="charliteral">&#39;a&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> non_ascii = <span class="stringliteral">&#39;❤&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">assert (<span class="charliteral">&#39;A&#39;</span> == <a class="code hl_function" href="char_8h.html#acf28b292dd407661577ae4df5e40684b">ds_char_to_ascii_uppercase</a> (ascii));</div>
+<div class="line">assert (<span class="stringliteral">&#39;❤&#39;</span> == <a class="code hl_function" href="char_8h.html#acf28b292dd407661577ae4df5e40684b">ds_char_to_ascii_uppercase</a> (non_ascii));</div>
+<div class="ttc" id="achar_8h_html_acf28b292dd407661577ae4df5e40684b"><div class="ttname"><a href="char_8h.html#acf28b292dd407661577ae4df5e40684b">ds_char_to_ascii_uppercase</a></div><div class="ttdeci">ds_char_t ds_char_to_ascii_uppercase(ds_char_t self)</div><div class="ttdoc">Makes a copy of self in its ASCII upper case equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00036">char.c:36</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00036">36</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="char_8h_acf28b292dd407661577ae4df5e40684b_cgraph.png" border="0" usemap="#achar_8h_acf28b292dd407661577ae4df5e40684b_cgraph" alt=""/></div>
+<map name="achar_8h_acf28b292dd407661577ae4df5e40684b_cgraph" id="achar_8h_acf28b292dd407661577ae4df5e40684b_cgraph">
+<area shape="rect" title="Makes a copy of self in its ASCII upper case equivalent." alt="" coords="5,5,192,32"/>
+<area shape="rect" href="char_8c.html#addb2c2f7cdda91ae57f50b84a55af573" title="Checks if self is an ASCII lowercase character: U+0061 &#39;a&#39; ..= U+007A &#39;z&#39;." alt="" coords="240,5,425,32"/>
+<area shape="rect" href="char_8c.html#a61380babe759ddeea94ee96a230e0916" title="Checks if self lies in the inclusive interval between start and end." alt="" coords="473,5,597,32"/>
+</map>
+</div>
 
 </div>
 </div>

@@ -5,15 +5,50 @@
 Implementation of the \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} type, related constants and functions.  
 
 
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}ds/char.\+h\char`\"{}}\newline
 Include dependency graph for char.\+c\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=234pt]{char_8c__incl}
+\includegraphics[width=294pt]{char_8c__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\+\_\+char\+\_\+in\+\_\+range}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const start, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const end)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} lies in the inclusive interval between {\ttfamily start} and {\ttfamily end}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} \mbox{\hyperlink{char_8c_a988ae15b4f6c55c6b664caae27082ac1}{ds\+\_\+char\+\_\+to\+\_\+ascii\+\_\+uppercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Makes a copy of {\ttfamily self} in its ASCII upper case equivalent. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} \mbox{\hyperlink{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d}{ds\+\_\+char\+\_\+to\+\_\+ascii\+\_\+lowercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Makes a copy of {\ttfamily self} in its ASCII lower case equivalent. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_a643fe0b72862983c36a6b61ad57c1cfe}{ds\+\_\+char\+\_\+eq\+\_\+ignore\+\_\+ascii\+\_\+case}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const other)
+\begin{DoxyCompactList}\small\item\em Checks that {\ttfamily self} and {\ttfamily other} are an ASCII case-\/insensitive match. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_a02834d689c11586dfd63cfb5c5af6ec3}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+alphabetic}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII alphabetic character\+: \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_a800be38168fd75c1505b935a62d2f9ae}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+uppercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII uppercase character\+: U+0041 \textquotesingle{}A\textquotesingle{} ..= U+005A \textquotesingle{}Z\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_addb2c2f7cdda91ae57f50b84a55af573}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+lowercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII lowercase character\+: U+0061 \textquotesingle{}a\textquotesingle{} ..= U+007A \textquotesingle{}z\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_a349af3c98a6fb7cdeff001119743c1ca}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+alphanumeric}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII alphanumeric character\+: \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+digit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII decimal digit\+: U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0039 \textquotesingle{}9\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_a9da93370b843c312fc7fae6a373c4206}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+octdigit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII octal digit\+: U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0037 \textquotesingle{}7\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_a1e1289b7cecd55f4fb932418d093e8ab}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+hexdigit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII hexadecimal digit\+: \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_abe0cdf5de54fe62bcf737d83ad2cb4f8}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+punctuation}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII punctuation character\+: \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_aca6506a9db8ce783cac59d28def15b17}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+graphic}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII graphic character\+: U+0021 \textquotesingle{}!\textquotesingle{} ..= U+007E \textquotesingle{}$\sim$\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_a603228992a323665c2ad4c34d86a95aa}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+whitespace}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII whitespace character\+: U+0020 SPACE, U+0009 HORIZONTAL TAB, U+000A LINE FEED, U+000C FORM FEED, or U+000D CARRIAGE RETURN. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{char_8c_a24c097e7e8fc5fb63133cfb6a3f84587}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+control}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII control character\+: U+0000 \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{NUL}} ..= U+001F UNIT SEPARATOR, or U+007F DELETE. Note that most ASCII whitespace characters are control characters, but SPACE is not. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -32,3 +67,868 @@ Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gma
 
 Definition in file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{char_8c_a643fe0b72862983c36a6b61ad57c1cfe}\label{char_8c_a643fe0b72862983c36a6b61ad57c1cfe}} 
+\index{char.c@{char.c}!ds\_char\_eq\_ignore\_ascii\_case@{ds\_char\_eq\_ignore\_ascii\_case}}
+\index{ds\_char\_eq\_ignore\_ascii\_case@{ds\_char\_eq\_ignore\_ascii\_case}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_eq\_ignore\_ascii\_case()}{ds\_char\_eq\_ignore\_ascii\_case()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+eq\+\_\+ignore\+\_\+ascii\+\_\+case (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self,  }\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Checks that {\ttfamily self} and {\ttfamily other} are an ASCII case-\/insensitive match. 
+
+Equivalent to\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a6d9242880df4717ee13d29c95a33c2f8}{ds\_char\_to\_ascii\_lowercase}} (self) == \mbox{\hyperlink{char_8h_a6d9242880df4717ee13d29c95a33c2f8}{ds\_char\_to\_ascii\_lowercase}} (other);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The first value to compare. \\
+\hline
+{\em other} & The second value to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} and {\ttfamily other} are an ASCII case-\/insensitive match, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md4}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md4}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} upper\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lower\_a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lower\_z = \textcolor{charliteral}{'z'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a909932a31d20457ee7765543113c2493}{ds\_char\_eq\_ignore\_ascii\_case}} (upper\_a, lower\_a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a909932a31d20457ee7765543113c2493}{ds\_char\_eq\_ignore\_ascii\_case}} (upper\_a, upper\_a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a909932a31d20457ee7765543113c2493}{ds\_char\_eq\_ignore\_ascii\_case}} (upper\_a, lower\_z));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00052}{52}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a643fe0b72862983c36a6b61ad57c1cfe_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a61380babe759ddeea94ee96a230e0916}\label{char_8c_a61380babe759ddeea94ee96a230e0916}} 
+\index{char.c@{char.c}!ds\_char\_in\_range@{ds\_char\_in\_range}}
+\index{ds\_char\_in\_range@{ds\_char\_in\_range}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_in\_range()}{ds\_char\_in\_range()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+in\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self,  }\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{start,  }\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{end }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} lies in the inclusive interval between {\ttfamily start} and {\ttfamily end}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+{\em start} & The inclusive start of the interval. \\
+\hline
+{\em end} & The inclusive end of the interval. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} lies in the inclusive interval between {\ttfamily start} and {\ttfamily end}, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md1}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md1}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a0d17ad586e00766b4684bdac9924ed0e}{ds\_char\_in\_range}} (\textcolor{charliteral}{'a'}, \textcolor{charliteral}{'a'}, \textcolor{charliteral}{'z'}));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a0d17ad586e00766b4684bdac9924ed0e}{ds\_char\_in\_range}} (\textcolor{charliteral}{'A'}, \textcolor{charliteral}{'a'}, \textcolor{charliteral}{'z'}));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00029}{29}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a61380babe759ddeea94ee96a230e0916_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a02834d689c11586dfd63cfb5c5af6ec3}\label{char_8c_a02834d689c11586dfd63cfb5c5af6ec3}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_alphabetic@{ds\_char\_is\_ascii\_alphabetic}}
+\index{ds\_char\_is\_ascii\_alphabetic@{ds\_char\_is\_ascii\_alphabetic}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_alphabetic()}{ds\_char\_is\_ascii\_alphabetic()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+alphabetic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII alphabetic character\+: 
+
+
+\begin{DoxyItemize}
+\item U+0041 \textquotesingle{}A\textquotesingle{} ..= U+005A \textquotesingle{}Z\textquotesingle{}, or
+\item U+0061 \textquotesingle{}a\textquotesingle{} ..= U+007A \textquotesingle{}z\textquotesingle{}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII alphabetic character, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md5}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md5}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\_char\_is\_ascii\_alphabetic}} (uppercase\_a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\_char\_is\_ascii\_alphabetic}} (uppercase\_g));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\_char\_is\_ascii\_alphabetic}} (a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\_char\_is\_ascii\_alphabetic}} (g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\_char\_is\_ascii\_alphabetic}} (zero));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\_char\_is\_ascii\_alphabetic}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\_char\_is\_ascii\_alphabetic}} (space));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\_char\_is\_ascii\_alphabetic}} (lf));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\_char\_is\_ascii\_alphabetic}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00059}{59}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a02834d689c11586dfd63cfb5c5af6ec3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a02834d689c11586dfd63cfb5c5af6ec3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a349af3c98a6fb7cdeff001119743c1ca}\label{char_8c_a349af3c98a6fb7cdeff001119743c1ca}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_alphanumeric@{ds\_char\_is\_ascii\_alphanumeric}}
+\index{ds\_char\_is\_ascii\_alphanumeric@{ds\_char\_is\_ascii\_alphanumeric}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_alphanumeric()}{ds\_char\_is\_ascii\_alphanumeric()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+alphanumeric (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII alphanumeric character\+: 
+
+
+\begin{DoxyItemize}
+\item U+0041 \textquotesingle{}A\textquotesingle{} ..= U+005A \textquotesingle{}Z\textquotesingle{}, or
+\item U+0061 \textquotesingle{}a\textquotesingle{} ..= U+007A \textquotesingle{}z\textquotesingle{}, or
+\item U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0039 \textquotesingle{}9\textquotesingle{}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII alphanumeric character, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md8}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md8}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\_char\_is\_ascii\_alphanumeric}} (uppercase\_a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\_char\_is\_ascii\_alphanumeric}} (uppercase\_g));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\_char\_is\_ascii\_alphanumeric}} (a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\_char\_is\_ascii\_alphanumeric}} (g));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\_char\_is\_ascii\_alphanumeric}} (zero));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\_char\_is\_ascii\_alphanumeric}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\_char\_is\_ascii\_alphanumeric}} (space));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\_char\_is\_ascii\_alphanumeric}} (lf));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\_char\_is\_ascii\_alphanumeric}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00078}{78}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a349af3c98a6fb7cdeff001119743c1ca_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a24c097e7e8fc5fb63133cfb6a3f84587}\label{char_8c_a24c097e7e8fc5fb63133cfb6a3f84587}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_control@{ds\_char\_is\_ascii\_control}}
+\index{ds\_char\_is\_ascii\_control@{ds\_char\_is\_ascii\_control}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_control()}{ds\_char\_is\_ascii\_control()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII control character\+: U+0000 \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{NUL}} ..= U+001F UNIT SEPARATOR, or U+007F DELETE. Note that most ASCII whitespace characters are control characters, but SPACE is not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII control character, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md15}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md15}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\_char\_is\_ascii\_control}} (uppercase\_a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\_char\_is\_ascii\_control}} (uppercase\_g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\_char\_is\_ascii\_control}} (a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\_char\_is\_ascii\_control}} (g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\_char\_is\_ascii\_control}} (zero));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\_char\_is\_ascii\_control}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\_char\_is\_ascii\_control}} (space));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\_char\_is\_ascii\_control}} (lf));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\_char\_is\_ascii\_control}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00124}{124}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{char_8c_a24c097e7e8fc5fb63133cfb6a3f84587_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351}\label{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_digit@{ds\_char\_is\_ascii\_digit}}
+\index{ds\_char\_is\_ascii\_digit@{ds\_char\_is\_ascii\_digit}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_digit()}{ds\_char\_is\_ascii\_digit()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+digit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII decimal digit\+: U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0039 \textquotesingle{}9\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII decimal digit, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md9}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md9}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}} (uppercase\_a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}} (uppercase\_g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}} (a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}} (g));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}} (zero));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}} (space));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}} (lf));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00084}{84}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_aca6506a9db8ce783cac59d28def15b17}\label{char_8c_aca6506a9db8ce783cac59d28def15b17}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_graphic@{ds\_char\_is\_ascii\_graphic}}
+\index{ds\_char\_is\_ascii\_graphic@{ds\_char\_is\_ascii\_graphic}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_graphic()}{ds\_char\_is\_ascii\_graphic()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+graphic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII graphic character\+: U+0021 \textquotesingle{}!\textquotesingle{} ..= U+007E \textquotesingle{}$\sim$\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII graphic character, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md13}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md13}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\_char\_is\_ascii\_graphic}} (uppercase\_a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\_char\_is\_ascii\_graphic}} (uppercase\_g));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\_char\_is\_ascii\_graphic}} (a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\_char\_is\_ascii\_graphic}} (g));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\_char\_is\_ascii\_graphic}} (zero));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\_char\_is\_ascii\_graphic}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\_char\_is\_ascii\_graphic}} (space));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\_char\_is\_ascii\_graphic}} (lf));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\_char\_is\_ascii\_graphic}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00111}{111}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{char_8c_aca6506a9db8ce783cac59d28def15b17_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a1e1289b7cecd55f4fb932418d093e8ab}\label{char_8c_a1e1289b7cecd55f4fb932418d093e8ab}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_hexdigit@{ds\_char\_is\_ascii\_hexdigit}}
+\index{ds\_char\_is\_ascii\_hexdigit@{ds\_char\_is\_ascii\_hexdigit}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_hexdigit()}{ds\_char\_is\_ascii\_hexdigit()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+hexdigit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII hexadecimal digit\+: 
+
+
+\begin{DoxyItemize}
+\item U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0039 \textquotesingle{}9\textquotesingle{}, or
+\item U+0041 \textquotesingle{}A\textquotesingle{} ..= U+0046 \textquotesingle{}F\textquotesingle{}, or
+\item U+0061 \textquotesingle{}a\textquotesingle{} ..= U+0066 \textquotesingle{}f\textquotesingle{}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII hexadecimal digit, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md11}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md11}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\_char\_is\_ascii\_hexdigit}} (uppercase\_a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\_char\_is\_ascii\_hexdigit}} (uppercase\_g));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\_char\_is\_ascii\_hexdigit}} (a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\_char\_is\_ascii\_hexdigit}} (g));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\_char\_is\_ascii\_hexdigit}} (zero));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\_char\_is\_ascii\_hexdigit}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\_char\_is\_ascii\_hexdigit}} (space));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\_char\_is\_ascii\_hexdigit}} (lf));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\_char\_is\_ascii\_hexdigit}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00096}{96}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a1e1289b7cecd55f4fb932418d093e8ab_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_addb2c2f7cdda91ae57f50b84a55af573}\label{char_8c_addb2c2f7cdda91ae57f50b84a55af573}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_lowercase@{ds\_char\_is\_ascii\_lowercase}}
+\index{ds\_char\_is\_ascii\_lowercase@{ds\_char\_is\_ascii\_lowercase}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_lowercase()}{ds\_char\_is\_ascii\_lowercase()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+lowercase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII lowercase character\+: U+0061 \textquotesingle{}a\textquotesingle{} ..= U+007A \textquotesingle{}z\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII lowercase character, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md7}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md7}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\_char\_is\_ascii\_lowercase}} (uppercase\_a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\_char\_is\_ascii\_lowercase}} (uppercase\_g));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\_char\_is\_ascii\_lowercase}} (a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\_char\_is\_ascii\_lowercase}} (g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\_char\_is\_ascii\_lowercase}} (zero));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\_char\_is\_ascii\_lowercase}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\_char\_is\_ascii\_lowercase}} (space));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\_char\_is\_ascii\_lowercase}} (lf));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\_char\_is\_ascii\_lowercase}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00072}{72}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{char_8c_addb2c2f7cdda91ae57f50b84a55af573_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_addb2c2f7cdda91ae57f50b84a55af573_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a9da93370b843c312fc7fae6a373c4206}\label{char_8c_a9da93370b843c312fc7fae6a373c4206}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_octdigit@{ds\_char\_is\_ascii\_octdigit}}
+\index{ds\_char\_is\_ascii\_octdigit@{ds\_char\_is\_ascii\_octdigit}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_octdigit()}{ds\_char\_is\_ascii\_octdigit()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+octdigit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII octal digit\+: U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0037 \textquotesingle{}7\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII octal digit, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md10}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md10}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} seven = \textcolor{charliteral}{'7'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} nine = \textcolor{charliteral}{'9'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{ds\_char\_is\_ascii\_octdigit}} (uppercase\_a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{ds\_char\_is\_ascii\_octdigit}} (a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{ds\_char\_is\_ascii\_octdigit}} (zero));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{ds\_char\_is\_ascii\_octdigit}} (seven));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{ds\_char\_is\_ascii\_octdigit}} (nine));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{ds\_char\_is\_ascii\_octdigit}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{ds\_char\_is\_ascii\_octdigit}} (lf));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00090}{90}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{char_8c_a9da93370b843c312fc7fae6a373c4206_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_abe0cdf5de54fe62bcf737d83ad2cb4f8}\label{char_8c_abe0cdf5de54fe62bcf737d83ad2cb4f8}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_punctuation@{ds\_char\_is\_ascii\_punctuation}}
+\index{ds\_char\_is\_ascii\_punctuation@{ds\_char\_is\_ascii\_punctuation}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_punctuation()}{ds\_char\_is\_ascii\_punctuation()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+punctuation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII punctuation character\+: 
+
+
+\begin{DoxyItemize}
+\item U+0021 ..= U+002F {\ttfamily ! "{} \# \$ \% \& \textquotesingle{} ( ) $\ast$ + , -\/ . /}, or
+\item U+003A ..= U+0040 {\ttfamily \+: ; \texorpdfstring{$<$}{<} = \texorpdfstring{$>$}{>} ? @}, or
+\item U+005B ..= U+0060 {\ttfamily \mbox{[} \textbackslash{} \mbox{]} $^\wedge$ \+\_\+ \`{}}, or
+\item U+007B ..= U+007E {\ttfamily \{ $\vert$ \} $\sim$}
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII punctuation character, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md12}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md12}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\_char\_is\_ascii\_punctuation}} (uppercase\_a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\_char\_is\_ascii\_punctuation}} (uppercase\_g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\_char\_is\_ascii\_punctuation}} (a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\_char\_is\_ascii\_punctuation}} (g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\_char\_is\_ascii\_punctuation}} (zero));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\_char\_is\_ascii\_punctuation}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\_char\_is\_ascii\_punctuation}} (space));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\_char\_is\_ascii\_punctuation}} (lf));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\_char\_is\_ascii\_punctuation}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00103}{103}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_abe0cdf5de54fe62bcf737d83ad2cb4f8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a800be38168fd75c1505b935a62d2f9ae}\label{char_8c_a800be38168fd75c1505b935a62d2f9ae}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_uppercase@{ds\_char\_is\_ascii\_uppercase}}
+\index{ds\_char\_is\_ascii\_uppercase@{ds\_char\_is\_ascii\_uppercase}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_uppercase()}{ds\_char\_is\_ascii\_uppercase()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+uppercase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII uppercase character\+: U+0041 \textquotesingle{}A\textquotesingle{} ..= U+005A \textquotesingle{}Z\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII uppercase character, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md6}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md6}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\_char\_is\_ascii\_uppercase}} (uppercase\_a));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\_char\_is\_ascii\_uppercase}} (uppercase\_g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\_char\_is\_ascii\_uppercase}} (a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\_char\_is\_ascii\_uppercase}} (g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\_char\_is\_ascii\_uppercase}} (zero));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\_char\_is\_ascii\_uppercase}} (percent));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\_char\_is\_ascii\_uppercase}} (space));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\_char\_is\_ascii\_uppercase}} (lf));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\_char\_is\_ascii\_uppercase}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00066}{66}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{char_8c_a800be38168fd75c1505b935a62d2f9ae_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a800be38168fd75c1505b935a62d2f9ae_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a603228992a323665c2ad4c34d86a95aa}\label{char_8c_a603228992a323665c2ad4c34d86a95aa}} 
+\index{char.c@{char.c}!ds\_char\_is\_ascii\_whitespace@{ds\_char\_is\_ascii\_whitespace}}
+\index{ds\_char\_is\_ascii\_whitespace@{ds\_char\_is\_ascii\_whitespace}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_is\_ascii\_whitespace()}{ds\_char\_is\_ascii\_whitespace()}}
+{\footnotesize\ttfamily bool ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+whitespace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Checks if {\ttfamily self} is an ASCII whitespace character\+: U+0020 SPACE, U+0009 HORIZONTAL TAB, U+000A LINE FEED, U+000C FORM FEED, or U+000D CARRIAGE RETURN. 
+
+{\ttfamily ds} uses the What\+WG Infra Standard\textquotesingle{}s \href{https://infra.spec.whatwg.org/\#ascii-whitespace}{\texttt{ definition of ASCII whitespace}}. There are several other definitions in wide use. For instance, \href{https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap07.html\#tag_07_03_01}{\texttt{ the POSIX locale}} includes U+000B VERTICAL TAB as well as all the above characters, but—from the very same specification—\href{https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html\#tag_18_06_05}{\texttt{ the default rule for "{}field splitting"{} in the Bourne shell}} considers {\itshape only} SPACE, HORIZONTAL TAB, and LINE FEED as whitespace.
+
+If you are writing a program that will process an existing file format, check what that format\textquotesingle{}s definition of whitespace is before using this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} is an ASCII whitespace character, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md14}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md14}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_a = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} uppercase\_g = \textcolor{charliteral}{'G'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} a = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} g = \textcolor{charliteral}{'g'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} zero = \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} percent = \textcolor{charliteral}{'\%'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} space = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} lf = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} esc = \textcolor{stringliteral}{'\(\backslash\)x1b'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\_char\_is\_ascii\_whitespace}} (uppercase\_a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\_char\_is\_ascii\_whitespace}} (uppercase\_g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\_char\_is\_ascii\_whitespace}} (a));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\_char\_is\_ascii\_whitespace}} (g));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\_char\_is\_ascii\_whitespace}} (zero));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\_char\_is\_ascii\_whitespace}} (percent));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\_char\_is\_ascii\_whitespace}} (space));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\_char\_is\_ascii\_whitespace}} (lf));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\_char\_is\_ascii\_whitespace}} (esc));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00117}{117}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+\mbox{\Hypertarget{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d}\label{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d}} 
+\index{char.c@{char.c}!ds\_char\_to\_ascii\_lowercase@{ds\_char\_to\_ascii\_lowercase}}
+\index{ds\_char\_to\_ascii\_lowercase@{ds\_char\_to\_ascii\_lowercase}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_to\_ascii\_lowercase()}{ds\_char\_to\_ascii\_lowercase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} ds\+\_\+char\+\_\+to\+\_\+ascii\+\_\+lowercase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Makes a copy of {\ttfamily self} in its ASCII lower case equivalent. 
+
+ASCII letters \textquotesingle{}A\textquotesingle{} to \textquotesingle{}Z\textquotesingle{} are mapped to \textquotesingle{}a\textquotesingle{} to \textquotesingle{}z\textquotesingle{}, but non-\/\+ASCII letters are unchanged.
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ASCII lower case equivalent of {\ttfamily self}.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md3}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md3}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} ascii = \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} non\_ascii = \textcolor{stringliteral}{'❤'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\textcolor{charliteral}{'a'} == \mbox{\hyperlink{char_8h_a6d9242880df4717ee13d29c95a33c2f8}{ds\_char\_to\_ascii\_lowercase}} (ascii));}
+\DoxyCodeLine{assert (\textcolor{stringliteral}{'❤'} == \mbox{\hyperlink{char_8h_a6d9242880df4717ee13d29c95a33c2f8}{ds\_char\_to\_ascii\_lowercase}} (non\_ascii));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00044}{44}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{char_8c_a988ae15b4f6c55c6b664caae27082ac1}\label{char_8c_a988ae15b4f6c55c6b664caae27082ac1}} 
+\index{char.c@{char.c}!ds\_char\_to\_ascii\_uppercase@{ds\_char\_to\_ascii\_uppercase}}
+\index{ds\_char\_to\_ascii\_uppercase@{ds\_char\_to\_ascii\_uppercase}!char.c@{char.c}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_to\_ascii\_uppercase()}{ds\_char\_to\_ascii\_uppercase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} ds\+\_\+char\+\_\+to\+\_\+ascii\+\_\+uppercase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Makes a copy of {\ttfamily self} in its ASCII upper case equivalent. 
+
+ASCII letters \textquotesingle{}a\textquotesingle{} to \textquotesingle{}z\textquotesingle{} are mapped to \textquotesingle{}A\textquotesingle{} to \textquotesingle{}Z\textquotesingle{}, but non-\/\+ASCII letters are unchanged.
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ASCII upper case equivalent of {\ttfamily self}.
+\end{DoxyReturn}
+\hypertarget{char_8c_autotoc_md2}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md2}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} ascii = \textcolor{charliteral}{'a'};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} non\_ascii = \textcolor{stringliteral}{'❤'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\textcolor{charliteral}{'A'} == \mbox{\hyperlink{char_8h_acf28b292dd407661577ae4df5e40684b}{ds\_char\_to\_ascii\_uppercase}} (ascii));}
+\DoxyCodeLine{assert (\textcolor{stringliteral}{'❤'} == \mbox{\hyperlink{char_8h_acf28b292dd407661577ae4df5e40684b}{ds\_char\_to\_ascii\_uppercase}} (non\_ascii));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8c_source_l00036}{36}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{char_8c_a988ae15b4f6c55c6b664caae27082ac1_cgraph}
+\end{center}
+\end{figure}

@@ -6,5 +6,20 @@ var char_8h =
     [ "DS_CHAR_NUL", "char_8h.html#aff8ca144f3aed3f78bedd4310eefbbbc", null ],
     [ "DS_PRI_CHAR", "char_8h.html#ae7a05ab6f23500c4eb3f066e5b381bd4", null ],
     [ "DS_SCN_CHAR", "char_8h.html#ae2ad7e7322720db2607b90a7f0011fa7", null ],
-    [ "ds_char_t", "char_8h.html#a2c809211274ede9eddff5a750bdeb5ae", null ]
+    [ "ds_char_t", "char_8h.html#a2c809211274ede9eddff5a750bdeb5ae", null ],
+    [ "ds_char_eq_ignore_ascii_case", "char_8h.html#a909932a31d20457ee7765543113c2493", null ],
+    [ "ds_char_in_range", "char_8h.html#a0d17ad586e00766b4684bdac9924ed0e", null ],
+    [ "ds_char_is_ascii_alphabetic", "char_8h.html#ac124f08e43b0ae720d1548f482144407", null ],
+    [ "ds_char_is_ascii_alphanumeric", "char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531", null ],
+    [ "ds_char_is_ascii_control", "char_8h.html#a1463f455ab57b0671638e381a2a85d26", null ],
+    [ "ds_char_is_ascii_digit", "char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1", null ],
+    [ "ds_char_is_ascii_graphic", "char_8h.html#af50ba493605648683d0b49fd1df62211", null ],
+    [ "ds_char_is_ascii_hexdigit", "char_8h.html#a119f494ae625a456bb4e62b3a0f78391", null ],
+    [ "ds_char_is_ascii_lowercase", "char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e", null ],
+    [ "ds_char_is_ascii_octdigit", "char_8h.html#afb06a1b874a501739f2358d019bde21d", null ],
+    [ "ds_char_is_ascii_punctuation", "char_8h.html#abfc454a0d93d548ed94f109c77b1e68f", null ],
+    [ "ds_char_is_ascii_uppercase", "char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2", null ],
+    [ "ds_char_is_ascii_whitespace", "char_8h.html#af92b320584b2581e725f2d6ae4d3f18a", null ],
+    [ "ds_char_to_ascii_lowercase", "char_8h.html#a6d9242880df4717ee13d29c95a33c2f8", null ],
+    [ "ds_char_to_ascii_uppercase", "char_8h.html#acf28b292dd407661577ae4df5e40684b", null ]
 ];

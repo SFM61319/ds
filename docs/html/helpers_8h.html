@@ -78,7 +78,7 @@ window.MathJax = {
                   <div id="projectname">
                     ds<span
                       id="projectnumber"
-                      >&#160;0.3.0</span
+                      >&#160;0.4.0</span
                     >
                   </div>
                   <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
@@ -244,7 +244,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>max</code> if <code>self</code> is greater than <code>max</code>, and <code>min</code> if <code>self</code> is less than <code>min</code>. Otherwise this returns <code>self</code>.</dd></dl>
 <dl class="section attention"><dt>Attention</dt><dd>Always ensure that <code>min</code> is less than or equal to <code>max</code>.</dd></dl>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h3><a class="anchor" id="autotoc_md26"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="helpers_8h.html#af76d252a309762d8769be5426777fefa">DS_HELPERS_CLAMP</a> (-3, -2, 1), -2);</div>
@@ -293,7 +293,7 @@ Examples</h3>
 <dl class="section return"><dt>Returns</dt><dd>The maximum of <code>self</code> and <code>other</code>. </dd>
 <dd>
 <code>other</code> if the comparison determines them to be equal.</dd></dl>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3><a class="anchor" id="autotoc_md25"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="helpers_8h.html#aad9c75302c0d731d2283d3aa23a330b2">DS_HELPERS_MAX</a> (1, 2) == 2);</div>
@@ -341,7 +341,7 @@ Examples</h3>
 <dl class="section return"><dt>Returns</dt><dd>The minimum of <code>self</code> and <code>other</code>. </dd>
 <dd>
 <code>self</code> if the comparison determines them to be equal.</dd></dl>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="autotoc_md24"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="helpers_8h.html#a4554cbffb13739970bee6fbe17f4cef4">DS_HELPERS_MIN</a> (1, 2) == 1);</div>
@@ -377,7 +377,7 @@ Examples</h3>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>ptr</code> is a valid non-<code>NULL</code> pointer. <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="autotoc_md23"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> x = 0;</div>
@@ -421,7 +421,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>ptr</code> is <code>NULL</code>. <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="autotoc_md22"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_function" href="helpers_8h.html#a33cc59a60961d28d4cba1f41a76bb4e9">ds_helpers_is_null</a> (NULL));</div>
