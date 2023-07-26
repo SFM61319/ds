@@ -1,0 +1,196 @@
+\hypertarget{usize_8h}{}\doxysection{include/ds/usize.h File Reference}
+\label{usize_8h}\index{include/ds/usize.h@{include/ds/usize.h}}
+
+
+Declaration of the \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} type, related constants and functions.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for usize.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{usize_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{usize_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{usize_8h_ae96c519acbabee86b8f60110a91553a7}{DS\+\_\+\+USIZE\+\_\+\+BYTES}}~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})sizeof (\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}))
+\begin{DoxyCompactList}\small\item\em The size of \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} in bytes. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{DS\+\_\+\+USIZE\+\_\+\+MIN}}~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})0)
+\begin{DoxyCompactList}\small\item\em The smallest value that can be represented by \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{usize_8h_adac120b8a16419c4546c05b83513d5c7}{DS\+\_\+\+USIZE\+\_\+\+MAX}}~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})SIZE\+\_\+\+MAX)
+\begin{DoxyCompactList}\small\item\em The largest value that can be represented by \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} (2\textsuperscript{64} − 1 on 64-\/bit targets, 2\textsuperscript{32} − 1 on 32-\/bit). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{usize_8h_a6206726a11ca423f7c92010180684259}{DS\+\_\+\+SCN\+\_\+\+USIZE}}~\char`\"{}zu\char`\"{}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} notation. Can be used in {\ttfamily scanf} to parse and read \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{usize_8h_a4c30f0cc0613fbb63234f2075596dc8b}{DS\+\_\+\+PRI\+\_\+\+USIZE}}~\char`\"{}zu\char`\"{}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} notation. Can be used in {\ttfamily printf} to format and write \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef size\+\_\+t \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em The pointer-\/sized unsigned integer type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration of the \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} type, related constants and functions. 
+
+\begin{DoxyAuthor}{Author}
+Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+0.\+1.\+0 
+\end{DoxySince}
+\begin{DoxyDate}{Date}
+2023-\/07-\/24 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{usize_8h_source}{usize.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{usize_8h_a4c30f0cc0613fbb63234f2075596dc8b}\label{usize_8h_a4c30f0cc0613fbb63234f2075596dc8b}} 
+\index{usize.h@{usize.h}!DS\_PRI\_USIZE@{DS\_PRI\_USIZE}}
+\index{DS\_PRI\_USIZE@{DS\_PRI\_USIZE}!usize.h@{usize.h}}
+\doxysubsubsection{\texorpdfstring{DS\_PRI\_USIZE}{DS\_PRI\_USIZE}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+PRI\+\_\+\+USIZE~\char`\"{}zu\char`\"{}}
+
+
+
+\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} notation. Can be used in {\ttfamily printf} to format and write \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} values. 
+
+\hypertarget{usize_8h_autotoc_md16}{}\doxyparagraph{Examples}\label{usize_8h_autotoc_md16}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} x = \mbox{\hyperlink{usize_8h_adac120b8a16419c4546c05b83513d5c7}{DS\_USIZE\_MAX}};}
+\DoxyCodeLine{printf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{usize_8h_a4c30f0cc0613fbb63234f2075596dc8b}{DS\_PRI\_USIZE}}, x);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{usize_8h_source_l00091}{91}} of file \mbox{\hyperlink{usize_8h_source}{usize.\+h}}.
+
+\mbox{\Hypertarget{usize_8h_a6206726a11ca423f7c92010180684259}\label{usize_8h_a6206726a11ca423f7c92010180684259}} 
+\index{usize.h@{usize.h}!DS\_SCN\_USIZE@{DS\_SCN\_USIZE}}
+\index{DS\_SCN\_USIZE@{DS\_SCN\_USIZE}!usize.h@{usize.h}}
+\doxysubsubsection{\texorpdfstring{DS\_SCN\_USIZE}{DS\_SCN\_USIZE}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+SCN\+\_\+\+USIZE~\char`\"{}zu\char`\"{}}
+
+
+
+\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} notation. Can be used in {\ttfamily scanf} to parse and read \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} values. 
+
+\begin{DoxyWarning}{Warning}
+It is strongly advised to use \href{https://en.cppreference.com/w/c/io/fgets}{\texttt{ {\ttfamily fgets}}} instead of {\ttfamily scanf} to read input.
+\end{DoxyWarning}
+\hypertarget{usize_8h_autotoc_md15}{}\doxyparagraph{Examples}\label{usize_8h_autotoc_md15}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} x;}
+\DoxyCodeLine{scanf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{usize_8h_a6206726a11ca423f7c92010180684259}{DS\_SCN\_USIZE}}, \&x);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{usize_8h_source_l00078}{78}} of file \mbox{\hyperlink{usize_8h_source}{usize.\+h}}.
+
+\mbox{\Hypertarget{usize_8h_ae96c519acbabee86b8f60110a91553a7}\label{usize_8h_ae96c519acbabee86b8f60110a91553a7}} 
+\index{usize.h@{usize.h}!DS\_USIZE\_BYTES@{DS\_USIZE\_BYTES}}
+\index{DS\_USIZE\_BYTES@{DS\_USIZE\_BYTES}!usize.h@{usize.h}}
+\doxysubsubsection{\texorpdfstring{DS\_USIZE\_BYTES}{DS\_USIZE\_BYTES}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+USIZE\+\_\+\+BYTES~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})sizeof (\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}))}
+
+
+
+The size of \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} in bytes. 
+
+\hypertarget{usize_8h_autotoc_md12}{}\doxyparagraph{Examples}\label{usize_8h_autotoc_md12}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{usize_8h_ae96c519acbabee86b8f60110a91553a7}{DS\_USIZE\_BYTES}} == \textcolor{keyword}{sizeof} (\textcolor{keywordtype}{size\_t}));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{usize_8h_source_l00037}{37}} of file \mbox{\hyperlink{usize_8h_source}{usize.\+h}}.
+
+\mbox{\Hypertarget{usize_8h_adac120b8a16419c4546c05b83513d5c7}\label{usize_8h_adac120b8a16419c4546c05b83513d5c7}} 
+\index{usize.h@{usize.h}!DS\_USIZE\_MAX@{DS\_USIZE\_MAX}}
+\index{DS\_USIZE\_MAX@{DS\_USIZE\_MAX}!usize.h@{usize.h}}
+\doxysubsubsection{\texorpdfstring{DS\_USIZE\_MAX}{DS\_USIZE\_MAX}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+USIZE\+\_\+\+MAX~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})SIZE\+\_\+\+MAX)}
+
+
+
+The largest value that can be represented by \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}} (2\textsuperscript{64} − 1 on 64-\/bit targets, 2\textsuperscript{32} − 1 on 32-\/bit). 
+
+\hypertarget{usize_8h_autotoc_md14}{}\doxyparagraph{Examples}\label{usize_8h_autotoc_md14}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{usize_8h_adac120b8a16419c4546c05b83513d5c7}{DS\_USIZE\_MAX}} == SIZE\_MAX);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{usize_8h_source_l00061}{61}} of file \mbox{\hyperlink{usize_8h_source}{usize.\+h}}.
+
+\mbox{\Hypertarget{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}\label{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}} 
+\index{usize.h@{usize.h}!DS\_USIZE\_MIN@{DS\_USIZE\_MIN}}
+\index{DS\_USIZE\_MIN@{DS\_USIZE\_MIN}!usize.h@{usize.h}}
+\doxysubsubsection{\texorpdfstring{DS\_USIZE\_MIN}{DS\_USIZE\_MIN}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+USIZE\+\_\+\+MIN~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})0)}
+
+
+
+The smallest value that can be represented by \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}}. 
+
+\hypertarget{usize_8h_autotoc_md13}{}\doxyparagraph{Examples}\label{usize_8h_autotoc_md13}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{DS\_USIZE\_MIN}} == 0);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{usize_8h_source_l00049}{49}} of file \mbox{\hyperlink{usize_8h_source}{usize.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{usize_8h_af225603b1dc0270688232ccab1cc2f52}\label{usize_8h_af225603b1dc0270688232ccab1cc2f52}} 
+\index{usize.h@{usize.h}!ds\_usize\_t@{ds\_usize\_t}}
+\index{ds\_usize\_t@{ds\_usize\_t}!usize.h@{usize.h}}
+\doxysubsubsection{\texorpdfstring{ds\_usize\_t}{ds\_usize\_t}}
+{\footnotesize\ttfamily typedef size\+\_\+t \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}
+
+
+
+The pointer-\/sized unsigned integer type. 
+
+The size of this type, \mbox{\hyperlink{usize_8h_ae96c519acbabee86b8f60110a91553a7}{DS\+\_\+\+USIZE\+\_\+\+BYTES}}, is how many bytes it takes to reference any location in memory. For example, on a 32 bit target, this is 4 bytes and on a 64 bit target, this is 8 bytes. 
+
+Definition at line \mbox{\hyperlink{usize_8h_source_l00026}{26}} of file \mbox{\hyperlink{usize_8h_source}{usize.\+h}}.
+

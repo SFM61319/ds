@@ -1,0 +1,110 @@
+\hypertarget{helpers_8h_source}{}\doxysection{helpers.\+h}
+\label{helpers_8h_source}\index{include/ds/helpers.h@{include/ds/helpers.h}}
+\mbox{\hyperlink{helpers_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00003}00003 \textcolor{preprocessor}{\#ifndef DS\_HELPERS\_H}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00004}00004 \textcolor{preprocessor}{\#define DS\_HELPERS\_H 1}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00005}00005 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00006}00006 \textcolor{comment}{//! @file ds/helpers.h}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00007}00007 \textcolor{comment}{//! @author Avinash Maddikonda (svasssakavi@gmail.com)}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00008}00008 \textcolor{comment}{//! @brief Declaration of helper constants and functions.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00009}00009 \textcolor{comment}{//! @since 0.2.0}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00010}00010 \textcolor{comment}{//! @date 2023-\/07-\/25}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00011}00011 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00012}00012 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00014}00014 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00015}00015 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00016}00016 \{}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00017}00017 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00018}00018 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00019}00019 \textcolor{comment}{  /// @brief Returns `true` if @p ptr is `NULL`.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00020}00020 \textcolor{comment}{  /// @param ptr The pointer to check.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00021}00021 \textcolor{comment}{  /// @return `true` if @p ptr is `NULL`. `false` otherwise.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00022}00022 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00023}00023 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00024}00024 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00025}00025 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00026}00026 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00027}00027 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00028}00028 \textcolor{comment}{  /// assert (ds\_helpers\_is\_null (NULL));}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00029}00029 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00030}00030 \textcolor{comment}{}  \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{helpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9}{ds\_helpers\_is\_null}} (\textcolor{keywordtype}{void} \textcolor{keyword}{const} *ptr);}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00031}00031 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00032}00032 \textcolor{comment}{  /// @brief Returns `true` if @p ptr is a valid non-\/`NULL` pointer.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00033}00033 \textcolor{comment}{  /// @param ptr The pointer to check.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00034}00034 \textcolor{comment}{  /// @return `true` if @p ptr is a valid non-\/`NULL` pointer. `false`}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00035}00035 \textcolor{comment}{  /// otherwise.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00036}00036 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00037}00037 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00038}00038 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00039}00039 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00040}00040 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00041}00041 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00042}00042 \textcolor{comment}{  /// int x = 0;}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00043}00043 \textcolor{comment}{  /// assert (ds\_helpers\_is\_instance (\&x));}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00044}00044 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00045}00045 \textcolor{comment}{}  \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{helpers_8h_acd47143f0c7cabf4f90ac3c849de195c}{ds\_helpers\_is\_instance}} (\textcolor{keywordtype}{void} \textcolor{keyword}{const} *ptr);}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00046}00046 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00047}00047 \textcolor{comment}{/// @brief Compares and returns the minimum of two values.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00048}00048 \textcolor{comment}{/// @param self The first value to compare.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00049}00049 \textcolor{comment}{/// @param other The second value to compare.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00050}00050 \textcolor{comment}{/// @return The minimum of @p self and @p other.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00051}00051 \textcolor{comment}{/// @return @p self if the comparison determines them to be equal.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00052}00052 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00053}00053 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00054}00054 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00055}00055 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00056}00056 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00057}00057 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00058}00058 \textcolor{comment}{/// assert (DS\_HELPERS\_MIN (1, 2) == 1);}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00059}00059 \textcolor{comment}{/// assert (DS\_HELPERS\_MIN (2, 2) == 2);}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00060}00060 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00061}\mbox{\hyperlink{helpers_8h_a4554cbffb13739970bee6fbe17f4cef4}{00061}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_HELPERS\_MIN(self, other) (((self) <= (other)) ? (self) : (other))}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00062}00062 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00063}00063 \textcolor{comment}{/// @brief Compares and returns the maximum of two values.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00064}00064 \textcolor{comment}{/// @param self The first value to compare.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00065}00065 \textcolor{comment}{/// @param other The second value to compare.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00066}00066 \textcolor{comment}{/// @return The maximum of @p self and @p other.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00067}00067 \textcolor{comment}{/// @return @p other if the comparison determines them to be equal.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00068}00068 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00069}00069 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00070}00070 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00071}00071 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00072}00072 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00073}00073 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00074}00074 \textcolor{comment}{/// assert (DS\_HELPERS\_MAX (1, 2) == 2);}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00075}00075 \textcolor{comment}{/// assert (DS\_HELPERS\_MAX (2, 2) == 2);}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00076}00076 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00077}\mbox{\hyperlink{helpers_8h_aad9c75302c0d731d2283d3aa23a330b2}{00077}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_HELPERS\_MAX(self, other) (((self) > (other)) ? (self) : (other))}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00078}00078 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00079}00079 \textcolor{comment}{/// @brief Restrict a value to a certain interval.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00080}00080 \textcolor{comment}{/// @param self The value to restrict.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00081}00081 \textcolor{comment}{/// @param min The inclusive lower bound of the interval.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00082}00082 \textcolor{comment}{/// @param max The inclusive upper bound of the interval.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00083}00083 \textcolor{comment}{/// @return @p max if @p self is greater than @p max, and @p min if @p}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00084}00084 \textcolor{comment}{/// self is less than @p min. Otherwise this returns @p self.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00085}00085 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00086}00086 \textcolor{comment}{/// @attention Always ensure that @p min is less than or equal to @p max.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00087}00087 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00088}00088 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00089}00089 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00090}00090 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00091}00091 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00092}00092 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00093}00093 \textcolor{comment}{/// assert (DS\_HELPERS\_CLAMP (-\/3, -\/2, 1), -\/2);}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00094}00094 \textcolor{comment}{/// assert (DS\_HELPERS\_CLAMP (0, -\/2, 1), 0);}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00095}00095 \textcolor{comment}{/// assert (DS\_HELPERS\_CLAMP (2, -\/2, 1), 1);}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00096}00096 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00097}\mbox{\hyperlink{helpers_8h_af76d252a309762d8769be5426777fefa}{00097}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_HELPERS\_CLAMP(self, min, max)                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00098}00098 \textcolor{preprocessor}{  (DS\_HELPERS\_MAX ((min), (DS\_HELPERS\_MIN ((self), (max)))))}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00100}00100 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00101}00101 \}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00102}00102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00104}00104 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_HELPERS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

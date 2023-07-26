@@ -1,0 +1,250 @@
+\hypertarget{helpers_8h}{}\doxysection{include/ds/helpers.h File Reference}
+\label{helpers_8h}\index{include/ds/helpers.h@{include/ds/helpers.h}}
+
+
+Declaration of helper constants and functions.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for helpers.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{helpers_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{helpers_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{helpers_8h_a4554cbffb13739970bee6fbe17f4cef4}{DS\+\_\+\+HELPERS\+\_\+\+MIN}}(self,  other)~(((self) $<$= (other)) ? (self) \+: (other))
+\begin{DoxyCompactList}\small\item\em Compares and returns the minimum of two values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{helpers_8h_aad9c75302c0d731d2283d3aa23a330b2}{DS\+\_\+\+HELPERS\+\_\+\+MAX}}(self,  other)~(((self) $>$ (other)) ? (self) \+: (other))
+\begin{DoxyCompactList}\small\item\em Compares and returns the maximum of two values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{helpers_8h_af76d252a309762d8769be5426777fefa}{DS\+\_\+\+HELPERS\+\_\+\+CLAMP}}(self,  min,  max)~  (\mbox{\hyperlink{helpers_8h_aad9c75302c0d731d2283d3aa23a330b2}{DS\+\_\+\+HELPERS\+\_\+\+MAX}} ((min), (\mbox{\hyperlink{helpers_8h_a4554cbffb13739970bee6fbe17f4cef4}{DS\+\_\+\+HELPERS\+\_\+\+MIN}} ((self), (max)))))
+\begin{DoxyCompactList}\small\item\em Restrict a value to a certain interval. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{helpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9}{ds\+\_\+helpers\+\_\+is\+\_\+null}} (void const $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if {\ttfamily ptr} is {\ttfamily NULL}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{helpers_8h_acd47143f0c7cabf4f90ac3c849de195c}{ds\+\_\+helpers\+\_\+is\+\_\+instance}} (void const $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if {\ttfamily ptr} is a valid non-\/{\ttfamily NULL} pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration of helper constants and functions. 
+
+\begin{DoxyAuthor}{Author}
+Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+0.\+2.\+0 
+\end{DoxySince}
+\begin{DoxyDate}{Date}
+2023-\/07-\/25 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{helpers_8h_source}{helpers.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{helpers_8h_af76d252a309762d8769be5426777fefa}\label{helpers_8h_af76d252a309762d8769be5426777fefa}} 
+\index{helpers.h@{helpers.h}!DS\_HELPERS\_CLAMP@{DS\_HELPERS\_CLAMP}}
+\index{DS\_HELPERS\_CLAMP@{DS\_HELPERS\_CLAMP}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{DS\_HELPERS\_CLAMP}{DS\_HELPERS\_CLAMP}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+HELPERS\+\_\+\+CLAMP(\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{min,  }\item[{}]{max }\end{DoxyParamCaption})~  (\mbox{\hyperlink{helpers_8h_aad9c75302c0d731d2283d3aa23a330b2}{DS\+\_\+\+HELPERS\+\_\+\+MAX}} ((min), (\mbox{\hyperlink{helpers_8h_a4554cbffb13739970bee6fbe17f4cef4}{DS\+\_\+\+HELPERS\+\_\+\+MIN}} ((self), (max)))))}
+
+
+
+Restrict a value to a certain interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The value to restrict. \\
+\hline
+{\em min} & The inclusive lower bound of the interval. \\
+\hline
+{\em max} & The inclusive upper bound of the interval. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily max} if {\ttfamily self} is greater than {\ttfamily max}, and {\ttfamily min} if {\ttfamily self} is less than {\ttfamily min}. Otherwise this returns {\ttfamily self}.
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+Always ensure that {\ttfamily min} is less than or equal to {\ttfamily max}.
+\end{DoxyAttention}
+\hypertarget{helpers_8h_autotoc_md11}{}\doxyparagraph{Examples}\label{helpers_8h_autotoc_md11}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_af76d252a309762d8769be5426777fefa}{DS\_HELPERS\_CLAMP}} (-\/3, -\/2, 1), -\/2);}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_af76d252a309762d8769be5426777fefa}{DS\_HELPERS\_CLAMP}} (0, -\/2, 1), 0);}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_af76d252a309762d8769be5426777fefa}{DS\_HELPERS\_CLAMP}} (2, -\/2, 1), 1);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{helpers_8h_source_l00097}{97}} of file \mbox{\hyperlink{helpers_8h_source}{helpers.\+h}}.
+
+\mbox{\Hypertarget{helpers_8h_aad9c75302c0d731d2283d3aa23a330b2}\label{helpers_8h_aad9c75302c0d731d2283d3aa23a330b2}} 
+\index{helpers.h@{helpers.h}!DS\_HELPERS\_MAX@{DS\_HELPERS\_MAX}}
+\index{DS\_HELPERS\_MAX@{DS\_HELPERS\_MAX}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{DS\_HELPERS\_MAX}{DS\_HELPERS\_MAX}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+HELPERS\+\_\+\+MAX(\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{other }\end{DoxyParamCaption})~(((self) $>$ (other)) ? (self) \+: (other))}
+
+
+
+Compares and returns the maximum of two values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The first value to compare. \\
+\hline
+{\em other} & The second value to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The maximum of {\ttfamily self} and {\ttfamily other}. 
+
+{\ttfamily other} if the comparison determines them to be equal.
+\end{DoxyReturn}
+\hypertarget{helpers_8h_autotoc_md10}{}\doxyparagraph{Examples}\label{helpers_8h_autotoc_md10}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_aad9c75302c0d731d2283d3aa23a330b2}{DS\_HELPERS\_MAX}} (1, 2) == 2);}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_aad9c75302c0d731d2283d3aa23a330b2}{DS\_HELPERS\_MAX}} (2, 2) == 2);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{helpers_8h_source_l00077}{77}} of file \mbox{\hyperlink{helpers_8h_source}{helpers.\+h}}.
+
+\mbox{\Hypertarget{helpers_8h_a4554cbffb13739970bee6fbe17f4cef4}\label{helpers_8h_a4554cbffb13739970bee6fbe17f4cef4}} 
+\index{helpers.h@{helpers.h}!DS\_HELPERS\_MIN@{DS\_HELPERS\_MIN}}
+\index{DS\_HELPERS\_MIN@{DS\_HELPERS\_MIN}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{DS\_HELPERS\_MIN}{DS\_HELPERS\_MIN}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+HELPERS\+\_\+\+MIN(\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{other }\end{DoxyParamCaption})~(((self) $<$= (other)) ? (self) \+: (other))}
+
+
+
+Compares and returns the minimum of two values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The first value to compare. \\
+\hline
+{\em other} & The second value to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The minimum of {\ttfamily self} and {\ttfamily other}. 
+
+{\ttfamily self} if the comparison determines them to be equal.
+\end{DoxyReturn}
+\hypertarget{helpers_8h_autotoc_md9}{}\doxyparagraph{Examples}\label{helpers_8h_autotoc_md9}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_a4554cbffb13739970bee6fbe17f4cef4}{DS\_HELPERS\_MIN}} (1, 2) == 1);}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_a4554cbffb13739970bee6fbe17f4cef4}{DS\_HELPERS\_MIN}} (2, 2) == 2);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{helpers_8h_source_l00061}{61}} of file \mbox{\hyperlink{helpers_8h_source}{helpers.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{helpers_8h_acd47143f0c7cabf4f90ac3c849de195c}\label{helpers_8h_acd47143f0c7cabf4f90ac3c849de195c}} 
+\index{helpers.h@{helpers.h}!ds\_helpers\_is\_instance@{ds\_helpers\_is\_instance}}
+\index{ds\_helpers\_is\_instance@{ds\_helpers\_is\_instance}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{ds\_helpers\_is\_instance()}{ds\_helpers\_is\_instance()}}
+{\footnotesize\ttfamily bool ds\+\_\+helpers\+\_\+is\+\_\+instance (\begin{DoxyParamCaption}\item[{void const $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Returns {\ttfamily true} if {\ttfamily ptr} is a valid non-\/{\ttfamily NULL} pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily ptr} is a valid non-\/{\ttfamily NULL} pointer. {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{helpers_8c_autotoc_md8}{}\doxyparagraph{Examples}\label{helpers_8c_autotoc_md8}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} x = 0;}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_acd47143f0c7cabf4f90ac3c849de195c}{ds\_helpers\_is\_instance}} (\&x));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{helpers_8c_source_l00019}{19}} of file \mbox{\hyperlink{helpers_8c_source}{helpers.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{helpers_8h_acd47143f0c7cabf4f90ac3c849de195c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{helpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9}\label{helpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9}} 
+\index{helpers.h@{helpers.h}!ds\_helpers\_is\_null@{ds\_helpers\_is\_null}}
+\index{ds\_helpers\_is\_null@{ds\_helpers\_is\_null}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{ds\_helpers\_is\_null()}{ds\_helpers\_is\_null()}}
+{\footnotesize\ttfamily bool ds\+\_\+helpers\+\_\+is\+\_\+null (\begin{DoxyParamCaption}\item[{void const $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Returns {\ttfamily true} if {\ttfamily ptr} is {\ttfamily NULL}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily ptr} is {\ttfamily NULL}. {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{helpers_8c_autotoc_md7}{}\doxyparagraph{Examples}\label{helpers_8c_autotoc_md7}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9}{ds\_helpers\_is\_null}} (NULL));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{helpers_8c_source_l00013}{13}} of file \mbox{\hyperlink{helpers_8c_source}{helpers.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{helpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9_icgraph}
+\end{center}
+\end{figure}

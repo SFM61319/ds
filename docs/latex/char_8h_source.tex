@@ -1,0 +1,115 @@
+\hypertarget{char_8h_source}{}\doxysection{char.\+h}
+\label{char_8h_source}\index{include/ds/char.h@{include/ds/char.h}}
+\mbox{\hyperlink{char_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00003}00003 \textcolor{preprocessor}{\#ifndef DS\_CHAR\_H}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00004}00004 \textcolor{preprocessor}{\#define DS\_CHAR\_H 1}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00005}00005 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00006}00006 \textcolor{comment}{//! @file ds/char.h}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00007}00007 \textcolor{comment}{//! @author Avinash Maddikonda (svasssakavi@gmail.com)}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00008}00008 \textcolor{comment}{//! @brief Declaration of the @ref ds\_char\_t "{}char"{} type, related constants and}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00009}00009 \textcolor{comment}{//! functions.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00010}00010 \textcolor{comment}{//! @since 0.3.0}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00011}00011 \textcolor{comment}{//! @date 2023-\/07-\/26}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00012}00012 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00013}00013 \textcolor{preprocessor}{\#include <limits.h>}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{usize_8h}{ds/usize.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00017}00017 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00018}00018 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00019}00019 \{}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00020}00020 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00021}00021 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00022}00022 \textcolor{comment}{  /// @brief A character type.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00023}00023 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00024}00024 \textcolor{comment}{  /// The @ref ds\_char\_t "{}char"{} type represents a single character.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00025}00025 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00026}00026 \textcolor{comment}{  /// More specifically, since ‘character’ isn’t a well-\/defined concept in}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00027}00027 \textcolor{comment}{  /// Unicode, @ref ds\_char\_t "{}char"{} will be a ‘Unicode scalar value’ in the}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00028}00028 \textcolor{comment}{  /// future, when UTF-\/8 validation is fully supported.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00029}\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{00029}} \textcolor{comment}{}  \textcolor{keyword}{typedef} \textcolor{keywordtype}{char} \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}};}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00030}00030 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00031}00031 \textcolor{comment}{/// @brief The size of @ref ds\_char\_t "{}char"{} in bytes.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00032}00032 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00033}00033 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00034}00034 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00035}00035 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00036}00036 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00037}00037 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00038}00038 \textcolor{comment}{/// assert (DS\_CHAR\_BYTES == 1);}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00039}00039 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00040}\mbox{\hyperlink{char_8h_a1185442ceeb0594a4a4c8d79abce60ad}{00040}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_CHAR\_BYTES ((ds\_usize\_t)sizeof (ds\_char\_t))}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00041}00041 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00042}00042 \textcolor{comment}{/// @brief The smallest value that can be represented by @ref ds\_char\_t "{}char"{}.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00043}00043 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00044}00044 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00045}00045 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00046}00046 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00047}00047 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00048}00048 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00049}00049 \textcolor{comment}{/// assert (DS\_CHAR\_MIN == CHAR\_MIN);}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00050}00050 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00051}\mbox{\hyperlink{char_8h_a6a4d17f251bbb80c89c3dee5cc586023}{00051}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_CHAR\_MIN ((ds\_char\_t)CHAR\_MIN)}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00052}00052 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00053}00053 \textcolor{comment}{/// @brief The largest value that can be represented by @ref ds\_char\_t "{}char"{}.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00054}00054 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00055}00055 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00056}00056 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00057}00057 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00058}00058 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00059}00059 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00060}00060 \textcolor{comment}{/// assert (DS\_CHAR\_MAX == CHAR\_MAX);}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00061}00061 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00062}\mbox{\hyperlink{char_8h_ae542829a032ef5e36137dd69d3415584}{00062}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_CHAR\_MAX ((ds\_char\_t)CHAR\_MAX)}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00063}00063 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00064}00064 \textcolor{comment}{/// @brief The null-\/terminator character.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00065}00065 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00066}00066 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00067}00067 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00068}00068 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00069}00069 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00070}00070 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00071}00071 \textcolor{comment}{/// assert (DS\_CHAR\_NUL == '\(\backslash\)0');}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00072}00072 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00073}\mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{00073}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_CHAR\_NUL ((ds\_char\_t)0)}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00074}00074 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00075}00075 \textcolor{comment}{/// @brief @ref ds\_char\_t "{}char"{} notation. Can be used in `scanf` to parse and}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00076}00076 \textcolor{comment}{/// read @ref ds\_char\_t "{}char"{} values.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00077}00077 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00078}00078 \textcolor{comment}{/// @warning It is strongly advised to use}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00079}00079 \textcolor{comment}{/// [`fgets`](https://en.cppreference.com/w/c/io/fgets "{}fgets -\/}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00080}00080 \textcolor{comment}{/// cppreference.com"{}) instead of `scanf` to read input.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00081}00081 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00082}00082 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00083}00083 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00084}00084 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00085}00085 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00086}00086 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00087}00087 \textcolor{comment}{/// ds\_char\_t x;}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00088}00088 \textcolor{comment}{/// scanf ("{}\%"{} DS\_SCN\_CHAR, \&x);}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00089}00089 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00090}\mbox{\hyperlink{char_8h_ae2ad7e7322720db2607b90a7f0011fa7}{00090}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_SCN\_CHAR "{}c"{}}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00091}00091 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00092}00092 \textcolor{comment}{/// @brief @ref ds\_char\_t "{}char"{} notation. Can be used in `printf` to format}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00093}00093 \textcolor{comment}{/// and write @ref ds\_char\_t "{}char"{} values.}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00094}00094 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00095}00095 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00096}00096 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00097}00097 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00098}00098 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00099}00099 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00100}00100 \textcolor{comment}{/// ds\_char\_t x = DS\_CHAR\_MAX;}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00101}00101 \textcolor{comment}{/// printf ("{}\%"{} DS\_PRI\_CHAR, x);}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00102}00102 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00103}\mbox{\hyperlink{char_8h_ae7a05ab6f23500c4eb3f066e5b381bd4}{00103}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_PRI\_CHAR "{}c"{}}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00105}00105 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00106}00106 \}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00107}00107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{char_8h_source_l00109}00109 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_CHAR\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

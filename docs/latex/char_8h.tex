@@ -1,0 +1,222 @@
+\hypertarget{char_8h}{}\doxysection{include/ds/char.h File Reference}
+\label{char_8h}\index{include/ds/char.h@{include/ds/char.h}}
+
+
+Declaration of the \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} type, related constants and functions.  
+
+
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ds/usize.\+h\char`\"{}}\newline
+Include dependency graph for char.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{char_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{char_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{char_8h_a1185442ceeb0594a4a4c8d79abce60ad}{DS\+\_\+\+CHAR\+\_\+\+BYTES}}~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})sizeof (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}))
+\begin{DoxyCompactList}\small\item\em The size of \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} in bytes. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{char_8h_a6a4d17f251bbb80c89c3dee5cc586023}{DS\+\_\+\+CHAR\+\_\+\+MIN}}~((\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}})CHAR\+\_\+\+MIN)
+\begin{DoxyCompactList}\small\item\em The smallest value that can be represented by \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{char_8h_ae542829a032ef5e36137dd69d3415584}{DS\+\_\+\+CHAR\+\_\+\+MAX}}~((\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}})CHAR\+\_\+\+MAX)
+\begin{DoxyCompactList}\small\item\em The largest value that can be represented by \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{DS\+\_\+\+CHAR\+\_\+\+NUL}}~((\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}})0)
+\begin{DoxyCompactList}\small\item\em The null-\/terminator character. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{char_8h_ae2ad7e7322720db2607b90a7f0011fa7}{DS\+\_\+\+SCN\+\_\+\+CHAR}}~\char`\"{}c\char`\"{}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} notation. Can be used in {\ttfamily scanf} to parse and read \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{char_8h_ae7a05ab6f23500c4eb3f066e5b381bd4}{DS\+\_\+\+PRI\+\_\+\+CHAR}}~\char`\"{}c\char`\"{}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} notation. Can be used in {\ttfamily printf} to format and write \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef char \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A character type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration of the \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} type, related constants and functions. 
+
+\begin{DoxyAuthor}{Author}
+Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+0.\+3.\+0 
+\end{DoxySince}
+\begin{DoxyDate}{Date}
+2023-\/07-\/26 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{char_8h_a1185442ceeb0594a4a4c8d79abce60ad}\label{char_8h_a1185442ceeb0594a4a4c8d79abce60ad}} 
+\index{char.h@{char.h}!DS\_CHAR\_BYTES@{DS\_CHAR\_BYTES}}
+\index{DS\_CHAR\_BYTES@{DS\_CHAR\_BYTES}!char.h@{char.h}}
+\doxysubsubsection{\texorpdfstring{DS\_CHAR\_BYTES}{DS\_CHAR\_BYTES}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+CHAR\+\_\+\+BYTES~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})sizeof (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}))}
+
+
+
+The size of \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} in bytes. 
+
+\hypertarget{char_8h_autotoc_md1}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md1}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a1185442ceeb0594a4a4c8d79abce60ad}{DS\_CHAR\_BYTES}} == 1);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8h_source_l00040}{40}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+
+\mbox{\Hypertarget{char_8h_ae542829a032ef5e36137dd69d3415584}\label{char_8h_ae542829a032ef5e36137dd69d3415584}} 
+\index{char.h@{char.h}!DS\_CHAR\_MAX@{DS\_CHAR\_MAX}}
+\index{DS\_CHAR\_MAX@{DS\_CHAR\_MAX}!char.h@{char.h}}
+\doxysubsubsection{\texorpdfstring{DS\_CHAR\_MAX}{DS\_CHAR\_MAX}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+CHAR\+\_\+\+MAX~((\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}})CHAR\+\_\+\+MAX)}
+
+
+
+The largest value that can be represented by \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}}. 
+
+\hypertarget{char_8h_autotoc_md3}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md3}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_ae542829a032ef5e36137dd69d3415584}{DS\_CHAR\_MAX}} == CHAR\_MAX);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8h_source_l00062}{62}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+
+\mbox{\Hypertarget{char_8h_a6a4d17f251bbb80c89c3dee5cc586023}\label{char_8h_a6a4d17f251bbb80c89c3dee5cc586023}} 
+\index{char.h@{char.h}!DS\_CHAR\_MIN@{DS\_CHAR\_MIN}}
+\index{DS\_CHAR\_MIN@{DS\_CHAR\_MIN}!char.h@{char.h}}
+\doxysubsubsection{\texorpdfstring{DS\_CHAR\_MIN}{DS\_CHAR\_MIN}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+CHAR\+\_\+\+MIN~((\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}})CHAR\+\_\+\+MIN)}
+
+
+
+The smallest value that can be represented by \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}}. 
+
+\hypertarget{char_8h_autotoc_md2}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md2}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_a6a4d17f251bbb80c89c3dee5cc586023}{DS\_CHAR\_MIN}} == CHAR\_MIN);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8h_source_l00051}{51}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+
+\mbox{\Hypertarget{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}\label{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}} 
+\index{char.h@{char.h}!DS\_CHAR\_NUL@{DS\_CHAR\_NUL}}
+\index{DS\_CHAR\_NUL@{DS\_CHAR\_NUL}!char.h@{char.h}}
+\doxysubsubsection{\texorpdfstring{DS\_CHAR\_NUL}{DS\_CHAR\_NUL}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+CHAR\+\_\+\+NUL~((\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}})0)}
+
+
+
+The null-\/terminator character. 
+
+\hypertarget{char_8h_autotoc_md4}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md4}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{DS\_CHAR\_NUL}} == \textcolor{charliteral}{'\(\backslash\)0'});}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8h_source_l00073}{73}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+
+\mbox{\Hypertarget{char_8h_ae7a05ab6f23500c4eb3f066e5b381bd4}\label{char_8h_ae7a05ab6f23500c4eb3f066e5b381bd4}} 
+\index{char.h@{char.h}!DS\_PRI\_CHAR@{DS\_PRI\_CHAR}}
+\index{DS\_PRI\_CHAR@{DS\_PRI\_CHAR}!char.h@{char.h}}
+\doxysubsubsection{\texorpdfstring{DS\_PRI\_CHAR}{DS\_PRI\_CHAR}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+PRI\+\_\+\+CHAR~\char`\"{}c\char`\"{}}
+
+
+
+\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} notation. Can be used in {\ttfamily printf} to format and write \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} values. 
+
+\hypertarget{char_8h_autotoc_md6}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md6}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} x = \mbox{\hyperlink{char_8h_ae542829a032ef5e36137dd69d3415584}{DS\_CHAR\_MAX}};}
+\DoxyCodeLine{printf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{char_8h_ae7a05ab6f23500c4eb3f066e5b381bd4}{DS\_PRI\_CHAR}}, x);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8h_source_l00103}{103}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+
+\mbox{\Hypertarget{char_8h_ae2ad7e7322720db2607b90a7f0011fa7}\label{char_8h_ae2ad7e7322720db2607b90a7f0011fa7}} 
+\index{char.h@{char.h}!DS\_SCN\_CHAR@{DS\_SCN\_CHAR}}
+\index{DS\_SCN\_CHAR@{DS\_SCN\_CHAR}!char.h@{char.h}}
+\doxysubsubsection{\texorpdfstring{DS\_SCN\_CHAR}{DS\_SCN\_CHAR}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+SCN\+\_\+\+CHAR~\char`\"{}c\char`\"{}}
+
+
+
+\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} notation. Can be used in {\ttfamily scanf} to parse and read \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} values. 
+
+\begin{DoxyWarning}{Warning}
+It is strongly advised to use \href{https://en.cppreference.com/w/c/io/fgets}{\texttt{ {\ttfamily fgets}}} instead of {\ttfamily scanf} to read input.
+\end{DoxyWarning}
+\hypertarget{char_8h_autotoc_md5}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md5}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} x;}
+\DoxyCodeLine{scanf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{char_8h_ae2ad7e7322720db2607b90a7f0011fa7}{DS\_SCN\_CHAR}}, \&x);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8h_source_l00090}{90}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{char_8h_a2c809211274ede9eddff5a750bdeb5ae}\label{char_8h_a2c809211274ede9eddff5a750bdeb5ae}} 
+\index{char.h@{char.h}!ds\_char\_t@{ds\_char\_t}}
+\index{ds\_char\_t@{ds\_char\_t}!char.h@{char.h}}
+\doxysubsubsection{\texorpdfstring{ds\_char\_t}{ds\_char\_t}}
+{\footnotesize\ttfamily typedef char \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}
+
+
+
+A character type. 
+
+The \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} type represents a single character.
+
+More specifically, since ‘character’ isn’t a well-\/defined concept in Unicode, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} will be a ‘\+Unicode scalar value’ in the future, when UTF-\/8 validation is fully supported. 
+
+Definition at line \mbox{\hyperlink{char_8h_source_l00029}{29}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+

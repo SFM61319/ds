@@ -1,0 +1,123 @@
+\hypertarget{helpers_8c}{}\doxysection{src/ds/helpers.c File Reference}
+\label{helpers_8c}\index{src/ds/helpers.c@{src/ds/helpers.c}}
+
+
+Implementation of helper constants and functions.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ds/helpers.\+h\char`\"{}}\newline
+Include dependency graph for helpers.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{helpers_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{helpers_8c_a5b2ecacaab141d28a86aa3cbbfc92dd8}{ds\+\_\+helpers\+\_\+is\+\_\+null}} (void const $\ast$const ptr)
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if {\ttfamily ptr} is {\ttfamily NULL}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{helpers_8c_a504f9fc2c382cde060c859bf82ea0b51}{ds\+\_\+helpers\+\_\+is\+\_\+instance}} (void const $\ast$const ptr)
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if {\ttfamily ptr} is a valid non-\/{\ttfamily NULL} pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of helper constants and functions. 
+
+\begin{DoxyAuthor}{Author}
+Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+0.\+2.\+0 
+\end{DoxySince}
+\begin{DoxyDate}{Date}
+2023-\/07-\/25 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{helpers_8c_source}{helpers.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{helpers_8c_a504f9fc2c382cde060c859bf82ea0b51}\label{helpers_8c_a504f9fc2c382cde060c859bf82ea0b51}} 
+\index{helpers.c@{helpers.c}!ds\_helpers\_is\_instance@{ds\_helpers\_is\_instance}}
+\index{ds\_helpers\_is\_instance@{ds\_helpers\_is\_instance}!helpers.c@{helpers.c}}
+\doxysubsubsection{\texorpdfstring{ds\_helpers\_is\_instance()}{ds\_helpers\_is\_instance()}}
+{\footnotesize\ttfamily bool ds\+\_\+helpers\+\_\+is\+\_\+instance (\begin{DoxyParamCaption}\item[{void const $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Returns {\ttfamily true} if {\ttfamily ptr} is a valid non-\/{\ttfamily NULL} pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily ptr} is a valid non-\/{\ttfamily NULL} pointer. {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{helpers_8c_autotoc_md8}{}\doxyparagraph{Examples}\label{helpers_8c_autotoc_md8}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} x = 0;}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_acd47143f0c7cabf4f90ac3c849de195c}{ds\_helpers\_is\_instance}} (\&x));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{helpers_8c_source_l00019}{19}} of file \mbox{\hyperlink{helpers_8c_source}{helpers.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{helpers_8c_a504f9fc2c382cde060c859bf82ea0b51_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{helpers_8c_a5b2ecacaab141d28a86aa3cbbfc92dd8}\label{helpers_8c_a5b2ecacaab141d28a86aa3cbbfc92dd8}} 
+\index{helpers.c@{helpers.c}!ds\_helpers\_is\_null@{ds\_helpers\_is\_null}}
+\index{ds\_helpers\_is\_null@{ds\_helpers\_is\_null}!helpers.c@{helpers.c}}
+\doxysubsubsection{\texorpdfstring{ds\_helpers\_is\_null()}{ds\_helpers\_is\_null()}}
+{\footnotesize\ttfamily bool ds\+\_\+helpers\+\_\+is\+\_\+null (\begin{DoxyParamCaption}\item[{void const $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Returns {\ttfamily true} if {\ttfamily ptr} is {\ttfamily NULL}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily ptr} is {\ttfamily NULL}. {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{helpers_8c_autotoc_md7}{}\doxyparagraph{Examples}\label{helpers_8c_autotoc_md7}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{helpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9}{ds\_helpers\_is\_null}} (NULL));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{helpers_8c_source_l00013}{13}} of file \mbox{\hyperlink{helpers_8c_source}{helpers.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{helpers_8c_a5b2ecacaab141d28a86aa3cbbfc92dd8_icgraph}
+\end{center}
+\end{figure}

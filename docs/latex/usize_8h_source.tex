@@ -1,0 +1,103 @@
+\hypertarget{usize_8h_source}{}\doxysection{usize.\+h}
+\label{usize_8h_source}\index{include/ds/usize.h@{include/ds/usize.h}}
+\mbox{\hyperlink{usize_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00003}00003 \textcolor{preprocessor}{\#ifndef DS\_USIZE\_H}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00004}00004 \textcolor{preprocessor}{\#define DS\_USIZE\_H 1}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00005}00005 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00006}00006 \textcolor{comment}{//! @file ds/usize.h}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00007}00007 \textcolor{comment}{//! @author Avinash Maddikonda (svasssakavi@gmail.com)}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00008}00008 \textcolor{comment}{//! @brief Declaration of the @ref ds\_usize\_t "{}usize"{} type, related constants}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00009}00009 \textcolor{comment}{//! and functions.}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00010}00010 \textcolor{comment}{//! @since 0.1.0}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00011}00011 \textcolor{comment}{//! @date 2023-\/07-\/24}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00012}00012 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00013}00013 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00016}00016 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00017}00017 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00018}00018 \{}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00019}00019 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00020}00020 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00021}00021 \textcolor{comment}{  /// @brief The pointer-\/sized unsigned integer type.}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00022}00022 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00023}00023 \textcolor{comment}{  /// The size of this type, @ref DS\_USIZE\_BYTES "{}DS\_USIZE\_BYTES"{}, is how many}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00024}00024 \textcolor{comment}{  /// bytes it takes to reference any location in memory. For example, on a 32}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00025}00025 \textcolor{comment}{  /// bit target, this is 4 bytes and on a 64 bit target, this is 8 bytes.}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00026}\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{00026}} \textcolor{comment}{}  \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}};}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00027}00027 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00028}00028 \textcolor{comment}{/// @brief The size of @ref ds\_usize\_t "{}usize"{} in bytes.}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00029}00029 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00030}00030 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00031}00031 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00032}00032 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00033}00033 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00034}00034 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00035}00035 \textcolor{comment}{/// assert (DS\_USIZE\_BYTES == sizeof (size\_t));}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00036}00036 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00037}\mbox{\hyperlink{usize_8h_ae96c519acbabee86b8f60110a91553a7}{00037}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_USIZE\_BYTES ((ds\_usize\_t)sizeof (ds\_usize\_t))}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00038}00038 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00039}00039 \textcolor{comment}{/// @brief The smallest value that can be represented by @ref ds\_usize\_t}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00040}00040 \textcolor{comment}{/// "{}usize"{}.}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00041}00041 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00042}00042 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00043}00043 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00044}00044 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00045}00045 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00046}00046 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00047}00047 \textcolor{comment}{/// assert (DS\_USIZE\_MIN == 0);}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00048}00048 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00049}\mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{00049}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_USIZE\_MIN ((ds\_usize\_t)0)}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00050}00050 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00051}00051 \textcolor{comment}{/// @brief The largest value that can be represented by @ref ds\_usize\_t "{}usize"{}}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00052}00052 \textcolor{comment}{/// (2<sup>64</sup> − 1 on 64-\/bit targets, 2<sup>32</sup> − 1 on 32-\/bit).}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00053}00053 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00054}00054 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00055}00055 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00056}00056 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00057}00057 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00058}00058 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00059}00059 \textcolor{comment}{/// assert (DS\_USIZE\_MAX == SIZE\_MAX);}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00060}00060 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00061}\mbox{\hyperlink{usize_8h_adac120b8a16419c4546c05b83513d5c7}{00061}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_USIZE\_MAX ((ds\_usize\_t)SIZE\_MAX)}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00062}00062 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00063}00063 \textcolor{comment}{/// @brief @ref ds\_usize\_t "{}usize"{} notation. Can be used in `scanf` to parse}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00064}00064 \textcolor{comment}{/// and read @ref ds\_usize\_t "{}usize"{} values.}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00065}00065 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00066}00066 \textcolor{comment}{/// @warning It is strongly advised to use}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00067}00067 \textcolor{comment}{/// [`fgets`](https://en.cppreference.com/w/c/io/fgets "{}fgets -\/}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00068}00068 \textcolor{comment}{/// cppreference.com"{}) instead of `scanf` to read input.}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00069}00069 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00070}00070 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00071}00071 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00072}00072 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00073}00073 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00074}00074 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00075}00075 \textcolor{comment}{/// ds\_usize\_t x;}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00076}00076 \textcolor{comment}{/// scanf ("{}\%"{} DS\_SCN\_USIZE, \&x);}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00077}00077 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00078}\mbox{\hyperlink{usize_8h_a6206726a11ca423f7c92010180684259}{00078}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_SCN\_USIZE "{}zu"{}}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00079}00079 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00080}00080 \textcolor{comment}{/// @brief @ref ds\_usize\_t "{}usize"{} notation. Can be used in `printf` to format}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00081}00081 \textcolor{comment}{/// and write @ref ds\_usize\_t "{}usize"{} values.}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00082}00082 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00083}00083 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00084}00084 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00085}00085 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00086}00086 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00087}00087 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00088}00088 \textcolor{comment}{/// ds\_usize\_t x = DS\_USIZE\_MAX;}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00089}00089 \textcolor{comment}{/// printf ("{}\%"{} DS\_PRI\_USIZE, x);}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00090}00090 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00091}\mbox{\hyperlink{usize_8h_a4c30f0cc0613fbb63234f2075596dc8b}{00091}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_PRI\_USIZE "{}zu"{}}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00093}00093 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00095}00095 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{usize_8h_source_l00097}00097 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_USIZE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
