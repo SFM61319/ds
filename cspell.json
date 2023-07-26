@@ -39,5 +39,5 @@
   "userWords": [],
   "validateDirectives": true,
   "version": "0.2",
-  "words": ["ds", "dyn", "sfm", "str", "streq", "usize", "utf", "zu"]
+  "words": ["ds", "dyn", "nul", "sfm", "str", "streq", "usize", "utf", "zu"]
 }
