@@ -1,0 +1,103 @@
+\hypertarget{cstr_8h_source}{}\doxysection{cstr.\+h}
+\label{cstr_8h_source}\index{include/ds/cstr.h@{include/ds/cstr.h}}
+\mbox{\hyperlink{cstr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00003}00003 \textcolor{preprocessor}{\#ifndef DS\_CSTR\_H}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00004}00004 \textcolor{preprocessor}{\#define DS\_CSTR\_H 1}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00005}00005 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00006}00006 \textcolor{comment}{//! @file ds/cstr.h}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00007}00007 \textcolor{comment}{//! @author Avinash Maddikonda (svasssakavi@gmail.com)}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00008}00008 \textcolor{comment}{//! @brief Declaration of the C-\/string types, related constants and functions.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00009}00009 \textcolor{comment}{//! @since 0.5.0}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00010}00010 \textcolor{comment}{//! @date 2023-\/07-\/31}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00011}00011 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00012}00012 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{char_8h}{ds/char.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{usize_8h}{ds/usize.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00017}00017 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00018}00018 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00019}00019 \{}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00020}00020 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00021}00021 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00022}00022 \textcolor{comment}{  /// @brief An immutable C-\/string type.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00023}00023 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00024}00024 \textcolor{comment}{  /// The @ref ds\_cstr\_t "{}immutable C-\/string"{} type represents a pointer to an}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00025}00025 \textcolor{comment}{  /// immutable @ref ds\_char\_t "{}char"{} array.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00026}00026 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00027}00027 \textcolor{comment}{  /// @see https://en.wikipedia.org/wiki/Immutable\_object}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00028}00028 \textcolor{comment}{  /// @see https://en.wikipedia.org/wiki/C\_string\_handling}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00029}\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{00029}} \textcolor{comment}{}  \textcolor{keyword}{typedef} \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} *\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}};}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00030}00030 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00031}00031 \textcolor{comment}{  /// @brief A mutable C-\/string type.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00032}00032 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00033}00033 \textcolor{comment}{  /// The @ref ds\_cstr\_mut\_t "{}mutable C-\/string"{} type represents a pointer to a}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00034}00034 \textcolor{comment}{  /// mutable @ref ds\_char\_t "{}char"{} array.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00035}00035 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00036}00036 \textcolor{comment}{  /// @see https://en.wikipedia.org/wiki/Immutable\_object}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00037}00037 \textcolor{comment}{  /// @see https://en.wikipedia.org/wiki/C\_string\_handling}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00038}\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{00038}} \textcolor{comment}{}  \textcolor{keyword}{typedef} \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} *\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}};}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00039}00039 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00040}00040 \textcolor{comment}{/// @brief The size of C-\/strings in bytes.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00041}00041 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00042}00042 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00043}00043 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00044}00044 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00045}00045 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00046}00046 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00047}00047 \textcolor{comment}{/// assert (DS\_CSTR\_BYTES == sizeof (ds\_char\_t *));}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00048}00048 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00049}\mbox{\hyperlink{cstr_8h_a8140575d67e20d64d2668be77cfeaa43}{00049}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_CSTR\_BYTES ((ds\_usize\_t)sizeof (ds\_cstr\_t))}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00050}00050 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00051}00051 \textcolor{comment}{/// @internal}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00052}00052 \textcolor{comment}{/// @brief Internal implementation of @ref DS\_SCN\_CSTR.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00053}00053 \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_SCN\_CSTR\_INTERNAL\_IMPL(len) \#len "{}[\string^\(\backslash\)n]\%*"{}} DS\_SCN\_CHAR}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00054}00054 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00055}00055 \textcolor{comment}{/// @brief C-\/string notation. Can be used in `scanf` to parse and read}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00056}00056 \textcolor{comment}{/// `len + 1` (@p len = `size -\/ 1`) sized C-\/string values.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00057}00057 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00058}00058 \textcolor{comment}{/// @param len The length of the C-\/string (excluding the null-\/terminator).}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00059}00059 \textcolor{comment}{/// @warning @p len must be (a macro constant containing) an unsigned integer}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00060}00060 \textcolor{comment}{/// literal (with no suffixes or preceding zeroes). Any other kind of value,}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00061}00061 \textcolor{comment}{/// expression, or statement is strictly disallowed.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00062}00062 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00063}00063 \textcolor{comment}{/// @return C-\/string notation for the given string length @p len.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00064}00064 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00065}00065 \textcolor{comment}{/// @warning It is strongly advised to use}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00066}00066 \textcolor{comment}{/// [`fgets`](https://en.cppreference.com/w/c/io/fgets "{}fgets -\/}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00067}00067 \textcolor{comment}{/// cppreference.com"{}) instead of `scanf` to read input.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00068}00068 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00069}00069 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00070}00070 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00071}00071 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00072}00072 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00073}00073 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00074}00074 \textcolor{comment}{/// \#define SIZE 15}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00075}00075 \textcolor{comment}{/// char x[SIZE + 1];}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00076}00076 \textcolor{comment}{/// scanf("{}\%"{} DS\_SCN\_CSTR(SIZE), x);}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00077}00077 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00078}\mbox{\hyperlink{cstr_8h_ac4c5be5620d1429a8cb1aac130cf7927}{00078}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_SCN\_CSTR(len) DS\_SCN\_CSTR\_INTERNAL\_IMPL (len)}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00079}00079 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00080}00080 \textcolor{comment}{/// @brief C-\/string notation. Can be used in `printf` to format and write}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00081}00081 \textcolor{comment}{/// C-\/string values.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00082}00082 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00083}00083 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00084}00084 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00085}00085 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00086}00086 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00087}00087 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00088}00088 \textcolor{comment}{/// ds\_cstr\_t const x = "{}abc"{};}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00089}00089 \textcolor{comment}{/// printf ("{}\%"{} DS\_PRI\_CSTR, x);}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00090}00090 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00091}\mbox{\hyperlink{cstr_8h_a6aa934dffead8e9b88783d7cacae1ce0}{00091}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_PRI\_CSTR "{}s"{}}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00093}00093 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00095}00095 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00097}00097 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_CSTR\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

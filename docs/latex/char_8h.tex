@@ -15,11 +15,12 @@ Include dependency graph for char.\+h\+:\nopagebreak
 \includegraphics[width=308pt]{char_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=170pt]{char_8h__dep__incl}
+\includegraphics[width=260pt]{char_8h__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Macros}
@@ -61,7 +62,9 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \begin{DoxyCompactItemize}
 \item 
 typedef char \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em A character type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A character type. \end{DoxyCompactList}\item 
+typedef bool($\ast$ \mbox{\hyperlink{char_8h_a3727df91a5ce69a48988a6837c04a015}{ds\+\_\+predicate\+\_\+char\+\_\+t}}) (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}})
+\begin{DoxyCompactList}\small\item\em A function pointer type for \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} predicate functions that return {\ttfamily true} or {\ttfamily false} depending on the passed \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -76,25 +79,25 @@ bool \mbox{\hyperlink{char_8h_a909932a31d20457ee7765543113c2493}{ds\+\_\+char\+\
 bool \mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+alphabetic}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
 \begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII alphabetic character\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+uppercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
-\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII uppercase character\+: U+0041 \textquotesingle{}A\textquotesingle{} ..= U+005A \textquotesingle{}Z\textquotesingle{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII uppercase character\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+lowercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
-\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII lowercase character\+: U+0061 \textquotesingle{}a\textquotesingle{} ..= U+007A \textquotesingle{}z\textquotesingle{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII lowercase character\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+alphanumeric}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
 \begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII alphanumeric character\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+digit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
-\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII decimal digit\+: U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0039 \textquotesingle{}9\textquotesingle{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII decimal digit\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+octdigit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
-\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII octal digit\+: U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0037 \textquotesingle{}7\textquotesingle{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII octal digit\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+hexdigit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
 \begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII hexadecimal digit\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+punctuation}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
 \begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII punctuation character\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+graphic}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
-\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII graphic character\+: U+0021 \textquotesingle{}!\textquotesingle{} ..= U+007E \textquotesingle{}$\sim$\textquotesingle{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII graphic character\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+whitespace}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
-\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII whitespace character\+: U+0020 SPACE, U+0009 HORIZONTAL TAB, U+000A LINE FEED, U+000C FORM FEED, or U+000D CARRIAGE RETURN. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII whitespace character\+: \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{ds\+\_\+char\+\_\+is\+\_\+ascii\+\_\+control}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} self)
-\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII control character\+: U+0000 \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{NUL}} ..= U+001F UNIT SEPARATOR, or U+007F DELETE. Note that most ASCII whitespace characters are control characters, but SPACE is not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily self} is an ASCII control character\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -126,7 +129,7 @@ Definition in file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 The bell character. 
 
-\hypertarget{char_8h_autotoc_md20}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md20}
+\hypertarget{char_8h_autotoc_md21}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md21}
 Basic usage\+:
 
 
@@ -136,7 +139,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00576}{576}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00622}{622}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_a4cd93a91bbfc106e69121712407d6870}\label{char_8h_a4cd93a91bbfc106e69121712407d6870}} 
 \index{char.h@{char.h}!DS\_CHAR\_BS@{DS\_CHAR\_BS}}
@@ -148,7 +151,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00576}{576}} of file \mbox{\
 
 The backspace character. 
 
-\hypertarget{char_8h_autotoc_md21}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md21}
+\hypertarget{char_8h_autotoc_md22}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md22}
 Basic usage\+:
 
 
@@ -158,7 +161,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00587}{587}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00633}{633}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_a1185442ceeb0594a4a4c8d79abce60ad}\label{char_8h_a1185442ceeb0594a4a4c8d79abce60ad}} 
 \index{char.h@{char.h}!DS\_CHAR\_BYTES@{DS\_CHAR\_BYTES}}
@@ -170,7 +173,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00587}{587}} of file \mbox{\
 
 The size of \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} in bytes. 
 
-\hypertarget{char_8h_autotoc_md16}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md16}
+\hypertarget{char_8h_autotoc_md17}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md17}
 Basic usage\+:
 
 
@@ -180,7 +183,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00532}{532}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00578}{578}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_abae91cc24abbffbc1d53c3caab58d099}\label{char_8h_abae91cc24abbffbc1d53c3caab58d099}} 
 \index{char.h@{char.h}!DS\_CHAR\_CR@{DS\_CHAR\_CR}}
@@ -192,7 +195,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00532}{532}} of file \mbox{\
 
 The carriage-\/return character. 
 
-\hypertarget{char_8h_autotoc_md26}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md26}
+\hypertarget{char_8h_autotoc_md27}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md27}
 Basic usage\+:
 
 
@@ -202,7 +205,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00642}{642}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00688}{688}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_a90d15b889b96a58360cc4b4bc88699ab}\label{char_8h_a90d15b889b96a58360cc4b4bc88699ab}} 
 \index{char.h@{char.h}!DS\_CHAR\_DEL@{DS\_CHAR\_DEL}}
@@ -214,7 +217,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00642}{642}} of file \mbox{\
 
 The delete character. 
 
-\hypertarget{char_8h_autotoc_md29}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md29}
+\hypertarget{char_8h_autotoc_md30}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md30}
 Basic usage\+:
 
 
@@ -224,7 +227,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00675}{675}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00721}{721}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_af4527a3902866396fb06f5e4b48f59cb}\label{char_8h_af4527a3902866396fb06f5e4b48f59cb}} 
 \index{char.h@{char.h}!DS\_CHAR\_ESC@{DS\_CHAR\_ESC}}
@@ -236,7 +239,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00675}{675}} of file \mbox{\
 
 The escape character. 
 
-\hypertarget{char_8h_autotoc_md27}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md27}
+\hypertarget{char_8h_autotoc_md28}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md28}
 Basic usage\+:
 
 
@@ -246,7 +249,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00653}{653}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00699}{699}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_af9a168a29fe82734d9436a8b54814990}\label{char_8h_af9a168a29fe82734d9436a8b54814990}} 
 \index{char.h@{char.h}!DS\_CHAR\_FF@{DS\_CHAR\_FF}}
@@ -258,7 +261,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00653}{653}} of file \mbox{\
 
 The form-\/feed character. 
 
-\hypertarget{char_8h_autotoc_md25}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md25}
+\hypertarget{char_8h_autotoc_md26}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md26}
 Basic usage\+:
 
 
@@ -268,7 +271,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00631}{631}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00677}{677}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_a6828f169645a9072b25d7e8251ab2f6d}\label{char_8h_a6828f169645a9072b25d7e8251ab2f6d}} 
 \index{char.h@{char.h}!DS\_CHAR\_HT@{DS\_CHAR\_HT}}
@@ -280,7 +283,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00631}{631}} of file \mbox{\
 
 The horizontal-\/tab character. 
 
-\hypertarget{char_8h_autotoc_md22}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md22}
+\hypertarget{char_8h_autotoc_md23}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md23}
 Basic usage\+:
 
 
@@ -290,7 +293,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00598}{598}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00644}{644}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_ac70befae74272772160d308d9fdbb309}\label{char_8h_ac70befae74272772160d308d9fdbb309}} 
 \index{char.h@{char.h}!DS\_CHAR\_LF@{DS\_CHAR\_LF}}
@@ -302,7 +305,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00598}{598}} of file \mbox{\
 
 The line-\/feed character. 
 
-\hypertarget{char_8h_autotoc_md23}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md23}
+\hypertarget{char_8h_autotoc_md24}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md24}
 Basic usage\+:
 
 
@@ -312,7 +315,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00609}{609}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00655}{655}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_ae542829a032ef5e36137dd69d3415584}\label{char_8h_ae542829a032ef5e36137dd69d3415584}} 
 \index{char.h@{char.h}!DS\_CHAR\_MAX@{DS\_CHAR\_MAX}}
@@ -324,7 +327,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00609}{609}} of file \mbox{\
 
 The largest value that can be represented by \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}}. 
 
-\hypertarget{char_8h_autotoc_md18}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md18}
+\hypertarget{char_8h_autotoc_md19}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md19}
 Basic usage\+:
 
 
@@ -334,7 +337,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00554}{554}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00600}{600}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_a6a4d17f251bbb80c89c3dee5cc586023}\label{char_8h_a6a4d17f251bbb80c89c3dee5cc586023}} 
 \index{char.h@{char.h}!DS\_CHAR\_MIN@{DS\_CHAR\_MIN}}
@@ -346,7 +349,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00554}{554}} of file \mbox{\
 
 The smallest value that can be represented by \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}}. 
 
-\hypertarget{char_8h_autotoc_md17}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md17}
+\hypertarget{char_8h_autotoc_md18}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md18}
 Basic usage\+:
 
 
@@ -356,7 +359,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00543}{543}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00589}{589}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}\label{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}} 
 \index{char.h@{char.h}!DS\_CHAR\_NUL@{DS\_CHAR\_NUL}}
@@ -368,7 +371,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00543}{543}} of file \mbox{\
 
 The null character. 
 
-\hypertarget{char_8h_autotoc_md19}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md19}
+\hypertarget{char_8h_autotoc_md20}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md20}
 Basic usage\+:
 
 
@@ -378,7 +381,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00565}{565}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00611}{611}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_a9968481e3985c88211b3dd11bee857c1}\label{char_8h_a9968481e3985c88211b3dd11bee857c1}} 
 \index{char.h@{char.h}!DS\_CHAR\_US@{DS\_CHAR\_US}}
@@ -390,7 +393,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00565}{565}} of file \mbox{\
 
 The unit-\/separator character. 
 
-\hypertarget{char_8h_autotoc_md28}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md28}
+\hypertarget{char_8h_autotoc_md29}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md29}
 Basic usage\+:
 
 
@@ -400,7 +403,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00664}{664}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00710}{710}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_af6570aedf6c2992c704fe5ee99d984f8}\label{char_8h_af6570aedf6c2992c704fe5ee99d984f8}} 
 \index{char.h@{char.h}!DS\_CHAR\_VT@{DS\_CHAR\_VT}}
@@ -412,7 +415,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00664}{664}} of file \mbox{\
 
 The vertical-\/tab character. 
 
-\hypertarget{char_8h_autotoc_md24}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md24}
+\hypertarget{char_8h_autotoc_md25}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md25}
 Basic usage\+:
 
 
@@ -422,7 +425,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00620}{620}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00666}{666}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_ae7a05ab6f23500c4eb3f066e5b381bd4}\label{char_8h_ae7a05ab6f23500c4eb3f066e5b381bd4}} 
 \index{char.h@{char.h}!DS\_PRI\_CHAR@{DS\_PRI\_CHAR}}
@@ -434,18 +437,18 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00620}{620}} of file \mbox{\
 
 \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} notation. Can be used in {\ttfamily printf} to format and write \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} values. 
 
-\hypertarget{char_8h_autotoc_md31}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md31}
+\hypertarget{char_8h_autotoc_md32}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md32}
 Basic usage\+:
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} x = \mbox{\hyperlink{char_8h_ae542829a032ef5e36137dd69d3415584}{DS\_CHAR\_MAX}};}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} x = \mbox{\hyperlink{char_8h_ae542829a032ef5e36137dd69d3415584}{DS\_CHAR\_MAX}};}
 \DoxyCodeLine{printf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{char_8h_ae7a05ab6f23500c4eb3f066e5b381bd4}{DS\_PRI\_CHAR}}, x);}
 
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00705}{705}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00751}{751}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 \mbox{\Hypertarget{char_8h_ae2ad7e7322720db2607b90a7f0011fa7}\label{char_8h_ae2ad7e7322720db2607b90a7f0011fa7}} 
 \index{char.h@{char.h}!DS\_SCN\_CHAR@{DS\_SCN\_CHAR}}
@@ -460,7 +463,7 @@ Definition at line \mbox{\hyperlink{char_8h_source_l00705}{705}} of file \mbox{\
 \begin{DoxyWarning}{Warning}
 It is strongly advised to use \href{https://en.cppreference.com/w/c/io/fgets}{\texttt{ {\ttfamily fgets}}} instead of {\ttfamily scanf} to read input.
 \end{DoxyWarning}
-\hypertarget{char_8h_autotoc_md30}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md30}
+\hypertarget{char_8h_autotoc_md31}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md31}
 Basic usage\+:
 
 
@@ -471,7 +474,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{char_8h_source_l00692}{692}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+Definition at line \mbox{\hyperlink{char_8h_source_l00738}{738}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 
 
@@ -491,6 +494,50 @@ The \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} type repr
 More specifically, since ‘character’ isn’t a well-\/defined concept in Unicode, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} will be a ‘\+Unicode scalar value’ in the future, when UTF-\/8 validation is fully supported. 
 
 Definition at line \mbox{\hyperlink{char_8h_source_l00030}{30}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
+
+\mbox{\Hypertarget{char_8h_a3727df91a5ce69a48988a6837c04a015}\label{char_8h_a3727df91a5ce69a48988a6837c04a015}} 
+\index{char.h@{char.h}!ds\_predicate\_char\_t@{ds\_predicate\_char\_t}}
+\index{ds\_predicate\_char\_t@{ds\_predicate\_char\_t}!char.h@{char.h}}
+\doxysubsubsection{\texorpdfstring{ds\_predicate\_char\_t}{ds\_predicate\_char\_t}}
+{\footnotesize\ttfamily typedef bool($\ast$ ds\+\_\+predicate\+\_\+char\+\_\+t) (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}})}
+
+
+
+A function pointer type for \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} predicate functions that return {\ttfamily true} or {\ttfamily false} depending on the passed \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} argument. 
+
+Expected function signature\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{bool} predicate(\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}});}
+
+\end{DoxyCode}
+\hypertarget{char_8h_autotoc_md1}{}\doxyparagraph{Examples}\label{char_8h_autotoc_md1}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}}}
+\DoxyCodeLine{count\_only\_allowed (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} \textcolor{keyword}{const} cstr, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \textcolor{keyword}{const} size,}
+\DoxyCodeLine{                    \mbox{\hyperlink{char_8h_a3727df91a5ce69a48988a6837c04a015}{ds\_predicate\_char\_t}} \textcolor{keyword}{const} is\_allowed)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} count = \mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{DS\_USIZE\_MIN}};}
+\DoxyCodeLine{  \textcolor{keywordflow}{for} (\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} i = \mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{DS\_USIZE\_MIN}}; i < size; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{      \textcolor{keywordflow}{if} (is\_allowed (cstr[i]))}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{          count++;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} count;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (count\_only\_allowed (\textcolor{stringliteral}{"{}a1b2c3"{}}, 6, \mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{ds\_char\_is\_ascii\_digit}}) == 3);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{char_8h_source_l00064}{64}} of file \mbox{\hyperlink{char_8h_source}{char.\+h}}.
 
 
 
@@ -524,7 +571,7 @@ Equivalent to\+:
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} and {\ttfamily other} are an ASCII case-\/insensitive match, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md4}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md4}
+\hypertarget{char_8c_autotoc_md5}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md5}
 Basic usage\+:
 
 
@@ -542,7 +589,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00052}{52}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -571,7 +619,7 @@ Checks if {\ttfamily self} lies in the inclusive interval between {\ttfamily sta
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} lies in the inclusive interval between {\ttfamily start} and {\ttfamily end}, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md1}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md1}
+\hypertarget{char_8c_autotoc_md2}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md2}
 Basic usage\+:
 
 
@@ -584,7 +632,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00029}{29}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -615,7 +664,7 @@ Checks if {\ttfamily self} is an ASCII alphabetic character\+:
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII alphabetic character, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md5}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md5}
+\hypertarget{char_8c_autotoc_md6}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md6}
 Basic usage\+:
 
 
@@ -645,7 +694,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00059}{59}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -684,7 +734,7 @@ Checks if {\ttfamily self} is an ASCII alphanumeric character\+:
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII alphanumeric character, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md8}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md8}
+\hypertarget{char_8c_autotoc_md9}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md9}
 Basic usage\+:
 
 
@@ -714,7 +764,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00078}{78}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -729,7 +780,14 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Checks if {\ttfamily self} is an ASCII control character\+: U+0000 \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{NUL}} ..= U+001F UNIT SEPARATOR, or U+007F DELETE. Note that most ASCII whitespace characters are control characters, but SPACE is not. 
+Checks if {\ttfamily self} is an ASCII control character\+: 
+
+
+\begin{DoxyItemize}
+\item U+0000 \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{NUL}} ..= U+001F UNIT SEPARATOR, or U+007F DELETE.
+\end{DoxyItemize}
+
+Note that most ASCII whitespace characters are control characters, but SPACE is not.
 
 
 \begin{DoxyParams}{Parameters}
@@ -739,7 +797,7 @@ Checks if {\ttfamily self} is an ASCII control character\+: U+0000 \mbox{\hyperl
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII control character, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md15}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md15}
+\hypertarget{char_8c_autotoc_md16}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md16}
 Basic usage\+:
 
 
@@ -769,7 +827,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00124}{124}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -784,7 +843,12 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Checks if {\ttfamily self} is an ASCII decimal digit\+: U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0039 \textquotesingle{}9\textquotesingle{}. 
+Checks if {\ttfamily self} is an ASCII decimal digit\+: 
+
+
+\begin{DoxyItemize}
+\item U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0039 \textquotesingle{}9\textquotesingle{}.
+\end{DoxyItemize}
 
 
 \begin{DoxyParams}{Parameters}
@@ -794,7 +858,7 @@ Checks if {\ttfamily self} is an ASCII decimal digit\+: U+0030 \textquotesingle{
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII decimal digit, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md9}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md9}
+\hypertarget{char_8c_autotoc_md10}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md10}
 Basic usage\+:
 
 
@@ -824,14 +888,16 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00084}{84}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=322pt]{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -846,7 +912,12 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-Checks if {\ttfamily self} is an ASCII graphic character\+: U+0021 \textquotesingle{}!\textquotesingle{} ..= U+007E \textquotesingle{}$\sim$\textquotesingle{}. 
+Checks if {\ttfamily self} is an ASCII graphic character\+: 
+
+
+\begin{DoxyItemize}
+\item U+0021 \textquotesingle{}!\textquotesingle{} ..= U+007E \textquotesingle{}$\sim$\textquotesingle{}.
+\end{DoxyItemize}
 
 
 \begin{DoxyParams}{Parameters}
@@ -856,7 +927,7 @@ Checks if {\ttfamily self} is an ASCII graphic character\+: U+0021 \textquotesin
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII graphic character, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md13}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md13}
+\hypertarget{char_8c_autotoc_md14}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md14}
 Basic usage\+:
 
 
@@ -886,7 +957,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00111}{111}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -918,7 +990,7 @@ Checks if {\ttfamily self} is an ASCII hexadecimal digit\+:
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII hexadecimal digit, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md11}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md11}
+\hypertarget{char_8c_autotoc_md12}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md12}
 Basic usage\+:
 
 
@@ -948,7 +1020,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00096}{96}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -963,7 +1036,12 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Checks if {\ttfamily self} is an ASCII lowercase character\+: U+0061 \textquotesingle{}a\textquotesingle{} ..= U+007A \textquotesingle{}z\textquotesingle{}. 
+Checks if {\ttfamily self} is an ASCII lowercase character\+: 
+
+
+\begin{DoxyItemize}
+\item U+0061 \textquotesingle{}a\textquotesingle{} ..= U+007A \textquotesingle{}z\textquotesingle{}.
+\end{DoxyItemize}
 
 
 \begin{DoxyParams}{Parameters}
@@ -973,7 +1051,7 @@ Checks if {\ttfamily self} is an ASCII lowercase character\+: U+0061 \textquotes
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII lowercase character, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md7}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md7}
+\hypertarget{char_8c_autotoc_md8}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md8}
 Basic usage\+:
 
 
@@ -1003,14 +1081,16 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00072}{72}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=348pt]{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1025,7 +1105,12 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-Checks if {\ttfamily self} is an ASCII octal digit\+: U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0037 \textquotesingle{}7\textquotesingle{}. 
+Checks if {\ttfamily self} is an ASCII octal digit\+: 
+
+
+\begin{DoxyItemize}
+\item U+0030 \textquotesingle{}0\textquotesingle{} ..= U+0037 \textquotesingle{}7\textquotesingle{}.
+\end{DoxyItemize}
 
 
 \begin{DoxyParams}{Parameters}
@@ -1035,7 +1120,7 @@ Checks if {\ttfamily self} is an ASCII octal digit\+: U+0030 \textquotesingle{}0
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII octal digit, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md10}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md10}
+\hypertarget{char_8c_autotoc_md11}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md11}
 Basic usage\+:
 
 
@@ -1061,7 +1146,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00090}{90}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1094,7 +1180,7 @@ Checks if {\ttfamily self} is an ASCII punctuation character\+:
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII punctuation character, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md12}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md12}
+\hypertarget{char_8c_autotoc_md13}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md13}
 Basic usage\+:
 
 
@@ -1139,7 +1225,12 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Checks if {\ttfamily self} is an ASCII uppercase character\+: U+0041 \textquotesingle{}A\textquotesingle{} ..= U+005A \textquotesingle{}Z\textquotesingle{}. 
+Checks if {\ttfamily self} is an ASCII uppercase character\+: 
+
+
+\begin{DoxyItemize}
+\item U+0041 \textquotesingle{}A\textquotesingle{} ..= U+005A \textquotesingle{}Z\textquotesingle{}.
+\end{DoxyItemize}
 
 
 \begin{DoxyParams}{Parameters}
@@ -1149,7 +1240,7 @@ Checks if {\ttfamily self} is an ASCII uppercase character\+: U+0041 \textquotes
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII uppercase character, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md6}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md6}
+\hypertarget{char_8c_autotoc_md7}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md7}
 Basic usage\+:
 
 
@@ -1179,14 +1270,16 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00066}{66}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=349pt]{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1201,7 +1294,16 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-Checks if {\ttfamily self} is an ASCII whitespace character\+: U+0020 SPACE, U+0009 HORIZONTAL TAB, U+000A LINE FEED, U+000C FORM FEED, or U+000D CARRIAGE RETURN. 
+Checks if {\ttfamily self} is an ASCII whitespace character\+: 
+
+
+\begin{DoxyItemize}
+\item U+0020 SPACE,
+\item U+0009 HORIZONTAL TAB,
+\item U+000A LINE FEED,
+\item U+000C FORM FEED, or
+\item U+000D CARRIAGE RETURN.
+\end{DoxyItemize}
 
 {\ttfamily ds} uses the What\+WG Infra Standard\textquotesingle{}s \href{https://infra.spec.whatwg.org/\#ascii-whitespace}{\texttt{ definition of ASCII whitespace}}. There are several other definitions in wide use. For instance, \href{https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap07.html\#tag_07_03_01}{\texttt{ the POSIX locale}} includes U+000B VERTICAL TAB as well as all the above characters, but—from the very same specification—\href{https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html\#tag_18_06_05}{\texttt{ the default rule for "{}field splitting"{} in the Bourne shell}} considers {\itshape only} SPACE, HORIZONTAL TAB, and LINE FEED as whitespace.
 
@@ -1215,7 +1317,7 @@ If you are writing a program that will process an existing file format, check wh
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if {\ttfamily self} is an ASCII whitespace character, {\ttfamily false} otherwise.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md14}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md14}
+\hypertarget{char_8c_autotoc_md15}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md15}
 Basic usage\+:
 
 
@@ -1265,7 +1367,7 @@ ASCII letters \textquotesingle{}A\textquotesingle{} to \textquotesingle{}Z\textq
 \begin{DoxyReturn}{Returns}
 The ASCII lower case equivalent of {\ttfamily self}.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md3}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md3}
+\hypertarget{char_8c_autotoc_md4}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md4}
 Basic usage\+:
 
 
@@ -1281,7 +1383,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00044}{44}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1315,7 +1418,7 @@ ASCII letters \textquotesingle{}a\textquotesingle{} to \textquotesingle{}z\textq
 \begin{DoxyReturn}{Returns}
 The ASCII upper case equivalent of {\ttfamily self}.
 \end{DoxyReturn}
-\hypertarget{char_8c_autotoc_md2}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md2}
+\hypertarget{char_8c_autotoc_md3}{}\doxyparagraph{Examples}\label{char_8c_autotoc_md3}
 Basic usage\+:
 
 
@@ -1331,7 +1434,8 @@ Basic usage\+:
 
 Definition at line \mbox{\hyperlink{char_8c_source_l00036}{36}} of file \mbox{\hyperlink{char_8c_source}{char.\+c}}.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

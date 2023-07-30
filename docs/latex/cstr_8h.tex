@@ -1,0 +1,191 @@
+\hypertarget{cstr_8h}{}\doxysection{include/ds/cstr.h File Reference}
+\label{cstr_8h}\index{include/ds/cstr.h@{include/ds/cstr.h}}
+
+
+Declaration of the C-\/string types, related constants and functions.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ds/char.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ds/usize.\+h\char`\"{}}\newline
+Include dependency graph for cstr.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{cstr_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{cstr_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{cstr_8h_a8140575d67e20d64d2668be77cfeaa43}{DS\+\_\+\+CSTR\+\_\+\+BYTES}}~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})sizeof (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}}))
+\begin{DoxyCompactList}\small\item\em The size of C-\/strings in bytes. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cstr_8h_ac4c5be5620d1429a8cb1aac130cf7927}{DS\+\_\+\+SCN\+\_\+\+CSTR}}(len)~DS\+\_\+\+SCN\+\_\+\+CSTR\+\_\+\+INTERNAL\+\_\+\+IMPL (len)
+\begin{DoxyCompactList}\small\item\em C-\/string notation. Can be used in {\ttfamily scanf} to parse and read {\ttfamily len + 1} ({\ttfamily len} = {\ttfamily size -\/ 1}) sized C-\/string values. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cstr_8h_a6aa934dffead8e9b88783d7cacae1ce0}{DS\+\_\+\+PRI\+\_\+\+CSTR}}~\char`\"{}s\char`\"{}
+\begin{DoxyCompactList}\small\item\em C-\/string notation. Can be used in {\ttfamily printf} to format and write C-\/string values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const  $\ast$ \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em An immutable C-\/string type. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} $\ast$ \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A mutable C-\/string type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration of the C-\/string types, related constants and functions. 
+
+\begin{DoxyAuthor}{Author}
+Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+0.\+5.\+0 
+\end{DoxySince}
+\begin{DoxyDate}{Date}
+2023-\/07-\/31 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{cstr_8h_source}{cstr.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{cstr_8h_a8140575d67e20d64d2668be77cfeaa43}\label{cstr_8h_a8140575d67e20d64d2668be77cfeaa43}} 
+\index{cstr.h@{cstr.h}!DS\_CSTR\_BYTES@{DS\_CSTR\_BYTES}}
+\index{DS\_CSTR\_BYTES@{DS\_CSTR\_BYTES}!cstr.h@{cstr.h}}
+\doxysubsubsection{\texorpdfstring{DS\_CSTR\_BYTES}{DS\_CSTR\_BYTES}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+CSTR\+\_\+\+BYTES~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})sizeof (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}}))}
+
+
+
+The size of C-\/strings in bytes. 
+
+\hypertarget{cstr_8h_autotoc_md33}{}\doxyparagraph{Examples}\label{cstr_8h_autotoc_md33}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{cstr_8h_a8140575d67e20d64d2668be77cfeaa43}{DS\_CSTR\_BYTES}} == \textcolor{keyword}{sizeof} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} *));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{cstr_8h_source_l00049}{49}} of file \mbox{\hyperlink{cstr_8h_source}{cstr.\+h}}.
+
+\mbox{\Hypertarget{cstr_8h_a6aa934dffead8e9b88783d7cacae1ce0}\label{cstr_8h_a6aa934dffead8e9b88783d7cacae1ce0}} 
+\index{cstr.h@{cstr.h}!DS\_PRI\_CSTR@{DS\_PRI\_CSTR}}
+\index{DS\_PRI\_CSTR@{DS\_PRI\_CSTR}!cstr.h@{cstr.h}}
+\doxysubsubsection{\texorpdfstring{DS\_PRI\_CSTR}{DS\_PRI\_CSTR}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+PRI\+\_\+\+CSTR~\char`\"{}s\char`\"{}}
+
+
+
+C-\/string notation. Can be used in {\ttfamily printf} to format and write C-\/string values. 
+
+\hypertarget{cstr_8h_autotoc_md35}{}\doxyparagraph{Examples}\label{cstr_8h_autotoc_md35}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} \textcolor{keyword}{const} x = \textcolor{stringliteral}{"{}abc"{}};}
+\DoxyCodeLine{printf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{cstr_8h_a6aa934dffead8e9b88783d7cacae1ce0}{DS\_PRI\_CSTR}}, x);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{cstr_8h_source_l00091}{91}} of file \mbox{\hyperlink{cstr_8h_source}{cstr.\+h}}.
+
+\mbox{\Hypertarget{cstr_8h_ac4c5be5620d1429a8cb1aac130cf7927}\label{cstr_8h_ac4c5be5620d1429a8cb1aac130cf7927}} 
+\index{cstr.h@{cstr.h}!DS\_SCN\_CSTR@{DS\_SCN\_CSTR}}
+\index{DS\_SCN\_CSTR@{DS\_SCN\_CSTR}!cstr.h@{cstr.h}}
+\doxysubsubsection{\texorpdfstring{DS\_SCN\_CSTR}{DS\_SCN\_CSTR}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+SCN\+\_\+\+CSTR(\begin{DoxyParamCaption}\item[{}]{len }\end{DoxyParamCaption})~DS\+\_\+\+SCN\+\_\+\+CSTR\+\_\+\+INTERNAL\+\_\+\+IMPL (len)}
+
+
+
+C-\/string notation. Can be used in {\ttfamily scanf} to parse and read {\ttfamily len + 1} ({\ttfamily len} = {\ttfamily size -\/ 1}) sized C-\/string values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em len} & The length of the C-\/string (excluding the null-\/terminator). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+{\ttfamily len} must be (a macro constant containing) an unsigned integer literal (with no suffixes or preceding zeroes). Any other kind of value, expression, or statement is strictly disallowed.
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+C-\/string notation for the given string length {\ttfamily len}.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+It is strongly advised to use \href{https://en.cppreference.com/w/c/io/fgets}{\texttt{ {\ttfamily fgets}}} instead of {\ttfamily scanf} to read input.
+\end{DoxyWarning}
+\hypertarget{cstr_8h_autotoc_md34}{}\doxyparagraph{Examples}\label{cstr_8h_autotoc_md34}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define SIZE 15}}
+\DoxyCodeLine{\textcolor{keywordtype}{char} x[SIZE + 1];}
+\DoxyCodeLine{scanf(\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{cstr_8h_ac4c5be5620d1429a8cb1aac130cf7927}{DS\_SCN\_CSTR}}(SIZE), x);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{cstr_8h_source_l00078}{78}} of file \mbox{\hyperlink{cstr_8h_source}{cstr.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}\label{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}} 
+\index{cstr.h@{cstr.h}!ds\_cstr\_mut\_t@{ds\_cstr\_mut\_t}}
+\index{ds\_cstr\_mut\_t@{ds\_cstr\_mut\_t}!cstr.h@{cstr.h}}
+\doxysubsubsection{\texorpdfstring{ds\_cstr\_mut\_t}{ds\_cstr\_mut\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}$\ast$ \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}}}
+
+
+
+A mutable C-\/string type. 
+
+The \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{mutable C-\/string}} type represents a pointer to a mutable \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} array.
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Immutable_object}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Immutable\+\_\+object}} 
+
+\href{https://en.wikipedia.org/wiki/C_string_handling}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+C\+\_\+string\+\_\+handling}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{cstr_8h_source_l00038}{38}} of file \mbox{\hyperlink{cstr_8h_source}{cstr.\+h}}.
+
+\mbox{\Hypertarget{cstr_8h_a61bae52e31d5f3834166a135566a880f}\label{cstr_8h_a61bae52e31d5f3834166a135566a880f}} 
+\index{cstr.h@{cstr.h}!ds\_cstr\_t@{ds\_cstr\_t}}
+\index{ds\_cstr\_t@{ds\_cstr\_t}!cstr.h@{cstr.h}}
+\doxysubsubsection{\texorpdfstring{ds\_cstr\_t}{ds\_cstr\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const$\ast$ \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}}}
+
+
+
+An immutable C-\/string type. 
+
+The \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{immutable C-\/string}} type represents a pointer to an immutable \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} array.
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Immutable_object}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Immutable\+\_\+object}} 
+
+\href{https://en.wikipedia.org/wiki/C_string_handling}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+C\+\_\+string\+\_\+handling}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{cstr_8h_source_l00029}{29}} of file \mbox{\hyperlink{cstr_8h_source}{cstr.\+h}}.
+

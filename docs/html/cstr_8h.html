@@ -1,0 +1,353 @@
+<!-- HTML header for doxygen 1.9.4-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.9.4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ds: include/ds/cstr.h File Reference</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+ <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+ <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+    <script
+      type="text/javascript"
+      src="doxygen-awesome-darkmode-toggle.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="doxygen-awesome-fragment-copy-button.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="doxygen-awesome-paragraph-link.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="doxygen-awesome-interactive-toc.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="doxygen-awesome-tabs.js"
+    ></script>
+    <script type="text/javascript">
+      DoxygenAwesomeDarkModeToggle.lightModeIcon =
+        '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 12 2Zm0 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-1.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm9.25-2.75a.75.75 0 0 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5h1.5ZM12 19a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 12 19Zm-7.75-6.25a.75.75 0 0 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5h1.5Zm-.03-8.53a.75.75 0 0 1 1.06 0l1.5 1.5a.75.75 0 0 1-1.06 1.06l-1.5-1.5a.75.75 0 0 1 0-1.06Zm1.06 15.56a.75.75 0 1 1-1.06-1.06l1.5-1.5a.75.75 0 1 1 1.06 1.06l-1.5 1.5Zm14.5-15.56a.75.75 0 0 0-1.06 0l-1.5 1.5a.75.75 0 0 0 1.06 1.06l1.5-1.5a.75.75 0 0 0 0-1.06Zm-1.06 15.56a.75.75 0 1 0 1.06-1.06l-1.5-1.5a.75.75 0 1 0-1.06 1.06l1.5 1.5Z" fill="#212121"/></svg>';
+      DoxygenAwesomeDarkModeToggle.darkModeIcon =
+        '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.026 17.001c-2.762 4.784-8.879 6.423-13.663 3.661A9.965 9.965 0 0 1 3.13 17.68a.75.75 0 0 1 .365-1.132c3.767-1.348 5.785-2.91 6.956-5.146 1.232-2.353 1.551-4.93.689-8.463a.75.75 0 0 1 .769-.927 9.961 9.961 0 0 1 4.457 1.327c4.784 2.762 6.423 8.879 3.66 13.662Zm-8.248-4.903c-1.25 2.389-3.31 4.1-6.817 5.499a8.49 8.49 0 0 0 2.152 1.766 8.502 8.502 0 0 0 8.502-14.725 8.484 8.484 0 0 0-2.792-1.015c.647 3.384.23 6.043-1.045 8.475Z" fill="#dedede"/></svg>';
+      DoxygenAwesomeFragmentCopyButton.copyIcon =
+        '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.503 4.627 5.5 6.75v10.504a3.25 3.25 0 0 0 3.25 3.25h8.616a2.251 2.251 0 0 1-2.122 1.5H8.75A4.75 4.75 0 0 1 4 17.254V6.75c0-.98.627-1.815 1.503-2.123ZM17.75 2A2.25 2.25 0 0 1 20 4.25v13a2.25 2.25 0 0 1-2.25 2.25h-9a2.25 2.25 0 0 1-2.25-2.25v-13A2.25 2.25 0 0 1 8.75 2h9Zm0 1.5h-9a.75.75 0 0 0-.75.75v13c0 .414.336.75.75.75h9a.75.75 0 0 0 .75-.75v-13a.75.75 0 0 0-.75-.75Z"/></svg>';
+      DoxygenAwesomeFragmentCopyButton.successIcon =
+        '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.53 12.97a.75.75 0 0 0-1.06 1.06l4.5 4.5a.75.75 0 0 0 1.06 0l11-11a.75.75 0 0 0-1.06-1.06L8.5 16.94l-3.97-3.97Z"/></svg>';
+      DoxygenAwesomeParagraphLink.icon = "¶";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      // DoxygenAwesomeTabs.init();
+    </script>
+  </head>
+  <body>
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">
+                    ds<span
+                      id="projectnumber"
+                      >&#160;0.5.0</span
+                    >
+                  </div>
+                  <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+      </div>
+    </div>
+  </body>
+</html>
+<!-- Generated by Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Search','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('cstr_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle"><div class="title">cstr.h File Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Declaration of the C-string types, related constants and functions.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="char_8h_source.html">ds/char.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="usize_8h_source.html">ds/usize.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for cstr.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="cstr_8h__incl.png" border="0" usemap="#ainclude_2ds_2cstr_8h" alt=""/></div>
+<map name="ainclude_2ds_2cstr_8h" id="ainclude_2ds_2cstr_8h">
+<area shape="rect" title="Declaration of the C&#45;string types, related constants and functions." alt="" coords="77,5,195,32"/>
+<area shape="rect" title=" " alt="" coords="5,155,80,181"/>
+<area shape="rect" href="char_8h.html" title="Declaration of the char type, related constants and functions." alt="" coords="99,80,173,107"/>
+<area shape="rect" href="usize_8h.html" title="Declaration of the usize type, related constants and functions." alt="" coords="192,155,272,181"/>
+<area shape="rect" title=" " alt="" coords="105,155,167,181"/>
+<area shape="rect" title=" " alt="" coords="153,229,221,256"/>
+<area shape="rect" title=" " alt="" coords="245,229,309,256"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="cstr_8h__dep__incl.png" border="0" usemap="#ainclude_2ds_2cstr_8hdep" alt=""/></div>
+<map name="ainclude_2ds_2cstr_8hdep" id="ainclude_2ds_2cstr_8hdep">
+<area shape="rect" title="Declaration of the C&#45;string types, related constants and functions." alt="" coords="5,5,123,32"/>
+<area shape="rect" href="cstr_8c.html" title="Implementation of the C&#45;string types, related constants and functions." alt="" coords="17,80,111,107"/>
+</map>
+</div>
+</div>
+<p><a href="cstr_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8140575d67e20d64d2668be77cfeaa43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a>&#160;&#160;&#160;((<a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a>)sizeof (<a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a>))</td></tr>
+<tr class="memdesc:a8140575d67e20d64d2668be77cfeaa43"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of C-strings in bytes.  <a href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">More...</a><br /></td></tr>
+<tr class="separator:a8140575d67e20d64d2668be77cfeaa43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4c5be5620d1429a8cb1aac130cf7927"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">DS_SCN_CSTR</a>(len)&#160;&#160;&#160;DS_SCN_CSTR_INTERNAL_IMPL (len)</td></tr>
+<tr class="memdesc:ac4c5be5620d1429a8cb1aac130cf7927"><td class="mdescLeft">&#160;</td><td class="mdescRight">C-string notation. Can be used in <code>scanf</code> to parse and read <code>len + 1</code> (<code>len</code> = <code>size - 1</code>) sized C-string values.  <a href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">More...</a><br /></td></tr>
+<tr class="separator:ac4c5be5620d1429a8cb1aac130cf7927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aa934dffead8e9b88783d7cacae1ce0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">DS_PRI_CSTR</a>&#160;&#160;&#160;&quot;s&quot;</td></tr>
+<tr class="memdesc:a6aa934dffead8e9b88783d7cacae1ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">C-string notation. Can be used in <code>printf</code> to format and write C-string values.  <a href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">More...</a><br /></td></tr>
+<tr class="separator:a6aa934dffead8e9b88783d7cacae1ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a61bae52e31d5f3834166a135566a880f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a></td></tr>
+<tr class="memdesc:a61bae52e31d5f3834166a135566a880f"><td class="mdescLeft">&#160;</td><td class="mdescRight">An immutable C-string type.  <a href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">More...</a><br /></td></tr>
+<tr class="separator:a61bae52e31d5f3834166a135566a880f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba5ab6409b8c3d88e892a3a4702ea11"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a></td></tr>
+<tr class="memdesc:adba5ab6409b8c3d88e892a3a4702ea11"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable C-string type.  <a href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">More...</a><br /></td></tr>
+<tr class="separator:adba5ab6409b8c3d88e892a3a4702ea11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Declaration of the C-string types, related constants and functions. </p>
+<dl class="section author"><dt>Author</dt><dd>Avinash Maddikonda (<a href="#" onclick="location.href='mai'+'lto:'+'sva'+'ss'+'sak'+'av'+'i@g'+'ma'+'il.'+'co'+'m'; return false;">svass<span class="obfuscator">.nosp@m.</span>saka<span class="obfuscator">.nosp@m.</span>vi@gm<span class="obfuscator">.nosp@m.</span>ail.<span class="obfuscator">.nosp@m.</span>com</a>) </dd></dl>
+<dl class="section since"><dt>Since</dt><dd>0.5.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-07-31 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a8140575d67e20d64d2668be77cfeaa43" name="a8140575d67e20d64d2668be77cfeaa43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8140575d67e20d64d2668be77cfeaa43">&#9670;&nbsp;</a></span>DS_CSTR_BYTES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS_CSTR_BYTES&#160;&#160;&#160;((<a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a>)sizeof (<a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The size of C-strings in bytes. </p>
+<h3><a class="anchor" id="autotoc_md33"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line">assert (<a class="code hl_define" href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a> == <span class="keyword">sizeof</span> (<a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> *));</div>
+<div class="ttc" id="achar_8h_html_a2c809211274ede9eddff5a750bdeb5ae"><div class="ttname"><a href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a></div><div class="ttdeci">char ds_char_t</div><div class="ttdoc">A character type.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00030">char.h:30</a></div></div>
+<div class="ttc" id="acstr_8h_html_a8140575d67e20d64d2668be77cfeaa43"><div class="ttname"><a href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a></div><div class="ttdeci">#define DS_CSTR_BYTES</div><div class="ttdoc">The size of C-strings in bytes.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00049">cstr.h:49</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00049">49</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+
+</div>
+</div>
+<a id="a6aa934dffead8e9b88783d7cacae1ce0" name="a6aa934dffead8e9b88783d7cacae1ce0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aa934dffead8e9b88783d7cacae1ce0">&#9670;&nbsp;</a></span>DS_PRI_CSTR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS_PRI_CSTR&#160;&#160;&#160;&quot;s&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>C-string notation. Can be used in <code>printf</code> to format and write C-string values. </p>
+<h3><a class="anchor" id="autotoc_md35"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_typedef" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> <span class="keyword">const</span> x = <span class="stringliteral">&quot;abc&quot;</span>;</div>
+<div class="line">printf (<span class="stringliteral">&quot;%&quot;</span> <a class="code hl_define" href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">DS_PRI_CSTR</a>, x);</div>
+<div class="ttc" id="acstr_8h_html_a61bae52e31d5f3834166a135566a880f"><div class="ttname"><a href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a></div><div class="ttdeci">ds_char_t const  * ds_cstr_t</div><div class="ttdoc">An immutable C-string type.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00029">cstr.h:29</a></div></div>
+<div class="ttc" id="acstr_8h_html_a6aa934dffead8e9b88783d7cacae1ce0"><div class="ttname"><a href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">DS_PRI_CSTR</a></div><div class="ttdeci">#define DS_PRI_CSTR</div><div class="ttdoc">C-string notation. Can be used in printf to format and write C-string values.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00091">cstr.h:91</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00091">91</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+
+</div>
+</div>
+<a id="ac4c5be5620d1429a8cb1aac130cf7927" name="ac4c5be5620d1429a8cb1aac130cf7927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c5be5620d1429a8cb1aac130cf7927">&#9670;&nbsp;</a></span>DS_SCN_CSTR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS_SCN_CSTR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">len</td><td>)</td>
+          <td>&#160;&#160;&#160;DS_SCN_CSTR_INTERNAL_IMPL (len)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>C-string notation. Can be used in <code>scanf</code> to parse and read <code>len + 1</code> (<code>len</code> = <code>size - 1</code>) sized C-string values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">len</td><td>The length of the C-string (excluding the null-terminator). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd><code>len</code> must be (a macro constant containing) an unsigned integer literal (with no suffixes or preceding zeroes). Any other kind of value, expression, or statement is strictly disallowed.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>C-string notation for the given string length <code>len</code>.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It is strongly advised to use <a href="https://en.cppreference.com/w/c/io/fgets" title="fgets - cppreference.com"><code>fgets</code></a> instead of <code>scanf</code> to read input.</dd></dl>
+<h3><a class="anchor" id="autotoc_md34"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#define SIZE 15</span></div>
+<div class="line"><span class="keywordtype">char</span> x[SIZE + 1];</div>
+<div class="line">scanf(<span class="stringliteral">&quot;%&quot;</span> <a class="code hl_define" href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">DS_SCN_CSTR</a>(SIZE), x);</div>
+<div class="ttc" id="acstr_8h_html_ac4c5be5620d1429a8cb1aac130cf7927"><div class="ttname"><a href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">DS_SCN_CSTR</a></div><div class="ttdeci">#define DS_SCN_CSTR(len)</div><div class="ttdoc">C-string notation. Can be used in scanf to parse and read len + 1 (len = size - 1) sized C-string val...</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00078">cstr.h:78</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00078">78</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="adba5ab6409b8c3d88e892a3a4702ea11" name="adba5ab6409b8c3d88e892a3a4702ea11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adba5ab6409b8c3d88e892a3a4702ea11">&#9670;&nbsp;</a></span>ds_cstr_mut_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a>* <a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A mutable C-string type. </p>
+<p >The <a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">mutable C-string</a> type represents a pointer to a mutable <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> array.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Immutable_object">https://en.wikipedia.org/wiki/Immutable_object</a> </dd>
+<dd>
+<a href="https://en.wikipedia.org/wiki/C_string_handling">https://en.wikipedia.org/wiki/C_string_handling</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00038">38</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+
+</div>
+</div>
+<a id="a61bae52e31d5f3834166a135566a880f" name="a61bae52e31d5f3834166a135566a880f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61bae52e31d5f3834166a135566a880f">&#9670;&nbsp;</a></span>ds_cstr_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> const* <a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An immutable C-string type. </p>
+<p >The <a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">immutable C-string</a> type represents a pointer to an immutable <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">char</a> array.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Immutable_object">https://en.wikipedia.org/wiki/Immutable_object</a> </dd>
+<dd>
+<a href="https://en.wikipedia.org/wiki/C_string_handling">https://en.wikipedia.org/wiki/C_string_handling</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00029">29</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_b9148fc9a2e8ee35527863418373429b.html">ds</a></li><li class="navelem"><a class="el" href="cstr_8h.html">cstr.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>
