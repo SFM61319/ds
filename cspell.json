@@ -40,15 +40,27 @@
   "validateDirectives": true,
   "version": "0.2",
   "words": [
+    "bfs",
+    "cvd",
+    "debian",
     "ds",
     "dyn",
+    "foss",
+    "iec",
+    "msvc",
+    "msys",
     "nul",
+    "posix",
     "sfm",
     "str",
     "streq",
+    "tada",
     "ucd",
+    "ui",
     "usize",
     "utf",
+    "wsl",
+    "xy",
     "zu"
   ]
 }
