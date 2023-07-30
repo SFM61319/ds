@@ -12,6 +12,7 @@ this project adheres to
 ### Added
 
 - More named character constants.
+- A character predicate function pointer type.
 
 ## [`v0.4.0`] - 2023-07-27
 

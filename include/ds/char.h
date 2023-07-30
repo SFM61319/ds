@@ -29,6 +29,40 @@ extern "C"
   /// future, when UTF-8 validation is fully supported.
   typedef char ds_char_t;
 
+  /// @brief A function pointer type for @ref ds_char_t "char" predicate
+  /// functions that return `true` or `false` depending on the passed @ref
+  /// ds_char_t "char" argument.
+  ///
+  /// Expected function signature:
+  ///
+  /// ```c
+  /// bool predicate(ds_char_t);
+  /// ```
+  ///
+  /// ### Examples
+  ///
+  /// Basic usage:
+  ///
+  /// ```c
+  /// ds_usize_t
+  /// count_only_allowed (ds_cstr_t const cstr, ds_usize_t const size,
+  ///                     ds_predicate_char_t const is_allowed)
+  /// {
+  ///   ds_usize_t count = DS_USIZE_MIN;
+  ///   for (ds_usize_t i = DS_USIZE_MIN; i < size; i++)
+  ///     {
+  ///       if (is_allowed (cstr[i]))
+  ///         {
+  ///           count++;
+  ///         }
+  ///     }
+  ///   return count;
+  /// }
+  ///
+  /// assert (count_only_allowed ("a1b2c3", 6, ds_char_is_ascii_digit) == 3);
+  /// ```
+  typedef bool (*ds_predicate_char_t) (ds_char_t);
+
   /// @brief Checks if @p self lies in the inclusive interval between @p start
   /// and @p end.
   /// @param self The value to check.
@@ -156,7 +190,8 @@ extern "C"
   extern bool ds_char_is_ascii_alphabetic (ds_char_t self);
 
   /// @brief Checks if @p self is an ASCII uppercase character:
-  /// U+0041 'A' ..= U+005A 'Z'.
+  ///
+  /// - U+0041 'A' ..= U+005A 'Z'.
   ///
   /// @param self The value to check.
   /// @return `true` if @p self is an ASCII uppercase character, `false`
@@ -190,7 +225,8 @@ extern "C"
   extern bool ds_char_is_ascii_uppercase (ds_char_t self);
 
   /// @brief Checks if @p self is an ASCII lowercase character:
-  /// U+0061 'a' ..= U+007A 'z'.
+  ///
+  /// - U+0061 'a' ..= U+007A 'z'.
   ///
   /// @param self The value to check.
   /// @return `true` if @p self is an ASCII lowercase character, `false`
@@ -261,7 +297,8 @@ extern "C"
   extern bool ds_char_is_ascii_alphanumeric (ds_char_t self);
 
   /// @brief Checks if @p self is an ASCII decimal digit:
-  /// U+0030 '0' ..= U+0039 '9'.
+  ///
+  /// - U+0030 '0' ..= U+0039 '9'.
   ///
   /// @param self The value to check.
   /// @return `true` if @p self is an ASCII decimal digit, `false` otherwise.
@@ -294,7 +331,8 @@ extern "C"
   extern bool ds_char_is_ascii_digit (ds_char_t self);
 
   /// @brief Checks if @p self is an ASCII octal digit:
-  /// U+0030 '0' ..= U+0037 '7'.
+  ///
+  /// - U+0030 '0' ..= U+0037 '7'.
   ///
   /// @param self The value to check.
   /// @return `true` if @p self is an ASCII octal digit, `false` otherwise.
@@ -398,7 +436,8 @@ extern "C"
   extern bool ds_char_is_ascii_punctuation (ds_char_t self);
 
   /// @brief Checks if @p self is an ASCII graphic character:
-  /// U+0021 '!' ..= U+007E '~'.
+  ///
+  /// - U+0021 '!' ..= U+007E '~'.
   ///
   /// @param self The value to check.
   /// @return `true` if @p self is an ASCII graphic character, `false`
@@ -432,8 +471,12 @@ extern "C"
   extern bool ds_char_is_ascii_graphic (ds_char_t self);
 
   /// @brief Checks if @p self is an ASCII whitespace character:
-  /// U+0020 SPACE, U+0009 HORIZONTAL TAB, U+000A LINE FEED,
-  /// U+000C FORM FEED, or U+000D CARRIAGE RETURN.
+  ///
+  /// - U+0020 SPACE,
+  /// - U+0009 HORIZONTAL TAB,
+  /// - U+000A LINE FEED,
+  /// - U+000C FORM FEED, or
+  /// - U+000D CARRIAGE RETURN.
   ///
   /// `ds` uses the WhatWG Infra Standard's [definition of ASCII
   /// whitespace][infra-aw]. There are several other definitions in wide use.
@@ -485,9 +528,12 @@ extern "C"
   extern bool ds_char_is_ascii_whitespace (ds_char_t self);
 
   /// @brief Checks if @p self is an ASCII control character:
-  /// U+0000 @ref DS_CHAR_NUL "NUL" ..= U+001F UNIT SEPARATOR, or U+007F
-  /// DELETE. Note that most ASCII whitespace characters are control
-  /// characters, but SPACE is not.
+  ///
+  /// - U+0000 @ref DS_CHAR_NUL "NUL" ..= U+001F UNIT SEPARATOR, or U+007F
+  /// DELETE.
+  ///
+  /// Note that most ASCII whitespace characters are control characters, but
+  /// SPACE is not.
   ///
   /// @param self The value to check.
   /// @return `true` if @p self is an ASCII control character, `false`
@@ -699,7 +745,7 @@ extern "C"
 /// Basic usage:
 ///
 /// ```c
-/// ds_char_t x = DS_CHAR_MAX;
+/// ds_char_t const x = DS_CHAR_MAX;
 /// printf ("%" DS_PRI_CHAR, x);
 /// ```
 #define DS_PRI_CHAR "c"
