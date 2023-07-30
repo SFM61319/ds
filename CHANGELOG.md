@@ -9,8 +9,11 @@ this project adheres to
 
 ## [Unreleased]
 
+## [`v0.5.0`] - 2023-07-31
+
 ### Added
 
+- C-string types and their related constants and functions.
 - More named character constants.
 - A character predicate function pointer type.
 
@@ -46,3 +49,4 @@ this project adheres to
 [`v0.2.0`]: https://github.com/SFM61319/ds/compare/v0.1.0...v0.2.0
 [`v0.3.0`]: https://github.com/SFM61319/ds/compare/v0.2.0...v0.3.0
 [`v0.4.0`]: https://github.com/SFM61319/ds/compare/v0.3.0...v0.4.0
+[`v0.5.0`]: https://github.com/SFM61319/ds/compare/v0.4.0...v0.5.0

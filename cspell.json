@@ -54,6 +54,7 @@
     "sfm",
     "str",
     "streq",
+    "strne",
     "tada",
     "ucd",
     "ui",
