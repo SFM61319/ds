@@ -116,12 +116,13 @@ ds_char_is_ascii_graphic (ds_char_t const self)
 bool
 ds_char_is_ascii_whitespace (ds_char_t const self)
 {
-  return self == '\t' || self == '\n' || self == '\x0C' || self == '\r'
-         || self == ' ';
+  return self == DS_CHAR_HT || self == DS_CHAR_LF || self == DS_CHAR_FF
+         || self == DS_CHAR_CR || self == ' ';
 }
 
 bool
 ds_char_is_ascii_control (ds_char_t const self)
 {
-  return self == '\x7F' || ds_char_in_range (self, DS_CHAR_NUL, '\x1F');
+  return self == DS_CHAR_DEL
+         || ds_char_in_range (self, DS_CHAR_NUL, DS_CHAR_US);
 }

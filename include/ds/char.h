@@ -140,8 +140,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (ds_char_is_ascii_alphabetic (uppercase_a));
   /// assert (ds_char_is_ascii_alphabetic (uppercase_g));
@@ -174,8 +174,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (ds_char_is_ascii_uppercase (uppercase_a));
   /// assert (ds_char_is_ascii_uppercase (uppercase_g));
@@ -208,8 +208,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (!ds_char_is_ascii_lowercase (uppercase_a));
   /// assert (!ds_char_is_ascii_lowercase (uppercase_g));
@@ -245,8 +245,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (ds_char_is_ascii_alphanumeric (uppercase_a));
   /// assert (ds_char_is_ascii_alphanumeric (uppercase_g));
@@ -278,8 +278,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (!ds_char_is_ascii_digit (uppercase_a));
   /// assert (!ds_char_is_ascii_digit (uppercase_g));
@@ -310,7 +310,7 @@ extern "C"
   /// ds_char_t const seven = '7';
   /// ds_char_t const nine = '9';
   /// ds_char_t const percent = '%';
-  /// ds_char_t const lf = '\n';
+  /// ds_char_t const lf = DS_CHAR_LF;
   ///
   /// assert (!ds_char_is_ascii_octdigit (uppercase_a));
   /// assert (!ds_char_is_ascii_octdigit (a));
@@ -344,8 +344,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (ds_char_is_ascii_hexdigit (uppercase_a));
   /// assert (!ds_char_is_ascii_hexdigit (uppercase_g));
@@ -382,8 +382,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (!ds_char_is_ascii_punctuation (uppercase_a));
   /// assert (!ds_char_is_ascii_punctuation (uppercase_g));
@@ -416,8 +416,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (ds_char_is_ascii_graphic (uppercase_a));
   /// assert (ds_char_is_ascii_graphic (uppercase_g));
@@ -469,8 +469,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (!ds_char_is_ascii_whitespace (uppercase_a));
   /// assert (!ds_char_is_ascii_whitespace (uppercase_g));
@@ -505,8 +505,8 @@ extern "C"
   /// ds_char_t const zero = '0';
   /// ds_char_t const percent = '%';
   /// ds_char_t const space = ' ';
-  /// ds_char_t const lf = '\n';
-  /// ds_char_t const esc = '\x1b';
+  /// ds_char_t const lf = DS_CHAR_LF;
+  /// ds_char_t const esc = DS_CHAR_ESC;
   ///
   /// assert (!ds_char_is_ascii_control (uppercase_a));
   /// assert (!ds_char_is_ascii_control (uppercase_g));
@@ -553,7 +553,7 @@ extern "C"
 /// ```
 #define DS_CHAR_MAX ((ds_char_t)CHAR_MAX)
 
-/// @brief The null-terminator character.
+/// @brief The null character.
 ///
 /// ### Examples
 ///
@@ -562,7 +562,117 @@ extern "C"
 /// ```c
 /// assert (DS_CHAR_NUL == '\0');
 /// ```
-#define DS_CHAR_NUL ((ds_char_t)0)
+#define DS_CHAR_NUL ((ds_char_t)0x00)
+
+/// @brief The bell character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_BEL == '\x07');
+/// ```
+#define DS_CHAR_BEL ((ds_char_t)0x07)
+
+/// @brief The backspace character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_BS == '\b');
+/// ```
+#define DS_CHAR_BS ((ds_char_t)0x08)
+
+/// @brief The horizontal-tab character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_HT == '\t');
+/// ```
+#define DS_CHAR_HT ((ds_char_t)0x09)
+
+/// @brief The line-feed character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_LF == '\n');
+/// ```
+#define DS_CHAR_LF ((ds_char_t)0x0A)
+
+/// @brief The vertical-tab character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_VT == '\v');
+/// ```
+#define DS_CHAR_VT ((ds_char_t)0x0B)
+
+/// @brief The form-feed character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_FF == '\f');
+/// ```
+#define DS_CHAR_FF ((ds_char_t)0x0C)
+
+/// @brief The carriage-return character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_CR == '\r');
+/// ```
+#define DS_CHAR_CR ((ds_char_t)0x0D)
+
+/// @brief The escape character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_ESC == '\x1B');
+/// ```
+#define DS_CHAR_ESC ((ds_char_t)0x1B)
+
+/// @brief The unit-separator character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_US == '\x1F');
+/// ```
+#define DS_CHAR_US ((ds_char_t)0x1F)
+
+/// @brief The delete character.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_CHAR_DEL == '\x7F');
+/// ```
+#define DS_CHAR_DEL ((ds_char_t)0x7F)
 
 /// @brief @ref ds_char_t "char" notation. Can be used in `scanf` to parse and
 /// read @ref ds_char_t "char" values.

@@ -12,7 +12,18 @@ TEST (CharBytes, CorrectValue)
 
 TEST (CharMin, CorrectValue) { EXPECT_EQ (DS_CHAR_MIN, (ds_char_t)CHAR_MIN); }
 TEST (CharMax, CorrectValue) { EXPECT_EQ (DS_CHAR_MAX, (ds_char_t)CHAR_MAX); }
-TEST (CharNul, CorrectValue) { EXPECT_EQ (DS_CHAR_NUL, (ds_char_t)0); }
+
+TEST (CharNul, CorrectValue) { EXPECT_EQ (DS_CHAR_NUL, '\0'); }
+TEST (CharBel, CorrectValue) { EXPECT_EQ (DS_CHAR_BEL, (ds_char_t)7); }
+TEST (CharBs, CorrectValue) { EXPECT_EQ (DS_CHAR_BS, '\b'); }
+TEST (CharHt, CorrectValue) { EXPECT_EQ (DS_CHAR_HT, '\t'); }
+TEST (CharLf, CorrectValue) { EXPECT_EQ (DS_CHAR_LF, '\n'); }
+TEST (CharVt, CorrectValue) { EXPECT_EQ (DS_CHAR_VT, '\v'); }
+TEST (CharFf, CorrectValue) { EXPECT_EQ (DS_CHAR_FF, '\f'); }
+TEST (CharCr, CorrectValue) { EXPECT_EQ (DS_CHAR_CR, '\r'); }
+TEST (CharEsc, CorrectValue) { EXPECT_EQ (DS_CHAR_ESC, '\x1B'); }
+TEST (CharUs, CorrectValue) { EXPECT_EQ (DS_CHAR_US, '\x1F'); }
+TEST (CharDel, CorrectValue) { EXPECT_EQ (DS_CHAR_DEL, '\x7F'); }
 
 TEST (CharScn, CorrectValue) { EXPECT_STREQ (DS_SCN_CHAR, "c"); }
 TEST (CharPri, CorrectValue) { EXPECT_STREQ (DS_PRI_CHAR, "c"); }
@@ -300,10 +311,10 @@ TEST (CharIsAsciiGraphic, False)
 
 TEST (CharIsAsciiWhiteSpace, True)
 {
-  EXPECT_TRUE (ds_char_is_ascii_whitespace ('\t'));
-  EXPECT_TRUE (ds_char_is_ascii_whitespace ('\n'));
-  EXPECT_TRUE (ds_char_is_ascii_whitespace ('\x0C'));
-  EXPECT_TRUE (ds_char_is_ascii_whitespace ('\r'));
+  EXPECT_TRUE (ds_char_is_ascii_whitespace (DS_CHAR_HT));
+  EXPECT_TRUE (ds_char_is_ascii_whitespace (DS_CHAR_LF));
+  EXPECT_TRUE (ds_char_is_ascii_whitespace (DS_CHAR_FF));
+  EXPECT_TRUE (ds_char_is_ascii_whitespace (DS_CHAR_CR));
   EXPECT_TRUE (ds_char_is_ascii_whitespace (' '));
 }
 
@@ -323,8 +334,8 @@ TEST (CharIsAsciiWhiteSpace, False)
 
 TEST (CharIsAsciiControl, True)
 {
-  EXPECT_TRUE (ds_char_is_ascii_control ('\x7F'));
-  for (ds_char_t c{ DS_CHAR_NUL }; c <= '\x1F'; c++)
+  EXPECT_TRUE (ds_char_is_ascii_control (DS_CHAR_DEL));
+  for (ds_char_t c{ DS_CHAR_NUL }; c <= DS_CHAR_US; c++)
     {
       EXPECT_TRUE (ds_char_is_ascii_control (c));
     }

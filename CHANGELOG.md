@@ -9,6 +9,10 @@ this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- More named character constants.
+
 ## [`v0.4.0`] - 2023-07-27
 
 ### Added
