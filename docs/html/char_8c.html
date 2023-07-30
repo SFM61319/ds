@@ -403,8 +403,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (uppercase_a));</div>
 <div class="line">assert (<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (uppercase_g));</div>
@@ -416,6 +416,8 @@ Examples</h3>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (lf));</div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (esc));</div>
 <div class="ttc" id="achar_8h_html_ac124f08e43b0ae720d1548f482144407"><div class="ttname"><a href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a></div><div class="ttdeci">bool ds_char_is_ascii_alphabetic(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII alphabetic character:</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00059">char.c:59</a></div></div>
+<div class="ttc" id="achar_8h_html_ac70befae74272772160d308d9fdbb309"><div class="ttname"><a href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a></div><div class="ttdeci">#define DS_CHAR_LF</div><div class="ttdoc">The line-feed character.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00609">char.h:609</a></div></div>
+<div class="ttc" id="achar_8h_html_af4527a3902866396fb06f5e4b48f59cb"><div class="ttname"><a href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a></div><div class="ttdeci">#define DS_CHAR_ESC</div><div class="ttdoc">The escape character.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00653">char.h:653</a></div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00059">59</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
 <div class="dynheader">
@@ -480,8 +482,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (uppercase_a));</div>
 <div class="line">assert (<a class="code hl_function" href="char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531">ds_char_is_ascii_alphanumeric</a> (uppercase_g));</div>
@@ -545,8 +547,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (uppercase_a));</div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#a1463f455ab57b0671638e381a2a85d26">ds_char_is_ascii_control</a> (uppercase_g));</div>
@@ -606,8 +608,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (uppercase_a));</div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#a56c6c6cbf8bb5eb5e06e29961cfd0cf1">ds_char_is_ascii_digit</a> (uppercase_g));</div>
@@ -677,8 +679,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (uppercase_a));</div>
 <div class="line">assert (<a class="code hl_function" href="char_8h.html#af50ba493605648683d0b49fd1df62211">ds_char_is_ascii_graphic</a> (uppercase_g));</div>
@@ -743,8 +745,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (uppercase_a));</div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#a119f494ae625a456bb4e62b3a0f78391">ds_char_is_ascii_hexdigit</a> (uppercase_g));</div>
@@ -805,8 +807,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (uppercase_a));</div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#aa0bffbb96f997d839b69ca28f8e0e43e">ds_char_is_ascii_lowercase</a> (uppercase_g));</div>
@@ -876,7 +878,7 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> seven = <span class="charliteral">&#39;7&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> nine = <span class="charliteral">&#39;9&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (uppercase_a));</div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#afb06a1b874a501739f2358d019bde21d">ds_char_is_ascii_octdigit</a> (a));</div>
@@ -940,8 +942,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (uppercase_a));</div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#abfc454a0d93d548ed94f109c77b1e68f">ds_char_is_ascii_punctuation</a> (uppercase_g));</div>
@@ -1001,8 +1003,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (uppercase_a));</div>
 <div class="line">assert (<a class="code hl_function" href="char_8h.html#a682fb8a7ff2098b9de6feab90fe28bf2">ds_char_is_ascii_uppercase</a> (uppercase_g));</div>
@@ -1076,8 +1078,8 @@ Examples</h3>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> zero = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> percent = <span class="charliteral">&#39;%&#39;</span>;</div>
 <div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> space = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <span class="stringliteral">&#39;\x1b&#39;</span>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> lf = <a class="code hl_define" href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a>;</div>
+<div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> esc = <a class="code hl_define" href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a>;</div>
 <div class="line"> </div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (uppercase_a));</div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#af92b320584b2581e725f2d6ae4d3f18a">ds_char_is_ascii_whitespace</a> (uppercase_g));</div>

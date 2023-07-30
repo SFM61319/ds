@@ -120,14 +120,15 @@
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00116}00116 \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00117}\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{00117}} \mbox{\hyperlink{char_8c_a603228992a323665c2ad4c34d86a95aa}{ds\_char\_is\_ascii\_whitespace}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00118}00118 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00119}00119   \textcolor{keywordflow}{return} self == \textcolor{charliteral}{'\(\backslash\)t'} || self == \textcolor{charliteral}{'\(\backslash\)n'} || self == \textcolor{stringliteral}{'\(\backslash\)x0C'} || self == \textcolor{charliteral}{'\(\backslash\)r'}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00120}00120          || self == \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00119}00119   \textcolor{keywordflow}{return} self == \mbox{\hyperlink{char_8h_a6828f169645a9072b25d7e8251ab2f6d}{DS\_CHAR\_HT}} || self == \mbox{\hyperlink{char_8h_ac70befae74272772160d308d9fdbb309}{DS\_CHAR\_LF}} || self == \mbox{\hyperlink{char_8h_af9a168a29fe82734d9436a8b54814990}{DS\_CHAR\_FF}}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00120}00120          || self == \mbox{\hyperlink{char_8h_abae91cc24abbffbc1d53c3caab58d099}{DS\_CHAR\_CR}} || self == \textcolor{charliteral}{' '};}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00121}00121 \}}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00122}00122 }
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00123}00123 \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00124}\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{00124}} \mbox{\hyperlink{char_8c_a24c097e7e8fc5fb63133cfb6a3f84587}{ds\_char\_is\_ascii\_control}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00125}00125 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00126}00126   \textcolor{keywordflow}{return} self == \textcolor{stringliteral}{'\(\backslash\)x7F'} || \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{DS\_CHAR\_NUL}}, \textcolor{stringliteral}{'\(\backslash\)x1F'});}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00127}00127 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00126}00126   \textcolor{keywordflow}{return} self == \mbox{\hyperlink{char_8h_a90d15b889b96a58360cc4b4bc88699ab}{DS\_CHAR\_DEL}}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00127}00127          || \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{DS\_CHAR\_NUL}}, \mbox{\hyperlink{char_8h_a9968481e3985c88211b3dd11bee857c1}{DS\_CHAR\_US}});}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00128}00128 \}}
 
 \end{DoxyCode}
