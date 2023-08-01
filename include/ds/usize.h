@@ -85,7 +85,7 @@ extern "C"
 /// Basic usage:
 ///
 /// ```c
-/// ds_usize_t x = DS_USIZE_MAX;
+/// ds_usize_t const x = DS_USIZE_MAX;
 /// printf ("%" DS_PRI_USIZE, x);
 /// ```
 #define DS_PRI_USIZE "zu"
