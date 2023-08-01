@@ -83,11 +83,61 @@
 \DoxyCodeLine{\Hypertarget{result_8h_source_l00079}00079 \textcolor{comment}{/// assert (DS\_RESULT\_BYTES == sizeof (ds\_result\_t));}}
 \DoxyCodeLine{\Hypertarget{result_8h_source_l00080}00080 \textcolor{comment}{/// ```}}
 \DoxyCodeLine{\Hypertarget{result_8h_source_l00081}\mbox{\hyperlink{result_8h_afc798b57ff75603187a5a5c11c8eb8bb}{00081}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_RESULT\_BYTES ((ds\_usize\_t)sizeof (ds\_result\_t))}}
-\DoxyCodeLine{\Hypertarget{result_8h_source_l00082}00082 }
-\DoxyCodeLine{\Hypertarget{result_8h_source_l00083}00083 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
-\DoxyCodeLine{\Hypertarget{result_8h_source_l00084}00084 \}}
-\DoxyCodeLine{\Hypertarget{result_8h_source_l00085}00085 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{\Hypertarget{result_8h_source_l00086}00086 }
-\DoxyCodeLine{\Hypertarget{result_8h_source_l00087}00087 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_RESULT\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00082}00082 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00083}00083 \textcolor{comment}{/// @internal}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00084}00084 \textcolor{comment}{/// @brief Actual internal implementation of @ref DS\_RESULT\_PROPAGATE\_ERR.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00085}00085 \textcolor{comment}{/// @warning Only for internal use.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00086}00086 \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_RESULT\_PROPAGATE\_ERR\_INTERNAL\_IMPL(result, id)                     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00087}00087 \textcolor{preprocessor}{  do                                                                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00088}00088 \textcolor{preprocessor}{    \{                                                                         \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00089}00089 \textcolor{preprocessor}{      ds\_result\_t const ds\_result\_propagate\_err\_internal\_result\_\#\#id          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00090}00090 \textcolor{preprocessor}{          = result;                                                           \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00091}00091 \textcolor{preprocessor}{      if (ds\_result\_is\_err (ds\_result\_propagate\_err\_internal\_result\_\#\#id))    \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00092}00092 \textcolor{preprocessor}{        \{                                                                     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00093}00093 \textcolor{preprocessor}{          return ds\_result\_propagate\_err\_internal\_result\_\#\#id;                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00094}00094 \textcolor{preprocessor}{        \}                                                                     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00095}00095 \textcolor{preprocessor}{    \}                                                                         \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00096}00096 \textcolor{preprocessor}{  while (false)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00097}00097 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00098}00098 \textcolor{comment}{/// @internal}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00099}00099 \textcolor{comment}{/// @brief Internal intermediate interface for @ref}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00100}00100 \textcolor{comment}{/// DS\_RESULT\_PROPAGATE\_ERR\_INTERNAL\_IMPL to @ref DS\_RESULT\_PROPAGATE\_ERR. Acts}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00101}00101 \textcolor{comment}{/// as a level of indirection.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00102}00102 \textcolor{comment}{/// @warning Only for internal use.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00103}00103 \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_RESULT\_PROPAGATE\_ERR\_INTERNAL\_INTERFACE(result, id)                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00104}00104 \textcolor{preprocessor}{  DS\_RESULT\_PROPAGATE\_ERR\_INTERNAL\_IMPL (result, id)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00105}00105 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00106}00106 \textcolor{comment}{/// @brief Propagate (instant, possibly early, return) evaluated @p result to}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00107}00107 \textcolor{comment}{/// the calling function only if it is erroneous.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00108}00108 \textcolor{comment}{/// @param result The @ref ds\_result\_t "{}Result"{} variant to be returned if and}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00109}00109 \textcolor{comment}{/// only if it is an `DS\_RESULT\_ERR*` variant (i.e., not @ref DS\_RESULT\_OK).}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00110}00110 \textcolor{comment}{/// @warning Please refrain from using and passing identifiers matching}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00111}00111 \textcolor{comment}{/// `ds\_result\_propagate\_err\_internal\_result\_*`. Their usage may cause}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00112}00112 \textcolor{comment}{/// unintended or undefined behavior, as they are reserved for internal use}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00113}00113 \textcolor{comment}{/// only.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00114}00114 \textcolor{comment}{/// @return @p result ***if and only if*** it is a `DS\_RESULT\_ERR\_*` variant,}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00115}00115 \textcolor{comment}{/// else does ***not*** return at all.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00116}00116 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00117}00117 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00118}00118 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00119}00119 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00120}00120 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00121}00121 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00122}00122 \textcolor{comment}{/// ds\_result\_t get\_some\_result()}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00123}00123 \textcolor{comment}{/// \{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00124}00124 \textcolor{comment}{///   DS\_RESULT\_PROPAGATE\_ERR (get\_some\_other\_result ());}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00125}00125 \textcolor{comment}{///   do\_something ();}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00126}00126 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00127}00127 \textcolor{comment}{///   return DS\_RESULT\_OK;}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00128}00128 \textcolor{comment}{/// \}}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00129}00129 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00130}\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{00130}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_RESULT\_PROPAGATE\_ERR(result)                                       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00131}00131 \textcolor{preprocessor}{  DS\_RESULT\_PROPAGATE\_ERR\_INTERNAL\_INTERFACE (result, \_\_COUNTER\_\_)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00133}00133 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00134}00134 \}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00135}00135 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00137}00137 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_RESULT\_H */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

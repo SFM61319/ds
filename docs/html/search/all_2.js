@@ -47,12 +47,13 @@ var searchData=
   ['ds_5fresult_5fis_5ferr_44',['ds_result_is_err',['../result_8h.html#aea6b2d1b8204a0f1e34a9fdb9110969c',1,'ds_result_is_err(ds_result_t self):&#160;result.c'],['../result_8c.html#a722e85ab1190e70675410ded99062a4c',1,'ds_result_is_err(ds_result_t const self):&#160;result.c']]],
   ['ds_5fresult_5fis_5fok_45',['ds_result_is_ok',['../result_8h.html#a2f9ba5737a4b60f603bf21e3f4b3f6ca',1,'ds_result_is_ok(ds_result_t self):&#160;result.c'],['../result_8c.html#a79de9e3c7d44bded4a303c94cb669f9e',1,'ds_result_is_ok(ds_result_t const self):&#160;result.c']]],
   ['ds_5fresult_5fok_46',['DS_RESULT_OK',['../result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560',1,'result.h']]],
-  ['ds_5fresult_5ft_47',['ds_result_t',['../result_8h.html#a2dec28ca41a5895eea78b63bd94261a1',1,'result.h']]],
-  ['ds_5fscn_5fchar_48',['DS_SCN_CHAR',['../char_8h.html#ae2ad7e7322720db2607b90a7f0011fa7',1,'char.h']]],
-  ['ds_5fscn_5fcstr_49',['DS_SCN_CSTR',['../cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927',1,'cstr.h']]],
-  ['ds_5fscn_5fusize_50',['DS_SCN_USIZE',['../usize_8h.html#a6206726a11ca423f7c92010180684259',1,'usize.h']]],
-  ['ds_5fusize_5fbytes_51',['DS_USIZE_BYTES',['../usize_8h.html#ae96c519acbabee86b8f60110a91553a7',1,'usize.h']]],
-  ['ds_5fusize_5fmax_52',['DS_USIZE_MAX',['../usize_8h.html#adac120b8a16419c4546c05b83513d5c7',1,'usize.h']]],
-  ['ds_5fusize_5fmin_53',['DS_USIZE_MIN',['../usize_8h.html#a2e4064a3bfc2acd50c5465078ebe346d',1,'usize.h']]],
-  ['ds_5fusize_5ft_54',['ds_usize_t',['../usize_8h.html#af225603b1dc0270688232ccab1cc2f52',1,'usize.h']]]
+  ['ds_5fresult_5fpropagate_5ferr_47',['DS_RESULT_PROPAGATE_ERR',['../result_8h.html#ab3468a78eaefe7fbd589612893f125fb',1,'result.h']]],
+  ['ds_5fresult_5ft_48',['ds_result_t',['../result_8h.html#a2dec28ca41a5895eea78b63bd94261a1',1,'result.h']]],
+  ['ds_5fscn_5fchar_49',['DS_SCN_CHAR',['../char_8h.html#ae2ad7e7322720db2607b90a7f0011fa7',1,'char.h']]],
+  ['ds_5fscn_5fcstr_50',['DS_SCN_CSTR',['../cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927',1,'cstr.h']]],
+  ['ds_5fscn_5fusize_51',['DS_SCN_USIZE',['../usize_8h.html#a6206726a11ca423f7c92010180684259',1,'usize.h']]],
+  ['ds_5fusize_5fbytes_52',['DS_USIZE_BYTES',['../usize_8h.html#ae96c519acbabee86b8f60110a91553a7',1,'usize.h']]],
+  ['ds_5fusize_5fmax_53',['DS_USIZE_MAX',['../usize_8h.html#adac120b8a16419c4546c05b83513d5c7',1,'usize.h']]],
+  ['ds_5fusize_5fmin_54',['DS_USIZE_MIN',['../usize_8h.html#a2e4064a3bfc2acd50c5465078ebe346d',1,'usize.h']]],
+  ['ds_5fusize_5ft_55',['ds_usize_t',['../usize_8h.html#af225603b1dc0270688232ccab1cc2f52',1,'usize.h']]]
 ];

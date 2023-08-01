@@ -182,6 +182,9 @@ Macros</h2></td></tr>
 <tr class="memitem:afc798b57ff75603187a5a5c11c8eb8bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="result_8h.html#afc798b57ff75603187a5a5c11c8eb8bb">DS_RESULT_BYTES</a>&#160;&#160;&#160;((<a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a>)sizeof (<a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>))</td></tr>
 <tr class="memdesc:afc798b57ff75603187a5a5c11c8eb8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of <a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">Result</a> in bytes.  <a href="result_8h.html#afc798b57ff75603187a5a5c11c8eb8bb">More...</a><br /></td></tr>
 <tr class="separator:afc798b57ff75603187a5a5c11c8eb8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3468a78eaefe7fbd589612893f125fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="result_8h.html#ab3468a78eaefe7fbd589612893f125fb">DS_RESULT_PROPAGATE_ERR</a>(result)&#160;&#160;&#160;  DS_RESULT_PROPAGATE_ERR_INTERNAL_INTERFACE (result, __COUNTER__)</td></tr>
+<tr class="memdesc:ab3468a78eaefe7fbd589612893f125fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate (instant, possibly early, return) evaluated <code>result</code> to the calling function only if it is erroneous.  <a href="result_8h.html#ab3468a78eaefe7fbd589612893f125fb">More...</a><br /></td></tr>
+<tr class="separator:ab3468a78eaefe7fbd589612893f125fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -232,6 +235,48 @@ Examples</h3>
 <div class="ttc" id="aresult_8h_html_afc798b57ff75603187a5a5c11c8eb8bb"><div class="ttname"><a href="result_8h.html#afc798b57ff75603187a5a5c11c8eb8bb">DS_RESULT_BYTES</a></div><div class="ttdeci">#define DS_RESULT_BYTES</div><div class="ttdoc">The size of Result in bytes.</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00081">result.h:81</a></div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="result_8h_source.html#l00081">81</a> of file <a class="el" href="result_8h_source.html">result.h</a>.</p>
+
+</div>
+</div>
+<a id="ab3468a78eaefe7fbd589612893f125fb" name="ab3468a78eaefe7fbd589612893f125fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3468a78eaefe7fbd589612893f125fb">&#9670;&nbsp;</a></span>DS_RESULT_PROPAGATE_ERR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS_RESULT_PROPAGATE_ERR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">result</td><td>)</td>
+          <td>&#160;&#160;&#160;  DS_RESULT_PROPAGATE_ERR_INTERNAL_INTERFACE (result, __COUNTER__)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Propagate (instant, possibly early, return) evaluated <code>result</code> to the calling function only if it is erroneous. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>The <a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">Result</a> variant to be returned if and only if it is an <code>DS_RESULT_ERR*</code> variant (i.e., not <a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">DS_RESULT_OK</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>Please refrain from using and passing identifiers matching <code>ds_result_propagate_err_internal_result_*</code>. Their usage may cause unintended or undefined behavior, as they are reserved for internal use only. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>result</code> <em><b>if and only if</b></em> it is a <code>DS_RESULT_ERR_*</code> variant, else does <em><b>not</b></em> return at all.</dd></dl>
+<h3><a class="anchor" id="autotoc_md44"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line"><a class="code hl_enumeration" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a> get_some_result()</div>
+<div class="line">{</div>
+<div class="line">  <a class="code hl_define" href="result_8h.html#ab3468a78eaefe7fbd589612893f125fb">DS_RESULT_PROPAGATE_ERR</a> (get_some_other_result ());</div>
+<div class="line">  do_something ();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">DS_RESULT_OK</a>;</div>
+<div class="line">}</div>
+<div class="ttc" id="aresult_8h_html_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560"><div class="ttname"><a href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">DS_RESULT_OK</a></div><div class="ttdeci">@ DS_RESULT_OK</div><div class="ttdoc">Represents success.</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00027">result.h:27</a></div></div>
+<div class="ttc" id="aresult_8h_html_ab3468a78eaefe7fbd589612893f125fb"><div class="ttname"><a href="result_8h.html#ab3468a78eaefe7fbd589612893f125fb">DS_RESULT_PROPAGATE_ERR</a></div><div class="ttdeci">#define DS_RESULT_PROPAGATE_ERR(result)</div><div class="ttdoc">Propagate (instant, possibly early, return) evaluated result to the calling function only if it is er...</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00130">result.h:130</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="result_8h_source.html#l00130">130</a> of file <a class="el" href="result_8h_source.html">result.h</a>.</p>
 
 </div>
 </div>
@@ -294,7 +339,6 @@ Examples</h3>
 <div class="line"><a class="code hl_enumeration" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a> <span class="keyword">const</span> y = <a class="code hl_enumvalue" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53">DS_RESULT_ERR_PTR_IS_NULL</a>;</div>
 <div class="line">assert (<a class="code hl_function" href="result_8h.html#aea6b2d1b8204a0f1e34a9fdb9110969c">ds_result_is_err</a> (y));</div>
 <div class="ttc" id="aresult_8h_html_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53"><div class="ttname"><a href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53">DS_RESULT_ERR_PTR_IS_NULL</a></div><div class="ttdeci">@ DS_RESULT_ERR_PTR_IS_NULL</div><div class="ttdoc">Represents failure due to an unexpected NULL pointer.</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00030">result.h:30</a></div></div>
-<div class="ttc" id="aresult_8h_html_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560"><div class="ttname"><a href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">DS_RESULT_OK</a></div><div class="ttdeci">@ DS_RESULT_OK</div><div class="ttdoc">Represents success.</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00027">result.h:27</a></div></div>
 <div class="ttc" id="aresult_8h_html_aea6b2d1b8204a0f1e34a9fdb9110969c"><div class="ttname"><a href="result_8h.html#aea6b2d1b8204a0f1e34a9fdb9110969c">ds_result_is_err</a></div><div class="ttdeci">bool ds_result_is_err(ds_result_t self)</div><div class="ttdoc">Returns true if self is a DS_RESULT_ERR_* variant.</div><div class="ttdef"><b>Definition:</b> <a href="result_8c_source.html#l00019">result.c:19</a></div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="result_8c_source.html#l00019">19</a> of file <a class="el" href="result_8c_source.html">result.c</a>.</p>
