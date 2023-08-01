@@ -9,6 +9,12 @@ this project adheres to
 
 ## [Unreleased]
 
+## [`v0.6.0`] - 2023-08-01
+
+### Added
+
+- The `Result` type and its related constants and functions.
+
 ## [`v0.5.0`] - 2023-07-31
 
 ### Added
@@ -50,3 +56,4 @@ this project adheres to
 [`v0.3.0`]: https://github.com/SFM61319/ds/compare/v0.2.0...v0.3.0
 [`v0.4.0`]: https://github.com/SFM61319/ds/compare/v0.3.0...v0.4.0
 [`v0.5.0`]: https://github.com/SFM61319/ds/compare/v0.4.0...v0.5.0
+[`v0.6.0`]: https://github.com/SFM61319/ds/compare/v0.5.0...v0.6.0
