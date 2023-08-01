@@ -80,6 +80,56 @@ extern "C"
 /// ```
 #define DS_RESULT_BYTES ((ds_usize_t)sizeof (ds_result_t))
 
+/// @internal
+/// @brief Actual internal implementation of @ref DS_RESULT_PROPAGATE_ERR.
+/// @warning Only for internal use.
+#define DS_RESULT_PROPAGATE_ERR_INTERNAL_IMPL(result, id)                     \
+  do                                                                          \
+    {                                                                         \
+      ds_result_t const ds_result_propagate_err_internal_result_##id          \
+          = result;                                                           \
+      if (ds_result_is_err (ds_result_propagate_err_internal_result_##id))    \
+        {                                                                     \
+          return ds_result_propagate_err_internal_result_##id;                \
+        }                                                                     \
+    }                                                                         \
+  while (false)
+
+/// @internal
+/// @brief Internal intermediate interface for @ref
+/// DS_RESULT_PROPAGATE_ERR_INTERNAL_IMPL to @ref DS_RESULT_PROPAGATE_ERR. Acts
+/// as a level of indirection.
+/// @warning Only for internal use.
+#define DS_RESULT_PROPAGATE_ERR_INTERNAL_INTERFACE(result, id)                \
+  DS_RESULT_PROPAGATE_ERR_INTERNAL_IMPL (result, id)
+
+/// @brief Propagate (instant, possibly early, return) evaluated @p result to
+/// the calling function only if it is erroneous.
+/// @param result The @ref ds_result_t "Result" variant to be returned if and
+/// only if it is an `DS_RESULT_ERR*` variant (i.e., not @ref DS_RESULT_OK).
+/// @warning Please refrain from using and passing identifiers matching
+/// `ds_result_propagate_err_internal_result_*`. Their usage may cause
+/// unintended or undefined behavior, as they are reserved for internal use
+/// only.
+/// @return @p result ***if and only if*** it is a `DS_RESULT_ERR_*` variant,
+/// else does ***not*** return at all.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// ds_result_t get_some_result()
+/// {
+///   DS_RESULT_PROPAGATE_ERR (get_some_other_result ());
+///   do_something ();
+///
+///   return DS_RESULT_OK;
+/// }
+/// ```
+#define DS_RESULT_PROPAGATE_ERR(result)                                       \
+  DS_RESULT_PROPAGATE_ERR_INTERNAL_INTERFACE (result, __COUNTER__)
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

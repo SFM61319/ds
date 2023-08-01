@@ -9,6 +9,10 @@ this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- `Err` `Result` propagator.
+
 ## [`v0.6.0`] - 2023-08-01
 
 ### Added
