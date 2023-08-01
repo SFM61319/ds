@@ -1,0 +1,93 @@
+\hypertarget{result_8h_source}{}\doxysection{result.\+h}
+\label{result_8h_source}\index{include/ds/result.h@{include/ds/result.h}}
+\mbox{\hyperlink{result_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00003}00003 \textcolor{preprocessor}{\#ifndef DS\_RESULT\_H}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00004}00004 \textcolor{preprocessor}{\#define DS\_RESULT\_H 1}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00005}00005 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00006}00006 \textcolor{comment}{//! @file ds/result.h}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00007}00007 \textcolor{comment}{//! @author Avinash Maddikonda (svasssakavi@gmail.com)}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00008}00008 \textcolor{comment}{//! @brief Declaration of the @ref ds\_result\_t "{}Result"{} enumeration type,}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00009}00009 \textcolor{comment}{//! related constants and functions.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00010}00010 \textcolor{comment}{//! @since 0.6.0}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00011}00011 \textcolor{comment}{//! @date 2023-\/08-\/01}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00012}00012 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00013}00013 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{usize_8h}{ds/usize.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00017}00017 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00018}00018 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00019}00019 \{}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00020}00020 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00021}00021 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00022}00022 \textcolor{comment}{  /// @brief @ref ds\_result\_t "{}Result"{} is a type that represents either success}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00023}00023 \textcolor{comment}{  /// (@ref DS\_RESULT\_OK "{}Ok"{}) or failure (a `DS\_RESULT\_ERR\_*` variant).}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00024}\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{00024}} \textcolor{comment}{}  \textcolor{keyword}{enum} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00025}00025   \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00026}00026 \textcolor{comment}{    /// @brief Represents success.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00027}\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{00027}} \textcolor{comment}{}    \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{DS\_RESULT\_OK}},}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00028}00028 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00029}00029 \textcolor{comment}{    /// @brief Represents failure due to an unexpected `NULL` pointer.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00030}\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{00030}} \textcolor{comment}{}    \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{DS\_RESULT\_ERR\_PTR\_IS\_NULL}},}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00031}00031   \};}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00033}00033   \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}};}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00034}00034 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00035}00035 \textcolor{comment}{  /// @brief Returns `true` if @p self is @ref DS\_RESULT\_OK "{}Ok"{}.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00036}00036 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00037}00037 \textcolor{comment}{  /// @param self The value to check.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00038}00038 \textcolor{comment}{  /// @return `true` if @p self is @ref DS\_RESULT\_OK "{}Ok"{}. `false` otherwise.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00039}00039 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00040}00040 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00041}00041 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00042}00042 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00043}00043 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00044}00044 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00045}00045 \textcolor{comment}{  /// ds\_result\_t const x = DS\_RESULT\_OK;}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00046}00046 \textcolor{comment}{  /// assert (ds\_result\_is\_ok (x));}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00047}00047 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00048}00048 \textcolor{comment}{  /// ds\_result\_t const y = DS\_RESULT\_ERR\_PTR\_IS\_NULL;}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00049}00049 \textcolor{comment}{  /// assert (!ds\_result\_is\_ok (y));}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00050}00050 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00051}00051 \textcolor{comment}{}  \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{result_8h_a2f9ba5737a4b60f603bf21e3f4b3f6ca}{ds\_result\_is\_ok}} (\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} self);}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00052}00052 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00053}00053 \textcolor{comment}{  /// @brief Returns `true` if @p self is a `DS\_RESULT\_ERR\_*` variant.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00054}00054 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00055}00055 \textcolor{comment}{  /// @param self The value to check.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00056}00056 \textcolor{comment}{  /// @return `true` if @p self is a `DS\_RESULT\_ERR\_*` variant. `false`}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00057}00057 \textcolor{comment}{  /// otherwise.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00058}00058 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00059}00059 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00060}00060 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00061}00061 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00062}00062 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00063}00063 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00064}00064 \textcolor{comment}{  /// ds\_result\_t const x = DS\_RESULT\_OK;}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00065}00065 \textcolor{comment}{  /// assert (!ds\_result\_is\_err (x));}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00066}00066 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00067}00067 \textcolor{comment}{  /// ds\_result\_t const y = DS\_RESULT\_ERR\_PTR\_IS\_NULL;}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00068}00068 \textcolor{comment}{  /// assert (ds\_result\_is\_err (y));}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00069}00069 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00070}00070 \textcolor{comment}{}  \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{result_8h_aea6b2d1b8204a0f1e34a9fdb9110969c}{ds\_result\_is\_err}} (\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} self);}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00071}00071 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00072}00072 \textcolor{comment}{/// @brief The size of @ref ds\_result\_t "{}Result"{} in bytes.}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00073}00073 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00074}00074 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00075}00075 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00076}00076 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00077}00077 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00078}00078 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00079}00079 \textcolor{comment}{/// assert (DS\_RESULT\_BYTES == sizeof (ds\_result\_t));}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00080}00080 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00081}\mbox{\hyperlink{result_8h_afc798b57ff75603187a5a5c11c8eb8bb}{00081}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_RESULT\_BYTES ((ds\_usize\_t)sizeof (ds\_result\_t))}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00083}00083 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00084}00084 \}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00085}00085 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{result_8h_source_l00087}00087 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_RESULT\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
