@@ -12,6 +12,7 @@
 
 #include <stdbool.h>
 
+#include "ds/helpers.h"
 #include "ds/usize.h"
 
 #ifdef __cplusplus
@@ -103,10 +104,10 @@ extern "C"
 #define DS_RESULT_PROPAGATE_ERR_INTERNAL_INTERFACE(result, id)                \
   DS_RESULT_PROPAGATE_ERR_INTERNAL_IMPL (result, id)
 
-/// @brief Propagate (instant, possibly early, return) evaluated @p result to
-/// the calling function only if it is erroneous.
+/// @brief Propagates (instantly, possibly early, returns) evaluated @p result
+/// to the calling function only if it is a `DS_RESULT_ERR*` variant.
 /// @param result The @ref ds_result_t "Result" variant to be returned if and
-/// only if it is an `DS_RESULT_ERR*` variant (i.e., not @ref DS_RESULT_OK).
+/// only if it is a `DS_RESULT_ERR*` variant (i.e., not @ref DS_RESULT_OK).
 /// @warning Please refrain from using and passing identifiers matching
 /// `ds_result_propagate_err_internal_result_*`. Their usage may cause
 /// unintended or undefined behavior, as they are reserved for internal use
@@ -129,6 +130,35 @@ extern "C"
 /// ```
 #define DS_RESULT_PROPAGATE_ERR(result)                                       \
   DS_RESULT_PROPAGATE_ERR_INTERNAL_INTERFACE (result, __COUNTER__)
+
+/// @brief Propagates (instantly, possibly early, returns) @ref
+/// DS_RESULT_ERR_PTR_IS_NULL ***if and only if*** @p ptr is `NULL`.
+/// @param ptr The pointer to check if `NULL`.
+/// @return @ref DS_RESULT_ERR_PTR_IS_NULL ***if and only if*** @p ptr is
+/// `NULL`, else does ***not*** return at all.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// ds_result_t get_some_result(ds_usize_t *const size_ptr)
+/// {
+///   DS_RESULT_PROPAGATE_IF_NULL (size_ptr);
+///
+///   *size_ptr = DS_USIZE_MIN;
+///   return DS_RESULT_OK;
+/// }
+/// ```
+#define DS_RESULT_PROPAGATE_IF_NULL(ptr)                                      \
+  do                                                                          \
+    {                                                                         \
+      if (ds_helpers_is_null (ptr))                                           \
+        {                                                                     \
+          return DS_RESULT_ERR_PTR_IS_NULL;                                   \
+        }                                                                     \
+    }                                                                         \
+  while (false)
 
 #ifdef __cplusplus
 }

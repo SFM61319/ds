@@ -12,6 +12,7 @@ this project adheres to
 ### Added
 
 - `Err` `Result` propagator.
+- `DS_RESULT_ERR_PTR_IS_NULL` propagator for disallowed `NULL` pointers.
 
 ## [`v0.6.0`] - 2023-08-01
 

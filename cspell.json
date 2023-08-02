@@ -51,6 +51,7 @@
     "msys",
     "nul",
     "posix",
+    "ptr",
     "sfm",
     "str",
     "streq",
