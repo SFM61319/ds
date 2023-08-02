@@ -6,12 +6,14 @@ Declaration of the \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}
 
 
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ds/helpers.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ds/usize.\+h\char`\"{}}\newline
-Include dependency graph for result.\+h\+:\nopagebreak
+Include dependency graph for result.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{result_8h__incl}
+\includegraphics[width=275pt]{result_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:\nopagebreak
@@ -27,7 +29,9 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \#define \mbox{\hyperlink{result_8h_afc798b57ff75603187a5a5c11c8eb8bb}{DS\+\_\+\+RESULT\+\_\+\+BYTES}}~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})sizeof (\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}}))
 \begin{DoxyCompactList}\small\item\em The size of \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{Result}} in bytes. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\+\_\+\+RESULT\+\_\+\+PROPAGATE\+\_\+\+ERR}}(result)~  DS\+\_\+\+RESULT\+\_\+\+PROPAGATE\+\_\+\+ERR\+\_\+\+INTERNAL\+\_\+\+INTERFACE (result, \+\_\+\+\_\+\+COUNTER\+\_\+\+\_\+)
-\begin{DoxyCompactList}\small\item\em Propagate (instant, possibly early, return) evaluated {\ttfamily result} to the calling function only if it is erroneous. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Propagates (instantly, possibly early, returns) evaluated {\ttfamily result} to the calling function only if it is a {\ttfamily DS\+\_\+\+RESULT\+\_\+\+ERR$\ast$} variant. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{result_8h_a319b7f72775ded1a63dc0cfa04ebd128}{DS\+\_\+\+RESULT\+\_\+\+PROPAGATE\+\_\+\+IF\+\_\+\+NULL}}(ptr)
+\begin{DoxyCompactList}\small\item\em Propagates (instantly, possibly early, returns) \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+PTR\+\_\+\+IS\+\_\+\+NULL}} {\itshape {\bfseries{if and only if}}} {\ttfamily ptr} is {\ttfamily NULL}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -85,7 +89,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{result_8h_source_l00081}{81}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
+Definition at line \mbox{\hyperlink{result_8h_source_l00082}{82}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
 
 \mbox{\Hypertarget{result_8h_ab3468a78eaefe7fbd589612893f125fb}\label{result_8h_ab3468a78eaefe7fbd589612893f125fb}} 
 \index{result.h@{result.h}!DS\_RESULT\_PROPAGATE\_ERR@{DS\_RESULT\_PROPAGATE\_ERR}}
@@ -95,11 +99,11 @@ Definition at line \mbox{\hyperlink{result_8h_source_l00081}{81}} of file \mbox{
 
 
 
-Propagate (instant, possibly early, return) evaluated {\ttfamily result} to the calling function only if it is erroneous. 
+Propagates (instantly, possibly early, returns) evaluated {\ttfamily result} to the calling function only if it is a {\ttfamily DS\+\_\+\+RESULT\+\_\+\+ERR$\ast$} variant. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em result} & The \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{Result}} variant to be returned if and only if it is an {\ttfamily DS\+\_\+\+RESULT\+\_\+\+ERR$\ast$} variant (i.\+e., not \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{DS\+\_\+\+RESULT\+\_\+\+OK}}). \\
+{\em result} & The \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{Result}} variant to be returned if and only if it is a {\ttfamily DS\+\_\+\+RESULT\+\_\+\+ERR$\ast$} variant (i.\+e., not \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{DS\+\_\+\+RESULT\+\_\+\+OK}}). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyWarning}{Warning}
@@ -124,7 +128,55 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{result_8h_source_l00130}{130}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
+Definition at line \mbox{\hyperlink{result_8h_source_l00131}{131}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
+
+\mbox{\Hypertarget{result_8h_a319b7f72775ded1a63dc0cfa04ebd128}\label{result_8h_a319b7f72775ded1a63dc0cfa04ebd128}} 
+\index{result.h@{result.h}!DS\_RESULT\_PROPAGATE\_IF\_NULL@{DS\_RESULT\_PROPAGATE\_IF\_NULL}}
+\index{DS\_RESULT\_PROPAGATE\_IF\_NULL@{DS\_RESULT\_PROPAGATE\_IF\_NULL}!result.h@{result.h}}
+\doxysubsubsection{\texorpdfstring{DS\_RESULT\_PROPAGATE\_IF\_NULL}{DS\_RESULT\_PROPAGATE\_IF\_NULL}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+RESULT\+\_\+\+PROPAGATE\+\_\+\+IF\+\_\+\+NULL(\begin{DoxyParamCaption}\item[{}]{ptr }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{do}                                                                          \(\backslash\)}
+\DoxyCodeLine{    \{                                                                         \(\backslash\)}
+\DoxyCodeLine{      if (\mbox{\hyperlink{helpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9}{ds\_helpers\_is\_null}} (ptr))                                           \(\backslash\)}
+\DoxyCodeLine{        \{                                                                     \(\backslash\)}
+\DoxyCodeLine{          return \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{DS\_RESULT\_ERR\_PTR\_IS\_NULL}};                                   \(\backslash\)}
+\DoxyCodeLine{        \}                                                                     \(\backslash\)}
+\DoxyCodeLine{    \}                                                                         \(\backslash\)}
+\DoxyCodeLine{  while (\textcolor{keyword}{false})}
+
+\end{DoxyCode}
+
+
+Propagates (instantly, possibly early, returns) \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+PTR\+\_\+\+IS\+\_\+\+NULL}} {\itshape {\bfseries{if and only if}}} {\ttfamily ptr} is {\ttfamily NULL}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & The pointer to check if {\ttfamily NULL}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+PTR\+\_\+\+IS\+\_\+\+NULL}} {\itshape {\bfseries{if and only if}}} {\ttfamily ptr} is {\ttfamily NULL}, else does {\itshape {\bfseries{not}}} return at all.
+\end{DoxyReturn}
+\hypertarget{result_8h_autotoc_md45}{}\doxyparagraph{Examples}\label{result_8h_autotoc_md45}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} get\_some\_result(\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} *\textcolor{keyword}{const} size\_ptr)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \mbox{\hyperlink{result_8h_a319b7f72775ded1a63dc0cfa04ebd128}{DS\_RESULT\_PROPAGATE\_IF\_NULL}} (size\_ptr);}
+\DoxyCodeLine{}
+\DoxyCodeLine{  *size\_ptr = \mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{DS\_USIZE\_MIN}};}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{DS\_RESULT\_OK}};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{result_8h_source_l00153}{153}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
 
 
 
@@ -151,7 +203,7 @@ DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+PTR\+\_\+\+IS\+\_\+\+NULL&Represents failure 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{result_8h_source_l00024}{24}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
+Definition at line \mbox{\hyperlink{result_8h_source_l00025}{25}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
 
 
 
