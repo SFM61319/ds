@@ -38,6 +38,10 @@ enum \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+resul
 \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{DS\+\_\+\+RESULT\+\_\+\+OK}}
 , \newline
 \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+PTR\+\_\+\+IS\+\_\+\+NULL}}
+, \newline
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+MEM\+\_\+\+ALLOC\+\_\+\+FAILED}}
+, \newline
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+OUT\+\_\+\+OF\+\_\+\+RANGE}}
  \}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{Result}} is a type that represents either success (\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}}) or failure (a {\ttfamily DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+$\ast$} variant). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
@@ -88,7 +92,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{result_8h_source_l00082}{82}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
+Definition at line \mbox{\hyperlink{result_8h_source_l00090}{90}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
 
 \mbox{\Hypertarget{result_8h_ab3468a78eaefe7fbd589612893f125fb}\label{result_8h_ab3468a78eaefe7fbd589612893f125fb}} 
 \index{result.h@{result.h}!DS\_RESULT\_PROPAGATE\_ERR@{DS\_RESULT\_PROPAGATE\_ERR}}
@@ -127,7 +131,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{result_8h_source_l00131}{131}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
+Definition at line \mbox{\hyperlink{result_8h_source_l00139}{139}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
 
 \mbox{\Hypertarget{result_8h_a319b7f72775ded1a63dc0cfa04ebd128}\label{result_8h_a319b7f72775ded1a63dc0cfa04ebd128}} 
 \index{result.h@{result.h}!DS\_RESULT\_PROPAGATE\_IF\_NULL@{DS\_RESULT\_PROPAGATE\_IF\_NULL}}
@@ -175,7 +179,7 @@ Basic usage\+:
 \end{DoxyCode}
  
 
-Definition at line \mbox{\hyperlink{result_8h_source_l00153}{153}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
+Definition at line \mbox{\hyperlink{result_8h_source_l00161}{161}} of file \mbox{\hyperlink{result_8h_source}{result.\+h}}.
 
 
 
@@ -197,6 +201,14 @@ DS\+\_\+\+RESULT\+\_\+\+OK&Represents success. \\
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{DS\_RESULT\_ERR\_PTR\_IS\_NULL@{DS\_RESULT\_ERR\_PTR\_IS\_NULL}!result.h@{result.h}}\index{result.h@{result.h}!DS\_RESULT\_ERR\_PTR\_IS\_NULL@{DS\_RESULT\_ERR\_PTR\_IS\_NULL}}}\mbox{\Hypertarget{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}\label{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}} 
 DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+PTR\+\_\+\+IS\+\_\+\+NULL&Represents failure due to an unexpected {\ttfamily NULL} pointer. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED@{DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED}!result.h@{result.h}}\index{result.h@{result.h}!DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED@{DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED}}}\mbox{\Hypertarget{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}\label{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}} 
+DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+MEM\+\_\+\+ALLOC\+\_\+\+FAILED&Represents a memory allocation failure (usually due to lack of sufficient available memory). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DS\_RESULT\_ERR\_OUT\_OF\_RANGE@{DS\_RESULT\_ERR\_OUT\_OF\_RANGE}!result.h@{result.h}}\index{result.h@{result.h}!DS\_RESULT\_ERR\_OUT\_OF\_RANGE@{DS\_RESULT\_ERR\_OUT\_OF\_RANGE}}}\mbox{\Hypertarget{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}\label{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}} 
+DS\+\_\+\+RESULT\+\_\+\+ERR\+\_\+\+OUT\+\_\+\+OF\+\_\+\+RANGE&Represents failure due to encountering an invalid value outside the expected range of valid values. \\
 \hline
 
 \end{DoxyEnumFields}
