@@ -29,6 +29,10 @@ extern "C"
 
     /// @brief Represents failure due to an unexpected `NULL` pointer.
     DS_RESULT_ERR_PTR_IS_NULL,
+
+    /// @brief Represents a memory allocation failure (usually due to lack of
+    /// sufficient available memory).
+    DS_RESULT_ERR_MEM_ALLOC_FAILED,
   };
 
   typedef enum ds_result_t ds_result_t;
