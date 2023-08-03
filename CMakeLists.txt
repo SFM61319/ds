@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22.1...3.25.1 FATAL_ERROR)
 project("ds"
-  VERSION 0.6.0
+  VERSION 0.7.0
   DESCRIPTION "A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings."
   HOMEPAGE_URL "https://github.com/SFM61319/ds"
   # While `ds` itself is written in C, the tests are written in C++ (as they can not be written in C).

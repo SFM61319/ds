@@ -9,6 +9,8 @@ this project adheres to
 
 ## [Unreleased]
 
+## [`v0.7.0`] - 2023-08-03
+
 ### Added
 
 - `Err` `Result` propagator.
@@ -62,3 +64,4 @@ this project adheres to
 [`v0.4.0`]: https://github.com/SFM61319/ds/compare/v0.3.0...v0.4.0
 [`v0.5.0`]: https://github.com/SFM61319/ds/compare/v0.4.0...v0.5.0
 [`v0.6.0`]: https://github.com/SFM61319/ds/compare/v0.5.0...v0.6.0
+[`v0.7.0`]: https://github.com/SFM61319/ds/compare/v0.6.0...v0.7.0
