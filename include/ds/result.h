@@ -33,6 +33,10 @@ extern "C"
     /// @brief Represents a memory allocation failure (usually due to lack of
     /// sufficient available memory).
     DS_RESULT_ERR_MEM_ALLOC_FAILED,
+
+    /// @brief Represents failure due to encountering an invalid value outside
+    /// the expected range of valid values.
+    DS_RESULT_ERR_OUT_OF_RANGE,
   };
 
   typedef enum ds_result_t ds_result_t;

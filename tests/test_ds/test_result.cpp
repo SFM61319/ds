@@ -10,6 +10,7 @@ TEST (Result, Variant)
 
   EXPECT_EQ (DS_RESULT_ERR_PTR_IS_NULL, 1);
   EXPECT_EQ (DS_RESULT_ERR_MEM_ALLOC_FAILED, 2);
+  EXPECT_EQ (DS_RESULT_ERR_OUT_OF_RANGE, 3);
 }
 
 TEST (ResultBytes, CorrectValue)
@@ -22,12 +23,14 @@ TEST (ResultIsOk, False)
 {
   EXPECT_FALSE (ds_result_is_ok (DS_RESULT_ERR_PTR_IS_NULL));
   EXPECT_FALSE (ds_result_is_ok (DS_RESULT_ERR_MEM_ALLOC_FAILED));
+  EXPECT_FALSE (ds_result_is_ok (DS_RESULT_ERR_OUT_OF_RANGE));
 }
 
 TEST (ResultIsErr, True)
 {
   EXPECT_TRUE (ds_result_is_err (DS_RESULT_ERR_PTR_IS_NULL));
   EXPECT_TRUE (ds_result_is_err (DS_RESULT_ERR_MEM_ALLOC_FAILED));
+  EXPECT_TRUE (ds_result_is_err (DS_RESULT_ERR_OUT_OF_RANGE));
 }
 TEST (ResultIsErr, False) { EXPECT_FALSE (ds_result_is_err (DS_RESULT_OK)); }
 
@@ -65,6 +68,10 @@ TEST (ResultPropagateErr, Err)
 
   EXPECT_EQ (get_result (DS_RESULT_ERR_MEM_ALLOC_FAILED, propagated),
              DS_RESULT_ERR_MEM_ALLOC_FAILED);
+  EXPECT_TRUE (propagated);
+
+  EXPECT_EQ (get_result (DS_RESULT_ERR_OUT_OF_RANGE, propagated),
+             DS_RESULT_ERR_OUT_OF_RANGE);
   EXPECT_TRUE (propagated);
 }
 
