@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22.1...3.25.1 FATAL_ERROR)
 project("ds"
-  VERSION 0.7.0
+  VERSION 0.8.0
   DESCRIPTION "A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings."
   HOMEPAGE_URL "https://github.com/SFM61319/ds"
   # While `ds` itself is written in C, the tests are written in C++ (as they can not be written in C).
@@ -50,12 +50,14 @@ set(DS_PRIVATE_SOURCES_DIR "${DS_SRC_DIR}")
 # For example, for a new public header file created in `include/ds/foo.h`,
 # the appended file path must be `"${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/foo.h"`.
 set(DS_PUBLIC_HEADERS
+  "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/alloc.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/char.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/cstr.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/helpers.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/result.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/usize.h")
 set(DS_PRIVATE_SOURCES
+  "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/alloc.c"
   "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/char.c"
   "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/cstr.c"
   "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/helpers.c"

@@ -69,7 +69,7 @@ extern "C"
   /// @param start The inclusive start of the interval.
   /// @param end The inclusive end of the interval.
   /// @return `true` if @p self lies in the inclusive interval between @p start
-  /// and @p end, `false` otherwise.
+  /// and @p end, and `false` otherwise.
   ///
   /// ### Examples
   ///
@@ -136,7 +136,7 @@ extern "C"
   /// @param self The first value to compare.
   /// @param other The second value to compare.
   /// @return `true` if @p self and @p other are an ASCII case-insensitive
-  /// match, `false` otherwise.
+  /// match, and `false` otherwise.
   ///
   /// ### Examples
   ///
@@ -301,7 +301,8 @@ extern "C"
   /// - U+0030 '0' ..= U+0039 '9'.
   ///
   /// @param self The value to check.
-  /// @return `true` if @p self is an ASCII decimal digit, `false` otherwise.
+  /// @return `true` if @p self is an ASCII decimal digit, and `false`
+  /// otherwise.
   ///
   /// ### Examples
   ///
@@ -335,7 +336,7 @@ extern "C"
   /// - U+0030 '0' ..= U+0037 '7'.
   ///
   /// @param self The value to check.
-  /// @return `true` if @p self is an ASCII octal digit, `false` otherwise.
+  /// @return `true` if @p self is an ASCII octal digit, and `false` otherwise.
   ///
   /// ### Examples
   ///

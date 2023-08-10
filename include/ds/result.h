@@ -44,7 +44,8 @@ extern "C"
   /// @brief Returns `true` if @p self is @ref DS_RESULT_OK "Ok".
   ///
   /// @param self The value to check.
-  /// @return `true` if @p self is @ref DS_RESULT_OK "Ok". `false` otherwise.
+  /// @return `true` if @p self is @ref DS_RESULT_OK "Ok", and `false`
+  /// otherwise.
   ///
   /// ### Examples
   ///

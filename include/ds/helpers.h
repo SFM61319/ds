@@ -18,7 +18,7 @@ extern "C"
 
   /// @brief Returns `true` if @p ptr is `NULL`.
   /// @param ptr The pointer to check.
-  /// @return `true` if @p ptr is `NULL`. `false` otherwise.
+  /// @return `true` if @p ptr is `NULL`, and `false` otherwise.
   ///
   /// ### Examples
   ///
