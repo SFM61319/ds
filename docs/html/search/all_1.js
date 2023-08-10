@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['char_2ec_0',['char.c',['../char_8c.html',1,'']]],
-  ['char_2eh_1',['char.h',['../char_8h.html',1,'']]],
-  ['cstr_2ec_2',['cstr.c',['../cstr_8c.html',1,'']]],
-  ['cstr_2eh_3',['cstr.h',['../cstr_8h.html',1,'']]]
+  ['alloc_2ec_0',['alloc.c',['../alloc_8c.html',1,'']]],
+  ['alloc_2eh_1',['alloc.h',['../alloc_8h.html',1,'']]],
+  ['allocate_2',['allocate',['../structds__allocator__t.html#adf7dd18ad82974968ac834ce377c8d11',1,'ds_allocator_t']]]
 ];

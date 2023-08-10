@@ -1,0 +1,57 @@
+\hypertarget{alloc_8c}{}\doxysection{src/ds/alloc.c File Reference}
+\label{alloc_8c}\index{src/ds/alloc.c@{src/ds/alloc.c}}
+
+
+Implementation of the \mbox{\hyperlink{structds__allocator__t}{Allocator}} type, related constants and functions.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ds/alloc.\+h\char`\"{}}\newline
+Include dependency graph for alloc.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{alloc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structds__allocator__t}{ds\+\_\+allocator\+\_\+t}} const \mbox{\hyperlink{alloc_8c_a7c29c8ef8a748014addc3e2a1ba41a58}{DS\+\_\+\+GLOBAL\+\_\+\+ALLOCATOR}} = \{ malloc, realloc, free \}
+\begin{DoxyCompactList}\small\item\em The global memory allocator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \mbox{\hyperlink{structds__allocator__t}{Allocator}} type, related constants and functions. 
+
+\begin{DoxyAuthor}{Author}
+Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+0.\+8.\+0 
+\end{DoxySince}
+\begin{DoxyDate}{Date}
+2023-\/08-\/10 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{alloc_8c_source}{alloc.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{alloc_8c_a7c29c8ef8a748014addc3e2a1ba41a58}\label{alloc_8c_a7c29c8ef8a748014addc3e2a1ba41a58}} 
+\index{alloc.c@{alloc.c}!DS\_GLOBAL\_ALLOCATOR@{DS\_GLOBAL\_ALLOCATOR}}
+\index{DS\_GLOBAL\_ALLOCATOR@{DS\_GLOBAL\_ALLOCATOR}!alloc.c@{alloc.c}}
+\doxysubsubsection{\texorpdfstring{DS\_GLOBAL\_ALLOCATOR}{DS\_GLOBAL\_ALLOCATOR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structds__allocator__t}{ds\+\_\+allocator\+\_\+t}} const DS\+\_\+\+GLOBAL\+\_\+\+ALLOCATOR = \{ malloc, realloc, free \}}
+
+
+
+The global memory allocator. 
+
+By default, uses the C stdlib {\ttfamily malloc}, {\ttfamily realloc}, and {\ttfamily free} functions, but can be defined to use a custom allocator. 
+
+Definition at line \mbox{\hyperlink{alloc_8c_source_l00012}{12}} of file \mbox{\hyperlink{alloc_8c_source}{alloc.\+c}}.
+

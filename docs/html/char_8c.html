@@ -78,7 +78,7 @@ window.MathJax = {
                   <div id="projectname">
                     ds<span
                       id="projectnumber"
-                      >&#160;0.7.0</span
+                      >&#160;0.8.0</span
                     >
                   </div>
                   <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
@@ -262,8 +262,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> and <code>other</code> are an ASCII case-insensitive match, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> and <code>other</code> are an ASCII case-insensitive match, and <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md8"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> upper_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -332,8 +332,8 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> lies in the inclusive interval between <code>start</code> and <code>end</code>, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md2"></a>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> lies in the inclusive interval between <code>start</code> and <code>end</code>, and <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md5"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_function" href="char_8h.html#a0d17ad586e00766b4684bdac9924ed0e">ds_char_in_range</a> (<span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;z&#39;</span>));</div>
@@ -393,7 +393,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII alphabetic character, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md9"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -416,8 +416,8 @@ Examples</h3>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (lf));</div>
 <div class="line">assert (!<a class="code hl_function" href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a> (esc));</div>
 <div class="ttc" id="achar_8h_html_ac124f08e43b0ae720d1548f482144407"><div class="ttname"><a href="char_8h.html#ac124f08e43b0ae720d1548f482144407">ds_char_is_ascii_alphabetic</a></div><div class="ttdeci">bool ds_char_is_ascii_alphabetic(ds_char_t self)</div><div class="ttdoc">Checks if self is an ASCII alphabetic character:</div><div class="ttdef"><b>Definition:</b> <a href="char_8c_source.html#l00059">char.c:59</a></div></div>
-<div class="ttc" id="achar_8h_html_ac70befae74272772160d308d9fdbb309"><div class="ttname"><a href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a></div><div class="ttdeci">#define DS_CHAR_LF</div><div class="ttdoc">The line-feed character.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00655">char.h:655</a></div></div>
-<div class="ttc" id="achar_8h_html_af4527a3902866396fb06f5e4b48f59cb"><div class="ttname"><a href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a></div><div class="ttdeci">#define DS_CHAR_ESC</div><div class="ttdoc">The escape character.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00699">char.h:699</a></div></div>
+<div class="ttc" id="achar_8h_html_ac70befae74272772160d308d9fdbb309"><div class="ttname"><a href="char_8h.html#ac70befae74272772160d308d9fdbb309">DS_CHAR_LF</a></div><div class="ttdeci">#define DS_CHAR_LF</div><div class="ttdoc">The line-feed character.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00656">char.h:656</a></div></div>
+<div class="ttc" id="achar_8h_html_af4527a3902866396fb06f5e4b48f59cb"><div class="ttname"><a href="char_8h.html#af4527a3902866396fb06f5e4b48f59cb">DS_CHAR_ESC</a></div><div class="ttdeci">#define DS_CHAR_ESC</div><div class="ttdoc">The escape character.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00700">char.h:700</a></div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="char_8c_source.html#l00059">59</a> of file <a class="el" href="char_8c_source.html">char.c</a>.</p>
 <div class="dynheader">
@@ -472,7 +472,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII alphanumeric character, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="autotoc_md12"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -541,7 +541,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII control character, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md16"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -604,8 +604,8 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII decimal digit, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII decimal digit, and <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md13"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -679,7 +679,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII graphic character, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="autotoc_md17"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -745,7 +745,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII hexadecimal digit, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md15"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -810,7 +810,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII lowercase character, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="autotoc_md11"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -884,8 +884,8 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII octal digit, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII octal digit, and <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md14"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -948,7 +948,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII punctuation character, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="autotoc_md16"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -1012,7 +1012,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII uppercase character, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="autotoc_md10"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -1094,7 +1094,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> is an ASCII whitespace character, <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md15"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> uppercase_a = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -1147,7 +1147,7 @@ Examples</h3>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The ASCII lower case equivalent of <code>self</code>.</dd></dl>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> ascii = <span class="charliteral">&#39;A&#39;</span>;</div>
@@ -1204,7 +1204,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The ASCII upper case equivalent of <code>self</code>.</dd></dl>
-<h3><a class="anchor" id="autotoc_md3"></a>
+<h3><a class="anchor" id="autotoc_md6"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> <span class="keyword">const</span> ascii = <span class="charliteral">&#39;a&#39;</span>;</div>

@@ -78,7 +78,7 @@ window.MathJax = {
                   <div id="projectname">
                     ds<span
                       id="projectnumber"
-                      >&#160;0.7.0</span
+                      >&#160;0.8.0</span
                     >
                   </div>
                   <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
@@ -221,7 +221,7 @@ Typedefs</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The size of C-strings in bytes. </p>
-<h3><a class="anchor" id="autotoc_md33"></a>
+<h3><a class="anchor" id="autotoc_md36"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a> == <span class="keyword">sizeof</span> (<a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> *));</div>
@@ -245,7 +245,7 @@ Examples</h3>
 </div><div class="memdoc">
 
 <p>C-string notation. Can be used in <code>printf</code> to format and write C-string values. </p>
-<h3><a class="anchor" id="autotoc_md35"></a>
+<h3><a class="anchor" id="autotoc_md38"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> <span class="keyword">const</span> x = <span class="stringliteral">&quot;abc&quot;</span>;</div>
@@ -283,7 +283,7 @@ Examples</h3>
 <dl class="section warning"><dt>Warning</dt><dd><code>len</code> must be (a macro constant containing) an unsigned integer literal (with no suffixes or preceding zeroes). Any other kind of value, expression, or statement is strictly disallowed.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>C-string notation for the given string length <code>len</code>.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>It is strongly advised to use <a href="https://en.cppreference.com/w/c/io/fgets" title="fgets - cppreference.com"><code>fgets</code></a> instead of <code>scanf</code> to read input.</dd></dl>
-<h3><a class="anchor" id="autotoc_md34"></a>
+<h3><a class="anchor" id="autotoc_md37"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define SIZE 15</span></div>

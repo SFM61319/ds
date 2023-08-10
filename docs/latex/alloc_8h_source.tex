@@ -1,0 +1,107 @@
+\hypertarget{alloc_8h_source}{}\doxysection{alloc.\+h}
+\label{alloc_8h_source}\index{include/ds/alloc.h@{include/ds/alloc.h}}
+\mbox{\hyperlink{alloc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00003}00003 \textcolor{preprocessor}{\#ifndef DS\_ALLOC\_H}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00004}00004 \textcolor{preprocessor}{\#define DS\_ALLOC\_H 1}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00005}00005 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00006}00006 \textcolor{comment}{//! @file ds/alloc.h}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00007}00007 \textcolor{comment}{//! @author Avinash Maddikonda (svasssakavi@gmail.com)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00008}00008 \textcolor{comment}{//! @brief Declaration of the @ref ds\_allocator\_t "{}Allocator"{} type, related}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00009}00009 \textcolor{comment}{//! constants and functions.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00010}00010 \textcolor{comment}{//! @since 0.8.0}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00011}00011 \textcolor{comment}{//! @date 2023-\/08-\/10}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00012}00012 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{usize_8h}{ds/usize.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00015}00015 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00016}00016 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00017}00017 \{}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00018}00018 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00019}00019 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00020}00020 \textcolor{comment}{  /// @brief An implementation of @ref ds\_allocator\_t "{}Allocator"{} can allocate,}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00021}00021 \textcolor{comment}{  /// reallocate (grow, shrink), and deallocate arbitrary blocks of data.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00022}00022 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00023}00023 \textcolor{comment}{  /// Zero-\/sized allocations are allowed in @ref ds\_allocator\_t "{}Allocator"{}. If}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00024}00024 \textcolor{comment}{  /// an underlying allocator does not support this (like `jemalloc`) or return}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00025}00025 \textcolor{comment}{  /// a `NULL` pointer (such as `malloc`), this must be caught by the}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00026}00026 \textcolor{comment}{  /// implementation.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00027}\mbox{\hyperlink{structds__allocator__t}{00027}} \textcolor{comment}{}  \textcolor{keyword}{struct }\mbox{\hyperlink{structds__allocator__t}{ds\_allocator\_t}}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00028}00028   \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00029}00029 \textcolor{comment}{    /// @brief Attempts to allocate a block of memory.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00030}00030 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00031}00031 \textcolor{comment}{    /// The returned block may have a larger size than specified by @p size,}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00032}00032 \textcolor{comment}{    /// and may or may not have its contents initialized.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00033}00033 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00034}00034 \textcolor{comment}{    /// @param size The size of the block of memory to allocate.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00035}00035 \textcolor{comment}{    /// @return A non-\/`NULL` pointer to the block of memory meeting the size}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00036}00036 \textcolor{comment}{    /// and alignment guarantees on success.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00037}00037 \textcolor{comment}{    /// @return `NULL` on failure.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00038}\mbox{\hyperlink{structds__allocator__t_adf7dd18ad82974968ac834ce377c8d11}{00038}} \textcolor{comment}{}    \textcolor{keywordtype}{void} *(*allocate) (\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} size);}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00039}00039 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00040}00040 \textcolor{comment}{    /// @brief Attempts to reallocate (extend, shrink) the memory block.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00041}00041 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00042}00042 \textcolor{comment}{    /// The returned block may have a larger size than specified by @p}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00043}00043 \textcolor{comment}{    /// new\_size, and may or may not have its contents initialized.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00044}00044 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00045}00045 \textcolor{comment}{    /// If this returns a non-\/`NULL` pointer, then ownership of the memory}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00046}00046 \textcolor{comment}{    /// block referenced by @p ptr has been transferred to this allocator. Any}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00047}00047 \textcolor{comment}{    /// access to the old @p ptr is Undefined Behavior, even if the allocation}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00048}00048 \textcolor{comment}{    /// was grown in-\/place. The newly returned pointer is the only valid}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00049}00049 \textcolor{comment}{    /// pointer for accessing this memory now.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00050}00050 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00051}00051 \textcolor{comment}{    /// If this method returns `NULL`, then ownership of the memory block has}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00052}00052 \textcolor{comment}{    /// not been transferred to this allocator, and the contents of the memory}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00053}00053 \textcolor{comment}{    /// block are unaltered.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00054}00054 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00055}00055 \textcolor{comment}{    /// @param ptr A reference to the memory block to reallocate.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00056}00056 \textcolor{comment}{    /// @param new\_size The new size of the block of memory to reallocate.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00057}00057 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00058}00058 \textcolor{comment}{    /// @return A non-\/`NULL` pointer to the block of memory meeting the size}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00059}00059 \textcolor{comment}{    /// and alignment guarantees on success.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00060}00060 \textcolor{comment}{    /// @return `NULL` on failure.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00061}00061 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00062}00062 \textcolor{comment}{    /// \#\#\# Safety}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00063}00063 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00064}00064 \textcolor{comment}{    /// @p ptr must denote a block of memory *currently allocated* via this}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00065}00065 \textcolor{comment}{    /// allocator.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00066}\mbox{\hyperlink{structds__allocator__t_a12bff31a33aa4b616f27bd18c7268489}{00066}} \textcolor{comment}{}    \textcolor{keywordtype}{void} *(*reallocate) (\textcolor{keywordtype}{void} *ptr, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} new\_size);}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00067}00067 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00068}00068 \textcolor{comment}{    /// @brief Deallocates the memory referenced by @p ptr.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00069}00069 \textcolor{comment}{    /// @param[out] ptr A reference to the memory to deallocate.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00070}00070 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00071}00071 \textcolor{comment}{    /// \#\#\# Safety}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00072}00072 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00073}00073 \textcolor{comment}{    /// @p ptr must denote a block of memory *currently allocated* via this}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00074}00074 \textcolor{comment}{    /// allocator.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00075}\mbox{\hyperlink{structds__allocator__t_a7ad534ba91895296432fbcb390f0bcd9}{00075}} \textcolor{comment}{}    void (*\mbox{\hyperlink{structds__allocator__t_a7ad534ba91895296432fbcb390f0bcd9}{deallocate}}) (\textcolor{keywordtype}{void} *ptr);}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00076}00076   \};}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00078}00078   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structds__allocator__t}{ds\_allocator\_t}} \mbox{\hyperlink{structds__allocator__t}{ds\_allocator\_t}};}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00079}00079 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00080}00080 \textcolor{comment}{  /// @brief The global memory allocator.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00081}00081 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00082}00082 \textcolor{comment}{  /// By default, uses the C stdlib `malloc`, `realloc`, and `free` functions,}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00083}00083 \textcolor{comment}{  /// but can be defined to use a custom allocator.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00084}00084 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{structds__allocator__t}{ds\_allocator\_t}} \textcolor{keyword}{const} \mbox{\hyperlink{alloc_8h_a7c29c8ef8a748014addc3e2a1ba41a58}{DS\_GLOBAL\_ALLOCATOR}};}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00085}00085 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00086}00086 \textcolor{comment}{/// @brief The size of @ref ds\_allocator\_t "{}Allocator"{} in bytes.}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00087}00087 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00088}00088 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00089}00089 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00090}00090 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00091}00091 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00092}00092 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00093}00093 \textcolor{comment}{/// assert (DS\_ALLOCATOR\_BYTES == sizeof (ds\_allocator\_t));}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00094}00094 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00095}\mbox{\hyperlink{alloc_8h_a5465ea4d7bd6899c05dcdd13be962b73}{00095}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_ALLOCATOR\_BYTES ((ds\_usize\_t)sizeof (ds\_allocator\_t))}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00097}00097 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00098}00098 \}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00099}00099 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00101}00101 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_ALLOC\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

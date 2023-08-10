@@ -1,0 +1,99 @@
+\hypertarget{alloc_8h}{}\doxysection{include/ds/alloc.h File Reference}
+\label{alloc_8h}\index{include/ds/alloc.h@{include/ds/alloc.h}}
+
+
+Declaration of the \mbox{\hyperlink{structds__allocator__t}{Allocator}} type, related constants and functions.  
+
+
+{\ttfamily \#include \char`\"{}ds/usize.\+h\char`\"{}}\newline
+Include dependency graph for alloc.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{alloc_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{alloc_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structds__allocator__t}{ds\+\_\+allocator\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em An implementation of \mbox{\hyperlink{structds__allocator__t}{Allocator}} can allocate, reallocate (grow, shrink), and deallocate arbitrary blocks of data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{alloc_8h_a5465ea4d7bd6899c05dcdd13be962b73}{DS\+\_\+\+ALLOCATOR\+\_\+\+BYTES}}~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})sizeof (\mbox{\hyperlink{structds__allocator__t}{ds\+\_\+allocator\+\_\+t}}))
+\begin{DoxyCompactList}\small\item\em The size of \mbox{\hyperlink{structds__allocator__t}{Allocator}} in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structds__allocator__t}{ds\+\_\+allocator\+\_\+t}} const \mbox{\hyperlink{alloc_8h_a7c29c8ef8a748014addc3e2a1ba41a58}{DS\+\_\+\+GLOBAL\+\_\+\+ALLOCATOR}}
+\begin{DoxyCompactList}\small\item\em The global memory allocator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration of the \mbox{\hyperlink{structds__allocator__t}{Allocator}} type, related constants and functions. 
+
+\begin{DoxyAuthor}{Author}
+Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+0.\+8.\+0 
+\end{DoxySince}
+\begin{DoxyDate}{Date}
+2023-\/08-\/10 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{alloc_8h_a5465ea4d7bd6899c05dcdd13be962b73}\label{alloc_8h_a5465ea4d7bd6899c05dcdd13be962b73}} 
+\index{alloc.h@{alloc.h}!DS\_ALLOCATOR\_BYTES@{DS\_ALLOCATOR\_BYTES}}
+\index{DS\_ALLOCATOR\_BYTES@{DS\_ALLOCATOR\_BYTES}!alloc.h@{alloc.h}}
+\doxysubsubsection{\texorpdfstring{DS\_ALLOCATOR\_BYTES}{DS\_ALLOCATOR\_BYTES}}
+{\footnotesize\ttfamily \#define DS\+\_\+\+ALLOCATOR\+\_\+\+BYTES~((\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}})sizeof (\mbox{\hyperlink{structds__allocator__t}{ds\+\_\+allocator\+\_\+t}}))}
+
+
+
+The size of \mbox{\hyperlink{structds__allocator__t}{Allocator}} in bytes. 
+
+\hypertarget{alloc_8h_autotoc_md1}{}\doxyparagraph{Examples}\label{alloc_8h_autotoc_md1}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{assert (\mbox{\hyperlink{alloc_8h_a5465ea4d7bd6899c05dcdd13be962b73}{DS\_ALLOCATOR\_BYTES}} == \textcolor{keyword}{sizeof} (\mbox{\hyperlink{structds__allocator__t}{ds\_allocator\_t}}));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{alloc_8h_source_l00095}{95}} of file \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{alloc_8h_a7c29c8ef8a748014addc3e2a1ba41a58}\label{alloc_8h_a7c29c8ef8a748014addc3e2a1ba41a58}} 
+\index{alloc.h@{alloc.h}!DS\_GLOBAL\_ALLOCATOR@{DS\_GLOBAL\_ALLOCATOR}}
+\index{DS\_GLOBAL\_ALLOCATOR@{DS\_GLOBAL\_ALLOCATOR}!alloc.h@{alloc.h}}
+\doxysubsubsection{\texorpdfstring{DS\_GLOBAL\_ALLOCATOR}{DS\_GLOBAL\_ALLOCATOR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structds__allocator__t}{ds\+\_\+allocator\+\_\+t}} const DS\+\_\+\+GLOBAL\+\_\+\+ALLOCATOR\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The global memory allocator. 
+
+By default, uses the C stdlib {\ttfamily malloc}, {\ttfamily realloc}, and {\ttfamily free} functions, but can be defined to use a custom allocator. 
+
+Definition at line \mbox{\hyperlink{alloc_8c_source_l00012}{12}} of file \mbox{\hyperlink{alloc_8c_source}{alloc.\+c}}.
+

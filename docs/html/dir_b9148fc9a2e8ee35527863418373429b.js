@@ -1,5 +1,6 @@
 var dir_b9148fc9a2e8ee35527863418373429b =
 [
+    [ "alloc.h", "alloc_8h.html", "alloc_8h" ],
     [ "char.h", "char_8h.html", "char_8h" ],
     [ "cstr.h", "cstr_8h.html", "cstr_8h" ],
     [ "helpers.h", "helpers_8h.html", "helpers_8h" ],

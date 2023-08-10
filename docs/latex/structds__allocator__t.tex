@@ -1,0 +1,116 @@
+\hypertarget{structds__allocator__t}{}\doxysection{ds\+\_\+allocator\+\_\+t Struct Reference}
+\label{structds__allocator__t}\index{ds\_allocator\_t@{ds\_allocator\_t}}
+
+
+An implementation of \mbox{\hyperlink{structds__allocator__t}{Allocator}} can allocate, reallocate (grow, shrink), and deallocate arbitrary blocks of data.  
+
+
+
+
+{\ttfamily \#include $<$alloc.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$($\ast$ \mbox{\hyperlink{structds__allocator__t_adf7dd18ad82974968ac834ce377c8d11}{allocate}} )(\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} size)
+\begin{DoxyCompactList}\small\item\em Attempts to allocate a block of memory. \end{DoxyCompactList}\item 
+void $\ast$($\ast$ \mbox{\hyperlink{structds__allocator__t_a12bff31a33aa4b616f27bd18c7268489}{reallocate}} )(void $\ast$ptr, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} new\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Attempts to reallocate (extend, shrink) the memory block. \end{DoxyCompactList}\item 
+void($\ast$ \mbox{\hyperlink{structds__allocator__t_a7ad534ba91895296432fbcb390f0bcd9}{deallocate}} )(void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Deallocates the memory referenced by {\ttfamily ptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An implementation of \mbox{\hyperlink{structds__allocator__t}{Allocator}} can allocate, reallocate (grow, shrink), and deallocate arbitrary blocks of data. 
+
+Zero-\/sized allocations are allowed in \mbox{\hyperlink{structds__allocator__t}{Allocator}}. If an underlying allocator does not support this (like {\ttfamily jemalloc}) or return a {\ttfamily NULL} pointer (such as {\ttfamily malloc}), this must be caught by the implementation. 
+
+Definition at line \mbox{\hyperlink{alloc_8h_source_l00027}{27}} of file \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structds__allocator__t_adf7dd18ad82974968ac834ce377c8d11}\label{structds__allocator__t_adf7dd18ad82974968ac834ce377c8d11}} 
+\index{ds\_allocator\_t@{ds\_allocator\_t}!allocate@{allocate}}
+\index{allocate@{allocate}!ds\_allocator\_t@{ds\_allocator\_t}}
+\doxysubsubsection{\texorpdfstring{allocate}{allocate}}
+{\footnotesize\ttfamily void $\ast$($\ast$ ds\+\_\+allocator\+\_\+t\+::allocate) (\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} size)}
+
+
+
+Attempts to allocate a block of memory. 
+
+The returned block may have a larger size than specified by {\ttfamily size}, and may or may not have its contents initialized.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the block of memory to allocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A non-\/{\ttfamily NULL} pointer to the block of memory meeting the size and alignment guarantees on success. 
+
+{\ttfamily NULL} on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{alloc_8h_source_l00038}{38}} of file \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+\mbox{\Hypertarget{structds__allocator__t_a7ad534ba91895296432fbcb390f0bcd9}\label{structds__allocator__t_a7ad534ba91895296432fbcb390f0bcd9}} 
+\index{ds\_allocator\_t@{ds\_allocator\_t}!deallocate@{deallocate}}
+\index{deallocate@{deallocate}!ds\_allocator\_t@{ds\_allocator\_t}}
+\doxysubsubsection{\texorpdfstring{deallocate}{deallocate}}
+{\footnotesize\ttfamily void($\ast$ ds\+\_\+allocator\+\_\+t\+::deallocate) (void $\ast$ptr)}
+
+
+
+Deallocates the memory referenced by {\ttfamily ptr}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr} & A reference to the memory to deallocate.\\
+\hline
+\end{DoxyParams}
+\hypertarget{structds__allocator__t_autotoc_md3}{}\doxyparagraph{Safety}\label{structds__allocator__t_autotoc_md3}
+{\ttfamily ptr} must denote a block of memory {\itshape currently allocated} via this allocator. 
+
+Definition at line \mbox{\hyperlink{alloc_8h_source_l00075}{75}} of file \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+\mbox{\Hypertarget{structds__allocator__t_a12bff31a33aa4b616f27bd18c7268489}\label{structds__allocator__t_a12bff31a33aa4b616f27bd18c7268489}} 
+\index{ds\_allocator\_t@{ds\_allocator\_t}!reallocate@{reallocate}}
+\index{reallocate@{reallocate}!ds\_allocator\_t@{ds\_allocator\_t}}
+\doxysubsubsection{\texorpdfstring{reallocate}{reallocate}}
+{\footnotesize\ttfamily void $\ast$($\ast$ ds\+\_\+allocator\+\_\+t\+::reallocate) (void $\ast$ptr, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} new\+\_\+size)}
+
+
+
+Attempts to reallocate (extend, shrink) the memory block. 
+
+The returned block may have a larger size than specified by {\ttfamily new\+\_\+size}, and may or may not have its contents initialized.
+
+If this returns a non-\/{\ttfamily NULL} pointer, then ownership of the memory block referenced by {\ttfamily ptr} has been transferred to this allocator. Any access to the old {\ttfamily ptr} is Undefined Behavior, even if the allocation was grown in-\/place. The newly returned pointer is the only valid pointer for accessing this memory now.
+
+If this method returns {\ttfamily NULL}, then ownership of the memory block has not been transferred to this allocator, and the contents of the memory block are unaltered.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & A reference to the memory block to reallocate. \\
+\hline
+{\em new\+\_\+size} & The new size of the block of memory to reallocate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A non-\/{\ttfamily NULL} pointer to the block of memory meeting the size and alignment guarantees on success. 
+
+{\ttfamily NULL} on failure.
+\end{DoxyReturn}
+\hypertarget{structds__allocator__t_autotoc_md2}{}\doxyparagraph{Safety}\label{structds__allocator__t_autotoc_md2}
+{\ttfamily ptr} must denote a block of memory {\itshape currently allocated} via this allocator. 
+
+Definition at line \mbox{\hyperlink{alloc_8h_source_l00066}{66}} of file \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ds/\mbox{\hyperlink{alloc_8h}{alloc.\+h}}\end{DoxyCompactItemize}
