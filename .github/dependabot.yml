@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - directory: /
+    package-ecosystem: gitsubmodule
+    schedule:
+      timezone: 05:00 UTC
