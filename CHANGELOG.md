@@ -9,9 +9,12 @@ this project adheres to
 
 ## [Unreleased]
 
+## [`v0.9.0`] - 2023-08-23
+
 ### Added
 
 - `DS_HELPERS_IN_RANGE` and `DS_HELPERS_IN_RANGE_INCLUSIVE` helper macro functions.
+- C-string allocator functions.
 
 ### Changed
 
@@ -77,7 +80,7 @@ this project adheres to
 - Configuration files and other meta project files.
 - CMake for building and testing.
 
-[unreleased]: https://github.com/SFM61319/ds/compare/v0.8.0...HEAD
+[unreleased]: https://github.com/SFM61319/ds/compare/v0.9.0...HEAD
 [`v0.1.0`]: https://github.com/SFM61319/ds/releases/tag/v0.1.0
 [`v0.2.0`]: https://github.com/SFM61319/ds/compare/v0.1.0...v0.2.0
 [`v0.3.0`]: https://github.com/SFM61319/ds/compare/v0.2.0...v0.3.0
@@ -86,3 +89,4 @@ this project adheres to
 [`v0.6.0`]: https://github.com/SFM61319/ds/compare/v0.5.0...v0.6.0
 [`v0.7.0`]: https://github.com/SFM61319/ds/compare/v0.6.0...v0.7.0
 [`v0.8.0`]: https://github.com/SFM61319/ds/compare/v0.7.0...v0.8.0
+[`v0.9.0`]: https://github.com/SFM61319/ds/compare/v0.8.0...v0.9.0

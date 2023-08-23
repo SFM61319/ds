@@ -9,9 +9,8 @@
 //! @since 0.5.0
 //! @date 2023-07-31
 
-#include <stdbool.h>
-
 #include "ds/char.h"
+#include "ds/result.h"
 #include "ds/usize.h"
 
 #ifdef __cplusplus
@@ -36,6 +35,53 @@ extern "C"
   /// @see https://en.wikipedia.org/wiki/Immutable_object
   /// @see https://en.wikipedia.org/wiki/C_string_handling
   typedef ds_char_t *ds_cstr_mut_t;
+
+  /// @brief Attempts to allocate a C-string.
+  ///
+  /// @warning Always pair a @ref ds_cstr_allocate call with a @ref
+  /// ds_cstr_reallocate or @ref ds_cstr_deallocate call (passing the same
+  /// pointer). Failing to do so ***will*** lead to memory leaks.
+  ///
+  /// @param[out] self The allocated C-string on success.
+  /// @param size The size of the C-string to allocate.
+  ///
+  /// @return @ref DS_RESULT_OK "Ok" on success.
+  /// @return @ref DS_RESULT_PTR_IS_NULL "Err(PtrIsNull)" if @p self is `NULL`.
+  /// @return @ref DS_RESULT_ERR_MEM_ALLOC_FAILED "Err(MemAllocFailed)" if a
+  /// memory allocation fails.
+  extern ds_result_t ds_cstr_allocate (ds_cstr_t *self, ds_usize_t size);
+
+  /// @brief Attempts to reallocate (extend, shrink) the C-string.
+  ///
+  /// @warning Always pair a @ref ds_cstr_reallocate call with a @ref
+  /// ds_cstr_reallocate or @ref ds_cstr_deallocate call (passing the same
+  /// pointer). Failing to do so ***will** lead to memory leaks.
+  ///
+  /// @param src_cstr_ptr A reference to the C-string to reallocate.
+  /// @param src_size The old size of the C-string to reallocate.
+  /// @param[out] dst_cstr_ptr A reference to the reallocated C-string.
+  /// @param dst_size The new size of the reallocated C-string.
+  ///
+  /// @return @ref DS_RESULT_OK "Ok" on success.
+  /// @return @ref DS_RESULT_PTR_IS_NULL "Err(PtrIsNull)" if @p src_cstr_ptr or
+  /// @p dst_cstr_ptr is `NULL`.
+  /// @return @ref DS_RESULT_ERR_MEM_ALLOC_FAILED "Err(MemAllocFailed)" if a
+  /// memory allocation fails.
+  extern ds_result_t ds_cstr_reallocate (ds_cstr_t *src_cstr_ptr,
+                                         ds_usize_t src_size,
+                                         ds_cstr_t *dst_cstr_ptr,
+                                         ds_usize_t dst_size);
+
+  /// @brief Deallocates the C-string referenced by @p self.
+  ///
+  /// @warning Only pass pointers allocated using @ref ds_cstr_allocate or @ref
+  /// ds_cstr_reallocate. Passing other pointers may lead to undefined
+  /// behavior.
+  ///
+  /// @param[out] self A reference to the C-string to deallocate.
+  /// @return @ref DS_RESULT_OK "Ok" on success.
+  /// @return @ref DS_RESULT_PTR_IS_NULL "Err(PtrIsNull)" if @p self is `NULL`.
+  extern ds_result_t ds_cstr_deallocate (ds_cstr_t *self);
 
 /// @brief The size of C-strings in bytes.
 ///
