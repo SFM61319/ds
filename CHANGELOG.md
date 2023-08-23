@@ -9,6 +9,10 @@ this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- Make the global memory allocator mutable to support custom memory allocators.
+
 ## [`v0.8.0`] - 2023-08-10
 
 ### Added

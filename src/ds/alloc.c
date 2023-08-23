@@ -9,4 +9,4 @@
 
 #include "ds/alloc.h"
 
-ds_allocator_t const DS_GLOBAL_ALLOCATOR = { malloc, realloc, free };
+ds_allocator_t ds_allocator_global = { malloc, realloc, free };

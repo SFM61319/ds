@@ -6,7 +6,7 @@
 
 TEST (GlobalAllocator, Default)
 {
-  EXPECT_EQ (DS_GLOBAL_ALLOCATOR.allocate, malloc);
-  EXPECT_EQ (DS_GLOBAL_ALLOCATOR.reallocate, realloc);
-  EXPECT_EQ (DS_GLOBAL_ALLOCATOR.deallocate, free);
+  EXPECT_EQ (ds_allocator_global.allocate, malloc);
+  EXPECT_EQ (ds_allocator_global.reallocate, realloc);
+  EXPECT_EQ (ds_allocator_global.deallocate, free);
 }

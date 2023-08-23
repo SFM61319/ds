@@ -81,7 +81,7 @@ extern "C"
   ///
   /// By default, uses the C stdlib `malloc`, `realloc`, and `free` functions,
   /// but can be defined to use a custom allocator.
-  extern ds_allocator_t const DS_GLOBAL_ALLOCATOR;
+  extern ds_allocator_t ds_allocator_global;
 
 /// @brief The size of @ref ds_allocator_t "Allocator" in bytes.
 ///
