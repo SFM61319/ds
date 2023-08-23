@@ -241,9 +241,9 @@ Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a> == <span class="keyword">sizeof</span> (<a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> *));</div>
 <div class="ttc" id="achar_8h_html_a2c809211274ede9eddff5a750bdeb5ae"><div class="ttname"><a href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a></div><div class="ttdeci">char ds_char_t</div><div class="ttdoc">A character type.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00030">char.h:30</a></div></div>
-<div class="ttc" id="acstr_8h_html_a8140575d67e20d64d2668be77cfeaa43"><div class="ttname"><a href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a></div><div class="ttdeci">#define DS_CSTR_BYTES</div><div class="ttdoc">The size of C-strings in bytes.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00095">cstr.h:95</a></div></div>
+<div class="ttc" id="acstr_8h_html_a8140575d67e20d64d2668be77cfeaa43"><div class="ttname"><a href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a></div><div class="ttdeci">#define DS_CSTR_BYTES</div><div class="ttdoc">The size of C-strings in bytes.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00097">cstr.h:97</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00095">95</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00097">97</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
 
 </div>
 </div>
@@ -266,9 +266,9 @@ Examples</h3>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> <span class="keyword">const</span> x = <span class="stringliteral">&quot;abc&quot;</span>;</div>
 <div class="line">printf (<span class="stringliteral">&quot;%&quot;</span> <a class="code hl_define" href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">DS_PRI_CSTR</a>, x);</div>
 <div class="ttc" id="acstr_8h_html_a61bae52e31d5f3834166a135566a880f"><div class="ttname"><a href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a></div><div class="ttdeci">ds_char_t const  * ds_cstr_t</div><div class="ttdoc">An immutable C-string type.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00028">cstr.h:28</a></div></div>
-<div class="ttc" id="acstr_8h_html_a6aa934dffead8e9b88783d7cacae1ce0"><div class="ttname"><a href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">DS_PRI_CSTR</a></div><div class="ttdeci">#define DS_PRI_CSTR</div><div class="ttdoc">C-string notation. Can be used in printf to format and write C-string values.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00137">cstr.h:137</a></div></div>
+<div class="ttc" id="acstr_8h_html_a6aa934dffead8e9b88783d7cacae1ce0"><div class="ttname"><a href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">DS_PRI_CSTR</a></div><div class="ttdeci">#define DS_PRI_CSTR</div><div class="ttdoc">C-string notation. Can be used in printf to format and write C-string values.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00139">cstr.h:139</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00137">137</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00139">139</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
 
 </div>
 </div>
@@ -304,9 +304,9 @@ Examples</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#define SIZE 15</span></div>
 <div class="line"><span class="keywordtype">char</span> x[SIZE + 1];</div>
 <div class="line">scanf(<span class="stringliteral">&quot;%&quot;</span> <a class="code hl_define" href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">DS_SCN_CSTR</a>(SIZE), x);</div>
-<div class="ttc" id="acstr_8h_html_ac4c5be5620d1429a8cb1aac130cf7927"><div class="ttname"><a href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">DS_SCN_CSTR</a></div><div class="ttdeci">#define DS_SCN_CSTR(len)</div><div class="ttdoc">C-string notation. Can be used in scanf to parse and read len + 1 (len = size - 1) sized C-string val...</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00124">cstr.h:124</a></div></div>
+<div class="ttc" id="acstr_8h_html_ac4c5be5620d1429a8cb1aac130cf7927"><div class="ttname"><a href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">DS_SCN_CSTR</a></div><div class="ttdeci">#define DS_SCN_CSTR(len)</div><div class="ttdoc">C-string notation. Can be used in scanf to parse and read len + 1 (len = size - 1) sized C-string val...</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00126">cstr.h:126</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00124">124</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00126">126</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
 
 </div>
 </div>
@@ -393,7 +393,7 @@ Examples</h3>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">Ok</a> on success. </dd>
 <dd>
-Err(PtrIsNull) if <code>self</code> is <code>NULL</code>. </dd>
+<a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53">Err(PtrIsNull)</a> if <code>self</code> is <code>NULL</code>. </dd>
 <dd>
 <a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56">Err(MemAllocFailed)</a> if a memory allocation fails. </dd></dl>
 
@@ -445,7 +445,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">Ok</a> on success. </dd>
 <dd>
-Err(PtrIsNull) if <code>self</code> is <code>NULL</code>. </dd></dl>
+<a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53">Err(PtrIsNull)</a> if <code>self</code> is <code>NULL</code>. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="cstr_8c_source.html#l00081">81</a> of file <a class="el" href="cstr_8c_source.html">cstr.c</a>.</p>
 
@@ -502,7 +502,7 @@ Err(PtrIsNull) if <code>self</code> is <code>NULL</code>. </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">Ok</a> on success. </dd>
 <dd>
-Err(PtrIsNull) if <code>src_cstr_ptr</code> or <code>dst_cstr_ptr</code> is <code>NULL</code>. </dd>
+<a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53">Err(PtrIsNull)</a> if <code>src_cstr_ptr</code> or <code>dst_cstr_ptr</code> is <code>NULL</code>. </dd>
 <dd>
 <a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56">Err(MemAllocFailed)</a> if a memory allocation fails. </dd></dl>
 

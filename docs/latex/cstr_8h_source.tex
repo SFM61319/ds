@@ -50,100 +50,102 @@
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00046}00046 \textcolor{comment}{  /// @param size The size of the C-\/string to allocate.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00047}00047 \textcolor{comment}{  ///}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00048}00048 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00049}00049 \textcolor{comment}{  /// @return @ref DS\_RESULT\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is `NULL`.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00050}00050 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00051}00051 \textcolor{comment}{  /// memory allocation fails.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00052}00052 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a797297692768227dd3e2093dc303da97}{ds\_cstr\_allocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} size);}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00053}00053 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00054}00054 \textcolor{comment}{  /// @brief Attempts to reallocate (extend, shrink) the C-\/string.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00055}00055 \textcolor{comment}{  ///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00056}00056 \textcolor{comment}{  /// @warning Always pair a @ref ds\_cstr\_reallocate call with a @ref}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00057}00057 \textcolor{comment}{  /// ds\_cstr\_reallocate or @ref ds\_cstr\_deallocate call (passing the same}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00058}00058 \textcolor{comment}{  /// pointer). Failing to do so ***will** lead to memory leaks.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00059}00059 \textcolor{comment}{  ///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00060}00060 \textcolor{comment}{  /// @param src\_cstr\_ptr A reference to the C-\/string to reallocate.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00061}00061 \textcolor{comment}{  /// @param src\_size The old size of the C-\/string to reallocate.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00062}00062 \textcolor{comment}{  /// @param[out] dst\_cstr\_ptr A reference to the reallocated C-\/string.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00063}00063 \textcolor{comment}{  /// @param dst\_size The new size of the reallocated C-\/string.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00064}00064 \textcolor{comment}{  ///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00065}00065 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00066}00066 \textcolor{comment}{  /// @return @ref DS\_RESULT\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p src\_cstr\_ptr or}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00067}00067 \textcolor{comment}{  /// @p dst\_cstr\_ptr is `NULL`.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00068}00068 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00069}00069 \textcolor{comment}{  /// memory allocation fails.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00070}00070 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a0521ff572347d3f7e02ba9e898b77371}{ds\_cstr\_reallocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *src\_cstr\_ptr,}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00071}00071                                          \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} src\_size,}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00072}00072                                          \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *dst\_cstr\_ptr,}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00073}00073                                          \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} dst\_size);}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00074}00074 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00075}00075 \textcolor{comment}{  /// @brief Deallocates the C-\/string referenced by @p self.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00076}00076 \textcolor{comment}{  ///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00077}00077 \textcolor{comment}{  /// @warning Only pass pointers allocated using @ref ds\_cstr\_allocate or @ref}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00078}00078 \textcolor{comment}{  /// ds\_cstr\_reallocate. Passing other pointers may lead to undefined}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00079}00079 \textcolor{comment}{  /// behavior.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00080}00080 \textcolor{comment}{  ///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00081}00081 \textcolor{comment}{  /// @param[out] self A reference to the C-\/string to deallocate.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00082}00082 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00083}00083 \textcolor{comment}{  /// @return @ref DS\_RESULT\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is `NULL`.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00084}00084 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a84d741d2c09768d744142868d62e364f}{ds\_cstr\_deallocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *self);}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00085}00085 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00086}00086 \textcolor{comment}{/// @brief The size of C-\/strings in bytes.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00087}00087 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00088}00088 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00049}00049 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00050}00050 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00051}00051 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00052}00052 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00053}00053 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a797297692768227dd3e2093dc303da97}{ds\_cstr\_allocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} size);}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00054}00054 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00055}00055 \textcolor{comment}{  /// @brief Attempts to reallocate (extend, shrink) the C-\/string.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00056}00056 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00057}00057 \textcolor{comment}{  /// @warning Always pair a @ref ds\_cstr\_reallocate call with a @ref}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00058}00058 \textcolor{comment}{  /// ds\_cstr\_reallocate or @ref ds\_cstr\_deallocate call (passing the same}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00059}00059 \textcolor{comment}{  /// pointer). Failing to do so ***will** lead to memory leaks.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00060}00060 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00061}00061 \textcolor{comment}{  /// @param src\_cstr\_ptr A reference to the C-\/string to reallocate.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00062}00062 \textcolor{comment}{  /// @param src\_size The old size of the C-\/string to reallocate.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00063}00063 \textcolor{comment}{  /// @param[out] dst\_cstr\_ptr A reference to the reallocated C-\/string.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00064}00064 \textcolor{comment}{  /// @param dst\_size The new size of the reallocated C-\/string.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00065}00065 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00066}00066 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00067}00067 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00068}00068 \textcolor{comment}{  /// src\_cstr\_ptr or @p dst\_cstr\_ptr is `NULL`.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00069}00069 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00070}00070 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00071}00071 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a0521ff572347d3f7e02ba9e898b77371}{ds\_cstr\_reallocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *src\_cstr\_ptr,}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00072}00072                                          \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} src\_size,}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00073}00073                                          \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *dst\_cstr\_ptr,}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00074}00074                                          \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} dst\_size);}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00075}00075 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00076}00076 \textcolor{comment}{  /// @brief Deallocates the C-\/string referenced by @p self.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00077}00077 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00078}00078 \textcolor{comment}{  /// @warning Only pass pointers allocated using @ref ds\_cstr\_allocate or @ref}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00079}00079 \textcolor{comment}{  /// ds\_cstr\_reallocate. Passing other pointers may lead to undefined}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00080}00080 \textcolor{comment}{  /// behavior.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00081}00081 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00082}00082 \textcolor{comment}{  /// @param[out] self A reference to the C-\/string to deallocate.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00083}00083 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00084}00084 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00085}00085 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00086}00086 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a84d741d2c09768d744142868d62e364f}{ds\_cstr\_deallocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *self);}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00087}00087 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00088}00088 \textcolor{comment}{/// @brief The size of C-\/strings in bytes.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00089}00089 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00090}00090 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00090}00090 \textcolor{comment}{/// \#\#\# Examples}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00091}00091 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00092}00092 \textcolor{comment}{/// ```c}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00093}00093 \textcolor{comment}{/// assert (DS\_CSTR\_BYTES == sizeof (ds\_char\_t *));}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00094}00094 \textcolor{comment}{/// ```}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00095}\mbox{\hyperlink{cstr_8h_a8140575d67e20d64d2668be77cfeaa43}{00095}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_CSTR\_BYTES ((ds\_usize\_t)sizeof (ds\_cstr\_t))}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00096}00096 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00097}00097 \textcolor{comment}{/// @internal}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00098}00098 \textcolor{comment}{/// @brief Internal implementation of @ref DS\_SCN\_CSTR.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00099}00099 \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_SCN\_CSTR\_INTERNAL\_IMPL(len) \#len "{}[\string^\(\backslash\)n]\%*"{}} DS\_SCN\_CHAR}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00100}00100 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00101}00101 \textcolor{comment}{/// @brief C-\/string notation. Can be used in `scanf` to parse and read}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00102}00102 \textcolor{comment}{/// `len + 1` (@p len = `size -\/ 1`) sized C-\/string values.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00103}00103 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00104}00104 \textcolor{comment}{/// @param len The length of the C-\/string (excluding the null-\/terminator).}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00105}00105 \textcolor{comment}{/// @warning @p len must be (a macro constant containing) an unsigned integer}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00106}00106 \textcolor{comment}{/// literal (with no suffixes or preceding zeroes). Any other kind of value,}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00107}00107 \textcolor{comment}{/// expression, or statement is strictly disallowed.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00108}00108 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00109}00109 \textcolor{comment}{/// @return C-\/string notation for the given string length @p len.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00092}00092 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00093}00093 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00094}00094 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00095}00095 \textcolor{comment}{/// assert (DS\_CSTR\_BYTES == sizeof (ds\_char\_t *));}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00096}00096 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00097}\mbox{\hyperlink{cstr_8h_a8140575d67e20d64d2668be77cfeaa43}{00097}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_CSTR\_BYTES ((ds\_usize\_t)sizeof (ds\_cstr\_t))}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00098}00098 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00099}00099 \textcolor{comment}{/// @internal}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00100}00100 \textcolor{comment}{/// @brief Internal implementation of @ref DS\_SCN\_CSTR.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00101}00101 \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_SCN\_CSTR\_INTERNAL\_IMPL(len) \#len "{}[\string^\(\backslash\)n]\%*"{}} DS\_SCN\_CHAR}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00102}00102 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00103}00103 \textcolor{comment}{/// @brief C-\/string notation. Can be used in `scanf` to parse and read}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00104}00104 \textcolor{comment}{/// `len + 1` (@p len = `size -\/ 1`) sized C-\/string values.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00105}00105 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00106}00106 \textcolor{comment}{/// @param len The length of the C-\/string (excluding the null-\/terminator).}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00107}00107 \textcolor{comment}{/// @warning @p len must be (a macro constant containing) an unsigned integer}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00108}00108 \textcolor{comment}{/// literal (with no suffixes or preceding zeroes). Any other kind of value,}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00109}00109 \textcolor{comment}{/// expression, or statement is strictly disallowed.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00110}00110 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00111}00111 \textcolor{comment}{/// @warning It is strongly advised to use}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00112}00112 \textcolor{comment}{/// [`fgets`](https://en.cppreference.com/w/c/io/fgets "{}fgets -\/}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00113}00113 \textcolor{comment}{/// cppreference.com"{}) instead of `scanf` to read input.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00114}00114 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00115}00115 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00111}00111 \textcolor{comment}{/// @return C-\/string notation for the given string length @p len.}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00112}00112 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00113}00113 \textcolor{comment}{/// @warning It is strongly advised to use}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00114}00114 \textcolor{comment}{/// [`fgets`](https://en.cppreference.com/w/c/io/fgets "{}fgets -\/}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00115}00115 \textcolor{comment}{/// cppreference.com"{}) instead of `scanf` to read input.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00116}00116 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00117}00117 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00117}00117 \textcolor{comment}{/// \#\#\# Examples}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00118}00118 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00119}00119 \textcolor{comment}{/// ```c}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00120}00120 \textcolor{comment}{/// \#define SIZE 15}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00121}00121 \textcolor{comment}{/// char x[SIZE + 1];}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00122}00122 \textcolor{comment}{/// scanf("{}\%"{} DS\_SCN\_CSTR(SIZE), x);}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00123}00123 \textcolor{comment}{/// ```}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00124}\mbox{\hyperlink{cstr_8h_ac4c5be5620d1429a8cb1aac130cf7927}{00124}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_SCN\_CSTR(len) DS\_SCN\_CSTR\_INTERNAL\_IMPL (len)}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00125}00125 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00126}00126 \textcolor{comment}{/// @brief C-\/string notation. Can be used in `printf` to format and write}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00127}00127 \textcolor{comment}{/// C-\/string values.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00128}00128 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00129}00129 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00119}00119 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00120}00120 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00121}00121 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00122}00122 \textcolor{comment}{/// \#define SIZE 15}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00123}00123 \textcolor{comment}{/// char x[SIZE + 1];}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00124}00124 \textcolor{comment}{/// scanf("{}\%"{} DS\_SCN\_CSTR(SIZE), x);}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00125}00125 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00126}\mbox{\hyperlink{cstr_8h_ac4c5be5620d1429a8cb1aac130cf7927}{00126}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_SCN\_CSTR(len) DS\_SCN\_CSTR\_INTERNAL\_IMPL (len)}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00127}00127 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00128}00128 \textcolor{comment}{/// @brief C-\/string notation. Can be used in `printf` to format and write}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00129}00129 \textcolor{comment}{/// C-\/string values.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00130}00130 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00131}00131 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00131}00131 \textcolor{comment}{/// \#\#\# Examples}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00132}00132 \textcolor{comment}{///}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00133}00133 \textcolor{comment}{/// ```c}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00134}00134 \textcolor{comment}{/// ds\_cstr\_t const x = "{}abc"{};}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00135}00135 \textcolor{comment}{/// printf ("{}\%"{} DS\_PRI\_CSTR, x);}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00136}00136 \textcolor{comment}{/// ```}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00137}\mbox{\hyperlink{cstr_8h_a6aa934dffead8e9b88783d7cacae1ce0}{00137}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_PRI\_CSTR "{}s"{}}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00138}00138 }
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00139}00139 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00140}00140 \}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00141}00141 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00142}00142 }
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00143}00143 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_CSTR\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00133}00133 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00134}00134 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00135}00135 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00136}00136 \textcolor{comment}{/// ds\_cstr\_t const x = "{}abc"{};}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00137}00137 \textcolor{comment}{/// printf ("{}\%"{} DS\_PRI\_CSTR, x);}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00138}00138 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00139}\mbox{\hyperlink{cstr_8h_a6aa934dffead8e9b88783d7cacae1ce0}{00139}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_PRI\_CSTR "{}s"{}}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00141}00141 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00142}00142 \}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00143}00143 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00145}00145 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_CSTR\_H */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}
