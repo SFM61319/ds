@@ -97,6 +97,44 @@ extern "C"
 #define DS_HELPERS_CLAMP(self, min, max)                                      \
   (DS_HELPERS_MAX ((min), (DS_HELPERS_MIN ((self), (max)))))
 
+/// @brief Checks if @p self lies in the right-exclusive interval between @p
+/// start and @p end.
+/// @param self The value to check.
+/// @param start The inclusive start of the interval.
+/// @param end The exclusive end of the interval.
+/// @return `true` if @p self lies in the right-exclusive interval between @p
+/// start and @p end, and `false` otherwise.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_HELPERS_IN_RANGE (0, 0, 10));
+/// assert (!DS_HELPERS_IN_RANGE (10, 0, 10));
+/// ```
+#define DS_HELPERS_IN_RANGE(self, start, end)                                 \
+  (((self) >= (start)) && ((self) < (end)))
+
+/// @brief Checks if @p self lies in the inclusive interval between @p start
+/// and @p end.
+/// @param self The value to check.
+/// @param start The inclusive start of the interval.
+/// @param end The inclusive end of the interval.
+/// @return `true` if @p self lies in the inclusive interval between @p start
+/// and @p end, and `false` otherwise.
+///
+/// ### Examples
+///
+/// Basic usage:
+///
+/// ```c
+/// assert (DS_HELPERS_IN_RANGE_INCLUSIVE (0, 0, 10));
+/// assert (!DS_HELPERS_IN_RANGE_INCLUSIVE (11, 0, 10));
+/// ```
+#define DS_HELPERS_IN_RANGE_INCLUSIVE(self, start, end)                       \
+  (((self) >= (start)) && ((self) <= (end)))
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

@@ -9,6 +9,10 @@ this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- `DS_HELPERS_IN_RANGE` and `DS_HELPERS_IN_RANGE_INCLUSIVE` helper macro functions.
+
 ### Changed
 
 - Make the global memory allocator mutable to support custom memory allocators.
