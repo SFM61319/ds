@@ -63,25 +63,6 @@ extern "C"
   /// ```
   typedef bool (*ds_predicate_char_t) (ds_char_t);
 
-  /// @brief Checks if @p self lies in the inclusive interval between @p start
-  /// and @p end.
-  /// @param self The value to check.
-  /// @param start The inclusive start of the interval.
-  /// @param end The inclusive end of the interval.
-  /// @return `true` if @p self lies in the inclusive interval between @p start
-  /// and @p end, and `false` otherwise.
-  ///
-  /// ### Examples
-  ///
-  /// Basic usage:
-  ///
-  /// ```c
-  /// assert (ds_char_in_range ('a', 'a', 'z'));
-  /// assert (!ds_char_in_range ('A', 'a', 'z'));
-  /// ```
-  extern bool ds_char_in_range (ds_char_t self, ds_char_t start,
-                                ds_char_t end);
-
   /// @brief Makes a copy of @p self in its ASCII upper case equivalent.
   ///
   /// ASCII letters 'a' to 'z' are mapped to 'A' to 'Z', but non-ASCII letters

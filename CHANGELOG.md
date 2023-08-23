@@ -16,6 +16,11 @@ this project adheres to
 ### Changed
 
 - Make the global memory allocator mutable to support custom memory allocators.
+- Replaced `ds_char_in_range` with `DS_HELPERS_IN_RANGE_INCLUSIVE`.
+
+### Removed
+
+- `ds_char_in_range` function in favor of the `DS_HELPERS_IN_RANGE_INCLUSIVE` macro function.
 
 ## [`v0.8.0`] - 2023-08-10
 

@@ -9,6 +9,7 @@
 #include <stdint.h>
 
 #include "ds/char.h"
+#include "ds/helpers.h"
 
 /// @internal
 /// @brief If 6th bit is set, ASCII is lower case.
@@ -23,13 +24,6 @@ static ds_char_t
 ds_char_ascii_change_case_unchecked (ds_char_t const self)
 {
   return (ds_char_t)((uint8_t)self ^ DS_ASCII_CASE_MASK);
-}
-
-bool
-ds_char_in_range (ds_char_t const self, ds_char_t const start,
-                  ds_char_t const end)
-{
-  return self >= start && self <= end;
 }
 
 ds_char_t
@@ -65,13 +59,13 @@ ds_char_is_ascii_alphabetic (ds_char_t const self)
 bool
 ds_char_is_ascii_uppercase (ds_char_t const self)
 {
-  return ds_char_in_range (self, 'A', 'Z');
+  return DS_HELPERS_IN_RANGE_INCLUSIVE (self, 'A', 'Z');
 }
 
 bool
 ds_char_is_ascii_lowercase (ds_char_t const self)
 {
-  return ds_char_in_range (self, 'a', 'z');
+  return DS_HELPERS_IN_RANGE_INCLUSIVE (self, 'a', 'z');
 }
 
 bool
@@ -83,34 +77,36 @@ ds_char_is_ascii_alphanumeric (ds_char_t const self)
 bool
 ds_char_is_ascii_digit (ds_char_t const self)
 {
-  return ds_char_in_range (self, '0', '9');
+  return DS_HELPERS_IN_RANGE_INCLUSIVE (self, '0', '9');
 }
 
 bool
 ds_char_is_ascii_octdigit (ds_char_t const self)
 {
-  return ds_char_in_range (self, '0', '7');
+  return DS_HELPERS_IN_RANGE_INCLUSIVE (self, '0', '7');
 }
 
 bool
 ds_char_is_ascii_hexdigit (ds_char_t const self)
 {
-  return ds_char_is_ascii_digit (self) || ds_char_in_range (self, 'a', 'f')
-         || ds_char_in_range (self, 'A', 'F');
+  return ds_char_is_ascii_digit (self)
+         || DS_HELPERS_IN_RANGE_INCLUSIVE (self, 'a', 'f')
+         || DS_HELPERS_IN_RANGE_INCLUSIVE (self, 'A', 'F');
 }
 
 bool
 ds_char_is_ascii_punctuation (ds_char_t const self)
 {
-  return ds_char_in_range (self, '!', '/') || ds_char_in_range (self, ':', '@')
-         || ds_char_in_range (self, '[', '`')
-         || ds_char_in_range (self, '{', '~');
+  return DS_HELPERS_IN_RANGE_INCLUSIVE (self, '!', '/')
+         || DS_HELPERS_IN_RANGE_INCLUSIVE (self, ':', '@')
+         || DS_HELPERS_IN_RANGE_INCLUSIVE (self, '[', '`')
+         || DS_HELPERS_IN_RANGE_INCLUSIVE (self, '{', '~');
 }
 
 bool
 ds_char_is_ascii_graphic (ds_char_t const self)
 {
-  return ds_char_in_range (self, '!', '~');
+  return DS_HELPERS_IN_RANGE_INCLUSIVE (self, '!', '~');
 }
 
 bool
@@ -124,5 +120,5 @@ bool
 ds_char_is_ascii_control (ds_char_t const self)
 {
   return self == DS_CHAR_DEL
-         || ds_char_in_range (self, DS_CHAR_NUL, DS_CHAR_US);
+         || DS_HELPERS_IN_RANGE_INCLUSIVE (self, DS_CHAR_NUL, DS_CHAR_US);
 }

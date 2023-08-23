@@ -28,20 +28,6 @@ TEST (CharDel, CorrectValue) { EXPECT_EQ (DS_CHAR_DEL, '\x7F'); }
 TEST (CharScn, CorrectValue) { EXPECT_STREQ (DS_SCN_CHAR, "c"); }
 TEST (CharPri, CorrectValue) { EXPECT_STREQ (DS_PRI_CHAR, "c"); }
 
-TEST (CharInRange, True)
-{
-  EXPECT_TRUE (ds_char_in_range ('a', 'a', 'z'));
-  EXPECT_TRUE (ds_char_in_range ('m', 'a', 'z'));
-  EXPECT_TRUE (ds_char_in_range ('z', 'a', 'z'));
-}
-
-TEST (CharInRange, False)
-{
-  EXPECT_FALSE (ds_char_in_range (DS_CHAR_MIN, 'a', 'z'));
-  EXPECT_FALSE (ds_char_in_range (DS_CHAR_NUL, 'a', 'z'));
-  EXPECT_FALSE (ds_char_in_range (DS_CHAR_MAX, 'a', 'z'));
-}
-
 TEST (CharToAsciiUpperCase, AsciiLowerCase)
 {
   for (ds_char_t c{ 'a' }; c <= 'z'; c++)
