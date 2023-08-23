@@ -46,7 +46,8 @@ extern "C"
   /// @param size The size of the C-string to allocate.
   ///
   /// @return @ref DS_RESULT_OK "Ok" on success.
-  /// @return @ref DS_RESULT_PTR_IS_NULL "Err(PtrIsNull)" if @p self is `NULL`.
+  /// @return @ref DS_RESULT_ERR_PTR_IS_NULL "Err(PtrIsNull)" if @p self is
+  /// `NULL`.
   /// @return @ref DS_RESULT_ERR_MEM_ALLOC_FAILED "Err(MemAllocFailed)" if a
   /// memory allocation fails.
   extern ds_result_t ds_cstr_allocate (ds_cstr_t *self, ds_usize_t size);
@@ -63,8 +64,8 @@ extern "C"
   /// @param dst_size The new size of the reallocated C-string.
   ///
   /// @return @ref DS_RESULT_OK "Ok" on success.
-  /// @return @ref DS_RESULT_PTR_IS_NULL "Err(PtrIsNull)" if @p src_cstr_ptr or
-  /// @p dst_cstr_ptr is `NULL`.
+  /// @return @ref DS_RESULT_ERR_PTR_IS_NULL "Err(PtrIsNull)" if @p
+  /// src_cstr_ptr or @p dst_cstr_ptr is `NULL`.
   /// @return @ref DS_RESULT_ERR_MEM_ALLOC_FAILED "Err(MemAllocFailed)" if a
   /// memory allocation fails.
   extern ds_result_t ds_cstr_reallocate (ds_cstr_t *src_cstr_ptr,
@@ -80,7 +81,8 @@ extern "C"
   ///
   /// @param[out] self A reference to the C-string to deallocate.
   /// @return @ref DS_RESULT_OK "Ok" on success.
-  /// @return @ref DS_RESULT_PTR_IS_NULL "Err(PtrIsNull)" if @p self is `NULL`.
+  /// @return @ref DS_RESULT_ERR_PTR_IS_NULL "Err(PtrIsNull)" if @p self is
+  /// `NULL`.
   extern ds_result_t ds_cstr_deallocate (ds_cstr_t *self);
 
 /// @brief The size of C-strings in bytes.
