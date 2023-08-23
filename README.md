@@ -6,6 +6,6 @@ _A C library to safely yet efficiently work with UTF-8–encoded, growable dynam
 - [Source Code](https://github.com/SFM61319/ds)
 - [Documentation](https://sfm61319.github.io/ds/)
 - [Getting Support](https://github.com/SFM61319/ds/blob/main/SUPPORT.md)
-- [Reporting Security Vulnerabilities](https://github.com/SFM61319/ds/blob/main/SECURITY.md)
+- [Reporting Security Vulnerabilities](https://github.com/SFM61319/ds/security/policy)
 - [Contributing](https://github.com/SFM61319/ds/blob/main/CONTRIBUTING.md)
 - [Changelog](https://github.com/SFM61319/ds/blob/main/CHANGELOG.md)
