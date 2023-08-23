@@ -13,122 +13,118 @@
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00009}00009 \textcolor{preprocessor}{\#include <stdint.h>}}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00010}00010 }
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{char_8h}{ds/char.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00012}00012 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00013}00013 \textcolor{comment}{/// @internal}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00014}00014 \textcolor{comment}{/// @brief If 6th bit is set, ASCII is lower case.}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00015}00015 \textcolor{comment}{}\textcolor{keyword}{static} uint8\_t \textcolor{keyword}{const} DS\_ASCII\_CASE\_MASK = 0x20;}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00016}00016 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00017}00017 \textcolor{comment}{/// @internal}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00018}00018 \textcolor{comment}{/// @brief Toggles the case of an ASCII alphabetic character. Converts lower}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00019}00019 \textcolor{comment}{/// case to upper case and vice versa.}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00020}00020 \textcolor{comment}{/// @param self The value to convert.}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00021}00021 \textcolor{comment}{/// @return The ASCII character in the toggled case.}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00022}00022 \textcolor{comment}{}\textcolor{keyword}{static} \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00023}00023 ds\_char\_ascii\_change\_case\_unchecked (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00024}00024 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00025}00025   \textcolor{keywordflow}{return} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}})((uint8\_t)self \string^ DS\_ASCII\_CASE\_MASK);}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00026}00026 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00027}00027 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00028}00028 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00029}\mbox{\hyperlink{char_8h_a0d17ad586e00766b4684bdac9924ed0e}{00029}} \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} start,}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00030}00030                   \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} end)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{helpers_8h}{ds/helpers.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00013}00013 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00014}00014 \textcolor{comment}{/// @internal}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00015}00015 \textcolor{comment}{/// @brief If 6th bit is set, ASCII is lower case.}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00016}00016 \textcolor{comment}{}\textcolor{keyword}{static} uint8\_t \textcolor{keyword}{const} DS\_ASCII\_CASE\_MASK = 0x20;}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00017}00017 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00018}00018 \textcolor{comment}{/// @internal}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00019}00019 \textcolor{comment}{/// @brief Toggles the case of an ASCII alphabetic character. Converts lower}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00020}00020 \textcolor{comment}{/// case to upper case and vice versa.}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00021}00021 \textcolor{comment}{/// @param self The value to convert.}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00022}00022 \textcolor{comment}{/// @return The ASCII character in the toggled case.}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00023}00023 \textcolor{comment}{}\textcolor{keyword}{static} \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00024}00024 ds\_char\_ascii\_change\_case\_unchecked (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00025}00025 \{}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00026}00026   \textcolor{keywordflow}{return} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}})((uint8\_t)self \string^ DS\_ASCII\_CASE\_MASK);}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00027}00027 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00029}00029 \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00030}\mbox{\hyperlink{char_8h_acf28b292dd407661577ae4df5e40684b}{00030}} \mbox{\hyperlink{char_8c_a988ae15b4f6c55c6b664caae27082ac1}{ds\_char\_to\_ascii\_uppercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00031}00031 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00032}00032   \textcolor{keywordflow}{return} self >= start \&\& self <= end;}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00033}00033 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00035}00035 \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00036}\mbox{\hyperlink{char_8h_acf28b292dd407661577ae4df5e40684b}{00036}} \mbox{\hyperlink{char_8c_a988ae15b4f6c55c6b664caae27082ac1}{ds\_char\_to\_ascii\_uppercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00037}00037 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00038}00038   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_addb2c2f7cdda91ae57f50b84a55af573}{ds\_char\_is\_ascii\_lowercase}} (self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00039}00039              ? ds\_char\_ascii\_change\_case\_unchecked (self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00040}00040              : self;}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00041}00041 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00042}00042 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00043}00043 \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00044}\mbox{\hyperlink{char_8h_a6d9242880df4717ee13d29c95a33c2f8}{00044}} \mbox{\hyperlink{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d}{ds\_char\_to\_ascii\_lowercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00045}00045 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00046}00046   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a800be38168fd75c1505b935a62d2f9ae}{ds\_char\_is\_ascii\_uppercase}} (self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00047}00047              ? ds\_char\_ascii\_change\_case\_unchecked (self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00048}00048              : self;}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00049}00049 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00050}00050 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00051}00051 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00052}\mbox{\hyperlink{char_8h_a909932a31d20457ee7765543113c2493}{00052}} \mbox{\hyperlink{char_8c_a643fe0b72862983c36a6b61ad57c1cfe}{ds\_char\_eq\_ignore\_ascii\_case}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} other)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00053}00053 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00054}00054   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d}{ds\_char\_to\_ascii\_lowercase}} (self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00055}00055          == \mbox{\hyperlink{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d}{ds\_char\_to\_ascii\_lowercase}} (other);}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00056}00056 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00057}00057 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00058}00058 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00059}\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{00059}} \mbox{\hyperlink{char_8c_a02834d689c11586dfd63cfb5c5af6ec3}{ds\_char\_is\_ascii\_alphabetic}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00060}00060 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00061}00061   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_addb2c2f7cdda91ae57f50b84a55af573}{ds\_char\_is\_ascii\_lowercase}} (self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00062}00062          || \mbox{\hyperlink{char_8c_a800be38168fd75c1505b935a62d2f9ae}{ds\_char\_is\_ascii\_uppercase}} (self);}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00032}00032   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_addb2c2f7cdda91ae57f50b84a55af573}{ds\_char\_is\_ascii\_lowercase}} (self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00033}00033              ? ds\_char\_ascii\_change\_case\_unchecked (self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00034}00034              : self;}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00035}00035 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00037}00037 \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00038}\mbox{\hyperlink{char_8h_a6d9242880df4717ee13d29c95a33c2f8}{00038}} \mbox{\hyperlink{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d}{ds\_char\_to\_ascii\_lowercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00039}00039 \{}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00040}00040   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a800be38168fd75c1505b935a62d2f9ae}{ds\_char\_is\_ascii\_uppercase}} (self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00041}00041              ? ds\_char\_ascii\_change\_case\_unchecked (self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00042}00042              : self;}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00043}00043 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00045}00045 \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00046}\mbox{\hyperlink{char_8h_a909932a31d20457ee7765543113c2493}{00046}} \mbox{\hyperlink{char_8c_a643fe0b72862983c36a6b61ad57c1cfe}{ds\_char\_eq\_ignore\_ascii\_case}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} other)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00047}00047 \{}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00048}00048   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d}{ds\_char\_to\_ascii\_lowercase}} (self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00049}00049          == \mbox{\hyperlink{char_8c_a8385de1c37e3dfa511ca0ebdec5ed29d}{ds\_char\_to\_ascii\_lowercase}} (other);}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00050}00050 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00052}00052 \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00053}\mbox{\hyperlink{char_8h_ac124f08e43b0ae720d1548f482144407}{00053}} \mbox{\hyperlink{char_8c_a02834d689c11586dfd63cfb5c5af6ec3}{ds\_char\_is\_ascii\_alphabetic}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00054}00054 \{}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00055}00055   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_addb2c2f7cdda91ae57f50b84a55af573}{ds\_char\_is\_ascii\_lowercase}} (self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00056}00056          || \mbox{\hyperlink{char_8c_a800be38168fd75c1505b935a62d2f9ae}{ds\_char\_is\_ascii\_uppercase}} (self);}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00057}00057 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00059}00059 \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00060}\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{00060}} \mbox{\hyperlink{char_8c_a800be38168fd75c1505b935a62d2f9ae}{ds\_char\_is\_ascii\_uppercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00061}00061 \{}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00062}00062   \textcolor{keywordflow}{return} \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'A'}, \textcolor{charliteral}{'Z'});}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00063}00063 \}}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00064}00064 }
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00065}00065 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00066}\mbox{\hyperlink{char_8h_a682fb8a7ff2098b9de6feab90fe28bf2}{00066}} \mbox{\hyperlink{char_8c_a800be38168fd75c1505b935a62d2f9ae}{ds\_char\_is\_ascii\_uppercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00066}\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{00066}} \mbox{\hyperlink{char_8c_addb2c2f7cdda91ae57f50b84a55af573}{ds\_char\_is\_ascii\_lowercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00067}00067 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00068}00068   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'A'}, \textcolor{charliteral}{'Z'});}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00068}00068   \textcolor{keywordflow}{return} \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'a'}, \textcolor{charliteral}{'z'});}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00069}00069 \}}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00070}00070 }
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00071}00071 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00072}\mbox{\hyperlink{char_8h_aa0bffbb96f997d839b69ca28f8e0e43e}{00072}} \mbox{\hyperlink{char_8c_addb2c2f7cdda91ae57f50b84a55af573}{ds\_char\_is\_ascii\_lowercase}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00072}\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{00072}} \mbox{\hyperlink{char_8c_a349af3c98a6fb7cdeff001119743c1ca}{ds\_char\_is\_ascii\_alphanumeric}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00073}00073 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00074}00074   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'a'}, \textcolor{charliteral}{'z'});}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00074}00074   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a02834d689c11586dfd63cfb5c5af6ec3}{ds\_char\_is\_ascii\_alphabetic}} (self) || \mbox{\hyperlink{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351}{ds\_char\_is\_ascii\_digit}} (self);}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00075}00075 \}}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00076}00076 }
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00077}00077 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00078}\mbox{\hyperlink{char_8h_ab2495c17d510f2bb9c5c577d2e8a4531}{00078}} \mbox{\hyperlink{char_8c_a349af3c98a6fb7cdeff001119743c1ca}{ds\_char\_is\_ascii\_alphanumeric}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00078}\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{00078}} \mbox{\hyperlink{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351}{ds\_char\_is\_ascii\_digit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00079}00079 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00080}00080   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a02834d689c11586dfd63cfb5c5af6ec3}{ds\_char\_is\_ascii\_alphabetic}} (self) || \mbox{\hyperlink{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351}{ds\_char\_is\_ascii\_digit}} (self);}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00080}00080   \textcolor{keywordflow}{return} \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'0'}, \textcolor{charliteral}{'9'});}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00081}00081 \}}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00082}00082 }
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00083}00083 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00084}\mbox{\hyperlink{char_8h_a56c6c6cbf8bb5eb5e06e29961cfd0cf1}{00084}} \mbox{\hyperlink{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351}{ds\_char\_is\_ascii\_digit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00084}\mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{00084}} \mbox{\hyperlink{char_8c_a9da93370b843c312fc7fae6a373c4206}{ds\_char\_is\_ascii\_octdigit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00085}00085 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00086}00086   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'0'}, \textcolor{charliteral}{'9'});}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00086}00086   \textcolor{keywordflow}{return} \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'0'}, \textcolor{charliteral}{'7'});}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00087}00087 \}}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00088}00088 }
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00089}00089 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00090}\mbox{\hyperlink{char_8h_afb06a1b874a501739f2358d019bde21d}{00090}} \mbox{\hyperlink{char_8c_a9da93370b843c312fc7fae6a373c4206}{ds\_char\_is\_ascii\_octdigit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00090}\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{00090}} \mbox{\hyperlink{char_8c_a1e1289b7cecd55f4fb932418d093e8ab}{ds\_char\_is\_ascii\_hexdigit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
 \DoxyCodeLine{\Hypertarget{char_8c_source_l00091}00091 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00092}00092   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'0'}, \textcolor{charliteral}{'7'});}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00093}00093 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00094}00094 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00095}00095 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00096}\mbox{\hyperlink{char_8h_a119f494ae625a456bb4e62b3a0f78391}{00096}} \mbox{\hyperlink{char_8c_a1e1289b7cecd55f4fb932418d093e8ab}{ds\_char\_is\_ascii\_hexdigit}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00097}00097 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00098}00098   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351}{ds\_char\_is\_ascii\_digit}} (self) || \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'a'}, \textcolor{charliteral}{'f'})}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00099}00099          || \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'A'}, \textcolor{charliteral}{'F'});}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00100}00100 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00101}00101 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00102}00102 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00103}\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{00103}} \mbox{\hyperlink{char_8c_abe0cdf5de54fe62bcf737d83ad2cb4f8}{ds\_char\_is\_ascii\_punctuation}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00104}00104 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00105}00105   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'!'}, \textcolor{charliteral}{'/'}) || \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{':'}, \textcolor{charliteral}{'@'})}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00106}00106          || \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'['}, \textcolor{charliteral}{'`'})}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00107}00107          || \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'\{'}, \textcolor{charliteral}{'\string~'});}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00108}00108 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00109}00109 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00110}00110 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00111}\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{00111}} \mbox{\hyperlink{char_8c_aca6506a9db8ce783cac59d28def15b17}{ds\_char\_is\_ascii\_graphic}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00112}00112 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00113}00113   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \textcolor{charliteral}{'!'}, \textcolor{charliteral}{'\string~'});}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00114}00114 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00115}00115 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00116}00116 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00117}\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{00117}} \mbox{\hyperlink{char_8c_a603228992a323665c2ad4c34d86a95aa}{ds\_char\_is\_ascii\_whitespace}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00118}00118 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00119}00119   \textcolor{keywordflow}{return} self == \mbox{\hyperlink{char_8h_a6828f169645a9072b25d7e8251ab2f6d}{DS\_CHAR\_HT}} || self == \mbox{\hyperlink{char_8h_ac70befae74272772160d308d9fdbb309}{DS\_CHAR\_LF}} || self == \mbox{\hyperlink{char_8h_af9a168a29fe82734d9436a8b54814990}{DS\_CHAR\_FF}}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00120}00120          || self == \mbox{\hyperlink{char_8h_abae91cc24abbffbc1d53c3caab58d099}{DS\_CHAR\_CR}} || self == \textcolor{charliteral}{' '};}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00121}00121 \}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00122}00122 }
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00123}00123 \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00124}\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{00124}} \mbox{\hyperlink{char_8c_a24c097e7e8fc5fb63133cfb6a3f84587}{ds\_char\_is\_ascii\_control}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00125}00125 \{}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00126}00126   \textcolor{keywordflow}{return} self == \mbox{\hyperlink{char_8h_a90d15b889b96a58360cc4b4bc88699ab}{DS\_CHAR\_DEL}}}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00127}00127          || \mbox{\hyperlink{char_8c_a61380babe759ddeea94ee96a230e0916}{ds\_char\_in\_range}} (self, \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{DS\_CHAR\_NUL}}, \mbox{\hyperlink{char_8h_a9968481e3985c88211b3dd11bee857c1}{DS\_CHAR\_US}});}
-\DoxyCodeLine{\Hypertarget{char_8c_source_l00128}00128 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00092}00092   \textcolor{keywordflow}{return} \mbox{\hyperlink{char_8c_a6bbbed2e3dec7ed2aa9eff0683f2f351}{ds\_char\_is\_ascii\_digit}} (self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00093}00093          || \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'a'}, \textcolor{charliteral}{'f'})}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00094}00094          || \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'A'}, \textcolor{charliteral}{'F'});}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00095}00095 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00097}00097 \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00098}\mbox{\hyperlink{char_8h_abfc454a0d93d548ed94f109c77b1e68f}{00098}} \mbox{\hyperlink{char_8c_abe0cdf5de54fe62bcf737d83ad2cb4f8}{ds\_char\_is\_ascii\_punctuation}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00099}00099 \{}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00100}00100   \textcolor{keywordflow}{return} \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'!'}, \textcolor{charliteral}{'/'})}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00101}00101          || \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{':'}, \textcolor{charliteral}{'@'})}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00102}00102          || \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'['}, \textcolor{charliteral}{'`'})}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00103}00103          || \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'\{'}, \textcolor{charliteral}{'\string~'});}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00104}00104 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00106}00106 \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00107}\mbox{\hyperlink{char_8h_af50ba493605648683d0b49fd1df62211}{00107}} \mbox{\hyperlink{char_8c_aca6506a9db8ce783cac59d28def15b17}{ds\_char\_is\_ascii\_graphic}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00108}00108 \{}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00109}00109   \textcolor{keywordflow}{return} \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \textcolor{charliteral}{'!'}, \textcolor{charliteral}{'\string~'});}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00110}00110 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00112}00112 \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00113}\mbox{\hyperlink{char_8h_af92b320584b2581e725f2d6ae4d3f18a}{00113}} \mbox{\hyperlink{char_8c_a603228992a323665c2ad4c34d86a95aa}{ds\_char\_is\_ascii\_whitespace}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00114}00114 \{}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00115}00115   \textcolor{keywordflow}{return} self == \mbox{\hyperlink{char_8h_a6828f169645a9072b25d7e8251ab2f6d}{DS\_CHAR\_HT}} || self == \mbox{\hyperlink{char_8h_ac70befae74272772160d308d9fdbb309}{DS\_CHAR\_LF}} || self == \mbox{\hyperlink{char_8h_af9a168a29fe82734d9436a8b54814990}{DS\_CHAR\_FF}}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00116}00116          || self == \mbox{\hyperlink{char_8h_abae91cc24abbffbc1d53c3caab58d099}{DS\_CHAR\_CR}} || self == \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00117}00117 \}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00119}00119 \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00120}\mbox{\hyperlink{char_8h_a1463f455ab57b0671638e381a2a85d26}{00120}} \mbox{\hyperlink{char_8c_a24c097e7e8fc5fb63133cfb6a3f84587}{ds\_char\_is\_ascii\_control}} (\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} \textcolor{keyword}{const} self)}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00121}00121 \{}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00122}00122   \textcolor{keywordflow}{return} self == \mbox{\hyperlink{char_8h_a90d15b889b96a58360cc4b4bc88699ab}{DS\_CHAR\_DEL}}}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00123}00123          || \mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{DS\_HELPERS\_IN\_RANGE\_INCLUSIVE}} (self, \mbox{\hyperlink{char_8h_aff8ca144f3aed3f78bedd4310eefbbbc}{DS\_CHAR\_NUL}}, \mbox{\hyperlink{char_8h_a9968481e3985c88211b3dd11bee857c1}{DS\_CHAR\_US}});}
+\DoxyCodeLine{\Hypertarget{char_8c_source_l00124}00124 \}}
 
 \end{DoxyCode}

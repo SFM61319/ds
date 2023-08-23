@@ -19,7 +19,6 @@ var char_8h =
     [ "ds_char_t", "char_8h.html#a2c809211274ede9eddff5a750bdeb5ae", null ],
     [ "ds_predicate_char_t", "char_8h.html#a3727df91a5ce69a48988a6837c04a015", null ],
     [ "ds_char_eq_ignore_ascii_case", "char_8h.html#a909932a31d20457ee7765543113c2493", null ],
-    [ "ds_char_in_range", "char_8h.html#a0d17ad586e00766b4684bdac9924ed0e", null ],
     [ "ds_char_is_ascii_alphabetic", "char_8h.html#ac124f08e43b0ae720d1548f482144407", null ],
     [ "ds_char_is_ascii_alphanumeric", "char_8h.html#ab2495c17d510f2bb9c5c577d2e8a4531", null ],
     [ "ds_char_is_ascii_control", "char_8h.html#a1463f455ab57b0671638e381a2a85d26", null ],

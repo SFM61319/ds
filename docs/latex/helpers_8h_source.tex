@@ -100,11 +100,49 @@
 \DoxyCodeLine{\Hypertarget{helpers_8h_source_l00096}00096 \textcolor{comment}{/// ```}}
 \DoxyCodeLine{\Hypertarget{helpers_8h_source_l00097}\mbox{\hyperlink{helpers_8h_af76d252a309762d8769be5426777fefa}{00097}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_HELPERS\_CLAMP(self, min, max)                                      \(\backslash\)}}
 \DoxyCodeLine{\Hypertarget{helpers_8h_source_l00098}00098 \textcolor{preprocessor}{  (DS\_HELPERS\_MAX ((min), (DS\_HELPERS\_MIN ((self), (max)))))}}
-\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00099}00099 }
-\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00100}00100 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
-\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00101}00101 \}}
-\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00102}00102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00103}00103 }
-\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00104}00104 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_HELPERS\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00099}00099 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00100}00100 \textcolor{comment}{/// @brief Checks if @p self lies in the right-\/exclusive interval between @p}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00101}00101 \textcolor{comment}{/// start and @p end.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00102}00102 \textcolor{comment}{/// @param self The value to check.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00103}00103 \textcolor{comment}{/// @param start The inclusive start of the interval.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00104}00104 \textcolor{comment}{/// @param end The exclusive end of the interval.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00105}00105 \textcolor{comment}{/// @return `true` if @p self lies in the right-\/exclusive interval between @p}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00106}00106 \textcolor{comment}{/// start and @p end, and `false` otherwise.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00107}00107 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00108}00108 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00109}00109 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00110}00110 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00111}00111 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00112}00112 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00113}00113 \textcolor{comment}{/// assert (DS\_HELPERS\_IN\_RANGE (0, 0, 10));}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00114}00114 \textcolor{comment}{/// assert (!DS\_HELPERS\_IN\_RANGE (10, 0, 10));}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00115}00115 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00116}\mbox{\hyperlink{helpers_8h_a5c9eef8686b183edb73aa01b87184c19}{00116}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_HELPERS\_IN\_RANGE(self, start, end)                                 \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00117}00117 \textcolor{preprocessor}{  (((self) >= (start)) \&\& ((self) < (end)))}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00118}00118 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00119}00119 \textcolor{comment}{/// @brief Checks if @p self lies in the inclusive interval between @p start}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00120}00120 \textcolor{comment}{/// and @p end.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00121}00121 \textcolor{comment}{/// @param self The value to check.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00122}00122 \textcolor{comment}{/// @param start The inclusive start of the interval.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00123}00123 \textcolor{comment}{/// @param end The inclusive end of the interval.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00124}00124 \textcolor{comment}{/// @return `true` if @p self lies in the inclusive interval between @p start}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00125}00125 \textcolor{comment}{/// and @p end, and `false` otherwise.}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00126}00126 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00127}00127 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00128}00128 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00129}00129 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00130}00130 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00131}00131 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00132}00132 \textcolor{comment}{/// assert (DS\_HELPERS\_IN\_RANGE\_INCLUSIVE (0, 0, 10));}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00133}00133 \textcolor{comment}{/// assert (!DS\_HELPERS\_IN\_RANGE\_INCLUSIVE (11, 0, 10));}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00134}00134 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00135}\mbox{\hyperlink{helpers_8h_a60c6c772f2d427505e0c63f3e49167f9}{00135}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_HELPERS\_IN\_RANGE\_INCLUSIVE(self, start, end)                       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00136}00136 \textcolor{preprocessor}{  (((self) >= (start)) \&\& ((self) <= (end)))}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00138}00138 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00139}00139 \}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00140}00140 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00141}00141 }
+\DoxyCodeLine{\Hypertarget{helpers_8h_source_l00142}00142 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_HELPERS\_H */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

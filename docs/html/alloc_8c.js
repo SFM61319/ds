@@ -1,4 +1,4 @@
 var alloc_8c =
 [
-    [ "DS_GLOBAL_ALLOCATOR", "alloc_8c.html#a7c29c8ef8a748014addc3e2a1ba41a58", null ]
+    [ "ds_allocator_global", "alloc_8c.html#a4abedd2d1fdbe058d43574d867b7a894", null ]
 ];

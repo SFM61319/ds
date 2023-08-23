@@ -78,7 +78,7 @@ window.MathJax = {
                   <div id="projectname">
                     ds<span
                       id="projectnumber"
-                      >&#160;0.8.0</span
+                      >&#160;0.9.0</span
                     >
                   </div>
                   <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
@@ -165,10 +165,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="helpers_8h__dep__incl.png" border="0" usemap="#ainclude_2ds_2helpers_8hdep" alt=""/></div>
 <map name="ainclude_2ds_2helpers_8hdep" id="ainclude_2ds_2helpers_8hdep">
-<area shape="rect" title="Declaration of helper constants and functions." alt="" coords="72,5,209,32"/>
-<area shape="rect" href="result_8h.html" title="Declaration of the Result enumeration type, related constants and functions." alt="" coords="5,80,132,107"/>
-<area shape="rect" href="helpers_8c.html" title="Implementation of helper constants and functions." alt="" coords="157,80,271,107"/>
-<area shape="rect" href="result_8c.html" title="Implementation of the Result enumeration type, related constants and functions." alt="" coords="17,155,121,181"/>
+<area shape="rect" title="Declaration of helper constants and functions." alt="" coords="313,5,450,32"/>
+<area shape="rect" href="result_8h.html" title="Declaration of the Result enumeration type, related constants and functions." alt="" coords="135,80,262,107"/>
+<area shape="rect" href="cstr_8c.html" title="Implementation of the C&#45;string types, related constants and functions." alt="" coords="113,229,207,256"/>
+<area shape="rect" href="char_8c.html" title="Implementation of the char type, related constants and functions." alt="" coords="377,80,474,107"/>
+<area shape="rect" href="helpers_8c.html" title="Implementation of helper constants and functions." alt="" coords="499,80,613,107"/>
+<area shape="rect" href="cstr_8h.html" title="Declaration of the C&#45;string types, related constants and functions." alt="" coords="5,155,123,181"/>
+<area shape="rect" href="result_8c.html" title="Implementation of the Result enumeration type, related constants and functions." alt="" coords="197,155,301,181"/>
 </map>
 </div>
 </div>
@@ -185,6 +188,12 @@ Macros</h2></td></tr>
 <tr class="memitem:af76d252a309762d8769be5426777fefa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#af76d252a309762d8769be5426777fefa">DS_HELPERS_CLAMP</a>(self,  min,  max)&#160;&#160;&#160;  (<a class="el" href="helpers_8h.html#aad9c75302c0d731d2283d3aa23a330b2">DS_HELPERS_MAX</a> ((min), (<a class="el" href="helpers_8h.html#a4554cbffb13739970bee6fbe17f4cef4">DS_HELPERS_MIN</a> ((self), (max)))))</td></tr>
 <tr class="memdesc:af76d252a309762d8769be5426777fefa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restrict a value to a certain interval.  <a href="helpers_8h.html#af76d252a309762d8769be5426777fefa">More...</a><br /></td></tr>
 <tr class="separator:af76d252a309762d8769be5426777fefa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c9eef8686b183edb73aa01b87184c19"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a5c9eef8686b183edb73aa01b87184c19">DS_HELPERS_IN_RANGE</a>(self,  start,  end)&#160;&#160;&#160;  (((self) &gt;= (start)) &amp;&amp; ((self) &lt; (end)))</td></tr>
+<tr class="memdesc:a5c9eef8686b183edb73aa01b87184c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> lies in the right-exclusive interval between <code>start</code> and <code>end</code>.  <a href="helpers_8h.html#a5c9eef8686b183edb73aa01b87184c19">More...</a><br /></td></tr>
+<tr class="separator:a5c9eef8686b183edb73aa01b87184c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c6c772f2d427505e0c63f3e49167f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a60c6c772f2d427505e0c63f3e49167f9">DS_HELPERS_IN_RANGE_INCLUSIVE</a>(self,  start,  end)&#160;&#160;&#160;  (((self) &gt;= (start)) &amp;&amp; ((self) &lt;= (end)))</td></tr>
+<tr class="memdesc:a60c6c772f2d427505e0c63f3e49167f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <code>self</code> lies in the inclusive interval between <code>start</code> and <code>end</code>.  <a href="helpers_8h.html#a60c6c772f2d427505e0c63f3e49167f9">More...</a><br /></td></tr>
+<tr class="separator:a60c6c772f2d427505e0c63f3e49167f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -246,7 +255,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>max</code> if <code>self</code> is greater than <code>max</code>, and <code>min</code> if <code>self</code> is less than <code>min</code>. Otherwise this returns <code>self</code>.</dd></dl>
 <dl class="section attention"><dt>Attention</dt><dd>Always ensure that <code>min</code> is less than or equal to <code>max</code>.</dd></dl>
-<h3><a class="anchor" id="autotoc_md43"></a>
+<h3><a class="anchor" id="autotoc_md42"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="helpers_8h.html#af76d252a309762d8769be5426777fefa">DS_HELPERS_CLAMP</a> (-3, -2, 1), -2);</div>
@@ -255,6 +264,112 @@ Examples</h3>
 <div class="ttc" id="ahelpers_8h_html_af76d252a309762d8769be5426777fefa"><div class="ttname"><a href="helpers_8h.html#af76d252a309762d8769be5426777fefa">DS_HELPERS_CLAMP</a></div><div class="ttdeci">#define DS_HELPERS_CLAMP(self, min, max)</div><div class="ttdoc">Restrict a value to a certain interval.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00097">helpers.h:97</a></div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00097">97</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
+
+</div>
+</div>
+<a id="a5c9eef8686b183edb73aa01b87184c19" name="a5c9eef8686b183edb73aa01b87184c19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c9eef8686b183edb73aa01b87184c19">&#9670;&nbsp;</a></span>DS_HELPERS_IN_RANGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS_HELPERS_IN_RANGE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">self, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">start, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">end&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  (((self) &gt;= (start)) &amp;&amp; ((self) &lt; (end)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> lies in the right-exclusive interval between <code>start</code> and <code>end</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+    <tr><td class="paramname">start</td><td>The inclusive start of the interval. </td></tr>
+    <tr><td class="paramname">end</td><td>The exclusive end of the interval. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> lies in the right-exclusive interval between <code>start</code> and <code>end</code>, and <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md43"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line">assert (<a class="code hl_define" href="helpers_8h.html#a5c9eef8686b183edb73aa01b87184c19">DS_HELPERS_IN_RANGE</a> (0, 0, 10));</div>
+<div class="line">assert (!<a class="code hl_define" href="helpers_8h.html#a5c9eef8686b183edb73aa01b87184c19">DS_HELPERS_IN_RANGE</a> (10, 0, 10));</div>
+<div class="ttc" id="ahelpers_8h_html_a5c9eef8686b183edb73aa01b87184c19"><div class="ttname"><a href="helpers_8h.html#a5c9eef8686b183edb73aa01b87184c19">DS_HELPERS_IN_RANGE</a></div><div class="ttdeci">#define DS_HELPERS_IN_RANGE(self, start, end)</div><div class="ttdoc">Checks if self lies in the right-exclusive interval between start and end.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00116">helpers.h:116</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00116">116</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
+
+</div>
+</div>
+<a id="a60c6c772f2d427505e0c63f3e49167f9" name="a60c6c772f2d427505e0c63f3e49167f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c6c772f2d427505e0c63f3e49167f9">&#9670;&nbsp;</a></span>DS_HELPERS_IN_RANGE_INCLUSIVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS_HELPERS_IN_RANGE_INCLUSIVE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">self, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">start, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">end&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  (((self) &gt;= (start)) &amp;&amp; ((self) &lt;= (end)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if <code>self</code> lies in the inclusive interval between <code>start</code> and <code>end</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The value to check. </td></tr>
+    <tr><td class="paramname">start</td><td>The inclusive start of the interval. </td></tr>
+    <tr><td class="paramname">end</td><td>The inclusive end of the interval. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>self</code> lies in the inclusive interval between <code>start</code> and <code>end</code>, and <code>false</code> otherwise.</dd></dl>
+<h3><a class="anchor" id="autotoc_md44"></a>
+Examples</h3>
+<p >Basic usage:</p>
+<div class="fragment"><div class="line">assert (<a class="code hl_define" href="helpers_8h.html#a60c6c772f2d427505e0c63f3e49167f9">DS_HELPERS_IN_RANGE_INCLUSIVE</a> (0, 0, 10));</div>
+<div class="line">assert (!<a class="code hl_define" href="helpers_8h.html#a60c6c772f2d427505e0c63f3e49167f9">DS_HELPERS_IN_RANGE_INCLUSIVE</a> (11, 0, 10));</div>
+<div class="ttc" id="ahelpers_8h_html_a60c6c772f2d427505e0c63f3e49167f9"><div class="ttname"><a href="helpers_8h.html#a60c6c772f2d427505e0c63f3e49167f9">DS_HELPERS_IN_RANGE_INCLUSIVE</a></div><div class="ttdeci">#define DS_HELPERS_IN_RANGE_INCLUSIVE(self, start, end)</div><div class="ttdoc">Checks if self lies in the inclusive interval between start and end.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00135">helpers.h:135</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00135">135</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
 
 </div>
 </div>
@@ -295,7 +410,7 @@ Examples</h3>
 <dl class="section return"><dt>Returns</dt><dd>The maximum of <code>self</code> and <code>other</code>. </dd>
 <dd>
 <code>other</code> if the comparison determines them to be equal.</dd></dl>
-<h3><a class="anchor" id="autotoc_md42"></a>
+<h3><a class="anchor" id="autotoc_md41"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="helpers_8h.html#aad9c75302c0d731d2283d3aa23a330b2">DS_HELPERS_MAX</a> (1, 2) == 2);</div>
@@ -343,7 +458,7 @@ Examples</h3>
 <dl class="section return"><dt>Returns</dt><dd>The minimum of <code>self</code> and <code>other</code>. </dd>
 <dd>
 <code>self</code> if the comparison determines them to be equal.</dd></dl>
-<h3><a class="anchor" id="autotoc_md41"></a>
+<h3><a class="anchor" id="autotoc_md40"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="helpers_8h.html#a4554cbffb13739970bee6fbe17f4cef4">DS_HELPERS_MIN</a> (1, 2) == 1);</div>
@@ -379,7 +494,7 @@ Examples</h3>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>ptr</code> is a valid non-<code>NULL</code> pointer. <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md40"></a>
+<h3><a class="anchor" id="autotoc_md39"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> x = 0;</div>
@@ -423,7 +538,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if <code>ptr</code> is <code>NULL</code>, and <code>false</code> otherwise.</dd></dl>
-<h3><a class="anchor" id="autotoc_md39"></a>
+<h3><a class="anchor" id="autotoc_md38"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_function" href="helpers_8h.html#a33cc59a60961d28d4cba1f41a76bb4e9">ds_helpers_is_null</a> (NULL));</div>
@@ -435,8 +550,10 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="helpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9_icgraph.png" border="0" usemap="#ahelpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9_icgraph" alt=""/></div>
 <map name="ahelpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9_icgraph" id="ahelpers_8h_a33cc59a60961d28d4cba1f41a76bb4e9_icgraph">
-<area shape="rect" title="Returns true if ptr is NULL." alt="" coords="212,5,341,32"/>
-<area shape="rect" href="helpers_8c.html#a504f9fc2c382cde060c859bf82ea0b51" title="Returns true if ptr is a valid non&#45;NULL pointer." alt="" coords="5,5,164,32"/>
+<area shape="rect" title="Returns true if ptr is NULL." alt="" coords="388,56,517,83"/>
+<area shape="rect" href="cstr_8c.html#ad7dec64d3462d2469a579f60bbdf8b98" title="Attempts to allocate a C&#45;string." alt="" coords="202,5,319,32"/>
+<area shape="rect" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3" title="Attempts to reallocate (extend, shrink) the C&#45;string." alt="" coords="5,31,133,57"/>
+<area shape="rect" href="helpers_8c.html#a504f9fc2c382cde060c859bf82ea0b51" title="Returns true if ptr is a valid non&#45;NULL pointer." alt="" coords="181,107,340,133"/>
 </map>
 </div>
 

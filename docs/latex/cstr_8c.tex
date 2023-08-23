@@ -5,14 +5,30 @@
 Implementation of the C-\/string types, related constants and functions.  
 
 
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ds/alloc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ds/char.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ds/cstr.\+h\char`\"{}}\newline
-Include dependency graph for cstr.\+c\+:\nopagebreak
+{\ttfamily \#include \char`\"{}ds/helpers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ds/result.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ds/usize.\+h\char`\"{}}\newline
+Include dependency graph for cstr.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=308pt]{cstr_8c__incl}
+\includegraphics[width=350pt]{cstr_8c__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{cstr_8c_ad7dec64d3462d2469a579f60bbdf8b98}{ds\+\_\+cstr\+\_\+allocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} $\ast$const self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const size)
+\begin{DoxyCompactList}\small\item\em Attempts to allocate a C-\/string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{cstr_8c_a957aabf2374959e5c4abb137e79979d3}{ds\+\_\+cstr\+\_\+reallocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} $\ast$const src\+\_\+cstr\+\_\+ptr, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const src\+\_\+size, \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} $\ast$const dst\+\_\+cstr\+\_\+ptr, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const dst\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Attempts to reallocate (extend, shrink) the C-\/string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{cstr_8c_ad3ff1bdd3a326a8c084a852508c7f7d9}{ds\+\_\+cstr\+\_\+deallocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} $\ast$const self)
+\begin{DoxyCompactList}\small\item\em Deallocates the C-\/string referenced by {\ttfamily self}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -31,3 +47,123 @@ Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gma
 
 Definition in file \mbox{\hyperlink{cstr_8c_source}{cstr.\+c}}.
 
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cstr_8c_ad7dec64d3462d2469a579f60bbdf8b98}\label{cstr_8c_ad7dec64d3462d2469a579f60bbdf8b98}} 
+\index{cstr.c@{cstr.c}!ds\_cstr\_allocate@{ds\_cstr\_allocate}}
+\index{ds\_cstr\_allocate@{ds\_cstr\_allocate}!cstr.c@{cstr.c}}
+\doxysubsubsection{\texorpdfstring{ds\_cstr\_allocate()}{ds\_cstr\_allocate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+cstr\+\_\+allocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Attempts to allocate a C-\/string. 
+
+\begin{DoxyWarning}{Warning}
+Always pair a \mbox{\hyperlink{cstr_8c_ad7dec64d3462d2469a579f60bbdf8b98}{ds\+\_\+cstr\+\_\+allocate}} call with a \mbox{\hyperlink{cstr_8c_a957aabf2374959e5c4abb137e79979d3}{ds\+\_\+cstr\+\_\+reallocate}} or \mbox{\hyperlink{cstr_8c_ad3ff1bdd3a326a8c084a852508c7f7d9}{ds\+\_\+cstr\+\_\+deallocate}} call (passing the same pointer). Failing to do so {\itshape {\bfseries{will}}} lead to memory leaks.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & The allocated C-\/string on success. \\
+\hline
+ & {\em size} & The size of the C-\/string to allocate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+Err(Ptr\+Is\+Null) if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cstr_8c_source_l00018}{18}} of file \mbox{\hyperlink{cstr_8c_source}{cstr.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{cstr_8c_ad7dec64d3462d2469a579f60bbdf8b98_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{cstr_8c_ad7dec64d3462d2469a579f60bbdf8b98_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cstr_8c_ad3ff1bdd3a326a8c084a852508c7f7d9}\label{cstr_8c_ad3ff1bdd3a326a8c084a852508c7f7d9}} 
+\index{cstr.c@{cstr.c}!ds\_cstr\_deallocate@{ds\_cstr\_deallocate}}
+\index{ds\_cstr\_deallocate@{ds\_cstr\_deallocate}!cstr.c@{cstr.c}}
+\doxysubsubsection{\texorpdfstring{ds\_cstr\_deallocate()}{ds\_cstr\_deallocate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+cstr\+\_\+deallocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Deallocates the C-\/string referenced by {\ttfamily self}. 
+
+\begin{DoxyWarning}{Warning}
+Only pass pointers allocated using \mbox{\hyperlink{cstr_8c_ad7dec64d3462d2469a579f60bbdf8b98}{ds\+\_\+cstr\+\_\+allocate}} or \mbox{\hyperlink{cstr_8c_a957aabf2374959e5c4abb137e79979d3}{ds\+\_\+cstr\+\_\+reallocate}}. Passing other pointers may lead to undefined behavior.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & A reference to the C-\/string to deallocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+Err(Ptr\+Is\+Null) if {\ttfamily self} is {\ttfamily NULL}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cstr_8c_source_l00081}{81}} of file \mbox{\hyperlink{cstr_8c_source}{cstr.\+c}}.
+
+\mbox{\Hypertarget{cstr_8c_a957aabf2374959e5c4abb137e79979d3}\label{cstr_8c_a957aabf2374959e5c4abb137e79979d3}} 
+\index{cstr.c@{cstr.c}!ds\_cstr\_reallocate@{ds\_cstr\_reallocate}}
+\index{ds\_cstr\_reallocate@{ds\_cstr\_reallocate}!cstr.c@{cstr.c}}
+\doxysubsubsection{\texorpdfstring{ds\_cstr\_reallocate()}{ds\_cstr\_reallocate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+cstr\+\_\+reallocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} $\ast$}]{src\+\_\+cstr\+\_\+ptr,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{src\+\_\+size,  }\item[{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} $\ast$}]{dst\+\_\+cstr\+\_\+ptr,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{dst\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Attempts to reallocate (extend, shrink) the C-\/string. 
+
+\begin{DoxyWarning}{Warning}
+Always pair a \mbox{\hyperlink{cstr_8c_a957aabf2374959e5c4abb137e79979d3}{ds\+\_\+cstr\+\_\+reallocate}} call with a \mbox{\hyperlink{cstr_8c_a957aabf2374959e5c4abb137e79979d3}{ds\+\_\+cstr\+\_\+reallocate}} or \mbox{\hyperlink{cstr_8c_ad3ff1bdd3a326a8c084a852508c7f7d9}{ds\+\_\+cstr\+\_\+deallocate}} call (passing the same pointer). Failing to do so $\ast$$\ast$$\ast$will$\ast$$\ast$ lead to memory leaks.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em src\+\_\+cstr\+\_\+ptr} & A reference to the C-\/string to reallocate. \\
+\hline
+ & {\em src\+\_\+size} & The old size of the C-\/string to reallocate. \\
+\hline
+\mbox{\texttt{ out}}  & {\em dst\+\_\+cstr\+\_\+ptr} & A reference to the reallocated C-\/string. \\
+\hline
+ & {\em dst\+\_\+size} & The new size of the reallocated C-\/string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+Err(Ptr\+Is\+Null) if {\ttfamily src\+\_\+cstr\+\_\+ptr} or {\ttfamily dst\+\_\+cstr\+\_\+ptr} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cstr_8c_source_l00040}{40}} of file \mbox{\hyperlink{cstr_8c_source}{cstr.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cstr_8c_a957aabf2374959e5c4abb137e79979d3_cgraph}
+\end{center}
+\end{figure}

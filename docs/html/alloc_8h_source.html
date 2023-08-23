@@ -78,7 +78,7 @@ window.MathJax = {
                   <div id="projectname">
                     ds<span
                       id="projectnumber"
-                      >&#160;0.8.0</span
+                      >&#160;0.9.0</span
                     >
                   </div>
                   <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
@@ -227,7 +227,7 @@ $(document).ready(function(){initNavTree('alloc_8h_source.html',''); initResizab
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">  ///</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">  /// By default, uses the C stdlib `malloc`, `realloc`, and `free` functions,</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">  /// but can be defined to use a custom allocator.</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span>  <span class="keyword">extern</span> <a class="code hl_struct" href="structds__allocator__t.html">ds_allocator_t</a> <span class="keyword">const</span> <a class="code hl_variable" href="alloc_8h.html#a7c29c8ef8a748014addc3e2a1ba41a58">DS_GLOBAL_ALLOCATOR</a>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span>  <span class="keyword">extern</span> <a class="code hl_struct" href="structds__allocator__t.html">ds_allocator_t</a> <a class="code hl_variable" href="alloc_8h.html#a4abedd2d1fdbe058d43574d867b7a894">ds_allocator_global</a>;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"></span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">/// @brief The size of @ref ds_allocator_t &quot;Allocator&quot; in bytes.</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">///</span></div>
@@ -245,7 +245,7 @@ $(document).ready(function(){initNavTree('alloc_8h_source.html',''); initResizab
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif </span><span class="comment">/* DS_ALLOC_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aalloc_8h_html_a7c29c8ef8a748014addc3e2a1ba41a58"><div class="ttname"><a href="alloc_8h.html#a7c29c8ef8a748014addc3e2a1ba41a58">DS_GLOBAL_ALLOCATOR</a></div><div class="ttdeci">ds_allocator_t const DS_GLOBAL_ALLOCATOR</div><div class="ttdoc">The global memory allocator.</div><div class="ttdef"><b>Definition:</b> <a href="alloc_8c_source.html#l00012">alloc.c:12</a></div></div>
+<div class="ttc" id="aalloc_8h_html_a4abedd2d1fdbe058d43574d867b7a894"><div class="ttname"><a href="alloc_8h.html#a4abedd2d1fdbe058d43574d867b7a894">ds_allocator_global</a></div><div class="ttdeci">ds_allocator_t ds_allocator_global</div><div class="ttdoc">The global memory allocator.</div><div class="ttdef"><b>Definition:</b> <a href="alloc_8c_source.html#l00012">alloc.c:12</a></div></div>
 <div class="ttc" id="astructds__allocator__t_html"><div class="ttname"><a href="structds__allocator__t.html">ds_allocator_t</a></div><div class="ttdoc">An implementation of Allocator can allocate, reallocate (grow, shrink), and deallocate arbitrary bloc...</div><div class="ttdef"><b>Definition:</b> <a href="alloc_8h_source.html#l00027">alloc.h:28</a></div></div>
 <div class="ttc" id="astructds__allocator__t_html_a7ad534ba91895296432fbcb390f0bcd9"><div class="ttname"><a href="structds__allocator__t.html#a7ad534ba91895296432fbcb390f0bcd9">ds_allocator_t::deallocate</a></div><div class="ttdeci">void(* deallocate)(void *ptr)</div><div class="ttdoc">Deallocates the memory referenced by ptr.</div><div class="ttdef"><b>Definition:</b> <a href="alloc_8h_source.html#l00075">alloc.h:75</a></div></div>
 <div class="ttc" id="ausize_8h_html"><div class="ttname"><a href="usize_8h.html">usize.h</a></div><div class="ttdoc">Declaration of the usize type, related constants and functions.</div></div>

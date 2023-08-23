@@ -78,7 +78,7 @@ window.MathJax = {
                   <div id="projectname">
                     ds<span
                       id="projectnumber"
-                      >&#160;0.8.0</span
+                      >&#160;0.9.0</span
                     >
                   </div>
                   <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
@@ -155,8 +155,8 @@ $(document).ready(function(){initNavTree('alloc_8c_source.html',''); initResizab
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="alloc_8h.html">ds/alloc.h</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="alloc_8h.html#a7c29c8ef8a748014addc3e2a1ba41a58">   12</a></span><a class="code hl_struct" href="structds__allocator__t.html">ds_allocator_t</a> <span class="keyword">const</span> <a class="code hl_variable" href="alloc_8c.html#a7c29c8ef8a748014addc3e2a1ba41a58">DS_GLOBAL_ALLOCATOR</a> = { malloc, realloc, free };</div>
-<div class="ttc" id="aalloc_8c_html_a7c29c8ef8a748014addc3e2a1ba41a58"><div class="ttname"><a href="alloc_8c.html#a7c29c8ef8a748014addc3e2a1ba41a58">DS_GLOBAL_ALLOCATOR</a></div><div class="ttdeci">ds_allocator_t const DS_GLOBAL_ALLOCATOR</div><div class="ttdoc">The global memory allocator.</div><div class="ttdef"><b>Definition:</b> <a href="alloc_8c_source.html#l00012">alloc.c:12</a></div></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="alloc_8h.html#a4abedd2d1fdbe058d43574d867b7a894">   12</a></span><a class="code hl_struct" href="structds__allocator__t.html">ds_allocator_t</a> <a class="code hl_variable" href="alloc_8c.html#a4abedd2d1fdbe058d43574d867b7a894">ds_allocator_global</a> = { malloc, realloc, free }; <span class="comment">// NOLINT</span></div>
+<div class="ttc" id="aalloc_8c_html_a4abedd2d1fdbe058d43574d867b7a894"><div class="ttname"><a href="alloc_8c.html#a4abedd2d1fdbe058d43574d867b7a894">ds_allocator_global</a></div><div class="ttdeci">ds_allocator_t ds_allocator_global</div><div class="ttdoc">The global memory allocator.</div><div class="ttdef"><b>Definition:</b> <a href="alloc_8c_source.html#l00012">alloc.c:12</a></div></div>
 <div class="ttc" id="aalloc_8h_html"><div class="ttname"><a href="alloc_8h.html">alloc.h</a></div><div class="ttdoc">Declaration of the Allocator type, related constants and functions.</div></div>
 <div class="ttc" id="astructds__allocator__t_html"><div class="ttname"><a href="structds__allocator__t.html">ds_allocator_t</a></div><div class="ttdoc">An implementation of Allocator can allocate, reallocate (grow, shrink), and deallocate arbitrary bloc...</div><div class="ttdef"><b>Definition:</b> <a href="alloc_8h_source.html#l00027">alloc.h:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

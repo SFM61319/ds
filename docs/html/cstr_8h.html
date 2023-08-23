@@ -78,7 +78,7 @@ window.MathJax = {
                   <div id="projectname">
                     ds<span
                       id="projectnumber"
-                      >&#160;0.8.0</span
+                      >&#160;0.9.0</span
                     >
                   </div>
                   <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
@@ -143,28 +143,31 @@ $(document).ready(function(){initNavTree('cstr_8h.html',''); initResizable(); })
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">cstr.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Declaration of the C-string types, related constants and functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="char_8h_source.html">ds/char.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="char_8h_source.html">ds/char.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="result_8h_source.html">ds/result.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="usize_8h_source.html">ds/usize.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for cstr.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="cstr_8h__incl.png" border="0" usemap="#ainclude_2ds_2cstr_8h" alt=""/></div>
 <map name="ainclude_2ds_2cstr_8h" id="ainclude_2ds_2cstr_8h">
-<area shape="rect" title="Declaration of the C&#45;string types, related constants and functions." alt="" coords="77,5,195,32"/>
-<area shape="rect" title=" " alt="" coords="5,155,80,181"/>
-<area shape="rect" href="char_8h.html" title="Declaration of the char type, related constants and functions." alt="" coords="99,80,173,107"/>
-<area shape="rect" href="usize_8h.html" title="Declaration of the usize type, related constants and functions." alt="" coords="192,155,272,181"/>
-<area shape="rect" title=" " alt="" coords="105,155,167,181"/>
-<area shape="rect" title=" " alt="" coords="153,229,221,256"/>
-<area shape="rect" title=" " alt="" coords="245,229,309,256"/>
+<area shape="rect" title="Declaration of the C&#45;string types, related constants and functions." alt="" coords="125,5,242,32"/>
+<area shape="rect" href="char_8h.html" title="Declaration of the char type, related constants and functions." alt="" coords="70,80,145,107"/>
+<area shape="rect" href="usize_8h.html" title="Declaration of the usize type, related constants and functions." alt="" coords="143,155,223,181"/>
+<area shape="rect" href="result_8h.html" title="Declaration of the Result enumeration type, related constants and functions." alt="" coords="237,80,319,107"/>
+<area shape="rect" title=" " alt="" coords="5,155,68,181"/>
+<area shape="rect" title=" " alt="" coords="257,229,331,256"/>
+<area shape="rect" title=" " alt="" coords="68,229,136,256"/>
+<area shape="rect" title=" " alt="" coords="161,229,225,256"/>
+<area shape="rect" href="helpers_8h.html" title="Declaration of helper constants and functions." alt="" coords="248,155,340,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -199,6 +202,18 @@ Typedefs</h2></td></tr>
 <tr class="memitem:adba5ab6409b8c3d88e892a3a4702ea11"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a></td></tr>
 <tr class="memdesc:adba5ab6409b8c3d88e892a3a4702ea11"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable C-string type.  <a href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">More...</a><br /></td></tr>
 <tr class="separator:adba5ab6409b8c3d88e892a3a4702ea11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a797297692768227dd3e2093dc303da97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a797297692768227dd3e2093dc303da97">ds_cstr_allocate</a> (<a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *self, <a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a> size)</td></tr>
+<tr class="memdesc:a797297692768227dd3e2093dc303da97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to allocate a C-string.  <a href="cstr_8h.html#a797297692768227dd3e2093dc303da97">More...</a><br /></td></tr>
+<tr class="separator:a797297692768227dd3e2093dc303da97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0521ff572347d3f7e02ba9e898b77371"><td class="memItemLeft" align="right" valign="top"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a0521ff572347d3f7e02ba9e898b77371">ds_cstr_reallocate</a> (<a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *src_cstr_ptr, <a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a> src_size, <a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *dst_cstr_ptr, <a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a> dst_size)</td></tr>
+<tr class="memdesc:a0521ff572347d3f7e02ba9e898b77371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to reallocate (extend, shrink) the C-string.  <a href="cstr_8h.html#a0521ff572347d3f7e02ba9e898b77371">More...</a><br /></td></tr>
+<tr class="separator:a0521ff572347d3f7e02ba9e898b77371"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d741d2c09768d744142868d62e364f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a84d741d2c09768d744142868d62e364f">ds_cstr_deallocate</a> (<a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *self)</td></tr>
+<tr class="memdesc:a84d741d2c09768d744142868d62e364f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the C-string referenced by <code>self</code>.  <a href="cstr_8h.html#a84d741d2c09768d744142868d62e364f">More...</a><br /></td></tr>
+<tr class="separator:a84d741d2c09768d744142868d62e364f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Declaration of the C-string types, related constants and functions. </p>
@@ -221,14 +236,14 @@ Typedefs</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The size of C-strings in bytes. </p>
-<h3><a class="anchor" id="autotoc_md36"></a>
+<h3><a class="anchor" id="autotoc_md35"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line">assert (<a class="code hl_define" href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a> == <span class="keyword">sizeof</span> (<a class="code hl_typedef" href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a> *));</div>
 <div class="ttc" id="achar_8h_html_a2c809211274ede9eddff5a750bdeb5ae"><div class="ttname"><a href="char_8h.html#a2c809211274ede9eddff5a750bdeb5ae">ds_char_t</a></div><div class="ttdeci">char ds_char_t</div><div class="ttdoc">A character type.</div><div class="ttdef"><b>Definition:</b> <a href="char_8h_source.html#l00030">char.h:30</a></div></div>
-<div class="ttc" id="acstr_8h_html_a8140575d67e20d64d2668be77cfeaa43"><div class="ttname"><a href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a></div><div class="ttdeci">#define DS_CSTR_BYTES</div><div class="ttdoc">The size of C-strings in bytes.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00049">cstr.h:49</a></div></div>
+<div class="ttc" id="acstr_8h_html_a8140575d67e20d64d2668be77cfeaa43"><div class="ttname"><a href="cstr_8h.html#a8140575d67e20d64d2668be77cfeaa43">DS_CSTR_BYTES</a></div><div class="ttdeci">#define DS_CSTR_BYTES</div><div class="ttdoc">The size of C-strings in bytes.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00095">cstr.h:95</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00049">49</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00095">95</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
 
 </div>
 </div>
@@ -245,15 +260,15 @@ Examples</h3>
 </div><div class="memdoc">
 
 <p>C-string notation. Can be used in <code>printf</code> to format and write C-string values. </p>
-<h3><a class="anchor" id="autotoc_md38"></a>
+<h3><a class="anchor" id="autotoc_md37"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> <span class="keyword">const</span> x = <span class="stringliteral">&quot;abc&quot;</span>;</div>
 <div class="line">printf (<span class="stringliteral">&quot;%&quot;</span> <a class="code hl_define" href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">DS_PRI_CSTR</a>, x);</div>
-<div class="ttc" id="acstr_8h_html_a61bae52e31d5f3834166a135566a880f"><div class="ttname"><a href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a></div><div class="ttdeci">ds_char_t const  * ds_cstr_t</div><div class="ttdoc">An immutable C-string type.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00029">cstr.h:29</a></div></div>
-<div class="ttc" id="acstr_8h_html_a6aa934dffead8e9b88783d7cacae1ce0"><div class="ttname"><a href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">DS_PRI_CSTR</a></div><div class="ttdeci">#define DS_PRI_CSTR</div><div class="ttdoc">C-string notation. Can be used in printf to format and write C-string values.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00091">cstr.h:91</a></div></div>
+<div class="ttc" id="acstr_8h_html_a61bae52e31d5f3834166a135566a880f"><div class="ttname"><a href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a></div><div class="ttdeci">ds_char_t const  * ds_cstr_t</div><div class="ttdoc">An immutable C-string type.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00028">cstr.h:28</a></div></div>
+<div class="ttc" id="acstr_8h_html_a6aa934dffead8e9b88783d7cacae1ce0"><div class="ttname"><a href="cstr_8h.html#a6aa934dffead8e9b88783d7cacae1ce0">DS_PRI_CSTR</a></div><div class="ttdeci">#define DS_PRI_CSTR</div><div class="ttdoc">C-string notation. Can be used in printf to format and write C-string values.</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00137">cstr.h:137</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00091">91</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00137">137</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
 
 </div>
 </div>
@@ -283,15 +298,15 @@ Examples</h3>
 <dl class="section warning"><dt>Warning</dt><dd><code>len</code> must be (a macro constant containing) an unsigned integer literal (with no suffixes or preceding zeroes). Any other kind of value, expression, or statement is strictly disallowed.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>C-string notation for the given string length <code>len</code>.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>It is strongly advised to use <a href="https://en.cppreference.com/w/c/io/fgets" title="fgets - cppreference.com"><code>fgets</code></a> instead of <code>scanf</code> to read input.</dd></dl>
-<h3><a class="anchor" id="autotoc_md37"></a>
+<h3><a class="anchor" id="autotoc_md36"></a>
 Examples</h3>
 <p >Basic usage:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define SIZE 15</span></div>
 <div class="line"><span class="keywordtype">char</span> x[SIZE + 1];</div>
 <div class="line">scanf(<span class="stringliteral">&quot;%&quot;</span> <a class="code hl_define" href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">DS_SCN_CSTR</a>(SIZE), x);</div>
-<div class="ttc" id="acstr_8h_html_ac4c5be5620d1429a8cb1aac130cf7927"><div class="ttname"><a href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">DS_SCN_CSTR</a></div><div class="ttdeci">#define DS_SCN_CSTR(len)</div><div class="ttdoc">C-string notation. Can be used in scanf to parse and read len + 1 (len = size - 1) sized C-string val...</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00078">cstr.h:78</a></div></div>
+<div class="ttc" id="acstr_8h_html_ac4c5be5620d1429a8cb1aac130cf7927"><div class="ttname"><a href="cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927">DS_SCN_CSTR</a></div><div class="ttdeci">#define DS_SCN_CSTR(len)</div><div class="ttdoc">C-string notation. Can be used in scanf to parse and read len + 1 (len = size - 1) sized C-string val...</div><div class="ttdef"><b>Definition:</b> <a href="cstr_8h_source.html#l00124">cstr.h:124</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00078">78</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00124">124</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
 
 </div>
 </div>
@@ -314,7 +329,7 @@ Examples</h3>
 <dd>
 <a href="https://en.wikipedia.org/wiki/C_string_handling">https://en.wikipedia.org/wiki/C_string_handling</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00038">38</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00037">37</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
 
 </div>
 </div>
@@ -336,7 +351,172 @@ Examples</h3>
 <dd>
 <a href="https://en.wikipedia.org/wiki/C_string_handling">https://en.wikipedia.org/wiki/C_string_handling</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00029">29</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8h_source.html#l00028">28</a> of file <a class="el" href="cstr_8h_source.html">cstr.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a797297692768227dd3e2093dc303da97" name="a797297692768227dd3e2093dc303da97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a797297692768227dd3e2093dc303da97">&#9670;&nbsp;</a></span>ds_cstr_allocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a> ds_cstr_allocate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a>&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attempts to allocate a C-string. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Always pair a <a class="el" href="cstr_8c.html#ad7dec64d3462d2469a579f60bbdf8b98">ds_cstr_allocate</a> call with a <a class="el" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3">ds_cstr_reallocate</a> or <a class="el" href="cstr_8c.html#ad3ff1bdd3a326a8c084a852508c7f7d9">ds_cstr_deallocate</a> call (passing the same pointer). Failing to do so <em><b>will</b></em> lead to memory leaks.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">self</td><td>The allocated C-string on success. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>The size of the C-string to allocate.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">Ok</a> on success. </dd>
+<dd>
+Err(PtrIsNull) if <code>self</code> is <code>NULL</code>. </dd>
+<dd>
+<a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56">Err(MemAllocFailed)</a> if a memory allocation fails. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="cstr_8c_source.html#l00018">18</a> of file <a class="el" href="cstr_8c_source.html">cstr.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="cstr_8h_a797297692768227dd3e2093dc303da97_cgraph.png" border="0" usemap="#acstr_8h_a797297692768227dd3e2093dc303da97_cgraph" alt=""/></div>
+<map name="acstr_8h_a797297692768227dd3e2093dc303da97_cgraph" id="acstr_8h_a797297692768227dd3e2093dc303da97_cgraph">
+<area shape="rect" title="Attempts to allocate a C&#45;string." alt="" coords="5,5,123,32"/>
+<area shape="rect" href="helpers_8c.html#a5b2ecacaab141d28a86aa3cbbfc92dd8" title="Returns true if ptr is NULL." alt="" coords="171,5,300,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="cstr_8h_a797297692768227dd3e2093dc303da97_icgraph.png" border="0" usemap="#acstr_8h_a797297692768227dd3e2093dc303da97_icgraph" alt=""/></div>
+<map name="acstr_8h_a797297692768227dd3e2093dc303da97_icgraph" id="acstr_8h_a797297692768227dd3e2093dc303da97_icgraph">
+<area shape="rect" title="Attempts to allocate a C&#45;string." alt="" coords="181,5,299,32"/>
+<area shape="rect" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3" title="Attempts to reallocate (extend, shrink) the C&#45;string." alt="" coords="5,5,133,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a84d741d2c09768d744142868d62e364f" name="a84d741d2c09768d744142868d62e364f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84d741d2c09768d744142868d62e364f">&#9670;&nbsp;</a></span>ds_cstr_deallocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a> ds_cstr_deallocate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deallocates the C-string referenced by <code>self</code>. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Only pass pointers allocated using <a class="el" href="cstr_8c.html#ad7dec64d3462d2469a579f60bbdf8b98">ds_cstr_allocate</a> or <a class="el" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3">ds_cstr_reallocate</a>. Passing other pointers may lead to undefined behavior.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">self</td><td>A reference to the C-string to deallocate. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">Ok</a> on success. </dd>
+<dd>
+Err(PtrIsNull) if <code>self</code> is <code>NULL</code>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="cstr_8c_source.html#l00081">81</a> of file <a class="el" href="cstr_8c_source.html">cstr.c</a>.</p>
+
+</div>
+</div>
+<a id="a0521ff572347d3f7e02ba9e898b77371" name="a0521ff572347d3f7e02ba9e898b77371"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0521ff572347d3f7e02ba9e898b77371">&#9670;&nbsp;</a></span>ds_cstr_reallocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a> ds_cstr_reallocate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *&#160;</td>
+          <td class="paramname"><em>src_cstr_ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a>&#160;</td>
+          <td class="paramname"><em>src_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *&#160;</td>
+          <td class="paramname"><em>dst_cstr_ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a>&#160;</td>
+          <td class="paramname"><em>dst_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Attempts to reallocate (extend, shrink) the C-string. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Always pair a <a class="el" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3">ds_cstr_reallocate</a> call with a <a class="el" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3">ds_cstr_reallocate</a> or <a class="el" href="cstr_8c.html#ad3ff1bdd3a326a8c084a852508c7f7d9">ds_cstr_deallocate</a> call (passing the same pointer). Failing to do so ***will** lead to memory leaks.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">src_cstr_ptr</td><td>A reference to the C-string to reallocate. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">src_size</td><td>The old size of the C-string to reallocate. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dst_cstr_ptr</td><td>A reference to the reallocated C-string. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">dst_size</td><td>The new size of the reallocated C-string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560">Ok</a> on success. </dd>
+<dd>
+Err(PtrIsNull) if <code>src_cstr_ptr</code> or <code>dst_cstr_ptr</code> is <code>NULL</code>. </dd>
+<dd>
+<a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56">Err(MemAllocFailed)</a> if a memory allocation fails. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="cstr_8c_source.html#l00040">40</a> of file <a class="el" href="cstr_8c_source.html">cstr.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="cstr_8h_a0521ff572347d3f7e02ba9e898b77371_cgraph.png" border="0" usemap="#acstr_8h_a0521ff572347d3f7e02ba9e898b77371_cgraph" alt=""/></div>
+<map name="acstr_8h_a0521ff572347d3f7e02ba9e898b77371_cgraph" id="acstr_8h_a0521ff572347d3f7e02ba9e898b77371_cgraph">
+<area shape="rect" title="Attempts to reallocate (extend, shrink) the C&#45;string." alt="" coords="5,31,133,57"/>
+<area shape="rect" href="cstr_8c.html#ad7dec64d3462d2469a579f60bbdf8b98" title="Attempts to allocate a C&#45;string." alt="" coords="181,5,299,32"/>
+<area shape="rect" href="helpers_8c.html#a5b2ecacaab141d28a86aa3cbbfc92dd8" title="Returns true if ptr is NULL." alt="" coords="347,31,476,57"/>
+</map>
+</div>
 
 </div>
 </div>

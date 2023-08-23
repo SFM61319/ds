@@ -1,7 +1,6 @@
 var char_8c =
 [
     [ "ds_char_eq_ignore_ascii_case", "char_8c.html#a643fe0b72862983c36a6b61ad57c1cfe", null ],
-    [ "ds_char_in_range", "char_8c.html#a61380babe759ddeea94ee96a230e0916", null ],
     [ "ds_char_is_ascii_alphabetic", "char_8c.html#a02834d689c11586dfd63cfb5c5af6ec3", null ],
     [ "ds_char_is_ascii_alphanumeric", "char_8c.html#a349af3c98a6fb7cdeff001119743c1ca", null ],
     [ "ds_char_is_ascii_control", "char_8c.html#a24c097e7e8fc5fb63133cfb6a3f84587", null ],
