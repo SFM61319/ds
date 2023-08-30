@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['char_2ec_0',['char.c',['../char_8c.html',1,'']]],
-  ['char_2eh_1',['char.h',['../char_8h.html',1,'']]],
-  ['cstr_2ec_2',['cstr.c',['../cstr_8c.html',1,'']]],
-  ['cstr_2eh_3',['cstr.h',['../cstr_8h.html',1,'']]]
+  ['buf_0',['buf',['../structds__string__t.html#a16833a3669065f1e7464c664042307e6',1,'ds_string_t']]]
 ];

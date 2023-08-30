@@ -1,0 +1,206 @@
+\hypertarget{structds__string__t}{}\doxysection{ds\+\_\+string\+\_\+t Struct Reference}
+\label{structds__string__t}\index{ds\_string\_t@{ds\_string\_t}}
+
+
+A growable string. Will be UTF-\/8–encoded in the future.  
+
+
+
+
+{\ttfamily \#include $<$string.\+h$>$}
+
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}} \mbox{\hyperlink{structds__string__t_a16833a3669065f1e7464c664042307e6}{buf}}
+\begin{DoxyCompactList}\small\item\em Points to an internal buffer \mbox{\hyperlink{structds__string__t}{String}} uses to store its data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} \mbox{\hyperlink{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}{len}}
+\begin{DoxyCompactList}\small\item\em The number of bytes currently stored in the buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} \mbox{\hyperlink{structds__string__t_a037535c8c8ca824c04ff229521f861ce}{cap}}
+\begin{DoxyCompactList}\small\item\em The size of the buffer in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A growable string. Will be UTF-\/8–encoded in the future. 
+
+The \mbox{\hyperlink{structds__string__t}{String}} type is the most common string type that has ownership over the contents of the string. It has a close relationship with its standard counterpart, the primitive C-\/string.\hypertarget{structds__string__t_autotoc_md50}{}\doxyparagraph{Examples}\label{structds__string__t_autotoc_md50}
+You can create a \mbox{\hyperlink{structds__string__t}{String}} from a literal string with ds\+\_\+string\+\_\+from\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} hello;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&hello, \textcolor{stringliteral}{"{}Hello, world!"{}}, 13));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&hello));}
+
+\end{DoxyCode}
+
+
+You can append a \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} to a \mbox{\hyperlink{structds__string__t}{String}} with the \mbox{\hyperlink{string_8c_a5945540821c750c5406a16cb4a039b4c}{ds\+\_\+string\+\_\+push}} method, and append a C-\/string with the \mbox{\hyperlink{string_8c_ab04f7e8871804dd52a8f8861ca139bff}{ds\+\_\+string\+\_\+push\+\_\+str}} method\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} hello;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&hello, \textcolor{stringliteral}{"{}Hello,"{}}, 6));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&hello, \textcolor{charliteral}{' '}));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7dc370dd28d59e53bdb37a433cee16d8}{ds\_string\_push\_str}} (\&hello, \textcolor{stringliteral}{"{}world!"{}}, 6));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&hello));}
+
+\end{DoxyCode}
+\hypertarget{structds__string__t_autotoc_md51}{}\doxyparagraph{Representation}\label{structds__string__t_autotoc_md51}
+A \mbox{\hyperlink{structds__string__t}{String}} is made up of three components\+: a \mbox{\hyperlink{structds__string__t_a16833a3669065f1e7464c664042307e6}{pointer}} to some bytes, a \mbox{\hyperlink{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}{length}}, and a \mbox{\hyperlink{structds__string__t_a037535c8c8ca824c04ff229521f861ce}{capacity}}. The pointer points to an internal buffer \mbox{\hyperlink{structds__string__t}{String}} uses to store its data. The length is the number of bytes currently stored in the buffer, and the capacity is the size of the buffer in bytes. As such, the length will always be less than or equal to the capacity.
+
+This buffer is always stored on the heap.
+
+You can look at these with the \mbox{\hyperlink{string_8c_abbb1478a0c1ae71ea34d15bce0c04fd7}{ds\+\_\+string\+\_\+as\+\_\+ptr}}, \mbox{\hyperlink{string_8c_aa4ec35359b6197cfb530fc3a5bafcba5}{ds\+\_\+string\+\_\+len}}, and \mbox{\hyperlink{string_8c_aad8446f5a9a087afeb66fec98b7dd8bc}{ds\+\_\+string\+\_\+capacity}} methods\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} story;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&story, \textcolor{stringliteral}{"{}Once upon a time..."{}},}
+\DoxyCodeLine{                                         19));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} \textcolor{keyword}{const} ptr = \mbox{\hyperlink{string_8h_a4a1003294f989368751ee5465dbc0c6f}{ds\_string\_as\_ptr}} (story);}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \textcolor{keyword}{const} \mbox{\hyperlink{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}{len}} = \mbox{\hyperlink{string_8h_af83f5cb8676028a4741c2b43b39cb5de}{ds\_string\_len}} (story);}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \textcolor{keyword}{const} capacity = \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (story);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// story has nineteen bytes}}
+\DoxyCodeLine{assert (19 == \mbox{\hyperlink{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}{len}});}
+\DoxyCodeLine{assert (\mbox{\hyperlink{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}{len}} <= capacity);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// We can re-\/build a String out of ptr, len, and capacity. This is all}}
+\DoxyCodeLine{\textcolor{comment}{// unsafe because we are responsible for making sure the components are}}
+\DoxyCodeLine{\textcolor{comment}{// valid:}}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} \textcolor{keyword}{const} s = \mbox{\hyperlink{string_8h_ab2b4460fb63f22c7283e97c753e52b86}{ds\_string\_from\_raw\_parts}} (ptr, \mbox{\hyperlink{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}{len}}, capacity);}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (s, story));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&story));}
+
+\end{DoxyCode}
+
+
+If a \mbox{\hyperlink{structds__string__t}{String}} has enough capacity, adding elements to it will not re-\/allocate. For example, consider this program\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s = \mbox{\hyperlink{string_8h_a899aa04d6ff97d9f60fc0d4384f6f943}{ds\_string\_new}} ();}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{usize_8h_a4c30f0cc0613fbb63234f2075596dc8b}{DS\_PRI\_USIZE}} \textcolor{stringliteral}{"{}\(\backslash\)n"{}}, \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} i = \mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{DS\_USIZE\_MIN}}; i < 5; i++)}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    \mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7dc370dd28d59e53bdb37a433cee16d8}{ds\_string\_push\_str}} (\&s, \textcolor{stringliteral}{"{}hello"{}}, 5));}
+\DoxyCodeLine{    printf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{usize_8h_a4c30f0cc0613fbb63234f2075596dc8b}{DS\_PRI\_USIZE}} \textcolor{stringliteral}{"{}\(\backslash\)n"{}}, \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s));}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+
+
+This may output the following\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0}
+\DoxyCodeLine{8}
+\DoxyCodeLine{16}
+\DoxyCodeLine{16}
+\DoxyCodeLine{32}
+\DoxyCodeLine{32}
+
+\end{DoxyCode}
+
+
+At first, we have no memory allocated at all, but as we append to the string, it increases its capacity appropriately. If we instead use the \mbox{\hyperlink{string_8c_a14a71aff48981a47b7b3abbff92c8c6b}{ds\+\_\+string\+\_\+with\+\_\+capacity}} method to allocate the correct capacity initially\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a543c755f7554feedd8a5e85e246ca5fe}{ds\_string\_with\_capacity}} (\&s, 25));}
+\DoxyCodeLine{}
+\DoxyCodeLine{printf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{usize_8h_a4c30f0cc0613fbb63234f2075596dc8b}{DS\_PRI\_USIZE}} \textcolor{stringliteral}{"{}\(\backslash\)n"{}}, \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} i = \mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{DS\_USIZE\_MIN}}; i < 5; i++)}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    \mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7dc370dd28d59e53bdb37a433cee16d8}{ds\_string\_push\_str}} (\&s, \textcolor{stringliteral}{"{}hello"{}}, 5));}
+\DoxyCodeLine{    printf (\textcolor{stringliteral}{"{}\%"{}} \mbox{\hyperlink{usize_8h_a4c30f0cc0613fbb63234f2075596dc8b}{DS\_PRI\_USIZE}} \textcolor{stringliteral}{"{}\(\backslash\)n"{}}, \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s));}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+
+
+We may end up with a different output\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25}
+\DoxyCodeLine{25}
+\DoxyCodeLine{25}
+\DoxyCodeLine{25}
+\DoxyCodeLine{25}
+\DoxyCodeLine{25}
+
+\end{DoxyCode}
+
+
+Here, there\textquotesingle{}s no need to allocate more memory inside the loop. 
+
+Definition at line \mbox{\hyperlink{string_8h_source_l00162}{162}} of file \mbox{\hyperlink{string_8h_source}{string.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structds__string__t_a16833a3669065f1e7464c664042307e6}\label{structds__string__t_a16833a3669065f1e7464c664042307e6}} 
+\index{ds\_string\_t@{ds\_string\_t}!buf@{buf}}
+\index{buf@{buf}!ds\_string\_t@{ds\_string\_t}}
+\doxysubsubsection{\texorpdfstring{buf}{buf}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}} ds\+\_\+string\+\_\+t\+::buf\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Points to an internal buffer \mbox{\hyperlink{structds__string__t}{String}} uses to store its data. 
+
+This buffer is always stored on the heap. 
+
+Definition at line \mbox{\hyperlink{string_8h_source_l00169}{169}} of file \mbox{\hyperlink{string_8h_source}{string.\+h}}.
+
+\mbox{\Hypertarget{structds__string__t_a037535c8c8ca824c04ff229521f861ce}\label{structds__string__t_a037535c8c8ca824c04ff229521f861ce}} 
+\index{ds\_string\_t@{ds\_string\_t}!cap@{cap}}
+\index{cap@{cap}!ds\_string\_t@{ds\_string\_t}}
+\doxysubsubsection{\texorpdfstring{cap}{cap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} ds\+\_\+string\+\_\+t\+::cap\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The size of the buffer in bytes. 
+
+The length will always be less than or equal to the capacity. 
+
+Definition at line \mbox{\hyperlink{string_8h_source_l00181}{181}} of file \mbox{\hyperlink{string_8h_source}{string.\+h}}.
+
+\mbox{\Hypertarget{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}\label{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}} 
+\index{ds\_string\_t@{ds\_string\_t}!len@{len}}
+\index{len@{len}!ds\_string\_t@{ds\_string\_t}}
+\doxysubsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} ds\+\_\+string\+\_\+t\+::len\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The number of bytes currently stored in the buffer. 
+
+The length will always be less than or equal to the capacity. 
+
+Definition at line \mbox{\hyperlink{string_8h_source_l00175}{175}} of file \mbox{\hyperlink{string_8h_source}{string.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ds/\mbox{\hyperlink{string_8h}{string.\+h}}\end{DoxyCompactItemize}

@@ -54,7 +54,7 @@
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00050}00050 \textcolor{comment}{  /// `NULL`.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00051}00051 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00052}00052 \textcolor{comment}{  /// memory allocation fails.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00053}00053 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a797297692768227dd3e2093dc303da97}{ds\_cstr\_allocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} size);}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00053}00053 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_aaf29b786c7bb1b8f2405ac63c7883b0c}{ds\_cstr\_allocate}} (\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}} *self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} size);}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00054}00054 \textcolor{comment}{}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00055}00055 \textcolor{comment}{  /// @brief Attempts to reallocate (extend, shrink) the C-\/string.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00056}00056 \textcolor{comment}{  ///}}
@@ -72,9 +72,9 @@
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00068}00068 \textcolor{comment}{  /// src\_cstr\_ptr or @p dst\_cstr\_ptr is `NULL`.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00069}00069 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00070}00070 \textcolor{comment}{  /// memory allocation fails.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00071}00071 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a0521ff572347d3f7e02ba9e898b77371}{ds\_cstr\_reallocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *src\_cstr\_ptr,}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00071}00071 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a4638adbf1fb2fbc703ec8525bfcb9250}{ds\_cstr\_reallocate}} (\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}} *src\_cstr\_ptr,}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00072}00072                                          \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} src\_size,}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00073}00073                                          \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *dst\_cstr\_ptr,}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00073}00073                                          \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}} *dst\_cstr\_ptr,}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00074}00074                                          \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} dst\_size);}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00075}00075 \textcolor{comment}{}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00076}00076 \textcolor{comment}{  /// @brief Deallocates the C-\/string referenced by @p self.}}
@@ -87,7 +87,7 @@
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00083}00083 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00084}00084 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00085}00085 \textcolor{comment}{  /// `NULL`.}}
-\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00086}00086 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_a84d741d2c09768d744142868d62e364f}{ds\_cstr\_deallocate}} (\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} *self);}
+\DoxyCodeLine{\Hypertarget{cstr_8h_source_l00086}00086 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{cstr_8h_adf08cf232e5f7d68d4c0e199fa0b9efe}{ds\_cstr\_deallocate}} (\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}} *self);}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00087}00087 \textcolor{comment}{}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00088}00088 \textcolor{comment}{/// @brief The size of C-\/strings in bytes.}}
 \DoxyCodeLine{\Hypertarget{cstr_8h_source_l00089}00089 \textcolor{comment}{///}}

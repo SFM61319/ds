@@ -1,0 +1,1138 @@
+\hypertarget{string_8h_source}{}\doxysection{string.\+h}
+\label{string_8h_source}\index{include/ds/string.h@{include/ds/string.h}}
+\mbox{\hyperlink{string_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00003}00003 \textcolor{preprocessor}{\#ifndef DS\_STRING\_H}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00004}00004 \textcolor{preprocessor}{\#define DS\_STRING\_H 1}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00005}00005 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00006}00006 \textcolor{comment}{//! @file ds/string.h}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00007}00007 \textcolor{comment}{//! @author Avinash Maddikonda (svasssakavi@gmail.com)}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00008}00008 \textcolor{comment}{//! @brief Declaration of the @ref ds\_string\_t "{}String"{} type, related constants}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00009}00009 \textcolor{comment}{//! and functions.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00010}00010 \textcolor{comment}{//! @since 0.10.0}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00011}00011 \textcolor{comment}{//! @date 2023-\/08-\/31}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00012}00012 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00013}00013 \textcolor{preprocessor}{\#include <stdalign.h>}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{char_8h}{ds/char.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{cstr_8h}{ds/cstr.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{result_8h}{ds/result.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{usize_8h}{ds/usize.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00021}00021 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00022}00022 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00023}00023 \{}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00024}00024 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00025}00025 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00026}00026 \textcolor{comment}{/// @internal}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00027}00027 \textcolor{comment}{/// @brief The recommended alignment to efficiently access fields in @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00028}00028 \textcolor{comment}{/// ds\_string\_t "{}String"{}.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00029}00029 \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_STRING\_ALIGNMENT 32}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00030}00030 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00031}00031 \textcolor{comment}{  /// @brief A growable string. Will be UTF-\/8–encoded in the future.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00032}00032 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00033}00033 \textcolor{comment}{  /// The @ref ds\_string\_t "{}String"{} type is the most common string type that}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00034}00034 \textcolor{comment}{  /// has ownership over the contents of the string. It has a close}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00035}00035 \textcolor{comment}{  /// relationship with its standard counterpart, the primitive C-\/string.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00036}00036 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00037}00037 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00038}00038 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00039}00039 \textcolor{comment}{  /// You can create a @ref ds\_string\_t "{}String"{} from a literal string with}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00040}00040 \textcolor{comment}{  /// @ref ds\_string\_from:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00041}00041 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00042}00042 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00043}00043 \textcolor{comment}{  /// ds\_string\_t hello;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00044}00044 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&hello, "{}Hello, world!"{}, 13));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00045}00045 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00046}00046 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&hello));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00047}00047 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00048}00048 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00049}00049 \textcolor{comment}{  /// You can append a @ref ds\_char\_t "{}char"{} to a @ref ds\_string\_t "{}String"{}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00050}00050 \textcolor{comment}{  /// with the @ref ds\_string\_push method, and append a C-\/string with the @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00051}00051 \textcolor{comment}{  /// ds\_string\_push\_str method:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00052}00052 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00053}00053 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00054}00054 \textcolor{comment}{  /// ds\_string\_t hello;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00055}00055 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&hello, "{}Hello,"{}, 6));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00056}00056 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00057}00057 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&hello, ' '));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00058}00058 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push\_str (\&hello, "{}world!"{}, 6));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00059}00059 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00060}00060 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&hello));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00061}00061 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00062}00062 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00063}00063 \textcolor{comment}{  /// \#\#\# Representation}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00064}00064 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00065}00065 \textcolor{comment}{  /// A @ref ds\_string\_t "{}String"{} is made up of three components: a @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00066}00066 \textcolor{comment}{  /// ds\_string\_t::buf "{}pointer"{} to some bytes, a @ref ds\_string\_t::len}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00067}00067 \textcolor{comment}{  /// "{}length"{}, and a @ref ds\_string\_t::cap "{}capacity"{}. The pointer points to}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00068}00068 \textcolor{comment}{  /// an internal buffer @ref ds\_string\_t "{}String"{} uses to store its data. The}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00069}00069 \textcolor{comment}{  /// length is the number of bytes currently stored in the buffer, and the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00070}00070 \textcolor{comment}{  /// capacity is the size of the buffer in bytes. As such, the length will}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00071}00071 \textcolor{comment}{  /// always be less than or equal to the capacity.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00072}00072 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00073}00073 \textcolor{comment}{  /// This buffer is always stored on the heap.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00074}00074 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00075}00075 \textcolor{comment}{  /// You can look at these with the @ref ds\_string\_as\_ptr, @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00076}00076 \textcolor{comment}{  /// ds\_string\_len, and @ref ds\_string\_capacity methods:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00077}00077 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00078}00078 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00079}00079 \textcolor{comment}{  /// ds\_string\_t story;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00080}00080 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&story, "{}Once upon a time..."{},}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00081}00081 \textcolor{comment}{  ///                                          19));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00082}00082 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00083}00083 \textcolor{comment}{  /// ds\_cstr\_t const ptr = ds\_string\_as\_ptr (story);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00084}00084 \textcolor{comment}{  /// ds\_usize\_t const len = ds\_string\_len (story);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00085}00085 \textcolor{comment}{  /// ds\_usize\_t const capacity = ds\_string\_capacity (story);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00086}00086 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00087}00087 \textcolor{comment}{  /// // story has nineteen bytes}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00088}00088 \textcolor{comment}{  /// assert (19 == len);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00089}00089 \textcolor{comment}{  /// assert (len <= capacity);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00090}00090 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00091}00091 \textcolor{comment}{  /// // We can re-\/build a String out of ptr, len, and capacity. This is all}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00092}00092 \textcolor{comment}{  /// // unsafe because we are responsible for making sure the components are}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00093}00093 \textcolor{comment}{  /// // valid:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00094}00094 \textcolor{comment}{  /// ds\_string\_t const s = ds\_string\_from\_raw\_parts (ptr, len, capacity);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00095}00095 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00096}00096 \textcolor{comment}{  /// assert (ds\_string\_eq (s, story));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00097}00097 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00098}00098 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00099}00099 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&story));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00100}00100 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00101}00101 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00102}00102 \textcolor{comment}{  /// If a @ref ds\_string\_t "{}String"{} has enough capacity, adding elements to it}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00103}00103 \textcolor{comment}{  /// will not re-\/allocate. For example, consider this program:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00104}00104 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00105}00105 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00106}00106 \textcolor{comment}{  /// ds\_string\_t s = ds\_string\_new ();}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00107}00107 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00108}00108 \textcolor{comment}{  /// printf ("{}\%"{} DS\_PRI\_USIZE "{}\(\backslash\)n"{}, ds\_string\_capacity (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00109}00109 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00110}00110 \textcolor{comment}{  /// for (ds\_usize\_t i = DS\_USIZE\_MIN; i < 5; i++)}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00111}00111 \textcolor{comment}{  ///   \{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00112}00112 \textcolor{comment}{  ///     DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push\_str (\&s, "{}hello"{}, 5));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00113}00113 \textcolor{comment}{  ///     printf ("{}\%"{} DS\_PRI\_USIZE "{}\(\backslash\)n"{}, ds\_string\_capacity (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00114}00114 \textcolor{comment}{  ///   \}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00115}00115 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00116}00116 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00117}00117 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00118}00118 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00119}00119 \textcolor{comment}{  /// This may output the following:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00120}00120 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00121}00121 \textcolor{comment}{  /// ```text}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00122}00122 \textcolor{comment}{  /// 0}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00123}00123 \textcolor{comment}{  /// 8}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00124}00124 \textcolor{comment}{  /// 16}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00125}00125 \textcolor{comment}{  /// 16}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00126}00126 \textcolor{comment}{  /// 32}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00127}00127 \textcolor{comment}{  /// 32}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00128}00128 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00129}00129 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00130}00130 \textcolor{comment}{  /// At first, we have no memory allocated at all, but as we append to the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00131}00131 \textcolor{comment}{  /// string, it increases its capacity appropriately. If we instead use the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00132}00132 \textcolor{comment}{  /// @ref ds\_string\_with\_capacity method to allocate the correct capacity}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00133}00133 \textcolor{comment}{  /// initially:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00134}00134 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00135}00135 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00136}00136 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00137}00137 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_with\_capacity (\&s, 25));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00138}00138 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00139}00139 \textcolor{comment}{  /// printf ("{}\%"{} DS\_PRI\_USIZE "{}\(\backslash\)n"{}, ds\_string\_capacity (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00140}00140 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00141}00141 \textcolor{comment}{  /// for (ds\_usize\_t i = DS\_USIZE\_MIN; i < 5; i++)}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00142}00142 \textcolor{comment}{  ///   \{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00143}00143 \textcolor{comment}{  ///     DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push\_str (\&s, "{}hello"{}, 5));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00144}00144 \textcolor{comment}{  ///     printf ("{}\%"{} DS\_PRI\_USIZE "{}\(\backslash\)n"{}, ds\_string\_capacity (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00145}00145 \textcolor{comment}{  ///   \}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00146}00146 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00147}00147 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00148}00148 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00149}00149 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00150}00150 \textcolor{comment}{  /// We may end up with a different output:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00151}00151 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00152}00152 \textcolor{comment}{  /// ```text}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00153}00153 \textcolor{comment}{  /// 25}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00154}00154 \textcolor{comment}{  /// 25}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00155}00155 \textcolor{comment}{  /// 25}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00156}00156 \textcolor{comment}{  /// 25}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00157}00157 \textcolor{comment}{  /// 25}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00158}00158 \textcolor{comment}{  /// 25}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00159}00159 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00160}00160 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00161}00161 \textcolor{comment}{  /// Here, there's no need to allocate more memory inside the loop.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00162}\mbox{\hyperlink{structds__string__t}{00162}} \textcolor{comment}{}  \textcolor{keyword}{struct }\mbox{\hyperlink{structds__string__t}{ds\_string\_t}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00163}00163   \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00164}00164 \textcolor{comment}{    /// @private}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00165}00165 \textcolor{comment}{    /// @brief Points to an internal buffer @ref ds\_string\_t "{}String"{} uses to}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00166}00166 \textcolor{comment}{    /// store its data.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00167}00167 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00168}00168 \textcolor{comment}{    /// This buffer is always stored on the heap.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00169}\mbox{\hyperlink{structds__string__t_a16833a3669065f1e7464c664042307e6}{00169}} \textcolor{comment}{}    \textcolor{keyword}{alignas} (DS\_STRING\_ALIGNMENT) \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}} \mbox{\hyperlink{structds__string__t_a16833a3669065f1e7464c664042307e6}{buf}};}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00170}00170 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00171}00171 \textcolor{comment}{    /// @private}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00172}00172 \textcolor{comment}{    /// @brief The number of bytes currently stored in the buffer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00173}00173 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00174}00174 \textcolor{comment}{    /// The length will always be less than or equal to the capacity.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00175}\mbox{\hyperlink{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}{00175}} \textcolor{comment}{}    \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \mbox{\hyperlink{structds__string__t_af88f8dd794c5eb985dc8d225be6f506f}{len}};}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00176}00176 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00177}00177 \textcolor{comment}{    /// @private}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00178}00178 \textcolor{comment}{    /// @brief The size of the buffer in bytes.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00179}00179 \textcolor{comment}{    ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00180}00180 \textcolor{comment}{    /// The length will always be less than or equal to the capacity.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00181}\mbox{\hyperlink{structds__string__t_a037535c8c8ca824c04ff229521f861ce}{00181}} \textcolor{comment}{}    \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \mbox{\hyperlink{structds__string__t_a037535c8c8ca824c04ff229521f861ce}{cap}};}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00182}00182   \};}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00184}00184   \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} \mbox{\hyperlink{structds__string__t}{ds\_string\_t}};}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00185}00185 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00186}00186 \textcolor{comment}{  /// @brief Creates a new empty @ref ds\_string\_t "{}String"{}.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00187}00187 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00188}00188 \textcolor{comment}{  /// Given that the @ref ds\_string\_t "{}String"{} is empty, this will not allocate}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00189}00189 \textcolor{comment}{  /// any initial buffer. While that means that this initial operation is very}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00190}00190 \textcolor{comment}{  /// inexpensive, it may cause excessive allocation later when you add data.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00191}00191 \textcolor{comment}{  /// If you have an idea of how much data the @ref ds\_string\_t "{}String"{} will}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00192}00192 \textcolor{comment}{  /// hold, consider the @ref ds\_string\_with\_capacity method to prevent}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00193}00193 \textcolor{comment}{  /// excessive re-\/allocation.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00194}00194 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00195}00195 \textcolor{comment}{  /// @return A new empty @ref ds\_string\_t "{}String"{}.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00196}00196 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00197}00197 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00198}00198 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00199}00199 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00200}00200 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00201}00201 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00202}00202 \textcolor{comment}{  /// ds\_string\_t const s = ds\_string\_new ();}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00203}00203 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00204}00204 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00205}00205 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00206}00206 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{structds__string__t}{ds\_string\_t}} \mbox{\hyperlink{string_8h_a899aa04d6ff97d9f60fc0d4384f6f943}{ds\_string\_new}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00207}00207 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00208}00208 \textcolor{comment}{  /// @brief Creates a new empty @ref ds\_string\_t "{}String"{} with at least the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00209}00209 \textcolor{comment}{  /// specified @p capacity.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00210}00210 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00211}00211 \textcolor{comment}{  /// @ref ds\_string\_t "{}Strings"{} have an internal buffer to hold their data.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00212}00212 \textcolor{comment}{  /// The capacity is the length of that buffer, and can be queried with the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00213}00213 \textcolor{comment}{  /// @ref ds\_string\_capacity method. This method creates an empty @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00214}00214 \textcolor{comment}{  /// ds\_string\_t "{}String"{}, but one with an initial buffer that can hold at}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00215}00215 \textcolor{comment}{  /// least @p capacity bytes. This is useful when you may be appending a bunch}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00216}00216 \textcolor{comment}{  /// of data to the @ref ds\_string\_t "{}String"{}, reducing the number of}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00217}00217 \textcolor{comment}{  /// reallocations it needs to do.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00218}00218 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00219}00219 \textcolor{comment}{  /// If the given capacity is `0`, no allocation will occur, and this method}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00220}00220 \textcolor{comment}{  /// is identical to the @ref ds\_string\_new method.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00221}00221 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00222}00222 \textcolor{comment}{  /// @param[out] self Pointer to a new empty @ref ds\_string\_t "{}String"{} with at}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00223}00223 \textcolor{comment}{  /// least the specified @p capacity.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00224}00224 \textcolor{comment}{  /// @param capacity The minimum number of bytes to allocate.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00225}00225 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00226}00226 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00227}00227 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00228}00228 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00229}00229 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00230}00230 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00231}00231 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00232}00232 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00233}00233 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00234}00234 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00235}00235 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00236}00236 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00237}00237 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00238}00238 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_with\_capacity (\&s, 10));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00239}00239 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00240}00240 \textcolor{comment}{  /// // The String contains no chars, even though it has capacity for more}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00241}00241 \textcolor{comment}{  /// assert (ds\_string\_len (s) == 0);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00242}00242 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00243}00243 \textcolor{comment}{  /// // These are all done without reallocating...}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00244}00244 \textcolor{comment}{  /// ds\_usize\_t const cap = ds\_string\_capacity (s);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00245}00245 \textcolor{comment}{  /// for (ds\_usize\_t i = DS\_USIZE\_MIN; i < 10; i++)}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00246}00246 \textcolor{comment}{  ///   \{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00247}00247 \textcolor{comment}{  ///     DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&s, 'a'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00248}00248 \textcolor{comment}{  ///   \}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00249}00249 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00250}00250 \textcolor{comment}{  /// assert (ds\_string\_capacity (s) == cap);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00251}00251 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00252}00252 \textcolor{comment}{  /// // ...but this may make the string reallocate}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00253}00253 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&s, 'a'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00254}00254 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00255}00255 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00256}00256 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00257}00257 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a543c755f7554feedd8a5e85e246ca5fe}{ds\_string\_with\_capacity}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00258}00258                                               \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} capacity);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00259}00259 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00260}00260 \textcolor{comment}{  /// @brief Decomposes @p self into its raw components.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00261}00261 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00262}00262 \textcolor{comment}{  /// Retrieves the raw pointer to the underlying data, the length of the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00263}00263 \textcolor{comment}{  /// string (in bytes), and the allocated capacity of the data (in bytes), and}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00264}00264 \textcolor{comment}{  /// stores them in memory locations pointed at by @p buf\_ptr, @p len\_ptr, and}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00265}00265 \textcolor{comment}{  /// @p cap\_ptr respectively. These are the same arguments in the same order}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00266}00266 \textcolor{comment}{  /// as the arguments to @ref ds\_string\_from\_raw\_parts.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00267}00267 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00268}00268 \textcolor{comment}{  /// After calling this function, the caller is responsible for the memory}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00269}00269 \textcolor{comment}{  /// previously managed by @p self. The only way to do this is to convert the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00270}00270 \textcolor{comment}{  /// raw pointer, length, and capacity back into a @ref ds\_string\_t "{}String"{}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00271}00271 \textcolor{comment}{  /// with the @ref ds\_string\_from\_raw\_parts function, and calling @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00272}00272 \textcolor{comment}{  /// ds\_string\_drop to perform the cleanup.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00273}00273 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00274}00274 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to decompose}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00275}00275 \textcolor{comment}{  /// into its raw components.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00276}00276 \textcolor{comment}{  /// @param[out] buf\_ptr Pointer to the raw pointer to the underlying data.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00277}00277 \textcolor{comment}{  /// @param[out] len\_ptr Pointer to the length of the string (in bytes).}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00278}00278 \textcolor{comment}{  /// @param[out] cap\_ptr Pointer to the allocated capacity of the data (in}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00279}00279 \textcolor{comment}{  /// bytes).}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00280}00280 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00281}00281 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00282}00282 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self, @p}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00283}00283 \textcolor{comment}{  /// buf\_ptr, @p len\_ptr, or @p cap\_ptr is `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00284}00284 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00285}00285 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00286}00286 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00287}00287 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00288}00288 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00289}00289 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00290}00290 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00291}00291 \textcolor{comment}{  /// ds\_string\_t hello;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00292}00292 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00293}00293 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}hello"{}, 5));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00294}00294 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&hello, "{}hello"{}, 5));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00295}00295 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00296}00296 \textcolor{comment}{  /// ds\_cstr\_mut\_t ptr;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00297}00297 \textcolor{comment}{  /// ds\_usize\_t len;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00298}00298 \textcolor{comment}{  /// ds\_usize\_t cap;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00299}00299 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_into\_raw\_parts (\&s, \&ptr, \&len,}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00300}00300 \textcolor{comment}{  ///                                                    \&cap));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00301}00301 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00302}00302 \textcolor{comment}{  /// ds\_string\_t const rebuilt = ds\_string\_from\_raw\_parts (ptr, len, cap);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00303}00303 \textcolor{comment}{  /// assert (ds\_string\_eq (rebuilt, hello));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00304}00304 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00305}00305 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&rebuilt));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00306}00306 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&hello));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00307}00307 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00308}00308 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00309}00309 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_ac698e3cf3a84f6e31310ec8d2430bb78}{ds\_string\_into\_raw\_parts}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00310}00310                                                \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}} *buf\_ptr,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00311}00311                                                \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} *len\_ptr,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00312}00312                                                \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} *cap\_ptr);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00313}00313 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00314}00314 \textcolor{comment}{  /// @brief Creates a new @ref ds\_string\_t "{}String"{} from a @p length, @p}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00315}00315 \textcolor{comment}{  /// capacity, and @p buf pointer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00316}00316 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00317}00317 \textcolor{comment}{  /// @warning This is highly unsafe, due to the number of invariants that}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00318}00318 \textcolor{comment}{  /// aren't checked:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00319}00319 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00320}00320 \textcolor{comment}{  /// -\/ The memory at @p buf needs to have been previously allocated by the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00321}00321 \textcolor{comment}{  ///   same allocator @ref ds\_string\_t "{}String"{} uses, with a required}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00322}00322 \textcolor{comment}{  ///   alignment of exactly 1.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00323}00323 \textcolor{comment}{  /// -\/ @p length needs to be less than or equal to @p capacity.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00324}00324 \textcolor{comment}{  /// -\/ @p capacity needs to be the correct value.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00325}00325 \textcolor{comment}{  /// -\/ The first @p length bytes at @p buf need to be valid UTF-\/8.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00326}00326 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00327}00327 \textcolor{comment}{  /// Violating these may cause problems like corrupting the allocator's}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00328}00328 \textcolor{comment}{  /// internal data structures. For example, it is normally **not** safe to}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00329}00329 \textcolor{comment}{  /// build a @ref ds\_string\_t "{}String"{} from a pointer to a C `char` array}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00330}00330 \textcolor{comment}{  /// containing UTF-\/8 \_unless\_ you are certain that array was originally}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00331}00331 \textcolor{comment}{  /// allocated by the same allocator @ref ds\_string\_t "{}String"{} uses.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00332}00332 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00333}00333 \textcolor{comment}{  /// The ownership of @p buf is effectively transferred to the @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00334}00334 \textcolor{comment}{  /// ds\_string\_t "{}String"{} which may then deallocate, reallocate or change the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00335}00335 \textcolor{comment}{  /// contents of memory pointed to by the pointer at will. Ensure that nothing}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00336}00336 \textcolor{comment}{  /// else uses the pointer after calling this function.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00337}00337 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00338}00338 \textcolor{comment}{  /// @param buf The pointer to the buffer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00339}00339 \textcolor{comment}{  /// @param length The length of the string (in bytes).}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00340}00340 \textcolor{comment}{  /// @param capacity The allocated capacity of the data (in bytes).}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00341}00341 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00342}00342 \textcolor{comment}{  /// @return A new @ref ds\_string\_t "{}String"{} from a @p length, @p capacity,}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00343}00343 \textcolor{comment}{  /// and @p buf pointer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00344}00344 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00345}00345 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00346}00346 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00347}00347 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00348}00348 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00349}00349 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00350}00350 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00351}00351 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}hello"{}, 5));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00352}00352 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00353}00353 \textcolor{comment}{  /// ds\_cstr\_t const ptr = ds\_string\_as\_ptr (s);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00354}00354 \textcolor{comment}{  /// ds\_usize\_t const len = ds\_string\_len (s);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00355}00355 \textcolor{comment}{  /// ds\_usize\_t const capacity = ds\_string\_capacity (s);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00356}00356 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00357}00357 \textcolor{comment}{  /// ds\_string\_t const hello = ds\_string\_from\_raw\_parts (ptr, len, capacity);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00358}00358 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00359}00359 \textcolor{comment}{  /// assert (ds\_string\_eq (hello, s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00360}00360 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00361}00361 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{structds__string__t}{ds\_string\_t}} \mbox{\hyperlink{string_8h_ab2b4460fb63f22c7283e97c753e52b86}{ds\_string\_from\_raw\_parts}} (\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}} \mbox{\hyperlink{structds__string__t_a16833a3669065f1e7464c664042307e6}{buf}},}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00362}00362                                                \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} length,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00363}00363                                                \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} capacity);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00364}00364 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00365}00365 \textcolor{comment}{  /// @brief Appends @p string onto the end of @p self.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00366}00366 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00367}00367 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to append @p}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00368}00368 \textcolor{comment}{  /// string onto the end of.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00369}00369 \textcolor{comment}{  /// @param string A C-\/string slice to append to @p self.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00370}00370 \textcolor{comment}{  /// @param string\_len The length of @p string (in bytes).}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00371}00371 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00372}00372 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00373}00373 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00374}00374 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00375}00375 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00376}00376 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00377}00377 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00378}00378 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00379}00379 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00380}00380 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00381}00381 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00382}00382 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00383}00383 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00384}00384 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}foo"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00385}00385 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00386}00386 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push\_str (\&s, "{}bar"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00387}00387 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00388}00388 \textcolor{comment}{  /// ds\_string\_t foobar;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00389}00389 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}foobar"{}, 6));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00390}00390 \textcolor{comment}{  /// assert (ds\_string\_eq (foobar, s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00391}00391 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00392}00392 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&foobar));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00393}00393 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00394}00394 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00395}00395 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a7dc370dd28d59e53bdb37a433cee16d8}{ds\_string\_push\_str}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self, \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} \textcolor{keywordtype}{string},}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00396}00396                                          \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} string\_len);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00397}00397 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00398}00398 \textcolor{comment}{  /// @brief Returns @p self's capacity, in bytes.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00399}00399 \textcolor{comment}{  /// @param self The @ref ds\_string\_t "{}String"{} to return the capacity, in}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00400}00400 \textcolor{comment}{  /// bytes, of.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00401}00401 \textcolor{comment}{  /// @return @p self's capacity, in bytes.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00402}00402 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00403}00403 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00404}00404 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00405}00405 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00406}00406 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00407}00407 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00408}00408 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00409}00409 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_with\_capacity (\&s, 10));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00410}00410 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00411}00411 \textcolor{comment}{  /// assert (ds\_string\_capacity (s) >= 10);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00412}00412 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00413}00413 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00414}00414 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00415}00415 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} self);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00416}00416 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00417}00417 \textcolor{comment}{  /// @brief Reserves capacity for at least @p additional bytes more than @p}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00418}00418 \textcolor{comment}{  /// self's current length. The allocator may reserve more space to}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00419}00419 \textcolor{comment}{  /// speculatively avoid frequent allocations. After calling @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00420}00420 \textcolor{comment}{  /// ds\_string\_reserve, capacity will be greater than or equal to}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00421}00421 \textcolor{comment}{  /// `ds\_string\_len (self) + additional`. Does nothing if capacity is already}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00422}00422 \textcolor{comment}{  /// sufficient.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00423}00423 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00424}00424 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to reserve}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00425}00425 \textcolor{comment}{  /// capacity for at least @p additional bytes more than its current length.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00426}00426 \textcolor{comment}{  /// @param additional The minimum number of bytes more than @p self's current}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00427}00427 \textcolor{comment}{  /// length to allocate.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00428}00428 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00429}00429 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00430}00430 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00431}00431 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00432}00432 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_OUT\_OF\_RANGE "{}Err(OutOfRange)"{} if the new}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00433}00433 \textcolor{comment}{  /// capacity overflows @ref ds\_usize\_t "{}usize"{}.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00434}00434 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00435}00435 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00436}00436 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00437}00437 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00438}00438 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00439}00439 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00440}00440 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00441}00441 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00442}00442 \textcolor{comment}{  /// ds\_string\_t s = ds\_string\_new ();}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00443}00443 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00444}00444 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_reserve (\&s, 10));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00445}00445 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00446}00446 \textcolor{comment}{  /// assert (ds\_string\_capacity (s) >= 10);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00447}00447 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00448}00448 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00449}00449 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00450}00450 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00451}00451 \textcolor{comment}{  /// This might not actually increase the capacity:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00452}00452 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00453}00453 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00454}00454 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00455}00455 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_with\_capacity (\&s, 10));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00456}00456 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&s, 'a'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00457}00457 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&s, 'b'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00458}00458 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00459}00459 \textcolor{comment}{  /// // s now has a length of 2 and a capacity of at least 10}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00460}00460 \textcolor{comment}{  /// let capacity = ds\_string\_capacity (s);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00461}00461 \textcolor{comment}{  /// assert (2 == ds\_string\_len (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00462}00462 \textcolor{comment}{  /// assert (capacity >= 10);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00463}00463 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00464}00464 \textcolor{comment}{  /// // Since we already have at least an extra 8 capacity, calling this...}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00465}00465 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_reserve (\&s, 8));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00466}00466 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00467}00467 \textcolor{comment}{  /// // ... doesn't actually increase.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00468}00468 \textcolor{comment}{  /// assert (capacity == ds\_string\_capacity (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00469}00469 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00470}00470 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00471}00471 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00472}00472 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a7420055b34cb8a58492a0392ff72dd02}{ds\_string\_reserve}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00473}00473                                         \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} additional);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00474}00474 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00475}00475 \textcolor{comment}{  /// @brief Reserves the minimum capacity for at least @p additional bytes}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00476}00476 \textcolor{comment}{  /// more than @p self's current length. Unlike @ref ds\_string\_reserve, this}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00477}00477 \textcolor{comment}{  /// will not deliberately over-\/allocate to speculatively avoid frequent}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00478}00478 \textcolor{comment}{  /// allocations. After calling @ref ds\_string\_reserve\_exact, capacity will be}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00479}00479 \textcolor{comment}{  /// greater than or equal to `ds\_string\_len (self) + additional`. Does}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00480}00480 \textcolor{comment}{  /// nothing if the capacity is already sufficient.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00481}00481 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00482}00482 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to reserve the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00483}00483 \textcolor{comment}{  /// minimum capacity for at least @p additional bytes more than its current}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00484}00484 \textcolor{comment}{  /// length.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00485}00485 \textcolor{comment}{  /// @param additional The minimum number of bytes more than @p self's current}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00486}00486 \textcolor{comment}{  /// length to allocate without deliberately over-\/allocating.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00487}00487 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00488}00488 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00489}00489 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00490}00490 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00491}00491 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_OUT\_OF\_RANGE "{}Err(OutOfRange)"{} if the new}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00492}00492 \textcolor{comment}{  /// capacity overflows @ref ds\_usize\_t "{}usize"{}.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00493}00493 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00494}00494 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00495}00495 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00496}00496 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00497}00497 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00498}00498 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00499}00499 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00500}00500 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00501}00501 \textcolor{comment}{  /// ds\_string\_t s = ds\_string\_new ();}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00502}00502 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00503}00503 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_reserve\_exact (\&s, 10));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00504}00504 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00505}00505 \textcolor{comment}{  /// assert (ds\_string\_capacity (s) >= 10);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00506}00506 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00507}00507 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00508}00508 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00509}00509 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00510}00510 \textcolor{comment}{  /// This might not actually increase the capacity:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00511}00511 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00512}00512 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00513}00513 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00514}00514 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_with\_capacity (\&s, 10));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00515}00515 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&s, 'a'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00516}00516 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&s, 'b'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00517}00517 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00518}00518 \textcolor{comment}{  /// // s now has a length of 2 and a capacity of at least 10}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00519}00519 \textcolor{comment}{  /// let capacity = ds\_string\_capacity (s);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00520}00520 \textcolor{comment}{  /// assert (2 == ds\_string\_len (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00521}00521 \textcolor{comment}{  /// assert (capacity >= 10);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00522}00522 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00523}00523 \textcolor{comment}{  /// // Since we already have at least an extra 8 capacity, calling this...}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00524}00524 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_reserve\_exact (\&s, 8));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00525}00525 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00526}00526 \textcolor{comment}{  /// // ... doesn't actually increase.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00527}00527 \textcolor{comment}{  /// assert (capacity == ds\_string\_capacity (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00528}00528 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00529}00529 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00530}00530 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00531}00531 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a7f81c8c62f5c2dd8707d143e71cb16f9}{ds\_string\_reserve\_exact}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00532}00532                                               \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} additional);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00533}00533 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00534}00534 \textcolor{comment}{  /// @brief Shrinks the capacity of @p self to match its length.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00535}00535 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to shrink the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00536}00536 \textcolor{comment}{  /// capacity to match its length.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00537}00537 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00538}00538 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00539}00539 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00540}00540 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00541}00541 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00542}00542 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00543}00543 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00544}00544 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00545}00545 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00546}00546 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00547}00547 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}foo"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00548}00548 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00549}00549 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_reserve (\&s, 100));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00550}00550 \textcolor{comment}{  /// assert (ds\_string\_capacity (s) >= 100);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00551}00551 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00552}00552 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_shrink\_to\_fit (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00553}00553 \textcolor{comment}{  /// assert (3 == ds\_string\_capacity (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00554}00554 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00555}00555 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00556}00556 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00557}00557 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a4b3fbc08b81e68caba36c2e7bcb8b237}{ds\_string\_shrink\_to\_fit}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00558}00558 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00559}00559 \textcolor{comment}{  /// @brief Shrinks the capacity of @p self with a lower bound.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00560}00560 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00561}00561 \textcolor{comment}{  /// The capacity will remain at least as large as both the length and the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00562}00562 \textcolor{comment}{  /// supplied value.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00563}00563 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00564}00564 \textcolor{comment}{  /// If the current capacity is less than the lower limit, this is a no-\/op.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00565}00565 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00566}00566 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to shrink the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00567}00567 \textcolor{comment}{  /// capacity with a lower bound.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00568}00568 \textcolor{comment}{  /// @param min\_capacity The lower bound of the capacity.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00569}00569 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00570}00570 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00571}00571 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00572}00572 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00573}00573 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00574}00574 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00575}00575 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00576}00576 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00577}00577 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00578}00578 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00579}00579 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00580}00580 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}foo"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00581}00581 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00582}00582 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_reserve (\&s, 100));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00583}00583 \textcolor{comment}{  /// assert (ds\_string\_capacity (s) >= 100);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00584}00584 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00585}00585 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_shrink\_to (\&s, 10));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00586}00586 \textcolor{comment}{  /// assert (ds\_string\_capacity (s) >= 10);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00587}00587 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_shrink\_to (\&s, 0));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00588}00588 \textcolor{comment}{  /// assert (ds\_string\_capacity (s) >= 3);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00589}00589 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00590}00590 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00591}00591 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00592}00592 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a4d68976f657ed491a6e6529f6c2a2142}{ds\_string\_shrink\_to}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00593}00593                                           \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} min\_capacity);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00594}00594 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00595}00595 \textcolor{comment}{  /// @brief Appends @p chr to the end of @p self.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00596}00596 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to append @p}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00597}00597 \textcolor{comment}{  /// chr to the end of.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00598}00598 \textcolor{comment}{  /// @param chr The @ref ds\_char\_t "{}char"{} to append to the end of @p self.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00599}00599 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00600}00600 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00601}00601 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00602}00602 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00603}00603 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00604}00604 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00605}00605 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00606}00606 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00607}00607 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00608}00608 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00609}00609 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00610}00610 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00611}00611 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}abc"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00612}00612 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00613}00613 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&s, '1'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00614}00614 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&s, '2'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00615}00615 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&s, '3'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00616}00616 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00617}00617 \textcolor{comment}{  /// ds\_string\_t abc123;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00618}00618 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&abc123, "{}abc123"{}, 6));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00619}00619 \textcolor{comment}{  /// assert (ds\_string\_eq (abc123, s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00620}00620 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00621}00621 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&abc123));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00622}00622 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00623}00623 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00624}00624 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} chr);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00625}00625 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00626}00626 \textcolor{comment}{  /// @brief Shortens @p self to @p new\_len.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00627}00627 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00628}00628 \textcolor{comment}{  /// If @p new\_len is greater than @p self's current length, this has no}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00629}00629 \textcolor{comment}{  /// effect.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00630}00630 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00631}00631 \textcolor{comment}{  /// Note that this method has no effect on the allocated capacity of @p self.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00632}00632 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00633}00633 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to shorten to}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00634}00634 \textcolor{comment}{  /// @p new\_len.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00635}00635 \textcolor{comment}{  /// @param new\_len The length to shorten @p self to.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00636}00636 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00637}00637 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00638}00638 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00639}00639 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00640}00640 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00641}00641 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00642}00642 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00643}00643 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00644}00644 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00645}00645 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00646}00646 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00647}00647 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}hello"{}, 5));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00648}00648 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00649}00649 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_truncate (\&s, 2));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00650}00650 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00651}00651 \textcolor{comment}{  /// ds\_string\_t he;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00652}00652 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&he, "{}he"{}, 2));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00653}00653 \textcolor{comment}{  /// assert (ds\_string\_eq (he, s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00654}00654 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00655}00655 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&he));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00656}00656 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00657}00657 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00658}00658 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a85fbefc485430353c57169f37a26d581}{ds\_string\_truncate}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00659}00659                                          \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} new\_len);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00660}00660 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00661}00661 \textcolor{comment}{  /// @brief Removes the last character from the string buffer and retrieves}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00662}00662 \textcolor{comment}{  /// it.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00663}00663 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00664}00664 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to remove the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00665}00665 \textcolor{comment}{  /// last character from its string buffer and retrieve it from.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00666}00666 \textcolor{comment}{  /// @param[out] chr\_ptr Pointer to the last character removed and retrieved}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00667}00667 \textcolor{comment}{  /// from @p self's string buffer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00668}00668 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00669}00669 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00670}00670 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00671}00671 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00672}00672 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_OUT\_OF\_RANGE "{}Err(OutOfRange)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00673}00673 \textcolor{comment}{  /// empty.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00674}00674 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00675}00675 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00676}00676 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00677}00677 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00678}00678 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00679}00679 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00680}00680 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00681}00681 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}foo"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00682}00682 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00683}00683 \textcolor{comment}{  /// ds\_char\_t chr;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00684}00684 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00685}00685 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_pop (\&s, \&chr));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00686}00686 \textcolor{comment}{  /// assert (chr == 'o');}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00687}00687 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_pop (\&s, \&chr));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00688}00688 \textcolor{comment}{  /// assert (chr == 'o');}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00689}00689 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_pop (\&s, \&chr));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00690}00690 \textcolor{comment}{  /// assert (chr == 'f');}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00691}00691 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00692}00692 \textcolor{comment}{  /// assert (ds\_string\_pop (\&s, \&chr) == DS\_RESULT\_ERR\_OUT\_OF\_RANGE);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00693}00693 \textcolor{comment}{  /// assert (chr == 'f');}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00694}00694 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00695}00695 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00696}00696 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00697}00697 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a6e1b06e3ab715605b161aee7b089f9a8}{ds\_string\_pop}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} *chr\_ptr);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00698}00698 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00699}00699 \textcolor{comment}{  /// @brief Removes a @ref ds\_char\_t "{}char"{} from @p self at a byte position}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00700}00700 \textcolor{comment}{  /// and retrieves it.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00701}00701 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00702}00702 \textcolor{comment}{  /// This is an *O*(*n*) operation, as it requires copying every element in}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00703}00703 \textcolor{comment}{  /// the buffer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00704}00704 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00705}00705 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to remove a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00706}00706 \textcolor{comment}{  /// @ref ds\_char\_t "{}char"{} and retrieve it at a byte position.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00707}00707 \textcolor{comment}{  /// @param idx The byte position to remove a @ref ds\_char\_t "{}char"{} at.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00708}00708 \textcolor{comment}{  /// @param[out] chr\_ptr Pointer to the @ref ds\_char\_t "{}char"{} removed and}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00709}00709 \textcolor{comment}{  /// retrieved at a byte position.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00710}00710 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00711}00711 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00712}00712 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00713}00713 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00714}00714 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_OUT\_OF\_RANGE "{}Err(OutOfRange)"{} if @p idx is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00715}00715 \textcolor{comment}{  /// larger than or equal to @p self's length.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00716}00716 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00717}00717 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00718}00718 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00719}00719 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00720}00720 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00721}00721 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00722}00722 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00723}00723 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}foo"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00724}00724 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00725}00725 \textcolor{comment}{  /// ds\_char\_t chr;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00726}00726 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00727}00727 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_remove (\&s, 0, \&chr));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00728}00728 \textcolor{comment}{  /// assert (chr == 'f');}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00729}00729 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_remove (\&s, 1, \&chr));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00730}00730 \textcolor{comment}{  /// assert (chr == 'o');}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00731}00731 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_remove (\&s, 0, \&chr));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00732}00732 \textcolor{comment}{  /// assert (chr == 'o');}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00733}00733 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00734}00734 \textcolor{comment}{  /// assert (ds\_string\_remove (\&s, 0, \&chr) == DS\_RESULT\_ERR\_OUT\_OF\_RANGE);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00735}00735 \textcolor{comment}{  /// assert (chr == 'f');}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00736}00736 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00737}00737 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00738}00738 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00739}00739 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_acc0202c86b345a7102278e251677e276}{ds\_string\_remove}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} idx,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00740}00740                                        \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} *chr\_ptr);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00741}00741 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00742}00742 \textcolor{comment}{  /// @brief Retains only the characters specified by the predicate.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00743}00743 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00744}00744 \textcolor{comment}{  /// In other words, remove all characters `c` such that @p match(c) returns}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00745}00745 \textcolor{comment}{  /// `false`. This method operates in place, visiting each character exactly}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00746}00746 \textcolor{comment}{  /// once in the original order, and preserves the order of the retained}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00747}00747 \textcolor{comment}{  /// characters.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00748}00748 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00749}00749 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} whose}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00750}00750 \textcolor{comment}{  /// characters are to be retained based on the predicate.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00751}00751 \textcolor{comment}{  /// @param match The predicate that specifies which characters to retain.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00752}00752 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00753}00753 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00754}00754 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00755}00755 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00756}00756 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00757}00757 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00758}00758 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00759}00759 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00760}00760 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00761}00761 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00762}00762 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00763}00763 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}f\_o\_ob\_ar"{}, 9));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00764}00764 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00765}00765 \textcolor{comment}{  /// bool is\_not\_underscore (char const c)}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00766}00766 \textcolor{comment}{  /// \{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00767}00767 \textcolor{comment}{  ///   return c != '\_';}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00768}00768 \textcolor{comment}{  /// \}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00769}00769 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00770}00770 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_retain (\&s, is\_not\_underscore));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00771}00771 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00772}00772 \textcolor{comment}{  /// ds\_string\_t foobar;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00773}00773 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&foobar, "{}foobar"{}, 6));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00774}00774 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00775}00775 \textcolor{comment}{  /// assert (ds\_string\_eq (s, foobar));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00776}00776 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00777}00777 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&foobar));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00778}00778 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00779}00779 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00780}00780 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00781}00781 \textcolor{comment}{  /// Because the elements are visited exactly once in the original order,}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00782}00782 \textcolor{comment}{  /// external state may be used to decide which elements to keep.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00783}00783 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00784}00784 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00785}00785 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00786}00786 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}abcde"{}, 5));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00787}00787 \textcolor{comment}{  /// bool keep[] = \{ false, true, true, false, true \};}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00788}00788 \textcolor{comment}{  /// bool only\_keep (char const c)}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00789}00789 \textcolor{comment}{  /// \{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00790}00790 \textcolor{comment}{  ///   static ds\_usize\_t i = DS\_USIZE\_MIN;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00791}00791 \textcolor{comment}{  ///   return keep[i++];}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00792}00792 \textcolor{comment}{  /// \}}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00793}00793 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_retain (\&s, only\_keep));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00794}00794 \textcolor{comment}{  /// ds\_string\_t bce;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00795}00795 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&bce, "{}bce"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00796}00796 \textcolor{comment}{  /// assert (ds\_string\_eq (s, bce));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00797}00797 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00798}00798 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&bce));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00799}00799 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00800}00800 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00801}00801 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a060fac7bf0b565a39321b07c44c960bd}{ds\_string\_retain}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00802}00802                                        \mbox{\hyperlink{char_8h_a3727df91a5ce69a48988a6837c04a015}{ds\_predicate\_char\_t}} match);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00803}00803 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00804}00804 \textcolor{comment}{  /// @brief Inserts @p chr into @p self at a byte position.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00805}00805 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00806}00806 \textcolor{comment}{  /// This is an *O*(*n*) operation as it requires copying every element in the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00807}00807 \textcolor{comment}{  /// buffer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00808}00808 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00809}00809 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to insert @p}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00810}00810 \textcolor{comment}{  /// chr into at the byte position.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00811}00811 \textcolor{comment}{  /// @param idx The byte position to insert @p chr into @p self at.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00812}00812 \textcolor{comment}{  /// @param chr The character to insert into @p self at the byte position.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00813}00813 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00814}00814 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00815}00815 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00816}00816 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00817}00817 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_OUT\_OF\_RANGE "{}Err(OutOfRange)"{} if @p idx is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00818}00818 \textcolor{comment}{  /// larger than @p self's length.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00819}00819 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00820}00820 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00821}00821 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00822}00822 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00823}00823 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00824}00824 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00825}00825 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00826}00826 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00827}00827 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00828}00828 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_with\_capacity (\&s, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00829}00829 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00830}00830 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_insert (\&s, 0, 'f'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00831}00831 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_insert (\&s, 1, 'o'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00832}00832 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_insert (\&s, 2, 'o'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00833}00833 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00834}00834 \textcolor{comment}{  /// ds\_string\_t foo;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00835}00835 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&foo, "{}foo"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00836}00836 \textcolor{comment}{  /// assert (ds\_string\_eq (foo, s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00837}00837 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00838}00838 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&foo));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00839}00839 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00840}00840 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00841}00841 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_ae8a7e23ed239a33a081d611904fc4ad2}{ds\_string\_insert}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} idx,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00842}00842                                        \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} chr);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00843}00843 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00844}00844 \textcolor{comment}{  /// @brief Inserts a @p string slice into @p self at a byte position.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00845}00845 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00846}00846 \textcolor{comment}{  /// This is an *O*(*n*) operation as it requires copying every element in the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00847}00847 \textcolor{comment}{  /// buffer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00848}00848 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00849}00849 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to insert the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00850}00850 \textcolor{comment}{  /// @p string slice into at the byte position.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00851}00851 \textcolor{comment}{  /// @param idx The byte position to insert the @p string slice into @p self}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00852}00852 \textcolor{comment}{  /// at.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00853}00853 \textcolor{comment}{  /// @param string The string slice to insert into @p self at the byte}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00854}00854 \textcolor{comment}{  /// position.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00855}00855 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00856}00856 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00857}00857 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00858}00858 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00859}00859 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_OUT\_OF\_RANGE "{}Err(OutOfRange)"{} if @p idx is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00860}00860 \textcolor{comment}{  /// larger than @p self's length.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00861}00861 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00862}00862 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00863}00863 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00864}00864 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00865}00865 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00866}00866 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00867}00867 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00868}00868 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00869}00869 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00870}00870 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}bar"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00871}00871 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00872}00872 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_insert\_str (\&s, 0, "{}foo"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00873}00873 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00874}00874 \textcolor{comment}{  /// ds\_string\_t foobar;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00875}00875 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&foobar, "{}foobar"{}, 6));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00876}00876 \textcolor{comment}{  /// assert (ds\_string\_eq (foobar, s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00877}00877 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00878}00878 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&foobar));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00879}00879 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00880}00880 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00881}00881 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a90536ad7ebd9e8c65a8c5b9806a09cd7}{ds\_string\_insert\_str}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} idx,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00882}00882                                            \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} \textcolor{keywordtype}{string},}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00883}00883                                            \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} string\_len);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00884}00884 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00885}00885 \textcolor{comment}{  /// @brief Returns the length of @p self, in bytes, not graphemes. In other}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00886}00886 \textcolor{comment}{  /// words, it might not be what a human considers the length of the string.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00887}00887 \textcolor{comment}{  /// @param self The @ref ds\_string\_t "{}String"{} to return the length of, in}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00888}00888 \textcolor{comment}{  /// bytes.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00889}00889 \textcolor{comment}{  /// @return The length of @p self, in bytes.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00890}00890 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00891}00891 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00892}00892 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00893}00893 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00894}00894 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00895}00895 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00896}00896 \textcolor{comment}{  /// ds\_string\_t a;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00897}00897 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&a, "{}foo"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00898}00898 \textcolor{comment}{  /// assert (ds\_string\_len (a) == 3);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00899}00899 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00900}00900 \textcolor{comment}{  /// ds\_string\_t fancy\_f;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00901}00901 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&fancy\_f, "{}ƒoo"{}, 4));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00902}00902 \textcolor{comment}{  /// assert (ds\_string\_len (fancy\_f), 4);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00903}00903 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00904}00904 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&fancy\_f));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00905}00905 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00906}00906 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00907}00907 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \mbox{\hyperlink{string_8h_af83f5cb8676028a4741c2b43b39cb5de}{ds\_string\_len}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} self);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00908}00908 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00909}00909 \textcolor{comment}{  /// @brief Returns `true` if @p self has a length of zero, and `false`}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00910}00910 \textcolor{comment}{  /// otherwise.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00911}00911 \textcolor{comment}{  /// @param self The @ref ds\_string\_t "{}String"{} to check if has length of zero.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00912}00912 \textcolor{comment}{  /// @return `true` if @p self has a length of zero, and `false` otherwise.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00913}00913 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00914}00914 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00915}00915 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00916}00916 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00917}00917 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00918}00918 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00919}00919 \textcolor{comment}{  /// ds\_string\_t v = ds\_string\_new ();}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00920}00920 \textcolor{comment}{  /// assert (ds\_string\_is\_empty (v));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00921}00921 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00922}00922 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_push (\&v, 'a'));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00923}00923 \textcolor{comment}{  /// assert (!ds\_string\_is\_empty (v));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00924}00924 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00925}00925 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&v));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00926}00926 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00927}00927 \textcolor{comment}{}  \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{string_8h_a9e051bbc2f6614d90e034cd2f2b23448}{ds\_string\_is\_empty}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} self);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00928}00928 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00929}00929 \textcolor{comment}{  /// @brief Splits @p self into two at the given byte index.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00930}00930 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00931}00931 \textcolor{comment}{  /// Retrieves a newly allocated @ref ds\_string\_t "{}String"{}. @p self contains}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00932}00932 \textcolor{comment}{  /// bytes `[0, idx)`, and the retrieved @p target contains bytes}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00933}00933 \textcolor{comment}{  /// `[idx, len)`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00934}00934 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00935}00935 \textcolor{comment}{  /// Note that the capacity of @p self does not change.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00936}00936 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00937}00937 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to split into}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00938}00938 \textcolor{comment}{  /// two at the given byte index.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00939}00939 \textcolor{comment}{  /// @param idx The byte index to split @p self into two at.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00940}00940 \textcolor{comment}{  /// @param[out] target Pointer to the newly allocated @ref ds\_string\_t}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00941}00941 \textcolor{comment}{  /// "{}String"{} containing bytes `[idx, len)`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00942}00942 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00943}00943 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00944}00944 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self or @p}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00945}00945 \textcolor{comment}{  /// target is `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00946}00946 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_OUT\_OF\_RANGE "{}Err(OutOfRange)"{} if @p idx}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00947}00947 \textcolor{comment}{  /// is beyond the last code point of the string.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00948}00948 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00949}00949 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00950}00950 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00951}00951 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00952}00952 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00953}00953 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00954}00954 \textcolor{comment}{  /// ds\_string\_t hello;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00955}00955 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&hello, "{}Hello, World!"{}, 13));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00956}00956 \textcolor{comment}{  /// ds\_string\_t world;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00957}00957 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_split\_off (\&hello, 7, \&world));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00958}00958 \textcolor{comment}{  /// ds\_string\_t hello\_actual;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00959}00959 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&hello\_actual, "{}Hello, "{}, 7));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00960}00960 \textcolor{comment}{  /// ds\_string\_t world\_actual;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00961}00961 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&world\_actual, "{}World!"{}, 6));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00962}00962 \textcolor{comment}{  /// assert (ds\_string\_eq (hello, hello\_actual));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00963}00963 \textcolor{comment}{  /// assert (ds\_string\_eq (world, world\_actual));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00964}00964 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00965}00965 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&world\_actual));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00966}00966 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&hello\_actual));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00967}00967 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&world));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00968}00968 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&hello));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00969}00969 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00970}00970 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a656a718d51ed8c67e8c5b40a39d50cc7}{ds\_string\_split\_off}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} idx,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00971}00971                                           \mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *target);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00972}00972 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00973}00973 \textcolor{comment}{  /// @brief Truncates @p self, removing all contents.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00974}00974 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00975}00975 \textcolor{comment}{  /// While this means @p self will have a length of zero, it does not touch}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00976}00976 \textcolor{comment}{  /// its capacity.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00977}00977 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00978}00978 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to truncate and}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00979}00979 \textcolor{comment}{  /// remove all contents.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00980}00980 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00981}00981 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00982}00982 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00983}00983 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00984}00984 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00985}00985 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00986}00986 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00987}00987 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00988}00988 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00989}00989 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00990}00990 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}foo"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00991}00991 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00992}00992 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_clear (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00993}00993 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00994}00994 \textcolor{comment}{  /// assert (ds\_string\_is\_empty (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00995}00995 \textcolor{comment}{  /// assert (0 == ds\_string\_len (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00996}00996 \textcolor{comment}{  /// assert (3 <= ds\_string\_capacity (s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00997}00997 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00998}00998 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l00999}00999 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01000}01000 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a4ac7920108a3a26320f2330a6ed8030e}{ds\_string\_clear}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01001}01001 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01002}01002 \textcolor{comment}{  /// @brief Retrieves a copy of @p self.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01003}01003 \textcolor{comment}{  /// @param self The value to clone.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01004}01004 \textcolor{comment}{  /// @param[out] target Pointer to the value to clone into.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01005}01005 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01006}01006 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p target is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01007}01007 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01008}01008 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01009}01009 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01010}01010 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a85669ab3287043c4734763d35acfc2b7}{ds\_string\_clone}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} self, \mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *target);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01011}01011 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01012}01012 \textcolor{comment}{  /// @brief Performs copy-\/assignment from @p source.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01013}01013 \textcolor{comment}{  /// @param[out] self Pointer to the value to clone into.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01014}01014 \textcolor{comment}{  /// @param source The value to clone.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01015}01015 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01016}01016 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01017}01017 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01018}01018 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01019}01019 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01020}01020 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a79ae2ac77a194da55285069c2113a9ea}{ds\_string\_clone\_from}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self,}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01021}01021                                            \mbox{\hyperlink{structds__string__t}{ds\_string\_t}} source);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01022}01022 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01023}01023 \textcolor{comment}{  /// @brief Creates an empty @ref ds\_string\_t "{}String"{}.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01024}01024 \textcolor{comment}{  /// @return An empty @ref ds\_string\_t "{}String"{}.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01025}01025 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{structds__string__t}{ds\_string\_t}} \mbox{\hyperlink{string_8h_a32ded7f44325b1337981675666e34377}{ds\_string\_default}} (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01026}01026 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01027}01027 \textcolor{comment}{  /// @brief Converts a C-\/string into a @ref ds\_string\_t "{}String"{}.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01028}01028 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01029}01029 \textcolor{comment}{  /// The result is allocated on the heap.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01030}01030 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01031}01031 \textcolor{comment}{  /// @param[out] self Pointer to the @ref ds\_string\_t "{}String"{} to convert @p}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01032}01032 \textcolor{comment}{  /// string into.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01033}01033 \textcolor{comment}{  /// @param string The C-\/string to convert into @p self.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01034}01034 \textcolor{comment}{  /// @param string\_len The length of @p string.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01035}01035 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01036}01036 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01037}01037 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01038}01038 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01039}01039 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_MEM\_ALLOC\_FAILED "{}Err(MemAllocFailed)"{} if a}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01040}01040 \textcolor{comment}{  /// memory allocation fails.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01041}01041 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self, \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} \textcolor{keywordtype}{string},}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01042}01042                                      \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} string\_len);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01043}01043 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01044}01044 \textcolor{comment}{  /// @brief This method tests for @p self and @p other values to be equal.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01045}01045 \textcolor{comment}{  /// @param self The first value to test.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01046}01046 \textcolor{comment}{  /// @param other The second value to test.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01047}01047 \textcolor{comment}{  /// @return `true` if @p self and @p other values are equal, and `false`}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01048}01048 \textcolor{comment}{  /// otherwise.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01049}01049 \textcolor{comment}{}  \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} self, \mbox{\hyperlink{structds__string__t}{ds\_string\_t}} other);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01050}01050 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01051}01051 \textcolor{comment}{  /// @brief This method tests for @p self and @p other values to not be equal.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01052}01052 \textcolor{comment}{  /// @param self The first value to test.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01053}01053 \textcolor{comment}{  /// @param other The second value to test.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01054}01054 \textcolor{comment}{  /// @return `true` if @p self and @p other values are not equal, and `false`}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01055}01055 \textcolor{comment}{  /// otherwise.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01056}01056 \textcolor{comment}{}  \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{string_8h_affd4bf2ef8c2352f606089b818841d83}{ds\_string\_ne}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} self, \mbox{\hyperlink{structds__string__t}{ds\_string\_t}} other);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01057}01057 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01058}01058 \textcolor{comment}{  /// @brief Converts @p self to a raw pointer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01059}01059 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01060}01060 \textcolor{comment}{  /// As string slices are a slice of bytes, the raw pointer points to a @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01061}01061 \textcolor{comment}{  /// ds\_char\_t "{}char"{}. This pointer will be pointing to the first byte of the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01062}01062 \textcolor{comment}{  /// string slice.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01063}01063 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01064}01064 \textcolor{comment}{  /// The caller must ensure that the returned pointer is never written to. If}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01065}01065 \textcolor{comment}{  /// you need to mutate the contents of the string slice, use @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01066}01066 \textcolor{comment}{  /// ds\_string\_as\_mut\_ptr.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01067}01067 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01068}01068 \textcolor{comment}{  /// @param self The @ref ds\_string\_t "{}String"{} to convert to a raw pointer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01069}01069 \textcolor{comment}{  /// @return The raw pointer pointing to the first byte of @p self.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01070}01070 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01071}01071 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01072}01072 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01073}01073 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01074}01074 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01075}01075 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01076}01076 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01077}01077 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}Hello"{}, 5));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01078}01078 \textcolor{comment}{  /// ds\_cstr\_t ptr = ds\_string\_as\_ptr (s);}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01079}01079 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01080}01080 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01081}01081 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01082}01082 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} \mbox{\hyperlink{string_8h_a4a1003294f989368751ee5465dbc0c6f}{ds\_string\_as\_ptr}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} self);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01083}01083 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01084}01084 \textcolor{comment}{  /// @brief Converts @p self to a mutable raw pointer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01085}01085 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01086}01086 \textcolor{comment}{  /// As string slices are a slice of bytes, the raw pointer points to a @ref}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01087}01087 \textcolor{comment}{  /// ds\_char\_t "{}char"{}. This pointer will be pointing to the first byte of the}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01088}01088 \textcolor{comment}{  /// string slice.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01089}01089 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01090}01090 \textcolor{comment}{  /// It is your responsibility to make sure that the string slice only gets}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01091}01091 \textcolor{comment}{  /// modified in a way that it remains valid UTF-\/8.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01092}01092 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01093}01093 \textcolor{comment}{  /// @param self The @ref ds\_string\_t "{}String"{} to convert to a mutable raw}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01094}01094 \textcolor{comment}{  /// pointer.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01095}01095 \textcolor{comment}{  /// @return The mutable raw pointer pointing to the first byte of @p self.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01096}01096 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}} \mbox{\hyperlink{string_8h_aafb939d1e3ac44e210fd8b38be17ceae}{ds\_string\_as\_mut\_ptr}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} self);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01097}01097 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01098}01098 \textcolor{comment}{  /// @brief Disposes of a value.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01099}01099 \textcolor{comment}{  /// @param[out] self The value to dispose.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01100}01100 \textcolor{comment}{  /// @return @ref DS\_RESULT\_OK "{}Ok"{} on success.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01101}01101 \textcolor{comment}{  /// @return @ref DS\_RESULT\_ERR\_PTR\_IS\_NULL "{}Err(PtrIsNull)"{} if @p self is}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01102}01102 \textcolor{comment}{  /// `NULL`.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01103}01103 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01104}01104 \textcolor{comment}{  /// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01105}01105 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01106}01106 \textcolor{comment}{  /// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01107}01107 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01108}01108 \textcolor{comment}{  /// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01109}01109 \textcolor{comment}{  /// ds\_string\_t s;}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01110}01110 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_from (\&s, "{}abc"{}, 3));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01111}01111 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01112}01112 \textcolor{comment}{  /// // explicitly drop the vector}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01113}01113 \textcolor{comment}{  /// DS\_RESULT\_PROPAGATE\_ERR (ds\_string\_drop (\&s));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01114}01114 \textcolor{comment}{  /// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01115}01115 \textcolor{comment}{}  \textcolor{keyword}{extern} \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\_result\_t}} \mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} *self);}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01116}01116 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01117}01117 \textcolor{comment}{/// @brief The size of @ref ds\_string\_t "{}String"{} in bytes.}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01118}01118 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01119}01119 \textcolor{comment}{/// \#\#\# Examples}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01120}01120 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01121}01121 \textcolor{comment}{/// Basic usage:}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01122}01122 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01123}01123 \textcolor{comment}{/// ```c}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01124}01124 \textcolor{comment}{/// assert (DS\_STRING\_BYTES == sizeof (ds\_string\_t));}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01125}01125 \textcolor{comment}{/// ```}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01126}\mbox{\hyperlink{string_8h_a4445360de54a0d30e079a8137d8b118c}{01126}} \textcolor{comment}{}\textcolor{preprocessor}{\#define DS\_STRING\_BYTES ((ds\_usize\_t)sizeof (ds\_string\_t))}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01127}01127 }
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01128}01128 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01129}01129 \}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01130}01130 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01131}01131 }
+\DoxyCodeLine{\Hypertarget{string_8h_source_l01132}01132 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DS\_STRING\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

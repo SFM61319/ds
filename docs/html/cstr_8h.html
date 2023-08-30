@@ -78,7 +78,7 @@ window.MathJax = {
                   <div id="projectname">
                     ds<span
                       id="projectnumber"
-                      >&#160;0.9.0</span
+                      >&#160;0.10.0</span
                     >
                   </div>
                   <div id="projectbrief">A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings.</div>
@@ -175,8 +175,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="cstr_8h__dep__incl.png" border="0" usemap="#ainclude_2ds_2cstr_8hdep" alt=""/></div>
 <map name="ainclude_2ds_2cstr_8hdep" id="ainclude_2ds_2cstr_8hdep">
-<area shape="rect" title="Declaration of the C&#45;string types, related constants and functions." alt="" coords="5,5,123,32"/>
-<area shape="rect" href="cstr_8c.html" title="Implementation of the C&#45;string types, related constants and functions." alt="" coords="17,80,111,107"/>
+<area shape="rect" title="Declaration of the C&#45;string types, related constants and functions." alt="" coords="111,5,229,32"/>
+<area shape="rect" href="string_8h.html" title="Declaration of the String type, related constants and functions." alt="" coords="5,80,132,107"/>
+<area shape="rect" href="string_8c.html" title="Implementation of the String type, related constants and functions." alt="" coords="67,155,171,181"/>
+<area shape="rect" href="cstr_8c.html" title="Implementation of the C&#45;string types, related constants and functions." alt="" coords="208,80,303,107"/>
 </map>
 </div>
 </div>
@@ -205,15 +207,15 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a797297692768227dd3e2093dc303da97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a797297692768227dd3e2093dc303da97">ds_cstr_allocate</a> (<a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *self, <a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a> size)</td></tr>
-<tr class="memdesc:a797297692768227dd3e2093dc303da97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to allocate a C-string.  <a href="cstr_8h.html#a797297692768227dd3e2093dc303da97">More...</a><br /></td></tr>
-<tr class="separator:a797297692768227dd3e2093dc303da97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0521ff572347d3f7e02ba9e898b77371"><td class="memItemLeft" align="right" valign="top"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a0521ff572347d3f7e02ba9e898b77371">ds_cstr_reallocate</a> (<a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *src_cstr_ptr, <a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a> src_size, <a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *dst_cstr_ptr, <a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a> dst_size)</td></tr>
-<tr class="memdesc:a0521ff572347d3f7e02ba9e898b77371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to reallocate (extend, shrink) the C-string.  <a href="cstr_8h.html#a0521ff572347d3f7e02ba9e898b77371">More...</a><br /></td></tr>
-<tr class="separator:a0521ff572347d3f7e02ba9e898b77371"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84d741d2c09768d744142868d62e364f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a84d741d2c09768d744142868d62e364f">ds_cstr_deallocate</a> (<a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *self)</td></tr>
-<tr class="memdesc:a84d741d2c09768d744142868d62e364f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the C-string referenced by <code>self</code>.  <a href="cstr_8h.html#a84d741d2c09768d744142868d62e364f">More...</a><br /></td></tr>
-<tr class="separator:a84d741d2c09768d744142868d62e364f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf29b786c7bb1b8f2405ac63c7883b0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#aaf29b786c7bb1b8f2405ac63c7883b0c">ds_cstr_allocate</a> (<a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a> *self, <a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a> size)</td></tr>
+<tr class="memdesc:aaf29b786c7bb1b8f2405ac63c7883b0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to allocate a C-string.  <a href="cstr_8h.html#aaf29b786c7bb1b8f2405ac63c7883b0c">More...</a><br /></td></tr>
+<tr class="separator:aaf29b786c7bb1b8f2405ac63c7883b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4638adbf1fb2fbc703ec8525bfcb9250"><td class="memItemLeft" align="right" valign="top"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#a4638adbf1fb2fbc703ec8525bfcb9250">ds_cstr_reallocate</a> (<a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a> *src_cstr_ptr, <a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a> src_size, <a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a> *dst_cstr_ptr, <a class="el" href="usize_8h.html#af225603b1dc0270688232ccab1cc2f52">ds_usize_t</a> dst_size)</td></tr>
+<tr class="memdesc:a4638adbf1fb2fbc703ec8525bfcb9250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to reallocate (extend, shrink) the C-string.  <a href="cstr_8h.html#a4638adbf1fb2fbc703ec8525bfcb9250">More...</a><br /></td></tr>
+<tr class="separator:a4638adbf1fb2fbc703ec8525bfcb9250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf08cf232e5f7d68d4c0e199fa0b9efe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cstr_8h.html#adf08cf232e5f7d68d4c0e199fa0b9efe">ds_cstr_deallocate</a> (<a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a> *self)</td></tr>
+<tr class="memdesc:adf08cf232e5f7d68d4c0e199fa0b9efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the C-string referenced by <code>self</code>.  <a href="cstr_8h.html#adf08cf232e5f7d68d4c0e199fa0b9efe">More...</a><br /></td></tr>
+<tr class="separator:adf08cf232e5f7d68d4c0e199fa0b9efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Declaration of the C-string types, related constants and functions. </p>
@@ -356,8 +358,8 @@ Examples</h3>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a797297692768227dd3e2093dc303da97" name="a797297692768227dd3e2093dc303da97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a797297692768227dd3e2093dc303da97">&#9670;&nbsp;</a></span>ds_cstr_allocate()</h2>
+<a id="aaf29b786c7bb1b8f2405ac63c7883b0c" name="aaf29b786c7bb1b8f2405ac63c7883b0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf29b786c7bb1b8f2405ac63c7883b0c">&#9670;&nbsp;</a></span>ds_cstr_allocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,7 +367,7 @@ Examples</h3>
         <tr>
           <td class="memname"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a> ds_cstr_allocate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a> *&#160;</td>
           <td class="paramname"><em>self</em>, </td>
         </tr>
         <tr>
@@ -383,7 +385,7 @@ Examples</h3>
 </div><div class="memdoc">
 
 <p>Attempts to allocate a C-string. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Always pair a <a class="el" href="cstr_8c.html#ad7dec64d3462d2469a579f60bbdf8b98">ds_cstr_allocate</a> call with a <a class="el" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3">ds_cstr_reallocate</a> or <a class="el" href="cstr_8c.html#ad3ff1bdd3a326a8c084a852508c7f7d9">ds_cstr_deallocate</a> call (passing the same pointer). Failing to do so <em><b>will</b></em> lead to memory leaks.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Always pair a <a class="el" href="cstr_8c.html#ac5a21d0236d1d0a3a58203bd79657205">ds_cstr_allocate</a> call with a <a class="el" href="cstr_8c.html#aa3d6e8248c6121a1ff950ad551698c49">ds_cstr_reallocate</a> or <a class="el" href="cstr_8c.html#a0c1d7f37c79b1900f8bed559ee2b9c58">ds_cstr_deallocate</a> call (passing the same pointer). Failing to do so <em><b>will</b></em> lead to memory leaks.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">self</td><td>The allocated C-string on success. </td></tr>
@@ -401,8 +403,8 @@ Examples</h3>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="cstr_8h_a797297692768227dd3e2093dc303da97_cgraph.png" border="0" usemap="#acstr_8h_a797297692768227dd3e2093dc303da97_cgraph" alt=""/></div>
-<map name="acstr_8h_a797297692768227dd3e2093dc303da97_cgraph" id="acstr_8h_a797297692768227dd3e2093dc303da97_cgraph">
+<div class="center"><img src="cstr_8h_aaf29b786c7bb1b8f2405ac63c7883b0c_cgraph.png" border="0" usemap="#acstr_8h_aaf29b786c7bb1b8f2405ac63c7883b0c_cgraph" alt=""/></div>
+<map name="acstr_8h_aaf29b786c7bb1b8f2405ac63c7883b0c_cgraph" id="acstr_8h_aaf29b786c7bb1b8f2405ac63c7883b0c_cgraph">
 <area shape="rect" title="Attempts to allocate a C&#45;string." alt="" coords="5,5,123,32"/>
 <area shape="rect" href="helpers_8c.html#a5b2ecacaab141d28a86aa3cbbfc92dd8" title="Returns true if ptr is NULL." alt="" coords="171,5,300,32"/>
 </map>
@@ -410,17 +412,19 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="cstr_8h_a797297692768227dd3e2093dc303da97_icgraph.png" border="0" usemap="#acstr_8h_a797297692768227dd3e2093dc303da97_icgraph" alt=""/></div>
-<map name="acstr_8h_a797297692768227dd3e2093dc303da97_icgraph" id="acstr_8h_a797297692768227dd3e2093dc303da97_icgraph">
-<area shape="rect" title="Attempts to allocate a C&#45;string." alt="" coords="181,5,299,32"/>
-<area shape="rect" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3" title="Attempts to reallocate (extend, shrink) the C&#45;string." alt="" coords="5,5,133,32"/>
+<div class="center"><img src="cstr_8h_aaf29b786c7bb1b8f2405ac63c7883b0c_icgraph.png" border="0" usemap="#acstr_8h_aaf29b786c7bb1b8f2405ac63c7883b0c_icgraph" alt=""/></div>
+<map name="acstr_8h_aaf29b786c7bb1b8f2405ac63c7883b0c_icgraph" id="acstr_8h_aaf29b786c7bb1b8f2405ac63c7883b0c_icgraph">
+<area shape="rect" title="Attempts to allocate a C&#45;string." alt="" coords="564,5,681,32"/>
+<area shape="rect" href="cstr_8c.html#aa3d6e8248c6121a1ff950ad551698c49" title="Attempts to reallocate (extend, shrink) the C&#45;string." alt="" coords="388,5,516,32"/>
+<area shape="rect" href="string_8c.html#adc2264e255011b885c5ad5a8bab754ef" title="Shrinks the capacity of self with a lower bound." alt="" coords="205,5,340,32"/>
+<area shape="rect" href="string_8c.html#ae5fdccac1ce24da9a4f6b65e6813b04c" title="Shrinks the capacity of self to match its length." alt="" coords="5,5,157,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a84d741d2c09768d744142868d62e364f" name="a84d741d2c09768d744142868d62e364f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84d741d2c09768d744142868d62e364f">&#9670;&nbsp;</a></span>ds_cstr_deallocate()</h2>
+<a id="adf08cf232e5f7d68d4c0e199fa0b9efe" name="adf08cf232e5f7d68d4c0e199fa0b9efe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf08cf232e5f7d68d4c0e199fa0b9efe">&#9670;&nbsp;</a></span>ds_cstr_deallocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,7 +432,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a> ds_cstr_deallocate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a> *&#160;</td>
           <td class="paramname"><em>self</em></td><td>)</td>
           <td></td>
         </tr>
@@ -436,7 +440,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Deallocates the C-string referenced by <code>self</code>. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Only pass pointers allocated using <a class="el" href="cstr_8c.html#ad7dec64d3462d2469a579f60bbdf8b98">ds_cstr_allocate</a> or <a class="el" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3">ds_cstr_reallocate</a>. Passing other pointers may lead to undefined behavior.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Only pass pointers allocated using <a class="el" href="cstr_8c.html#ac5a21d0236d1d0a3a58203bd79657205">ds_cstr_allocate</a> or <a class="el" href="cstr_8c.html#aa3d6e8248c6121a1ff950ad551698c49">ds_cstr_reallocate</a>. Passing other pointers may lead to undefined behavior.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">self</td><td>A reference to the C-string to deallocate. </td></tr>
@@ -447,12 +451,21 @@ Here is the caller graph for this function:</div>
 <dd>
 <a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53">Err(PtrIsNull)</a> if <code>self</code> is <code>NULL</code>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cstr_8c_source.html#l00081">81</a> of file <a class="el" href="cstr_8c_source.html">cstr.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8c_source.html#l00084">84</a> of file <a class="el" href="cstr_8c_source.html">cstr.c</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="cstr_8h_adf08cf232e5f7d68d4c0e199fa0b9efe_icgraph.png" border="0" usemap="#acstr_8h_adf08cf232e5f7d68d4c0e199fa0b9efe_icgraph" alt=""/></div>
+<map name="acstr_8h_adf08cf232e5f7d68d4c0e199fa0b9efe_icgraph" id="acstr_8h_adf08cf232e5f7d68d4c0e199fa0b9efe_icgraph">
+<area shape="rect" title="Deallocates the C&#45;string referenced by self." alt="" coords="160,5,291,32"/>
+<area shape="rect" href="string_8c.html#a777fe9a094f674251c3b7c253fcbab73" title="Disposes of a value." alt="" coords="5,5,112,32"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a0521ff572347d3f7e02ba9e898b77371" name="a0521ff572347d3f7e02ba9e898b77371"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0521ff572347d3f7e02ba9e898b77371">&#9670;&nbsp;</a></span>ds_cstr_reallocate()</h2>
+<a id="a4638adbf1fb2fbc703ec8525bfcb9250" name="a4638adbf1fb2fbc703ec8525bfcb9250"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4638adbf1fb2fbc703ec8525bfcb9250">&#9670;&nbsp;</a></span>ds_cstr_reallocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -460,7 +473,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname"><a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1">ds_result_t</a> ds_cstr_reallocate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a> *&#160;</td>
           <td class="paramname"><em>src_cstr_ptr</em>, </td>
         </tr>
         <tr>
@@ -472,7 +485,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="cstr_8h.html#a61bae52e31d5f3834166a135566a880f">ds_cstr_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11">ds_cstr_mut_t</a> *&#160;</td>
           <td class="paramname"><em>dst_cstr_ptr</em>, </td>
         </tr>
         <tr>
@@ -490,7 +503,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Attempts to reallocate (extend, shrink) the C-string. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Always pair a <a class="el" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3">ds_cstr_reallocate</a> call with a <a class="el" href="cstr_8c.html#a957aabf2374959e5c4abb137e79979d3">ds_cstr_reallocate</a> or <a class="el" href="cstr_8c.html#ad3ff1bdd3a326a8c084a852508c7f7d9">ds_cstr_deallocate</a> call (passing the same pointer). Failing to do so ***will** lead to memory leaks.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Always pair a <a class="el" href="cstr_8c.html#aa3d6e8248c6121a1ff950ad551698c49">ds_cstr_reallocate</a> call with a <a class="el" href="cstr_8c.html#aa3d6e8248c6121a1ff950ad551698c49">ds_cstr_reallocate</a> or <a class="el" href="cstr_8c.html#a0c1d7f37c79b1900f8bed559ee2b9c58">ds_cstr_deallocate</a> call (passing the same pointer). Failing to do so ***will** lead to memory leaks.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">src_cstr_ptr</td><td>A reference to the C-string to reallocate. </td></tr>
@@ -506,15 +519,25 @@ Here is the caller graph for this function:</div>
 <dd>
 <a class="el" href="result_8h.html#a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56">Err(MemAllocFailed)</a> if a memory allocation fails. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="cstr_8c_source.html#l00040">40</a> of file <a class="el" href="cstr_8c_source.html">cstr.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cstr_8c_source.html#l00041">41</a> of file <a class="el" href="cstr_8c_source.html">cstr.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="cstr_8h_a0521ff572347d3f7e02ba9e898b77371_cgraph.png" border="0" usemap="#acstr_8h_a0521ff572347d3f7e02ba9e898b77371_cgraph" alt=""/></div>
-<map name="acstr_8h_a0521ff572347d3f7e02ba9e898b77371_cgraph" id="acstr_8h_a0521ff572347d3f7e02ba9e898b77371_cgraph">
+<div class="center"><img src="cstr_8h_a4638adbf1fb2fbc703ec8525bfcb9250_cgraph.png" border="0" usemap="#acstr_8h_a4638adbf1fb2fbc703ec8525bfcb9250_cgraph" alt=""/></div>
+<map name="acstr_8h_a4638adbf1fb2fbc703ec8525bfcb9250_cgraph" id="acstr_8h_a4638adbf1fb2fbc703ec8525bfcb9250_cgraph">
 <area shape="rect" title="Attempts to reallocate (extend, shrink) the C&#45;string." alt="" coords="5,31,133,57"/>
-<area shape="rect" href="cstr_8c.html#ad7dec64d3462d2469a579f60bbdf8b98" title="Attempts to allocate a C&#45;string." alt="" coords="181,5,299,32"/>
+<area shape="rect" href="cstr_8c.html#ac5a21d0236d1d0a3a58203bd79657205" title="Attempts to allocate a C&#45;string." alt="" coords="181,5,299,32"/>
 <area shape="rect" href="helpers_8c.html#a5b2ecacaab141d28a86aa3cbbfc92dd8" title="Returns true if ptr is NULL." alt="" coords="347,31,476,57"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="cstr_8h_a4638adbf1fb2fbc703ec8525bfcb9250_icgraph.png" border="0" usemap="#acstr_8h_a4638adbf1fb2fbc703ec8525bfcb9250_icgraph" alt=""/></div>
+<map name="acstr_8h_a4638adbf1fb2fbc703ec8525bfcb9250_icgraph" id="acstr_8h_a4638adbf1fb2fbc703ec8525bfcb9250_icgraph">
+<area shape="rect" title="Attempts to reallocate (extend, shrink) the C&#45;string." alt="" coords="388,5,516,32"/>
+<area shape="rect" href="string_8c.html#adc2264e255011b885c5ad5a8bab754ef" title="Shrinks the capacity of self with a lower bound." alt="" coords="205,5,340,32"/>
+<area shape="rect" href="string_8c.html#ae5fdccac1ce24da9a4f6b65e6813b04c" title="Shrinks the capacity of self to match its length." alt="" coords="5,5,157,32"/>
 </map>
 </div>
 

@@ -1,0 +1,1752 @@
+\hypertarget{string_8c}{}\doxysection{src/ds/string.c File Reference}
+\label{string_8c}\index{src/ds/string.c@{src/ds/string.c}}
+
+
+Implementation of the \mbox{\hyperlink{structds__string__t}{String}} type, related constants and functions.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ds/char.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ds/cstr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ds/helpers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ds/result.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ds/usize.\+h\char`\"{}}\newline
+Include dependency graph for string.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} \mbox{\hyperlink{string_8c_a899aa04d6ff97d9f60fc0d4384f6f943}{ds\+\_\+string\+\_\+new}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a new empty \mbox{\hyperlink{structds__string__t}{String}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a14a71aff48981a47b7b3abbff92c8c6b}{ds\+\_\+string\+\_\+with\+\_\+capacity}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const capacity)
+\begin{DoxyCompactList}\small\item\em Creates a new empty \mbox{\hyperlink{structds__string__t}{String}} with at least the specified {\ttfamily capacity}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a274e48b4ba1473389671c6e9c7697473}{ds\+\_\+string\+\_\+into\+\_\+raw\+\_\+parts}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}} $\ast$const buf\+\_\+ptr, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} $\ast$const len\+\_\+ptr, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} $\ast$const cap\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Decomposes {\ttfamily self} into its raw components. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} \mbox{\hyperlink{string_8c_af21980abe356a2cf733da9c44169f12c}{ds\+\_\+string\+\_\+from\+\_\+raw\+\_\+parts}} (\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}} const buf, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const length, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const capacity)
+\begin{DoxyCompactList}\small\item\em Creates a new \mbox{\hyperlink{structds__string__t}{String}} from a {\ttfamily length}, {\ttfamily capacity}, and {\ttfamily buf} pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_ab04f7e8871804dd52a8f8861ca139bff}{ds\+\_\+string\+\_\+push\+\_\+str}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} const string, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const string\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Appends {\ttfamily string} onto the end of {\ttfamily self}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} \mbox{\hyperlink{string_8c_aad8446f5a9a087afeb66fec98b7dd8bc}{ds\+\_\+string\+\_\+capacity}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily self\textquotesingle{}s} capacity, in bytes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a0e029ae8e80d957da8d62998bfa33b1a}{ds\+\_\+string\+\_\+reserve}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const additional)
+\begin{DoxyCompactList}\small\item\em Reserves capacity for at least {\ttfamily additional} bytes more than {\ttfamily self\textquotesingle{}s} current length. The allocator may reserve more space to speculatively avoid frequent allocations. After calling \mbox{\hyperlink{string_8c_a0e029ae8e80d957da8d62998bfa33b1a}{ds\+\_\+string\+\_\+reserve}}, capacity will be greater than or equal to {\ttfamily ds\+\_\+string\+\_\+len (self) + additional}. Does nothing if capacity is already sufficient. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a770c536f639b207196141ee7e4d20dec}{ds\+\_\+string\+\_\+reserve\+\_\+exact}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const additional)
+\begin{DoxyCompactList}\small\item\em Reserves the minimum capacity for at least {\ttfamily additional} bytes more than {\ttfamily self\textquotesingle{}s} current length. Unlike \mbox{\hyperlink{string_8c_a0e029ae8e80d957da8d62998bfa33b1a}{ds\+\_\+string\+\_\+reserve}}, this will not deliberately over-\/allocate to speculatively avoid frequent allocations. After calling \mbox{\hyperlink{string_8c_a770c536f639b207196141ee7e4d20dec}{ds\+\_\+string\+\_\+reserve\+\_\+exact}}, capacity will be greater than or equal to {\ttfamily ds\+\_\+string\+\_\+len (self) + additional}. Does nothing if the capacity is already sufficient. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_ae5fdccac1ce24da9a4f6b65e6813b04c}{ds\+\_\+string\+\_\+shrink\+\_\+to\+\_\+fit}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self)
+\begin{DoxyCompactList}\small\item\em Shrinks the capacity of {\ttfamily self} to match its length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_adc2264e255011b885c5ad5a8bab754ef}{ds\+\_\+string\+\_\+shrink\+\_\+to}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const min\+\_\+capacity)
+\begin{DoxyCompactList}\small\item\em Shrinks the capacity of {\ttfamily self} with a lower bound. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a5945540821c750c5406a16cb4a039b4c}{ds\+\_\+string\+\_\+push}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const chr)
+\begin{DoxyCompactList}\small\item\em Appends {\ttfamily chr} to the end of {\ttfamily self}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a85fbefc485430353c57169f37a26d581}{ds\+\_\+string\+\_\+truncate}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} new\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Shortens {\ttfamily self} to {\ttfamily new\+\_\+len}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a5a137f4004af65e2eb4e66dac96a434b}{ds\+\_\+string\+\_\+pop}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} $\ast$const chr\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Removes the last character from the string buffer and retrieves it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_ae0ed1f0adcb8ecaa207a21787c25c910}{ds\+\_\+string\+\_\+remove}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const idx, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} $\ast$const chr\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Removes a \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} from {\ttfamily self} at a byte position and retrieves it. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a320b8810f3096667b7e3412867d5e3e4}{ds\+\_\+string\+\_\+retain}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{char_8h_a3727df91a5ce69a48988a6837c04a015}{ds\+\_\+predicate\+\_\+char\+\_\+t}} const match)
+\begin{DoxyCompactList}\small\item\em Retains only the characters specified by the predicate. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a15a9964a820b8d470ff286525a63ca92}{ds\+\_\+string\+\_\+insert}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const idx, \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} const chr)
+\begin{DoxyCompactList}\small\item\em Inserts {\ttfamily chr} into {\ttfamily self} at a byte position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a4f716fdb257c7a0d047ddef72a164a10}{ds\+\_\+string\+\_\+insert\+\_\+str}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const idx, \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} const string, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const string\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Inserts a {\ttfamily string} slice into {\ttfamily self} at a byte position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} \mbox{\hyperlink{string_8c_aa4ec35359b6197cfb530fc3a5bafcba5}{ds\+\_\+string\+\_\+len}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Returns the length of {\ttfamily self}, in bytes, not graphemes. In other words, it might not be what a human considers the length of the string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{string_8c_a14618a3cf9b144587ab7168a7174386c}{ds\+\_\+string\+\_\+is\+\_\+empty}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if {\ttfamily self} has a length of zero, and {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_acfd5cc489d0d7207c1916d877b68dd57}{ds\+\_\+string\+\_\+split\+\_\+off}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const idx, \mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const target)
+\begin{DoxyCompactList}\small\item\em Splits {\ttfamily self} into two at the given byte index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a47b411de4d58eaca9823c0658ae65bdb}{ds\+\_\+string\+\_\+clear}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self)
+\begin{DoxyCompactList}\small\item\em Truncates {\ttfamily self}, removing all contents. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a5efbad887c2f72d553158cad44f79e05}{ds\+\_\+string\+\_\+clone}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const self, \mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const target)
+\begin{DoxyCompactList}\small\item\em Retrieves a copy of {\ttfamily self}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a23d785b80fc1ab096dad1a55428a6541}{ds\+\_\+string\+\_\+clone\+\_\+from}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const source)
+\begin{DoxyCompactList}\small\item\em Performs copy-\/assignment from {\ttfamily source}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} \mbox{\hyperlink{string_8c_a32ded7f44325b1337981675666e34377}{ds\+\_\+string\+\_\+default}} (void)
+\begin{DoxyCompactList}\small\item\em Creates an empty \mbox{\hyperlink{structds__string__t}{String}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_afcaea38a69e15ec8f9c11ea25067bc8f}{ds\+\_\+string\+\_\+from}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self, \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} const string, \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} const string\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Converts a C-\/string into a \mbox{\hyperlink{structds__string__t}{String}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{string_8c_ab7cd07bf2a7d04d414eaab249fcb73c5}{ds\+\_\+string\+\_\+eq}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const self, \mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const other)
+\begin{DoxyCompactList}\small\item\em This method tests for {\ttfamily self} and {\ttfamily other} values to be equal. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{string_8c_a4d4b3ff0eb72a3b16a0a5d481e034ba0}{ds\+\_\+string\+\_\+ne}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const self, \mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const other)
+\begin{DoxyCompactList}\small\item\em This method tests for {\ttfamily self} and {\ttfamily other} values to not be equal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} \mbox{\hyperlink{string_8c_abbb1478a0c1ae71ea34d15bce0c04fd7}{ds\+\_\+string\+\_\+as\+\_\+ptr}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Converts {\ttfamily self} to a raw pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}} \mbox{\hyperlink{string_8c_a3d664c0e5b6883a7fb7e3577cd8ea4a0}{ds\+\_\+string\+\_\+as\+\_\+mut\+\_\+ptr}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} const self)
+\begin{DoxyCompactList}\small\item\em Converts {\ttfamily self} to a mutable raw pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} \mbox{\hyperlink{string_8c_a777fe9a094f674251c3b7c253fcbab73}{ds\+\_\+string\+\_\+drop}} (\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$const self)
+\begin{DoxyCompactList}\small\item\em Disposes of a value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \mbox{\hyperlink{structds__string__t}{String}} type, related constants and functions. 
+
+\begin{DoxyAuthor}{Author}
+Avinash Maddikonda (\href{mailto:svasssakavi@gmail.com}{\texttt{ svasssakavi@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+0.\+10.\+0 
+\end{DoxySince}
+\begin{DoxyDate}{Date}
+2023-\/08-\/31 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{string_8c_a3d664c0e5b6883a7fb7e3577cd8ea4a0}\label{string_8c_a3d664c0e5b6883a7fb7e3577cd8ea4a0}} 
+\index{string.c@{string.c}!ds\_string\_as\_mut\_ptr@{ds\_string\_as\_mut\_ptr}}
+\index{ds\_string\_as\_mut\_ptr@{ds\_string\_as\_mut\_ptr}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_as\_mut\_ptr()}{ds\_string\_as\_mut\_ptr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}} ds\+\_\+string\+\_\+as\+\_\+mut\+\_\+ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Converts {\ttfamily self} to a mutable raw pointer. 
+
+As string slices are a slice of bytes, the raw pointer points to a \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}}. This pointer will be pointing to the first byte of the string slice.
+
+It is your responsibility to make sure that the string slice only gets modified in a way that it remains valid UTF-\/8.
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The \mbox{\hyperlink{structds__string__t}{String}} to convert to a mutable raw pointer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mutable raw pointer pointing to the first byte of {\ttfamily self}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00386}{386}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a3d664c0e5b6883a7fb7e3577cd8ea4a0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_abbb1478a0c1ae71ea34d15bce0c04fd7}\label{string_8c_abbb1478a0c1ae71ea34d15bce0c04fd7}} 
+\index{string.c@{string.c}!ds\_string\_as\_ptr@{ds\_string\_as\_ptr}}
+\index{ds\_string\_as\_ptr@{ds\_string\_as\_ptr}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_as\_ptr()}{ds\_string\_as\_ptr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}} ds\+\_\+string\+\_\+as\+\_\+ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Converts {\ttfamily self} to a raw pointer. 
+
+As string slices are a slice of bytes, the raw pointer points to a \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}}. This pointer will be pointing to the first byte of the string slice.
+
+The caller must ensure that the returned pointer is never written to. If you need to mutate the contents of the string slice, use \mbox{\hyperlink{string_8c_a3d664c0e5b6883a7fb7e3577cd8ea4a0}{ds\+\_\+string\+\_\+as\+\_\+mut\+\_\+ptr}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The \mbox{\hyperlink{structds__string__t}{String}} to convert to a raw pointer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The raw pointer pointing to the first byte of {\ttfamily self}.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md73}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md73}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}Hello"{}}, 5));}
+\DoxyCodeLine{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} ptr = \mbox{\hyperlink{string_8h_a4a1003294f989368751ee5465dbc0c6f}{ds\_string\_as\_ptr}} (s);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00380}{380}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{string_8c_abbb1478a0c1ae71ea34d15bce0c04fd7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_abbb1478a0c1ae71ea34d15bce0c04fd7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_aad8446f5a9a087afeb66fec98b7dd8bc}\label{string_8c_aad8446f5a9a087afeb66fec98b7dd8bc}} 
+\index{string.c@{string.c}!ds\_string\_capacity@{ds\_string\_capacity}}
+\index{ds\_string\_capacity@{ds\_string\_capacity}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_capacity()}{ds\_string\_capacity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} ds\+\_\+string\+\_\+capacity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Returns {\ttfamily self\textquotesingle{}s} capacity, in bytes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The \mbox{\hyperlink{structds__string__t}{String}} to return the capacity, in bytes, of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily self\textquotesingle{}s} capacity, in bytes.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md57}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md57}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a543c755f7554feedd8a5e85e246ca5fe}{ds\_string\_with\_capacity}} (\&s, 10));}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s) >= 10);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00135}{135}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_aad8446f5a9a087afeb66fec98b7dd8bc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a47b411de4d58eaca9823c0658ae65bdb}\label{string_8c_a47b411de4d58eaca9823c0658ae65bdb}} 
+\index{string.c@{string.c}!ds\_string\_clear@{ds\_string\_clear}}
+\index{ds\_string\_clear@{ds\_string\_clear}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_clear()}{ds\_string\_clear()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Truncates {\ttfamily self}, removing all contents. 
+
+While this means {\ttfamily self} will have a length of zero, it does not touch its capacity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to truncate and remove all contents. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md72}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md72}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}foo"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a4ac7920108a3a26320f2330a6ed8030e}{ds\_string\_clear}} (\&s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a9e051bbc2f6614d90e034cd2f2b23448}{ds\_string\_is\_empty}} (s));}
+\DoxyCodeLine{assert (0 == \mbox{\hyperlink{string_8h_af83f5cb8676028a4741c2b43b39cb5de}{ds\_string\_len}} (s));}
+\DoxyCodeLine{assert (3 <= \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00317}{317}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a47b411de4d58eaca9823c0658ae65bdb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a5efbad887c2f72d553158cad44f79e05}\label{string_8c_a5efbad887c2f72d553158cad44f79e05}} 
+\index{string.c@{string.c}!ds\_string\_clone@{ds\_string\_clone}}
+\index{ds\_string\_clone@{ds\_string\_clone}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_clone()}{ds\_string\_clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{self,  }\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+Retrieves a copy of {\ttfamily self}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em self} & The value to clone. \\
+\hline
+\mbox{\texttt{ out}}  & {\em target} & Pointer to the value to clone into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily target} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00323}{323}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a5efbad887c2f72d553158cad44f79e05_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a23d785b80fc1ab096dad1a55428a6541}\label{string_8c_a23d785b80fc1ab096dad1a55428a6541}} 
+\index{string.c@{string.c}!ds\_string\_clone\_from@{ds\_string\_clone\_from}}
+\index{ds\_string\_clone\_from@{ds\_string\_clone\_from}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_clone\_from()}{ds\_string\_clone\_from()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+clone\+\_\+from (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{source }\end{DoxyParamCaption})}
+
+
+
+Performs copy-\/assignment from {\ttfamily source}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the value to clone into. \\
+\hline
+ & {\em source} & The value to clone. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00329}{329}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a23d785b80fc1ab096dad1a55428a6541_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{string_8c_a23d785b80fc1ab096dad1a55428a6541_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a32ded7f44325b1337981675666e34377}\label{string_8c_a32ded7f44325b1337981675666e34377}} 
+\index{string.c@{string.c}!ds\_string\_default@{ds\_string\_default}}
+\index{ds\_string\_default@{ds\_string\_default}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_default()}{ds\_string\_default()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} ds\+\_\+string\+\_\+default (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates an empty \mbox{\hyperlink{structds__string__t}{String}}. 
+
+\begin{DoxyReturn}{Returns}
+An empty \mbox{\hyperlink{structds__string__t}{String}}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00336}{336}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a32ded7f44325b1337981675666e34377_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a777fe9a094f674251c3b7c253fcbab73}\label{string_8c_a777fe9a094f674251c3b7c253fcbab73}} 
+\index{string.c@{string.c}!ds\_string\_drop@{ds\_string\_drop}}
+\index{ds\_string\_drop@{ds\_string\_drop}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_drop()}{ds\_string\_drop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+drop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Disposes of a value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & The value to dispose. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md74}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md74}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}abc"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// explicitly drop the vector}}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00392}{392}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a777fe9a094f674251c3b7c253fcbab73_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_ab7cd07bf2a7d04d414eaab249fcb73c5}\label{string_8c_ab7cd07bf2a7d04d414eaab249fcb73c5}} 
+\index{string.c@{string.c}!ds\_string\_eq@{ds\_string\_eq}}
+\index{ds\_string\_eq@{ds\_string\_eq}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_eq()}{ds\_string\_eq()}}
+{\footnotesize\ttfamily bool ds\+\_\+string\+\_\+eq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{self,  }\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{other }\end{DoxyParamCaption})}
+
+
+
+This method tests for {\ttfamily self} and {\ttfamily other} values to be equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The first value to test. \\
+\hline
+{\em other} & The second value to test. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} and {\ttfamily other} values are equal, and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00352}{352}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_ab7cd07bf2a7d04d414eaab249fcb73c5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{string_8c_ab7cd07bf2a7d04d414eaab249fcb73c5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_afcaea38a69e15ec8f9c11ea25067bc8f}\label{string_8c_afcaea38a69e15ec8f9c11ea25067bc8f}} 
+\index{string.c@{string.c}!ds\_string\_from@{ds\_string\_from}}
+\index{ds\_string\_from@{ds\_string\_from}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_from()}{ds\_string\_from()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+from (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}}}]{string,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{string\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+Converts a C-\/string into a \mbox{\hyperlink{structds__string__t}{String}}. 
+
+The result is allocated on the heap.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to convert {\ttfamily string} into. \\
+\hline
+ & {\em string} & The C-\/string to convert into {\ttfamily self}. \\
+\hline
+ & {\em string\+\_\+len} & The length of {\ttfamily string}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00342}{342}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_afcaea38a69e15ec8f9c11ea25067bc8f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_afcaea38a69e15ec8f9c11ea25067bc8f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_af21980abe356a2cf733da9c44169f12c}\label{string_8c_af21980abe356a2cf733da9c44169f12c}} 
+\index{string.c@{string.c}!ds\_string\_from\_raw\_parts@{ds\_string\_from\_raw\_parts}}
+\index{ds\_string\_from\_raw\_parts@{ds\_string\_from\_raw\_parts}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_from\_raw\_parts()}{ds\_string\_from\_raw\_parts()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} ds\+\_\+string\+\_\+from\+\_\+raw\+\_\+parts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}}}]{buf,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{length,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{capacity }\end{DoxyParamCaption})}
+
+
+
+Creates a new \mbox{\hyperlink{structds__string__t}{String}} from a {\ttfamily length}, {\ttfamily capacity}, and {\ttfamily buf} pointer. 
+
+\begin{DoxyWarning}{Warning}
+This is highly unsafe, due to the number of invariants that aren\textquotesingle{}t checked\+:
+\end{DoxyWarning}
+
+\begin{DoxyItemize}
+\item The memory at {\ttfamily buf} needs to have been previously allocated by the same allocator \mbox{\hyperlink{structds__string__t}{String}} uses, with a required alignment of exactly 1.
+\item {\ttfamily length} needs to be less than or equal to {\ttfamily capacity}.
+\item {\ttfamily capacity} needs to be the correct value.
+\item The first {\ttfamily length} bytes at {\ttfamily buf} need to be valid UTF-\/8.
+\end{DoxyItemize}
+
+Violating these may cause problems like corrupting the allocator\textquotesingle{}s internal data structures. For example, it is normally {\bfseries{not}} safe to build a \mbox{\hyperlink{structds__string__t}{String}} from a pointer to a C {\ttfamily char} array containing UTF-\/8 {\itshape unless} you are certain that array was originally allocated by the same allocator \mbox{\hyperlink{structds__string__t}{String}} uses.
+
+The ownership of {\ttfamily buf} is effectively transferred to the \mbox{\hyperlink{structds__string__t}{String}} which may then deallocate, reallocate or change the contents of memory pointed to by the pointer at will. Ensure that nothing else uses the pointer after calling this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & The pointer to the buffer. \\
+\hline
+{\em length} & The length of the string (in bytes). \\
+\hline
+{\em capacity} & The allocated capacity of the data (in bytes).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{structds__string__t}{String}} from a {\ttfamily length}, {\ttfamily capacity}, and {\ttfamily buf} pointer.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md55}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md55}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}hello"{}}, 5));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\_cstr\_t}} \textcolor{keyword}{const} ptr = \mbox{\hyperlink{string_8h_a4a1003294f989368751ee5465dbc0c6f}{ds\_string\_as\_ptr}} (s);}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \textcolor{keyword}{const} len = \mbox{\hyperlink{string_8h_af83f5cb8676028a4741c2b43b39cb5de}{ds\_string\_len}} (s);}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \textcolor{keyword}{const} capacity = \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} \textcolor{keyword}{const} hello = \mbox{\hyperlink{string_8h_ab2b4460fb63f22c7283e97c753e52b86}{ds\_string\_from\_raw\_parts}} (ptr, len, capacity);}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (hello, s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00118}{118}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_af21980abe356a2cf733da9c44169f12c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a15a9964a820b8d470ff286525a63ca92}\label{string_8c_a15a9964a820b8d470ff286525a63ca92}} 
+\index{string.c@{string.c}!ds\_string\_insert@{ds\_string\_insert}}
+\index{ds\_string\_insert@{ds\_string\_insert}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_insert()}{ds\_string\_insert()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{idx,  }\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{chr }\end{DoxyParamCaption})}
+
+
+
+Inserts {\ttfamily chr} into {\ttfamily self} at a byte position. 
+
+This is an {\itshape O}({\itshape n}) operation as it requires copying every element in the buffer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to insert {\ttfamily chr} into at the byte position. \\
+\hline
+ & {\em idx} & The byte position to insert {\ttfamily chr} into {\ttfamily self} at. \\
+\hline
+ & {\em chr} & The character to insert into {\ttfamily self} at the byte position.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{Err(Out\+Of\+Range)}} if {\ttfamily idx} is larger than {\ttfamily self\textquotesingle{}s} length. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md67}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md67}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a543c755f7554feedd8a5e85e246ca5fe}{ds\_string\_with\_capacity}} (\&s, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_ae8a7e23ed239a33a081d611904fc4ad2}{ds\_string\_insert}} (\&s, 0, \textcolor{charliteral}{'f'}));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_ae8a7e23ed239a33a081d611904fc4ad2}{ds\_string\_insert}} (\&s, 1, \textcolor{charliteral}{'o'}));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_ae8a7e23ed239a33a081d611904fc4ad2}{ds\_string\_insert}} (\&s, 2, \textcolor{charliteral}{'o'}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} foo;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&foo, \textcolor{stringliteral}{"{}foo"{}}, 3));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (foo, s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&foo));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00251}{251}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a15a9964a820b8d470ff286525a63ca92_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{string_8c_a15a9964a820b8d470ff286525a63ca92_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a4f716fdb257c7a0d047ddef72a164a10}\label{string_8c_a4f716fdb257c7a0d047ddef72a164a10}} 
+\index{string.c@{string.c}!ds\_string\_insert\_str@{ds\_string\_insert\_str}}
+\index{ds\_string\_insert\_str@{ds\_string\_insert\_str}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_insert\_str()}{ds\_string\_insert\_str()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+insert\+\_\+str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{idx,  }\item[{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}}}]{string,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{string\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+Inserts a {\ttfamily string} slice into {\ttfamily self} at a byte position. 
+
+This is an {\itshape O}({\itshape n}) operation as it requires copying every element in the buffer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to insert the {\ttfamily string} slice into at the byte position. \\
+\hline
+ & {\em idx} & The byte position to insert the {\ttfamily string} slice into {\ttfamily self} at. \\
+\hline
+ & {\em string} & The string slice to insert into {\ttfamily self} at the byte position.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{Err(Out\+Of\+Range)}} if {\ttfamily idx} is larger than {\ttfamily self\textquotesingle{}s} length. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md68}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md68}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}bar"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a90536ad7ebd9e8c65a8c5b9806a09cd7}{ds\_string\_insert\_str}} (\&s, 0, \textcolor{stringliteral}{"{}foo"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} foobar;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&foobar, \textcolor{stringliteral}{"{}foobar"{}}, 6));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (foobar, s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&foobar));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00258}{258}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a4f716fdb257c7a0d047ddef72a164a10_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a4f716fdb257c7a0d047ddef72a164a10_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a274e48b4ba1473389671c6e9c7697473}\label{string_8c_a274e48b4ba1473389671c6e9c7697473}} 
+\index{string.c@{string.c}!ds\_string\_into\_raw\_parts@{ds\_string\_into\_raw\_parts}}
+\index{ds\_string\_into\_raw\_parts@{ds\_string\_into\_raw\_parts}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_into\_raw\_parts()}{ds\_string\_into\_raw\_parts()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+into\+\_\+raw\+\_\+parts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\+\_\+cstr\+\_\+mut\+\_\+t}} $\ast$}]{buf\+\_\+ptr,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} $\ast$}]{len\+\_\+ptr,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} $\ast$}]{cap\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Decomposes {\ttfamily self} into its raw components. 
+
+Retrieves the raw pointer to the underlying data, the length of the string (in bytes), and the allocated capacity of the data (in bytes), and stores them in memory locations pointed at by {\ttfamily buf\+\_\+ptr}, {\ttfamily len\+\_\+ptr}, and {\ttfamily cap\+\_\+ptr} respectively. These are the same arguments in the same order as the arguments to \mbox{\hyperlink{string_8c_af21980abe356a2cf733da9c44169f12c}{ds\+\_\+string\+\_\+from\+\_\+raw\+\_\+parts}}.
+
+After calling this function, the caller is responsible for the memory previously managed by {\ttfamily self}. The only way to do this is to convert the raw pointer, length, and capacity back into a \mbox{\hyperlink{structds__string__t}{String}} with the \mbox{\hyperlink{string_8c_af21980abe356a2cf733da9c44169f12c}{ds\+\_\+string\+\_\+from\+\_\+raw\+\_\+parts}} function, and calling \mbox{\hyperlink{string_8c_a777fe9a094f674251c3b7c253fcbab73}{ds\+\_\+string\+\_\+drop}} to perform the cleanup.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to decompose into its raw components. \\
+\hline
+\mbox{\texttt{ out}}  & {\em buf\+\_\+ptr} & Pointer to the raw pointer to the underlying data. \\
+\hline
+\mbox{\texttt{ out}}  & {\em len\+\_\+ptr} & Pointer to the length of the string (in bytes). \\
+\hline
+\mbox{\texttt{ out}}  & {\em cap\+\_\+ptr} & Pointer to the allocated capacity of the data (in bytes).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self}, {\ttfamily buf\+\_\+ptr}, {\ttfamily len\+\_\+ptr}, or {\ttfamily cap\+\_\+ptr} is {\ttfamily NULL}.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md54}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md54}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} hello;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}hello"{}}, 5));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&hello, \textcolor{stringliteral}{"{}hello"{}}, 5));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{cstr_8h_adba5ab6409b8c3d88e892a3a4702ea11}{ds\_cstr\_mut\_t}} ptr;}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} len;}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} cap;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_ac698e3cf3a84f6e31310ec8d2430bb78}{ds\_string\_into\_raw\_parts}} (\&s, \&ptr, \&len,}
+\DoxyCodeLine{                                                   \&cap));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} \textcolor{keyword}{const} rebuilt = \mbox{\hyperlink{string_8h_ab2b4460fb63f22c7283e97c753e52b86}{ds\_string\_from\_raw\_parts}} (ptr, len, cap);}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (rebuilt, hello));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&rebuilt));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&hello));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00100}{100}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a274e48b4ba1473389671c6e9c7697473_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a14618a3cf9b144587ab7168a7174386c}\label{string_8c_a14618a3cf9b144587ab7168a7174386c}} 
+\index{string.c@{string.c}!ds\_string\_is\_empty@{ds\_string\_is\_empty}}
+\index{ds\_string\_is\_empty@{ds\_string\_is\_empty}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_is\_empty()}{ds\_string\_is\_empty()}}
+{\footnotesize\ttfamily bool ds\+\_\+string\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Returns {\ttfamily true} if {\ttfamily self} has a length of zero, and {\ttfamily false} otherwise. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The \mbox{\hyperlink{structds__string__t}{String}} to check if has length of zero. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} has a length of zero, and {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md70}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md70}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} v = \mbox{\hyperlink{string_8h_a899aa04d6ff97d9f60fc0d4384f6f943}{ds\_string\_new}} ();}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a9e051bbc2f6614d90e034cd2f2b23448}{ds\_string\_is\_empty}} (v));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&v, \textcolor{charliteral}{'a'}));}
+\DoxyCodeLine{assert (!\mbox{\hyperlink{string_8h_a9e051bbc2f6614d90e034cd2f2b23448}{ds\_string\_is\_empty}} (v));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&v));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00287}{287}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{string_8c_a14618a3cf9b144587ab7168a7174386c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_aa4ec35359b6197cfb530fc3a5bafcba5}\label{string_8c_aa4ec35359b6197cfb530fc3a5bafcba5}} 
+\index{string.c@{string.c}!ds\_string\_len@{ds\_string\_len}}
+\index{ds\_string\_len@{ds\_string\_len}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_len()}{ds\_string\_len()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}} ds\+\_\+string\+\_\+len (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{self }\end{DoxyParamCaption})}
+
+
+
+Returns the length of {\ttfamily self}, in bytes, not graphemes. In other words, it might not be what a human considers the length of the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The \mbox{\hyperlink{structds__string__t}{String}} to return the length of, in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of {\ttfamily self}, in bytes.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md69}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md69}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} a;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&a, \textcolor{stringliteral}{"{}foo"{}}, 3));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_af83f5cb8676028a4741c2b43b39cb5de}{ds\_string\_len}} (a) == 3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} fancy\_f;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&fancy\_f, \textcolor{stringliteral}{"{}ƒoo"{}}, 4));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_af83f5cb8676028a4741c2b43b39cb5de}{ds\_string\_len}} (fancy\_f), 4);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&fancy\_f));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00281}{281}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_aa4ec35359b6197cfb530fc3a5bafcba5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a4d4b3ff0eb72a3b16a0a5d481e034ba0}\label{string_8c_a4d4b3ff0eb72a3b16a0a5d481e034ba0}} 
+\index{string.c@{string.c}!ds\_string\_ne@{ds\_string\_ne}}
+\index{ds\_string\_ne@{ds\_string\_ne}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_ne()}{ds\_string\_ne()}}
+{\footnotesize\ttfamily bool ds\+\_\+string\+\_\+ne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{self,  }\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}}}]{other }\end{DoxyParamCaption})}
+
+
+
+This method tests for {\ttfamily self} and {\ttfamily other} values to not be equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The first value to test. \\
+\hline
+{\em other} & The second value to test. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\ttfamily self} and {\ttfamily other} values are not equal, and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00374}{374}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a4d4b3ff0eb72a3b16a0a5d481e034ba0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a899aa04d6ff97d9f60fc0d4384f6f943}\label{string_8c_a899aa04d6ff97d9f60fc0d4384f6f943}} 
+\index{string.c@{string.c}!ds\_string\_new@{ds\_string\_new}}
+\index{ds\_string\_new@{ds\_string\_new}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_new()}{ds\_string\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} ds\+\_\+string\+\_\+new (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new empty \mbox{\hyperlink{structds__string__t}{String}}. 
+
+Given that the \mbox{\hyperlink{structds__string__t}{String}} is empty, this will not allocate any initial buffer. While that means that this initial operation is very inexpensive, it may cause excessive allocation later when you add data. If you have an idea of how much data the \mbox{\hyperlink{structds__string__t}{String}} will hold, consider the \mbox{\hyperlink{string_8c_a14a71aff48981a47b7b3abbff92c8c6b}{ds\+\_\+string\+\_\+with\+\_\+capacity}} method to prevent excessive re-\/allocation.
+
+\begin{DoxyReturn}{Returns}
+A new empty \mbox{\hyperlink{structds__string__t}{String}}.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md52}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md52}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} \textcolor{keyword}{const} s = \mbox{\hyperlink{string_8h_a899aa04d6ff97d9f60fc0d4384f6f943}{ds\_string\_new}} ();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00085}{85}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{string_8c_a899aa04d6ff97d9f60fc0d4384f6f943_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a899aa04d6ff97d9f60fc0d4384f6f943_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a5a137f4004af65e2eb4e66dac96a434b}\label{string_8c_a5a137f4004af65e2eb4e66dac96a434b}} 
+\index{string.c@{string.c}!ds\_string\_pop@{ds\_string\_pop}}
+\index{ds\_string\_pop@{ds\_string\_pop}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_pop()}{ds\_string\_pop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} $\ast$}]{chr\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Removes the last character from the string buffer and retrieves it. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to remove the last character from its string buffer and retrieve it from. \\
+\hline
+\mbox{\texttt{ out}}  & {\em chr\+\_\+ptr} & Pointer to the last character removed and retrieved from {\ttfamily self\textquotesingle{}s} string buffer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{Err(Out\+Of\+Range)}} if {\ttfamily self} is empty.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md64}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md64}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}foo"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} chr;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a6e1b06e3ab715605b161aee7b089f9a8}{ds\_string\_pop}} (\&s, \&chr));}
+\DoxyCodeLine{assert (chr == \textcolor{charliteral}{'o'});}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a6e1b06e3ab715605b161aee7b089f9a8}{ds\_string\_pop}} (\&s, \&chr));}
+\DoxyCodeLine{assert (chr == \textcolor{charliteral}{'o'});}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a6e1b06e3ab715605b161aee7b089f9a8}{ds\_string\_pop}} (\&s, \&chr));}
+\DoxyCodeLine{assert (chr == \textcolor{charliteral}{'f'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a6e1b06e3ab715605b161aee7b089f9a8}{ds\_string\_pop}} (\&s, \&chr) == \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{DS\_RESULT\_ERR\_OUT\_OF\_RANGE}});}
+\DoxyCodeLine{assert (chr == \textcolor{charliteral}{'f'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00194}{194}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a5a137f4004af65e2eb4e66dac96a434b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a5945540821c750c5406a16cb4a039b4c}\label{string_8c_a5945540821c750c5406a16cb4a039b4c}} 
+\index{string.c@{string.c}!ds\_string\_push@{ds\_string\_push}}
+\index{ds\_string\_push@{ds\_string\_push}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_push()}{ds\_string\_push()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}}}]{chr }\end{DoxyParamCaption})}
+
+
+
+Appends {\ttfamily chr} to the end of {\ttfamily self}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to append {\ttfamily chr} to the end of. \\
+\hline
+ & {\em chr} & The \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} to append to the end of {\ttfamily self}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md62}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md62}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}abc"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&s, \textcolor{charliteral}{'1'}));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&s, \textcolor{charliteral}{'2'}));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&s, \textcolor{charliteral}{'3'}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} abc123;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&abc123, \textcolor{stringliteral}{"{}abc123"{}}, 6));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (abc123, s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&abc123));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00176}{176}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a5945540821c750c5406a16cb4a039b4c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_ab04f7e8871804dd52a8f8861ca139bff}\label{string_8c_ab04f7e8871804dd52a8f8861ca139bff}} 
+\index{string.c@{string.c}!ds\_string\_push\_str@{ds\_string\_push\_str}}
+\index{ds\_string\_push\_str@{ds\_string\_push\_str}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_push\_str()}{ds\_string\_push\_str()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+push\+\_\+str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{cstr_8h_a61bae52e31d5f3834166a135566a880f}{ds\+\_\+cstr\+\_\+t}}}]{string,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{string\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+Appends {\ttfamily string} onto the end of {\ttfamily self}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to append {\ttfamily string} onto the end of. \\
+\hline
+ & {\em string} & A C-\/string slice to append to {\ttfamily self}. \\
+\hline
+ & {\em string\+\_\+len} & The length of {\ttfamily string} (in bytes).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md56}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md56}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}foo"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7dc370dd28d59e53bdb37a433cee16d8}{ds\_string\_push\_str}} (\&s, \textcolor{stringliteral}{"{}bar"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} foobar;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}foobar"{}}, 6));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (foobar, s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&foobar));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00125}{125}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_ab04f7e8871804dd52a8f8861ca139bff_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_ab04f7e8871804dd52a8f8861ca139bff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_ae0ed1f0adcb8ecaa207a21787c25c910}\label{string_8c_ae0ed1f0adcb8ecaa207a21787c25c910}} 
+\index{string.c@{string.c}!ds\_string\_remove@{ds\_string\_remove}}
+\index{ds\_string\_remove@{ds\_string\_remove}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_remove()}{ds\_string\_remove()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{idx,  }\item[{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\+\_\+char\+\_\+t}} $\ast$}]{chr\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Removes a \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} from {\ttfamily self} at a byte position and retrieves it. 
+
+This is an {\itshape O}({\itshape n}) operation, as it requires copying every element in the buffer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to remove a \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} and retrieve it at a byte position. \\
+\hline
+ & {\em idx} & The byte position to remove a \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} at. \\
+\hline
+\mbox{\texttt{ out}}  & {\em chr\+\_\+ptr} & Pointer to the \mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{char}} removed and retrieved at a byte position.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{Err(Out\+Of\+Range)}} if {\ttfamily idx} is larger than or equal to {\ttfamily self\textquotesingle{}s} length.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md65}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md65}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}foo"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{char_8h_a2c809211274ede9eddff5a750bdeb5ae}{ds\_char\_t}} chr;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_acc0202c86b345a7102278e251677e276}{ds\_string\_remove}} (\&s, 0, \&chr));}
+\DoxyCodeLine{assert (chr == \textcolor{charliteral}{'f'});}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_acc0202c86b345a7102278e251677e276}{ds\_string\_remove}} (\&s, 1, \&chr));}
+\DoxyCodeLine{assert (chr == \textcolor{charliteral}{'o'});}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_acc0202c86b345a7102278e251677e276}{ds\_string\_remove}} (\&s, 0, \&chr));}
+\DoxyCodeLine{assert (chr == \textcolor{charliteral}{'o'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_acc0202c86b345a7102278e251677e276}{ds\_string\_remove}} (\&s, 0, \&chr) == \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{DS\_RESULT\_ERR\_OUT\_OF\_RANGE}});}
+\DoxyCodeLine{assert (chr == \textcolor{charliteral}{'f'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00201}{201}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_ae0ed1f0adcb8ecaa207a21787c25c910_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{string_8c_ae0ed1f0adcb8ecaa207a21787c25c910_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a0e029ae8e80d957da8d62998bfa33b1a}\label{string_8c_a0e029ae8e80d957da8d62998bfa33b1a}} 
+\index{string.c@{string.c}!ds\_string\_reserve@{ds\_string\_reserve}}
+\index{ds\_string\_reserve@{ds\_string\_reserve}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_reserve()}{ds\_string\_reserve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+reserve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{additional }\end{DoxyParamCaption})}
+
+
+
+Reserves capacity for at least {\ttfamily additional} bytes more than {\ttfamily self\textquotesingle{}s} current length. The allocator may reserve more space to speculatively avoid frequent allocations. After calling \mbox{\hyperlink{string_8c_a0e029ae8e80d957da8d62998bfa33b1a}{ds\+\_\+string\+\_\+reserve}}, capacity will be greater than or equal to {\ttfamily ds\+\_\+string\+\_\+len (self) + additional}. Does nothing if capacity is already sufficient. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to reserve capacity for at least {\ttfamily additional} bytes more than its current length. \\
+\hline
+ & {\em additional} & The minimum number of bytes more than {\ttfamily self\textquotesingle{}s} current length to allocate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{Err(Out\+Of\+Range)}} if the new capacity overflows \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md58}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md58}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s = \mbox{\hyperlink{string_8h_a899aa04d6ff97d9f60fc0d4384f6f943}{ds\_string\_new}} ();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7420055b34cb8a58492a0392ff72dd02}{ds\_string\_reserve}} (\&s, 10));}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s) >= 10);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+
+
+This might not actually increase the capacity\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a543c755f7554feedd8a5e85e246ca5fe}{ds\_string\_with\_capacity}} (\&s, 10));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&s, \textcolor{charliteral}{'a'}));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&s, \textcolor{charliteral}{'b'}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// s now has a length of 2 and a capacity of at least 10}}
+\DoxyCodeLine{let capacity = \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s);}
+\DoxyCodeLine{assert (2 == \mbox{\hyperlink{string_8h_af83f5cb8676028a4741c2b43b39cb5de}{ds\_string\_len}} (s));}
+\DoxyCodeLine{assert (capacity >= 10);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Since we already have at least an extra 8 capacity, calling this...}}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7420055b34cb8a58492a0392ff72dd02}{ds\_string\_reserve}} (\&s, 8));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// ... doesn't actually increase.}}
+\DoxyCodeLine{assert (capacity == \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00141}{141}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a0e029ae8e80d957da8d62998bfa33b1a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a770c536f639b207196141ee7e4d20dec}\label{string_8c_a770c536f639b207196141ee7e4d20dec}} 
+\index{string.c@{string.c}!ds\_string\_reserve\_exact@{ds\_string\_reserve\_exact}}
+\index{ds\_string\_reserve\_exact@{ds\_string\_reserve\_exact}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_reserve\_exact()}{ds\_string\_reserve\_exact()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+reserve\+\_\+exact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{additional }\end{DoxyParamCaption})}
+
+
+
+Reserves the minimum capacity for at least {\ttfamily additional} bytes more than {\ttfamily self\textquotesingle{}s} current length. Unlike \mbox{\hyperlink{string_8c_a0e029ae8e80d957da8d62998bfa33b1a}{ds\+\_\+string\+\_\+reserve}}, this will not deliberately over-\/allocate to speculatively avoid frequent allocations. After calling \mbox{\hyperlink{string_8c_a770c536f639b207196141ee7e4d20dec}{ds\+\_\+string\+\_\+reserve\+\_\+exact}}, capacity will be greater than or equal to {\ttfamily ds\+\_\+string\+\_\+len (self) + additional}. Does nothing if the capacity is already sufficient. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to reserve the minimum capacity for at least {\ttfamily additional} bytes more than its current length. \\
+\hline
+ & {\em additional} & The minimum number of bytes more than {\ttfamily self\textquotesingle{}s} current length to allocate without deliberately over-\/allocating.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{Err(Out\+Of\+Range)}} if the new capacity overflows \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{usize}}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md59}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md59}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s = \mbox{\hyperlink{string_8h_a899aa04d6ff97d9f60fc0d4384f6f943}{ds\_string\_new}} ();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7f81c8c62f5c2dd8707d143e71cb16f9}{ds\_string\_reserve\_exact}} (\&s, 10));}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s) >= 10);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+
+
+This might not actually increase the capacity\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a543c755f7554feedd8a5e85e246ca5fe}{ds\_string\_with\_capacity}} (\&s, 10));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&s, \textcolor{charliteral}{'a'}));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&s, \textcolor{charliteral}{'b'}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// s now has a length of 2 and a capacity of at least 10}}
+\DoxyCodeLine{let capacity = \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s);}
+\DoxyCodeLine{assert (2 == \mbox{\hyperlink{string_8h_af83f5cb8676028a4741c2b43b39cb5de}{ds\_string\_len}} (s));}
+\DoxyCodeLine{assert (capacity >= 10);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Since we already have at least an extra 8 capacity, calling this...}}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7f81c8c62f5c2dd8707d143e71cb16f9}{ds\_string\_reserve\_exact}} (\&s, 8));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// ... doesn't actually increase.}}
+\DoxyCodeLine{assert (capacity == \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00147}{147}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+\mbox{\Hypertarget{string_8c_a320b8810f3096667b7e3412867d5e3e4}\label{string_8c_a320b8810f3096667b7e3412867d5e3e4}} 
+\index{string.c@{string.c}!ds\_string\_retain@{ds\_string\_retain}}
+\index{ds\_string\_retain@{ds\_string\_retain}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_retain()}{ds\_string\_retain()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+retain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{char_8h_a3727df91a5ce69a48988a6837c04a015}{ds\+\_\+predicate\+\_\+char\+\_\+t}}}]{match }\end{DoxyParamCaption})}
+
+
+
+Retains only the characters specified by the predicate. 
+
+In other words, remove all characters {\ttfamily c} such that {\ttfamily match(c)} returns {\ttfamily false}. This method operates in place, visiting each character exactly once in the original order, and preserves the order of the retained characters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} whose characters are to be retained based on the predicate. \\
+\hline
+ & {\em match} & The predicate that specifies which characters to retain.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md66}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md66}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}f\_o\_ob\_ar"{}}, 9));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool} is\_not\_underscore (\textcolor{keywordtype}{char} \textcolor{keyword}{const} c)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} c != \textcolor{charliteral}{'\_'};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a060fac7bf0b565a39321b07c44c960bd}{ds\_string\_retain}} (\&s, is\_not\_underscore));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} foobar;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&foobar, \textcolor{stringliteral}{"{}foobar"{}}, 6));}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (s, foobar));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&foobar));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+
+
+Because the elements are visited exactly once in the original order, external state may be used to decide which elements to keep.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}abcde"{}}, 5));}
+\DoxyCodeLine{\textcolor{keywordtype}{bool} keep[] = \{ \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{true} \};}
+\DoxyCodeLine{\textcolor{keywordtype}{bool} only\_keep (\textcolor{keywordtype}{char} \textcolor{keyword}{const} c)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{keyword}{static} \mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} i = \mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{DS\_USIZE\_MIN}};}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} keep[i++];}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a060fac7bf0b565a39321b07c44c960bd}{ds\_string\_retain}} (\&s, only\_keep));}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} bce;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&bce, \textcolor{stringliteral}{"{}bce"{}}, 3));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (s, bce));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&bce));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00227}{227}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a320b8810f3096667b7e3412867d5e3e4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_adc2264e255011b885c5ad5a8bab754ef}\label{string_8c_adc2264e255011b885c5ad5a8bab754ef}} 
+\index{string.c@{string.c}!ds\_string\_shrink\_to@{ds\_string\_shrink\_to}}
+\index{ds\_string\_shrink\_to@{ds\_string\_shrink\_to}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_shrink\_to()}{ds\_string\_shrink\_to()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+shrink\+\_\+to (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{min\+\_\+capacity }\end{DoxyParamCaption})}
+
+
+
+Shrinks the capacity of {\ttfamily self} with a lower bound. 
+
+The capacity will remain at least as large as both the length and the supplied value.
+
+If the current capacity is less than the lower limit, this is a no-\/op.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to shrink the capacity with a lower bound. \\
+\hline
+ & {\em min\+\_\+capacity} & The lower bound of the capacity.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md61}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md61}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}foo"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7420055b34cb8a58492a0392ff72dd02}{ds\_string\_reserve}} (\&s, 100));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s) >= 100);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a4d68976f657ed491a6e6529f6c2a2142}{ds\_string\_shrink\_to}} (\&s, 10));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s) >= 10);}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a4d68976f657ed491a6e6529f6c2a2142}{ds\_string\_shrink\_to}} (\&s, 0));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s) >= 3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00160}{160}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_adc2264e255011b885c5ad5a8bab754ef_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{string_8c_adc2264e255011b885c5ad5a8bab754ef_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_ae5fdccac1ce24da9a4f6b65e6813b04c}\label{string_8c_ae5fdccac1ce24da9a4f6b65e6813b04c}} 
+\index{string.c@{string.c}!ds\_string\_shrink\_to\_fit@{ds\_string\_shrink\_to\_fit}}
+\index{ds\_string\_shrink\_to\_fit@{ds\_string\_shrink\_to\_fit}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_shrink\_to\_fit()}{ds\_string\_shrink\_to\_fit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+shrink\+\_\+to\+\_\+fit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Shrinks the capacity of {\ttfamily self} to match its length. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to shrink the capacity to match its length. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md60}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md60}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}foo"{}}, 3));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a7420055b34cb8a58492a0392ff72dd02}{ds\_string\_reserve}} (\&s, 100));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s) >= 100);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a4b3fbc08b81e68caba36c2e7bcb8b237}{ds\_string\_shrink\_to\_fit}} (\&s));}
+\DoxyCodeLine{assert (3 == \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00153}{153}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_ae5fdccac1ce24da9a4f6b65e6813b04c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_acfd5cc489d0d7207c1916d877b68dd57}\label{string_8c_acfd5cc489d0d7207c1916d877b68dd57}} 
+\index{string.c@{string.c}!ds\_string\_split\_off@{ds\_string\_split\_off}}
+\index{ds\_string\_split\_off@{ds\_string\_split\_off}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_split\_off()}{ds\_string\_split\_off()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+split\+\_\+off (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{idx,  }\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+Splits {\ttfamily self} into two at the given byte index. 
+
+Retrieves a newly allocated \mbox{\hyperlink{structds__string__t}{String}}. {\ttfamily self} contains bytes {\ttfamily \mbox{[}0, idx)}, and the retrieved {\ttfamily target} contains bytes {\ttfamily \mbox{[}idx, len)}.
+
+Note that the capacity of {\ttfamily self} does not change.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to split into two at the given byte index. \\
+\hline
+ & {\em idx} & The byte index to split {\ttfamily self} into two at. \\
+\hline
+\mbox{\texttt{ out}}  & {\em target} & Pointer to the newly allocated \mbox{\hyperlink{structds__string__t}{String}} containing bytes {\ttfamily \mbox{[}idx, len)}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} or {\ttfamily target} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1acddd7078d65a9f46ca0181bd38ba451b}{Err(Out\+Of\+Range)}} if {\ttfamily idx} is beyond the last code point of the string. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md71}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md71}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} hello;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&hello, \textcolor{stringliteral}{"{}Hello, World!"{}}, 13));}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} world;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a656a718d51ed8c67e8c5b40a39d50cc7}{ds\_string\_split\_off}} (\&hello, 7, \&world));}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} hello\_actual;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&hello\_actual, \textcolor{stringliteral}{"{}Hello, "{}}, 7));}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} world\_actual;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&world\_actual, \textcolor{stringliteral}{"{}World!"{}}, 6));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (hello, hello\_actual));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (world, world\_actual));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&world\_actual));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&hello\_actual));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&world));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&hello));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00293}{293}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_acfd5cc489d0d7207c1916d877b68dd57_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a85fbefc485430353c57169f37a26d581}\label{string_8c_a85fbefc485430353c57169f37a26d581}} 
+\index{string.c@{string.c}!ds\_string\_truncate@{ds\_string\_truncate}}
+\index{ds\_string\_truncate@{ds\_string\_truncate}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_truncate()}{ds\_string\_truncate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+truncate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{new\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+Shortens {\ttfamily self} to {\ttfamily new\+\_\+len}. 
+
+If {\ttfamily new\+\_\+len} is greater than {\ttfamily self\textquotesingle{}s} current length, this has no effect.
+
+Note that this method has no effect on the allocated capacity of {\ttfamily self}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to the \mbox{\hyperlink{structds__string__t}{String}} to shorten to {\ttfamily new\+\_\+len}. \\
+\hline
+ & {\em new\+\_\+len} & The length to shorten {\ttfamily self} to.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md63}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md63}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&s, \textcolor{stringliteral}{"{}hello"{}}, 5));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a85fbefc485430353c57169f37a26d581}{ds\_string\_truncate}} (\&s, 2));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} he;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a5773e02d022ae19d0f0cd45bba7e1688}{ds\_string\_from}} (\&he, \textcolor{stringliteral}{"{}he"{}}, 2));}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_a79f8d99b21effda64e8d8f7fdc26c8a0}{ds\_string\_eq}} (he, s));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&he));}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00183}{183}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{string_8c_a85fbefc485430353c57169f37a26d581_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{string_8c_a85fbefc485430353c57169f37a26d581_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{string_8c_a14a71aff48981a47b7b3abbff92c8c6b}\label{string_8c_a14a71aff48981a47b7b3abbff92c8c6b}} 
+\index{string.c@{string.c}!ds\_string\_with\_capacity@{ds\_string\_with\_capacity}}
+\index{ds\_string\_with\_capacity@{ds\_string\_with\_capacity}!string.c@{string.c}}
+\doxysubsubsection{\texorpdfstring{ds\_string\_with\_capacity()}{ds\_string\_with\_capacity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1}{ds\+\_\+result\+\_\+t}} ds\+\_\+string\+\_\+with\+\_\+capacity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structds__string__t}{ds\+\_\+string\+\_\+t}} $\ast$}]{self,  }\item[{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\+\_\+usize\+\_\+t}}}]{capacity }\end{DoxyParamCaption})}
+
+
+
+Creates a new empty \mbox{\hyperlink{structds__string__t}{String}} with at least the specified {\ttfamily capacity}. 
+
+\mbox{\hyperlink{structds__string__t}{Strings}} have an internal buffer to hold their data. The capacity is the length of that buffer, and can be queried with the \mbox{\hyperlink{string_8c_aad8446f5a9a087afeb66fec98b7dd8bc}{ds\+\_\+string\+\_\+capacity}} method. This method creates an empty \mbox{\hyperlink{structds__string__t}{String}}, but one with an initial buffer that can hold at least {\ttfamily capacity} bytes. This is useful when you may be appending a bunch of data to the \mbox{\hyperlink{structds__string__t}{String}}, reducing the number of reallocations it needs to do.
+
+If the given capacity is {\ttfamily 0}, no allocation will occur, and this method is identical to the \mbox{\hyperlink{string_8c_a899aa04d6ff97d9f60fc0d4384f6f943}{ds\+\_\+string\+\_\+new}} method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em self} & Pointer to a new empty \mbox{\hyperlink{structds__string__t}{String}} with at least the specified {\ttfamily capacity}. \\
+\hline
+ & {\em capacity} & The minimum number of bytes to allocate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a62b88ddc31b44e87bef1720a50581560}{Ok}} on success. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a0751741d31129034ab8e720b41b85d53}{Err(Ptr\+Is\+Null)}} if {\ttfamily self} is {\ttfamily NULL}. 
+
+\mbox{\hyperlink{result_8h_a2dec28ca41a5895eea78b63bd94261a1a71fca0053396bb2ca04e8e548cb1ab56}{Err(Mem\+Alloc\+Failed)}} if a memory allocation fails.
+\end{DoxyReturn}
+\hypertarget{string_8c_autotoc_md53}{}\doxyparagraph{Examples}\label{string_8c_autotoc_md53}
+Basic usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structds__string__t}{ds\_string\_t}} s;}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a543c755f7554feedd8a5e85e246ca5fe}{ds\_string\_with\_capacity}} (\&s, 10));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// The String contains no chars, even though it has capacity for more}}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_af83f5cb8676028a4741c2b43b39cb5de}{ds\_string\_len}} (s) == 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// These are all done without reallocating...}}
+\DoxyCodeLine{\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} \textcolor{keyword}{const} cap = \mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s);}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\mbox{\hyperlink{usize_8h_af225603b1dc0270688232ccab1cc2f52}{ds\_usize\_t}} i = \mbox{\hyperlink{usize_8h_a2e4064a3bfc2acd50c5465078ebe346d}{DS\_USIZE\_MIN}}; i < 10; i++)}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    \mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&s, \textcolor{charliteral}{'a'}));}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert (\mbox{\hyperlink{string_8h_ad5431555662030a3c540de7ddffa9b2b}{ds\_string\_capacity}} (s) == cap);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// ...but this may make the string reallocate}}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_a2d60d099f66353f62385b97510c31e55}{ds\_string\_push}} (\&s, \textcolor{charliteral}{'a'}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{result_8h_ab3468a78eaefe7fbd589612893f125fb}{DS\_RESULT\_PROPAGATE\_ERR}} (\mbox{\hyperlink{string_8h_afad069dfec98d31ea6f301e63b16bc5f}{ds\_string\_drop}} (\&s));}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{string_8c_source_l00091}{91}} of file \mbox{\hyperlink{string_8c_source}{string.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8c_a14a71aff48981a47b7b3abbff92c8c6b_cgraph}
+\end{center}
+\end{figure}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reallocate_0',['reallocate',['../structds__allocator__t.html#a12bff31a33aa4b616f27bd18c7268489',1,'ds_allocator_t']]]
+  ['cap_0',['cap',['../structds__string__t.html#a037535c8c8ca824c04ff229521f861ce',1,'ds_string_t']]]
 ];

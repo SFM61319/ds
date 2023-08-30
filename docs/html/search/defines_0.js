@@ -30,7 +30,8 @@ var searchData=
   ['ds_5fscn_5fchar_27',['DS_SCN_CHAR',['../char_8h.html#ae2ad7e7322720db2607b90a7f0011fa7',1,'char.h']]],
   ['ds_5fscn_5fcstr_28',['DS_SCN_CSTR',['../cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927',1,'cstr.h']]],
   ['ds_5fscn_5fusize_29',['DS_SCN_USIZE',['../usize_8h.html#a6206726a11ca423f7c92010180684259',1,'usize.h']]],
-  ['ds_5fusize_5fbytes_30',['DS_USIZE_BYTES',['../usize_8h.html#ae96c519acbabee86b8f60110a91553a7',1,'usize.h']]],
-  ['ds_5fusize_5fmax_31',['DS_USIZE_MAX',['../usize_8h.html#adac120b8a16419c4546c05b83513d5c7',1,'usize.h']]],
-  ['ds_5fusize_5fmin_32',['DS_USIZE_MIN',['../usize_8h.html#a2e4064a3bfc2acd50c5465078ebe346d',1,'usize.h']]]
+  ['ds_5fstring_5fbytes_30',['DS_STRING_BYTES',['../string_8h.html#a4445360de54a0d30e079a8137d8b118c',1,'string.h']]],
+  ['ds_5fusize_5fbytes_31',['DS_USIZE_BYTES',['../usize_8h.html#ae96c519acbabee86b8f60110a91553a7',1,'usize.h']]],
+  ['ds_5fusize_5fmax_32',['DS_USIZE_MAX',['../usize_8h.html#adac120b8a16419c4546c05b83513d5c7',1,'usize.h']]],
+  ['ds_5fusize_5fmin_33',['DS_USIZE_MIN',['../usize_8h.html#a2e4064a3bfc2acd50c5465078ebe346d',1,'usize.h']]]
 ];

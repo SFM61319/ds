@@ -5,7 +5,7 @@ var cstr_8h =
     [ "DS_SCN_CSTR", "cstr_8h.html#ac4c5be5620d1429a8cb1aac130cf7927", null ],
     [ "ds_cstr_mut_t", "cstr_8h.html#adba5ab6409b8c3d88e892a3a4702ea11", null ],
     [ "ds_cstr_t", "cstr_8h.html#a61bae52e31d5f3834166a135566a880f", null ],
-    [ "ds_cstr_allocate", "cstr_8h.html#a797297692768227dd3e2093dc303da97", null ],
-    [ "ds_cstr_deallocate", "cstr_8h.html#a84d741d2c09768d744142868d62e364f", null ],
-    [ "ds_cstr_reallocate", "cstr_8h.html#a0521ff572347d3f7e02ba9e898b77371", null ]
+    [ "ds_cstr_allocate", "cstr_8h.html#aaf29b786c7bb1b8f2405ac63c7883b0c", null ],
+    [ "ds_cstr_deallocate", "cstr_8h.html#adf08cf232e5f7d68d4c0e199fa0b9efe", null ],
+    [ "ds_cstr_reallocate", "cstr_8h.html#a4638adbf1fb2fbc703ec8525bfcb9250", null ]
 ];
