@@ -625,8 +625,8 @@ TEST (StringIsEmpty, False)
 
 TEST (StringSplitOff, Null)
 {
-  ds_string_t string;
-  ds_string_t target;
+  auto string{ ds_string_new () };
+  auto target{ ds_string_new () };
 
   EXPECT_EQ (ds_string_split_off (NULL, DS_USIZE_MIN, &target),
              DS_RESULT_ERR_PTR_IS_NULL);

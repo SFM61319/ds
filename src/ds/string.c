@@ -296,7 +296,9 @@ ds_string_split_off (ds_string_t *const self, ds_usize_t const idx,
   DS_RESULT_PROPAGATE_IF_NULL (self);
   DS_RESULT_PROPAGATE_IF_NULL (target);
 
+  *target = ds_string_new ();
   ds_usize_t const len = ds_string_len (*self);
+
   if (idx > len)
     {
       return DS_RESULT_ERR_OUT_OF_RANGE;
@@ -305,7 +307,7 @@ ds_string_split_off (ds_string_t *const self, ds_usize_t const idx,
   ds_cstr_t const buf = ds_string_as_ptr (*self);
   ds_cstr_t const idx_ptr = buf + idx * DS_CHAR_BYTES;
 
-  DS_RESULT_PROPAGATE_ERR (ds_string_from (target, idx_ptr, len - idx));
+  DS_RESULT_PROPAGATE_ERR (ds_string_push_str (target, idx_ptr, len - idx));
   self->len = idx;
 
   return DS_RESULT_OK;

@@ -28,9 +28,6 @@ endif()
 
 set(DS_TESTS "test_${PROJECT_NAME}")
 
-# TODO: Append file paths to these lists as they are added to the project.
-# For example, for a new test file created in `tests/test_ds/test_foo.cpp`, the
-# appended file path must be `"${DS_TESTS_DIR}/${DS_TESTS}/test_foo.cpp"`.
 set(DS_TEST_PRIVATE_SOURCES
   "${DS_TESTS_DIR}/${DS_TESTS}/test_alloc.cpp"
   "${DS_TESTS_DIR}/${DS_TESTS}/test_char.cpp"
