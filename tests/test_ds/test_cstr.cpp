@@ -42,21 +42,21 @@ TEST (CstrAllocate, Null)
 
 TEST (CstrAllocate, Empty)
 {
-  ds_cstr_t cstr{ "abc" };
+  ds_cstr_mut_t cstr{ "abc" };
 
   EXPECT_EQ (ds_cstr_allocate (&cstr, DS_USIZE_MIN), DS_RESULT_OK);
-  EXPECT_EQ (cstr, (ds_cstr_t)NULL);
+  EXPECT_EQ (cstr, (ds_cstr_mut_t)NULL);
 
   EXPECT_EQ (ds_cstr_deallocate (&cstr), DS_RESULT_OK);
 }
 
 TEST (CstrAllocate, Infinite)
 {
-  ds_cstr_t cstr{ "abc" };
+  ds_cstr_mut_t cstr{ "abc" };
 
   EXPECT_EQ (ds_cstr_allocate (&cstr, DS_USIZE_MAX),
              DS_RESULT_ERR_MEM_ALLOC_FAILED);
-  EXPECT_EQ (cstr, (ds_cstr_t)NULL);
+  EXPECT_EQ (cstr, (ds_cstr_mut_t)NULL);
 
   EXPECT_EQ (ds_cstr_deallocate (&cstr), DS_RESULT_OK);
 }
@@ -64,17 +64,17 @@ TEST (CstrAllocate, Infinite)
 TEST (CstrAllocate, Valid)
 {
   ds_usize_t const size{ 8 };
-  ds_cstr_t cstr{ NULL };
+  ds_cstr_mut_t cstr{ NULL };
 
   EXPECT_EQ (ds_cstr_allocate (&cstr, size), DS_RESULT_OK);
-  EXPECT_NE (cstr, (ds_cstr_t)NULL);
+  EXPECT_NE (cstr, (ds_cstr_mut_t)NULL);
 
   EXPECT_EQ (ds_cstr_deallocate (&cstr), DS_RESULT_OK);
 }
 
 TEST (CstrReallocate, Null)
 {
-  ds_cstr_t cstr{ NULL };
+  ds_cstr_mut_t cstr{ NULL };
 
   EXPECT_EQ (ds_cstr_reallocate (NULL, DS_USIZE_MIN, &cstr, DS_USIZE_MIN),
              DS_RESULT_ERR_PTR_IS_NULL);
@@ -87,13 +87,13 @@ TEST (CstrReallocate, Null)
 TEST (CstrReallocate, EmptySrc)
 {
   ds_usize_t const size{ 8 };
-  ds_cstr_t src_cstr{ NULL };
-  ds_cstr_t dst_cstr{ NULL };
+  ds_cstr_mut_t src_cstr{ NULL };
+  ds_cstr_mut_t dst_cstr{ NULL };
 
   EXPECT_EQ (ds_cstr_reallocate (&src_cstr, DS_USIZE_MIN, &dst_cstr, size),
              DS_RESULT_OK);
-  EXPECT_EQ (src_cstr, (ds_cstr_t)NULL);
-  EXPECT_NE (dst_cstr, (ds_cstr_t)NULL);
+  EXPECT_EQ (src_cstr, (ds_cstr_mut_t)NULL);
+  EXPECT_NE (dst_cstr, (ds_cstr_mut_t)NULL);
 
   EXPECT_EQ (ds_cstr_deallocate (&dst_cstr), DS_RESULT_OK);
 }
@@ -101,18 +101,18 @@ TEST (CstrReallocate, EmptySrc)
 TEST (CstrReallocate, EqualSize)
 {
   ds_usize_t const size{ 8 };
-  ds_cstr_t src_cstr{ NULL };
-  ds_cstr_t dst_cstr{ NULL };
+  ds_cstr_mut_t src_cstr{ NULL };
+  ds_cstr_mut_t dst_cstr{ NULL };
 
   EXPECT_EQ (ds_cstr_allocate (&src_cstr, size), DS_RESULT_OK);
-  EXPECT_NE (src_cstr, (ds_cstr_t)NULL);
+  EXPECT_NE (src_cstr, (ds_cstr_mut_t)NULL);
 
-  ds_cstr_t const old_src_cstr{ src_cstr };
+  ds_cstr_mut_t const old_src_cstr{ src_cstr };
 
   EXPECT_EQ (ds_cstr_reallocate (&src_cstr, size, &dst_cstr, size),
              DS_RESULT_OK);
-  EXPECT_EQ (src_cstr, (ds_cstr_t)NULL);
-  EXPECT_NE (dst_cstr, (ds_cstr_t)NULL);
+  EXPECT_EQ (src_cstr, (ds_cstr_mut_t)NULL);
+  EXPECT_NE (dst_cstr, (ds_cstr_mut_t)NULL);
   EXPECT_EQ (dst_cstr, old_src_cstr);
 
   EXPECT_EQ (ds_cstr_deallocate (&dst_cstr), DS_RESULT_OK);
@@ -121,18 +121,18 @@ TEST (CstrReallocate, EqualSize)
 TEST (CstrReallocate, Infinite)
 {
   ds_usize_t const size{ 8 };
-  ds_cstr_t src_cstr{ NULL };
-  ds_cstr_t dst_cstr{ NULL };
+  ds_cstr_mut_t src_cstr{ NULL };
+  ds_cstr_mut_t dst_cstr{ NULL };
 
   EXPECT_EQ (ds_cstr_allocate (&src_cstr, size), DS_RESULT_OK);
-  EXPECT_NE (src_cstr, (ds_cstr_t)NULL);
+  EXPECT_NE (src_cstr, (ds_cstr_mut_t)NULL);
 
-  ds_cstr_t const old_src_cstr{ src_cstr };
+  ds_cstr_mut_t const old_src_cstr{ src_cstr };
 
   EXPECT_EQ (ds_cstr_reallocate (&src_cstr, size, &dst_cstr, DS_USIZE_MAX),
              DS_RESULT_ERR_MEM_ALLOC_FAILED);
-  EXPECT_EQ (src_cstr, (ds_cstr_t)NULL);
-  EXPECT_NE (dst_cstr, (ds_cstr_t)NULL);
+  EXPECT_EQ (src_cstr, (ds_cstr_mut_t)NULL);
+  EXPECT_NE (dst_cstr, (ds_cstr_mut_t)NULL);
   EXPECT_EQ (dst_cstr, old_src_cstr);
 
   EXPECT_EQ (ds_cstr_deallocate (&dst_cstr), DS_RESULT_OK);
@@ -143,16 +143,16 @@ TEST (CstrReallocate, Valid)
   ds_usize_t const src_size{ 8 };
   ds_usize_t const dst_size{ 16 };
 
-  ds_cstr_t src_cstr{ NULL };
-  ds_cstr_t dst_cstr{ NULL };
+  ds_cstr_mut_t src_cstr{ NULL };
+  ds_cstr_mut_t dst_cstr{ NULL };
 
   EXPECT_EQ (ds_cstr_allocate (&src_cstr, src_size), DS_RESULT_OK);
-  EXPECT_NE (src_cstr, (ds_cstr_t)NULL);
+  EXPECT_NE (src_cstr, (ds_cstr_mut_t)NULL);
 
   EXPECT_EQ (ds_cstr_reallocate (&src_cstr, src_size, &dst_cstr, dst_size),
              DS_RESULT_OK);
-  EXPECT_EQ (src_cstr, (ds_cstr_t)NULL);
-  EXPECT_NE (dst_cstr, (ds_cstr_t)NULL);
+  EXPECT_EQ (src_cstr, (ds_cstr_mut_t)NULL);
+  EXPECT_NE (dst_cstr, (ds_cstr_mut_t)NULL);
 
   EXPECT_EQ (ds_cstr_deallocate (&dst_cstr), DS_RESULT_OK);
 }
@@ -164,20 +164,20 @@ TEST (CstrDeallocate, Null)
 
 TEST (CstrDeallocate, Empty)
 {
-  ds_cstr_t cstr{ NULL };
+  ds_cstr_mut_t cstr{ NULL };
 
   EXPECT_EQ (ds_cstr_deallocate (&cstr), DS_RESULT_OK);
-  EXPECT_EQ (cstr, (ds_cstr_t)NULL);
+  EXPECT_EQ (cstr, (ds_cstr_mut_t)NULL);
 }
 
 TEST (CstrDeallocate, Valid)
 {
   ds_usize_t const size{ 8 };
-  ds_cstr_t cstr{ NULL };
+  ds_cstr_mut_t cstr{ NULL };
 
   EXPECT_EQ (ds_cstr_allocate (&cstr, size), DS_RESULT_OK);
-  EXPECT_NE (cstr, (ds_cstr_t)NULL);
+  EXPECT_NE (cstr, (ds_cstr_mut_t)NULL);
 
   EXPECT_EQ (ds_cstr_deallocate (&cstr), DS_RESULT_OK);
-  EXPECT_EQ (cstr, (ds_cstr_t)NULL);
+  EXPECT_EQ (cstr, (ds_cstr_mut_t)NULL);
 }

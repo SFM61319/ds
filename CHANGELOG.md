@@ -9,6 +9,10 @@ this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- Change immutable C-string (`ds_cstr_t`) arguments to mutable C-string (`ds_cstr_mut_t`) arguments in all C-string functions.
+
 ## [`v0.9.0`] - 2023-08-23
 
 ### Added

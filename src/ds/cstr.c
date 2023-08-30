@@ -15,7 +15,7 @@
 #include "ds/usize.h"
 
 ds_result_t
-ds_cstr_allocate (ds_cstr_t *const self, ds_usize_t const size)
+ds_cstr_allocate (ds_cstr_mut_t *const self, ds_usize_t const size)
 {
   DS_RESULT_PROPAGATE_IF_NULL (self);
   if (size == DS_USIZE_MIN)
@@ -26,7 +26,8 @@ ds_cstr_allocate (ds_cstr_t *const self, ds_usize_t const size)
     }
   else
     {
-      *self = (ds_cstr_t)ds_allocator_global.allocate (DS_CHAR_BYTES * size);
+      *self
+          = (ds_cstr_mut_t)ds_allocator_global.allocate (DS_CHAR_BYTES * size);
       if (ds_helpers_is_null (*self))
         {
           return DS_RESULT_ERR_MEM_ALLOC_FAILED;
@@ -37,13 +38,15 @@ ds_cstr_allocate (ds_cstr_t *const self, ds_usize_t const size)
 }
 
 ds_result_t
-ds_cstr_reallocate (ds_cstr_t *const src_cstr_ptr, ds_usize_t const src_size,
-                    ds_cstr_t *const dst_cstr_ptr, ds_usize_t const dst_size)
+ds_cstr_reallocate (ds_cstr_mut_t *const src_cstr_ptr,
+                    ds_usize_t const src_size,
+                    ds_cstr_mut_t *const dst_cstr_ptr,
+                    ds_usize_t const dst_size)
 {
   DS_RESULT_PROPAGATE_IF_NULL (src_cstr_ptr);
   DS_RESULT_PROPAGATE_IF_NULL (dst_cstr_ptr);
 
-  ds_cstr_t const src_str = *src_cstr_ptr;
+  ds_cstr_mut_t const src_str = *src_cstr_ptr;
 
   // The source is `NULL`, so freshly allocate the destination string instead.
   if (ds_helpers_is_null (src_str))
@@ -63,8 +66,8 @@ ds_cstr_reallocate (ds_cstr_t *const src_cstr_ptr, ds_usize_t const src_size,
       return DS_RESULT_OK;
     }
 
-  ds_cstr_t const dst_str = (ds_cstr_t)ds_allocator_global.reallocate (
-      (ds_cstr_mut_t)src_str, DS_CHAR_BYTES * dst_size);
+  ds_cstr_mut_t const dst_str = (ds_cstr_mut_t)ds_allocator_global.reallocate (
+      src_str, DS_CHAR_BYTES * dst_size);
 
   // Reallocation failed, leave the moved string as is and return the error.
   if (ds_helpers_is_null (dst_str))
@@ -78,10 +81,10 @@ ds_cstr_reallocate (ds_cstr_t *const src_cstr_ptr, ds_usize_t const src_size,
 }
 
 ds_result_t
-ds_cstr_deallocate (ds_cstr_t *const self)
+ds_cstr_deallocate (ds_cstr_mut_t *const self)
 {
   DS_RESULT_PROPAGATE_IF_NULL (self);
-  ds_allocator_global.deallocate ((ds_cstr_mut_t)*self);
+  ds_allocator_global.deallocate (*self);
 
   // Point to `NULL` to avoid memory leaks or other critical issues caused when
   // deallocating a pointer twice without any allocation in between, as `NULL`
