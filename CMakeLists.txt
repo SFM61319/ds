@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22.1...3.25.1 FATAL_ERROR)
 project("ds"
-  VERSION 0.9.0
+  VERSION 0.10.0
   DESCRIPTION "A C library to safely yet efficiently work with UTF-8–encoded, growable dynamic strings."
   HOMEPAGE_URL "https://github.com/SFM61319/ds"
   # While `ds` itself is written in C, the tests are written in C++ (as they can not be written in C).
@@ -46,15 +46,13 @@ set(DS_EXTERN_DIR "${DS_PROJECT_ROOT}/extern")
 set(DS_PUBLIC_HEADERS_DIR "${DS_INCLUDE_DIR}")
 set(DS_PRIVATE_SOURCES_DIR "${DS_SRC_DIR}")
 
-# TODO: Append file paths to these lists as they are added to the project.
-# For example, for a new public header file created in `include/ds/foo.h`,
-# the appended file path must be `"${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/foo.h"`.
 set(DS_PUBLIC_HEADERS
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/alloc.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/char.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/cstr.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/helpers.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/result.h"
+  "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/string.h"
   "${DS_PUBLIC_HEADERS_DIR}/${PROJECT_NAME}/usize.h")
 set(DS_PRIVATE_SOURCES
   "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/alloc.c"
@@ -62,6 +60,7 @@ set(DS_PRIVATE_SOURCES
   "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/cstr.c"
   "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/helpers.c"
   "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/result.c"
+  "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/string.c"
   "${DS_PRIVATE_SOURCES_DIR}/${PROJECT_NAME}/usize.c")
 
 option(DS_BUILD_TESTING "Build tests" ${PROJECT_IS_TOP_LEVEL})

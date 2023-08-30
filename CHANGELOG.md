@@ -9,6 +9,12 @@ this project adheres to
 
 ## [Unreleased]
 
+## [`v0.10.0`] - 2023-08-31
+
+### Added
+
+- The `String` type and its related constants and functions.
+
 ### Changed
 
 - Change immutable C-string (`ds_cstr_t`) arguments to mutable C-string (`ds_cstr_mut_t`) arguments in all C-string functions.
@@ -84,7 +90,7 @@ this project adheres to
 - Configuration files and other meta project files.
 - CMake for building and testing.
 
-[unreleased]: https://github.com/SFM61319/ds/compare/v0.9.0...HEAD
+[unreleased]: https://github.com/SFM61319/ds/compare/v0.10.0...HEAD
 [`v0.1.0`]: https://github.com/SFM61319/ds/releases/tag/v0.1.0
 [`v0.2.0`]: https://github.com/SFM61319/ds/compare/v0.1.0...v0.2.0
 [`v0.3.0`]: https://github.com/SFM61319/ds/compare/v0.2.0...v0.3.0
@@ -94,3 +100,4 @@ this project adheres to
 [`v0.7.0`]: https://github.com/SFM61319/ds/compare/v0.6.0...v0.7.0
 [`v0.8.0`]: https://github.com/SFM61319/ds/compare/v0.7.0...v0.8.0
 [`v0.9.0`]: https://github.com/SFM61319/ds/compare/v0.8.0...v0.9.0
+[`v0.10.0`]: https://github.com/SFM61319/ds/compare/v0.9.0...v0.10.0

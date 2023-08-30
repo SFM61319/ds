@@ -37,6 +37,7 @@ set(DS_TEST_PRIVATE_SOURCES
   "${DS_TESTS_DIR}/${DS_TESTS}/test_cstr.cpp"
   "${DS_TESTS_DIR}/${DS_TESTS}/test_helpers.cpp"
   "${DS_TESTS_DIR}/${DS_TESTS}/test_result.cpp"
+  "${DS_TESTS_DIR}/${DS_TESTS}/test_string.cpp"
   "${DS_TESTS_DIR}/${DS_TESTS}/test_usize.cpp")
 
 add_executable("${DS_TESTS}")

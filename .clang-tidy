@@ -1,5 +1,5 @@
 ---
-Checks: "clang-diagnostic-*,clang-analyzer-*,*"
+Checks: "clang-diagnostic-*,clang-analyzer-*,*,-llvmlibc-restrict-system-libc-headers,-altera-unroll-loops,-misc-misplaced-const,-altera-id-dependent-backward-branch"
 WarningsAsErrors: ""
 HeaderFilterRegex: "include/ds/*.h"
 AnalyzeTemporaryDtors: false
